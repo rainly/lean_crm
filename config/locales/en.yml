@@ -2,4 +2,63 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  access_levels:
+    - Private
+    - Public
+    - Shared
+
+  overdue: As soon as possible
+  due_today: Today
+  due_tomorrow: Tomorrow
+  due_this_week: This week
+  due_next_week: Next week
+  due_later: Sometime later
+
+  salutations:
+    - Mr
+    - Ms
+    - Mrs
+
+  titles:
+    - Dr
+    - Sir
+    - Lord
+    - Madam
+
+  created_ago: "created {{time}} ago"
+  updated_ago: "updated {{time}} ago"
+
+  task_categories:
+    - Call
+    - Email
+    - "Follow-up"
+    - Lunch
+    - Meeting
+    - Money
+    - Presentation
+    - Trip
+
+  task_reassigned: "Task has been re-assigned to {{user}}"
+
+  lead_statuses:
+    - New
+    - Contacted
+    - Converted
+    - Rejected
+
+  lead_sources:
+    - Campaign
+    - Cold Call
+    - Conference
+    - Online Marketing
+    - Referal
+    - "Self-generated"
+    - Website
+    - Word of Mouth
+    - Other
+
+  delete_task: Delete Task
+
+  emails:
+    task_reassigned:
+      subject: You have been assigned a new task

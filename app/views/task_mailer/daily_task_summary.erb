@@ -1,0 +1,8 @@
+<%= tasks_url -%>
+<table>
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.name -%></td>
+    <td><%= task_url(task) -%></td>
+  </tr>
+<% end %>

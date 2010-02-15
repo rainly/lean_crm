@@ -1,0 +1,28 @@
+%fieldset
+  = form.input :first_name
+  = form.input :last_name
+  = form.input :email
+  = form.input :phone
+%fieldset
+  = form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false
+  = form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s)
+  = form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s)
+  = form.input :rating, :as => :select, :collection => 1..5
+  = form.input :campaign_id
+%fieldset
+  = form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s)
+  = form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s)
+  = form.input :company
+  = form.input :alternative_email
+  = form.input :mobile
+  = form.input :address
+  = form.input :referred_by
+  = form.input :do_not_call, :as => :check_boxes, :collection => [true]
+%fieldset
+  = form.input :website
+  = form.input :twitter
+  = form.input :linked_in
+  = form.input :facebook
+  = form.input :xing
+%fieldset
+  = form.input :notes, :as => :text

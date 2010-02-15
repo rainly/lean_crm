@@ -1,0 +1,10 @@
+== General
+
+* HTML 5 support
+* Pretty buttons
+
+== Validations
+
+* Add automatic :required check
+* Add unobstrusive javascript validations support
+* Add mask support (same as hint, but with JS)

@@ -1,0 +1,5 @@
+- simple_form_for @lead do |form|
+  = render :partial => 'form', :locals => { :form => form }
+  = form.button :submit
+  = t('or')
+  = link_to t('cancel'), :back

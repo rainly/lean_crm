@@ -1,0 +1,5 @@
+= @account.name
+= link_to t('edit_account'), [:edit, @account], :id => 'edit'
+
+.contacts
+  = render :partial => 'contacts/contact', :collection => @account.contacts

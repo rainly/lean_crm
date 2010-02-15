@@ -1,0 +1,2 @@
+= form.input :name
+= form.input :assignee_id, :collection => User.all.map {|u| [u.email,u.id] }

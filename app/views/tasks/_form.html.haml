@@ -1,0 +1,7 @@
+= hidden_field_tag :return_to, params[:return_to]
+= form.hidden_field :asset_id
+= form.hidden_field :asset_type
+= form.input :name
+= form.input :due_at, :collection => %w(overdue due_today due_tomorrow due_this_week due_next_week due_later).map {|key| [t(key), key] }
+= form.input :assignee_id, :collection => User.all.map {|u| [u.email, u.id] }
+= form.input :category, :collection => Task.categories

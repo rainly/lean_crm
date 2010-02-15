@@ -1,0 +1,15 @@
+.item{ :class => task.completed? ? 'completed' : nil }
+  = task.category
+  - unless task.completed?
+    - simple_form_for task do |form|
+      = hidden_field_tag :return_to, request.request_uri
+      = check_box_tag 'task[completed_by_id]', current_user.id
+      = form.button :submit
+  = task.name
+  = '-'
+  = task.due_at_in_words
+  - unless task.completed?
+    - simple_form_for task, :html => { :method => :delete } do |form|
+      = hidden_field_tag :return_to, request.request_uri
+      = form.button :submit, t('delete_task')
+  = link_to t('edit_task'), edit_task_path(task)

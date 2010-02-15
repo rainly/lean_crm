@@ -1,0 +1,19 @@
+.show
+  = @lead.full_name
+.actions
+  = link_to t('convert_lead'), convert_lead_path(@lead)
+.tasks
+  = link_to t('add_task'), new_task_path(:asset_id => @lead.id, :asset_type => 'Lead', :return_to => request.request_uri), :id => 'add_task'
+  = render :partial => 'tasks/task', :collection => @lead.tasks.incomplete
+.add_comment
+  - simple_form_for @comment || Comment.new do |form|
+    = form.hidden_field :commentable_type, :value => 'Lead'
+    = form.hidden_field :commentable_id, :value => @lead.id
+    = hidden_field_tag :return_to, request.request_uri
+    = render :partial => 'comments/form', :locals => { :form => form }
+    %fieldset
+      = form.button :submit
+      = t('or')
+      = link_to t('cancel'), :back
+.comments
+  = render :partial => 'comments/comment', :collection => @lead.comments

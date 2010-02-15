@@ -1,0 +1,17 @@
+%html
+  %head
+    = javascript_include_tag 'right.js'
+    = stylesheet_link_tag 'compiled/application.css'
+    %title Lean CRM
+  %body.bp
+    .container
+      .span-24.last
+        - if flash[:notice]
+          = flash[:notice]
+        - if flash[:error]
+          = flash[:error]
+      .span-24.last
+        = render :partial => 'shared/navigation'
+      .span-4
+      .span-20.last
+        = yield

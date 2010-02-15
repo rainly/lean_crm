@@ -1,0 +1,6 @@
+.item
+  = link_to lead.full_name, lead
+  = lead.rating
+  = I18n.t(:created_ago, :time => time_ago_in_words(lead.created_at))
+  .actions
+    = link_to t('edit'), [:edit, lead]

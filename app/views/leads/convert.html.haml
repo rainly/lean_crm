@@ -1,0 +1,8 @@
+- form_tag promote_lead_path(@lead), :method => :put do
+  %p
+    %label{ :for => 'account_name' }= t('account_name')
+    = text_field_tag 'account_name'
+  %p
+    = submit_tag t('convert_lead'), :id => 'convert'
+    = t('or')
+    = link_to t('cancel'), :back
