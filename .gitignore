@@ -1,4 +1,8 @@
 *.log
+log/cucumber.log
+log/test.log
+log/development.log
+log/*.log
 tmp/*
 tmp
 tmp/
