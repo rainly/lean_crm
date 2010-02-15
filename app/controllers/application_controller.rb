@@ -9,8 +9,16 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
 
   before_filter :authenticate_user!
+  after_filter :log_viewed_item
 
 protected
+  def log_viewed_item
+    subject = instance_variable_get("@#{controller_name.singularize}")
+    if subject and current_user
+      Activity.log(current_user, subject, 'Viewed')
+    end
+  end
+
   def return_to_or_default( default )
     if params[:return_to] and not params[:return_to].blank?
       redirect_to params[:return_to]

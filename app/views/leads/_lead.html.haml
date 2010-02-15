@@ -1,5 +1,5 @@
 .item
-  = link_to lead.full_name, lead
+  = link_to lead.full_name, lead, :id => lead.full_name.to_dom_id
   = lead.rating
   = I18n.t(:created_ago, :time => time_ago_in_words(lead.created_at))
   .actions

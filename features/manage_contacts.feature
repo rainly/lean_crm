@@ -14,6 +14,7 @@ Feature: Manage contacts
     Then I should be on the contact page
     And I should see "Florian Behn"
     And account: "careermee" should have a contact with first_name: "Florian"
+    And a new "Created" activity should have been created for "Contact" with "first_name" "Florian"
 
   Scenario: Adding a contact when the account does not exist
     Given I am registered and logged in as annika
@@ -33,7 +34,18 @@ Feature: Manage contacts
 
   Scenario: Viewing contacts
     Given I am registered and logged in as annika
-    And a contact: "Florian" exists with user: annika
+    And a contact: "florian" exists with user: annika
     And I am on the dashboard page
     When I follow "contacts"
     Then I should see "Florian Behn"
+    And I should be on the contacts page
+
+  Scenario: Viewing a contact
+    Given I am registered and logged in as annika
+    And a contact "florian" exists with user: annika
+    And I am on the dashboard page
+    And I follow "contacts"
+    When I follow "florian-behn"
+    Then I should see "Florian Behn"
+    And I should be on the contact page
+    And a new "Viewed" activity should have been created for "Contact" with "first_name" "Florian"

@@ -33,6 +33,7 @@ class User
   has_many :tasks
   has_many :accounts
   has_many :contacts
+  has_many :activities
 
   before_validation_on_create :set_api_key
 

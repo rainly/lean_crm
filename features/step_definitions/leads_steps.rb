@@ -11,3 +11,23 @@ end
 Then /^a task should have been created$/ do
   assert_equal 1, Task.count
 end
+
+Then /^a created activity should exist for lead with first_name "([^\"]*)"$/ do |first_name|
+  assert Activity.first(:conditions => { :action => Activity.actions.index('Created') }).
+    subject.first_name == first_name
+end
+
+Then /^an updated activity should exist for lead with first_name "([^\"]*)"$/ do |first_name|
+  assert Activity.first(:conditions => { :action => Activity.actions.index('Updated') }).
+    subject.first_name == first_name
+end
+
+Then /^a view activity should have been created for lead with first_name "([^\"]*)"$/ do |first_name|
+  assert Activity.first(:conditions => { :action => Activity.actions.index('Viewed') }).
+    subject.first_name == first_name
+end
+
+Then /^a new "([^\"]*)" activity should have been created for "([^\"]*)" with "([^\"]*)" "([^\"]*)"$/ do |action, model, field, value|
+  assert Activity.first(:conditions => { :action => Activity.actions.index(action), :subject_type => model }).
+    subject.send(field) == value
+end

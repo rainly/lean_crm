@@ -32,8 +32,11 @@ class Lead
   belongs_to :user
   has_many :comments, :as => :commentable
   has_many :tasks, :as => :asset
+  has_many :activities, :as => :subject
 
   before_validation_on_create :set_initial_state
+  after_create  :log_creation
+  after_save    :log_update
 
   has_constant :titles, lambda { I18n.t('titles') }
   has_constant :statuses, lambda { I18n.t('lead_statuses') }
@@ -46,16 +49,36 @@ class Lead
   def full_name
     "#{first_name} #{last_name}"
   end
+  alias :name :full_name
 
-  def promote( account_name )
+  def promote!( account_name )
     account = self.user.accounts.find_or_create_by_name(account_name)
     contact = Contact.create_for(self, account)
+    @recently_converted = true
     I18n.locale_around(:en) { update_attributes :status => 'Converted' }
     return account, contact
+  end
+
+  def reject!
+    @recently_rejected = true
+    I18n.locale_around(:en) { update_attributes :status => 'Rejected' }
   end
 
 protected
   def set_initial_state
     I18n.locale_around(:en) { self.status = 'New' unless self.status }
+  end
+
+  def log_creation
+    @recently_created = true
+    Activity.log(user, self, 'Created')
+  end
+
+  def log_update
+    unless @recently_created
+      Activity.log(user, self, 'Updated') if not @recently_converted and not @recently_rejected
+      Activity.log(user, self, 'Converted') if @recently_converted
+      Activity.log(user, self, 'Rejected') if @recently_rejected
+    end
   end
 end

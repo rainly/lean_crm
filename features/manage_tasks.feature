@@ -22,3 +22,4 @@ Feature: Manage tasks
     Then I should be on the tasks page
     And I should see "Task has been re-assigned"
     And a task re-assignment email should have been sent to "benjamin.pochhammer@1000jobboersen.de"
+    And a new "Re-assigned" activity should have been created for "Task" with "name" "Call erich to get offer details"

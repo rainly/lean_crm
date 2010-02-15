@@ -1,6 +1,6 @@
 class LeadsController < InheritedResources::Base
 
-  before_filter :resource, :only => [:convert, :promote]
+  before_filter :resource, :only => [:convert, :promote, :reject]
 
   has_scope :with_status, :type => :array
 
@@ -21,8 +21,13 @@ class LeadsController < InheritedResources::Base
   end
 
   def promote
-    @account, @contact = @lead.promote(params[:account_name])
+    @account, @contact = @lead.promote!(params[:account_name])
     redirect_to account_path(@account)
+  end
+
+  def reject
+    @lead.reject!
+    redirect_to leads_path
   end
 
 protected

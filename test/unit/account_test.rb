@@ -10,6 +10,27 @@ class AccountTest < ActiveSupport::TestCase
       @account = Account.make_unsaved(:careermee)
     end
 
+    context 'activity logging' do
+      setup do
+        @account.save
+        @account = Account.find(@account.id)
+      end
+
+      should 'log an activity when created' do
+        assert @account.activities.any? {|a| a.action == 'Created' }
+      end
+
+      should 'log an activity when updated' do
+        @account.update_attributes :name => 'an update test'
+        assert_equal 2, @account.activities.count
+        assert @account.activities.any? {|a| a.action == 'Updated' }
+      end
+
+      should 'not log an update activity when created' do
+        assert_equal 1, @account.activities.length
+      end
+    end
+
     should 'require name' do
       @account.name = nil
       assert !@account.valid?

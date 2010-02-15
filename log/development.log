@@ -13926,3 +13926,979 @@ Rendering contacts/index
 Rendered contacts/_contact (0.9ms)
 Rendered shared/_navigation (1.3ms)
 Completed in 68ms (View: 11, DB: 17) | 200 OK [http://lean-crm.local/contacts]
+  MONGODB admin.$cmd.find({:ismaster=>1}, {}).limit(-1)
+  MONGODB admin.$cmd.find({:ismaster=>1}, {}).limit(-1)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"account_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"account_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"lead_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"lead_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"assignee_id_1"}])
+
+
+Processing ContactsController#index (for 127.0.0.1 at 2010-02-15 17:52:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"contacts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.contacts.find({"user_id"=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering contacts/index
+Rendered contacts/_contact (1.2ms)
+Rendered shared/_navigation (74.5ms)
+Completed in 99ms (View: 93, DB: 0) | 200 OK [http://lean-crm.local/contacts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2010-02-15 17:52:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.accounts.find({"user_id"=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering accounts/index
+Rendered accounts/_account (0.9ms)
+Rendered shared/_navigation (3.2ms)
+Completed in 22ms (View: 12, DB: 0) | 200 OK [http://lean-crm.local/accounts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2010-02-15 17:52:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"4b72a61a44b4127f9e000006", "controller"=>"accounts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.accounts.find({:user_id=>4b727c2344b4126010000006, :_id=>4b72a61a44b4127f9e000006}, {}).limit(-1)
+Rendering template within layouts/application
+Rendering accounts/show
+  MONGODB db.system.indexes.insert([{:key=>{"account_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"account_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"lead_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"lead_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB lean_crm_development.contacts.find({"account_id"=>4b72a61a44b4127f9e000006}, {})
+Rendered contacts/_contact (0.5ms)
+Rendered shared/_navigation (1.4ms)
+Completed in 232ms (View: 26, DB: 0) | 200 OK [http://lean-crm.local/accounts/4b72a61a44b4127f9e000006]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2010-02-15 17:52:35) [GET]
+  Parameters: {"action"=>"show", "id"=>"4b72a61a44b4127f9e000006", "controller"=>"accounts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+
+TypeError (nil is not a symbol):
+  app/controllers/application_controller.rb:15:in `throw'
+  app/controllers/application_controller.rb:15:in `log_viewed_item'
+  haml (2.2.19) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  compass (0.8.17) [v] lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+  warden (0.9.2) lib/warden/manager.rb:34:in `call'
+  warden (0.9.2) lib/warden/manager.rb:33:in `catch'
+  warden (0.9.2) lib/warden/manager.rb:33:in `call'
+  passenger (2.2.9) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.9) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:400:in `start_request_handler'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:351:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:349:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:209:in `start'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (37.6ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2010-02-15 17:52:46) [GET]
+  Parameters: {"action"=>"show", "id"=>"4b72a61a44b4127f9e000006", "controller"=>"accounts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+
+TypeError (nil is not a symbol):
+  app/controllers/application_controller.rb:15:in `throw'
+  app/controllers/application_controller.rb:15:in `log_viewed_item'
+  haml (2.2.19) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  compass (0.8.17) [v] lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+  warden (0.9.2) lib/warden/manager.rb:34:in `call'
+  warden (0.9.2) lib/warden/manager.rb:33:in `catch'
+  warden (0.9.2) lib/warden/manager.rb:33:in `call'
+  passenger (2.2.9) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.9) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:400:in `start_request_handler'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:351:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:349:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:209:in `start'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (115.3ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (11.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (11.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2010-02-15 17:52:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"4b72a61a44b4127f9e000006", "controller"=>"accounts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+
+TypeError (nil is not a symbol):
+  app/controllers/application_controller.rb:15:in `throw'
+  app/controllers/application_controller.rb:15:in `log_viewed_item'
+  haml (2.2.19) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  compass (0.8.17) [v] lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+  warden (0.9.2) lib/warden/manager.rb:34:in `call'
+  warden (0.9.2) lib/warden/manager.rb:33:in `catch'
+  warden (0.9.2) lib/warden/manager.rb:33:in `call'
+  passenger (2.2.9) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.9) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:400:in `start_request_handler'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:351:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:349:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:209:in `start'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (119.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2010-02-15 17:55:31) [GET]
+  Parameters: {"action"=>"show", "id"=>"4b72a61a44b4127f9e000006", "controller"=>"accounts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.accounts.find({:user_id=>4b727c2344b4126010000006, :_id=>4b72a61a44b4127f9e000006}, {}).limit(-1)
+Rendering template within layouts/application
+Rendering accounts/show
+  MONGODB db.system.indexes.insert([{:key=>{"account_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"account_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"lead_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"lead_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB lean_crm_development.contacts.find({"account_id"=>4b72a61a44b4127f9e000006}, {})
+Rendered contacts/_contact (0.5ms)
+Rendered shared/_navigation (1.5ms)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+  MONGODB db.activities.update({:_id=>4b797c8344b41253ae000001}, {"_id"=>4b797c8344b41253ae000001, "action"=>"viewed", "subject_id"=>4b72a61a44b4127f9e000006, "info"=>nil, "user_id"=>4b727c2344b4126010000006, "subject_type"=>"Account"})
+Completed in 93ms (View: 78, DB: 0) | 200 OK [http://lean-crm.local/accounts/4b72a61a44b4127f9e000006]
+  MONGODB admin.$cmd.find({:ismaster=>1}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1", :key=>{"user_id"=>1}}])
+  MONGODB db.system.indexes.insert([{:ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1", :key=>{"subject_id"=>1}}])
+  MONGODB db.system.indexes.insert([{:ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1", :key=>{"subject_type"=>1}}])
+  MONGODB lean_crm_development.activities.find({}, {}).limit(-1)
+  MONGODB admin.$cmd.find({:ismaster=>1}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1", :key=>{"user_id"=>1}}])
+  MONGODB db.system.indexes.insert([{:ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1", :key=>{"subject_id"=>1}}])
+  MONGODB db.system.indexes.insert([{:ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1", :key=>{"subject_type"=>1}}])
+  MONGODB lean_crm_development.activities.find({}, {}).limit(-1)
+  MONGODB lean_crm_development.activities.find({}, {}).limit(-1)
+  MONGODB db.activities.update({:_id=>4b797c8344b41253ae000001}, {"_id"=>4b797c8344b41253ae000001, "action"=>0, "subject_id"=>4b72a61a44b4127f9e000006, "info"=>nil, "user_id"=>4b727c2344b4126010000006, "subject_type"=>"Account"})
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 18:27:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+
+ActionView::TemplateError (undefined method `name' for #<Lead:0xa1454d8>) on line #2 of app/views/leads/_lead.html.haml:
+1: .item
+2:   = link_to lead.full_name, lead, :id => lead.name.downcase.gsub(/\s/, '-').gsub(/\w/, '')
+3:   = lead.rating
+4:   = I18n.t(:created_ago, :time => time_ago_in_words(lead.created_at))
+5:   .actions
+
+    app/views/leads/_lead.html.haml:2:in `_run_haml_app47views47leads47_lead46html46haml_locals_lead_lead_counter_object'
+    haml (2.2.19) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (2.2.19) lib/haml/helpers.rb:96:in `non_haml'
+    haml (2.2.19) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/leads/index.html.haml:6:in `_run_haml_app47views47leads47index46html46haml'
+    haml (2.2.19) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.19) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/respond_to.rb:105
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:183:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:183:in `default_render'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:124:in `to_html'
+    responders (0.4.3) lib/responders/flash_responder.rb:89:in `to_html'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:117:in `send'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:117:in `respond'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:110:in `call'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/respond_to.rb:67:in `respond_with'
+    /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/actions.rb:7:in `index'
+    haml (2.2.19) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    compass (0.8.17) [v] lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+    warden (0.9.2) lib/warden/manager.rb:34:in `call'
+    warden (0.9.2) lib/warden/manager.rb:33:in `catch'
+    warden (0.9.2) lib/warden/manager.rb:33:in `call'
+    passenger (2.2.9) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.9) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:400:in `start_request_handler'
+    passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:351:in `handle_spawn_application'
+    passenger (2.2.9) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+    passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:349:in `handle_spawn_application'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:209:in `start'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (248.1ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (18.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 18:27:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (2.1ms)
+Rendered leads/_lead (0.8ms)
+Rendered shared/_navigation (2.7ms)
+Completed in 284ms (View: 238, DB: 18) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 18:27:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (2.2ms)
+Rendered leads/_lead (0.8ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 59ms (View: 11, DB: 0) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 18:37:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (26.4ms)
+Rendered leads/_lead (1.1ms)
+Rendered shared/_navigation (2.4ms)
+Completed in 125ms (View: 120, DB: 1) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 18:37:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (2.9ms)
+Rendered leads/_lead (0.8ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 115ms (View: 12, DB: 0) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 18:37:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (2.1ms)
+Rendered leads/_lead (0.8ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 104ms (View: 80, DB: 0) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 18:38:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (2.0ms)
+Rendered leads/_lead (0.8ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 27ms (View: 12, DB: 0) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 18:38:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (1.3ms)
+Rendered leads/_lead (1.2ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 24ms (View: 11, DB: 0) | 200 OK [http://lean-crm.local/leads]
+  MONGODB admin.$cmd.find({:ismaster=>1}, {}).limit(-1)
+  MONGODB admin.$cmd.find({:ismaster=>1}, {}).limit(-1)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 20:54:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (28.1ms)
+Rendered leads/_lead (0.9ms)
+Rendered shared/_navigation (2.5ms)
+Completed in 144ms (View: 137, DB: 0) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (10.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (15.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-02-15 20:55:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"pages"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendering template within layouts/application
+Rendering pages/index
+  MONGODB lean_crm_development.activities.find({"user_id"=>4b727c2344b4126010000006}, {})
+
+ActionView::TemplateError (Missing template shared/_activity.erb in view path app/views:/home/matt/.gem/ruby/1.8/gems/devise-1.0.0/app/views) on line #3 of app/views/pages/index.html.haml:
+1: Dashboard
+2: .activities
+3:   = render :partial => 'shared/activity', :collection => @activities
+
+    haml (2.2.19) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (2.2.19) lib/haml/helpers.rb:96:in `non_haml'
+    haml (2.2.19) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/pages/index.html.haml:3:in `_run_haml_app47views47pages47index46html46haml'
+    haml (2.2.19) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.19) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.19) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    compass (0.8.17) [v] lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+    warden (0.9.2) lib/warden/manager.rb:34:in `call'
+    warden (0.9.2) lib/warden/manager.rb:33:in `catch'
+    warden (0.9.2) lib/warden/manager.rb:33:in `call'
+    passenger (2.2.9) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    passenger (2.2.9) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:400:in `start_request_handler'
+    passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:351:in `handle_spawn_application'
+    passenger (2.2.9) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+    passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:349:in `handle_spawn_application'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:163:in `start'
+    passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:209:in `start'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+    passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (61.0ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  MONGODB admin.$cmd.find({:ismaster=>1}, {}).limit(-1)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-02-15 22:29:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"pages"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendering template within layouts/application
+Rendering pages/index
+  MONGODB lean_crm_development.activities.find({"user_id"=>4b727c2344b4126010000006}, {})
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+  MONGODB lean_crm_development.accounts.find({:_id=>4b72a61a44b4127f9e000006}, {}).limit(-1)
+Rendered shared/_activity (11.3ms)
+Rendered shared/_navigation (11.8ms)
+Completed in 119ms (View: 106, DB: 0) | 200 OK [http://lean-crm.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-02-15 22:32:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"pages"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendering template within layouts/application
+Rendering pages/index
+  MONGODB lean_crm_development.activities.find({"user_id"=>4b727c2344b4126010000006}, {})
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+  MONGODB lean_crm_development.accounts.find({:_id=>4b72a61a44b4127f9e000006}, {}).limit(-1)
+Rendered shared/_activity (13.7ms)
+Rendered shared/_navigation (64.0ms)
+Completed in 100ms (View: 82, DB: 0) | 200 OK [http://lean-crm.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-02-15 22:32:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"4b727c2344b4126010000006", "controller"=>"users"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+
+ActionView::MissingTemplate (Missing template users/show.erb in view path app/views:/home/matt/.gem/ruby/1.8/gems/devise-1.0.0/app/views):
+  /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/respond_to.rb:105
+  /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:183:in `call'
+  /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:183:in `default_render'
+  /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:124:in `to_html'
+  responders (0.4.3) lib/responders/flash_responder.rb:89:in `to_html'
+  /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:117:in `send'
+  /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:117:in `respond'
+  /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/responder.rb:110:in `call'
+  /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/legacy/respond_to.rb:67:in `respond_with'
+  /opt/ruby-enterprise-1.8.7-2010.01/lib/ruby/gems/1.8/gems/inherited_resources-1.0.3/lib/inherited_resources/actions.rb:13:in `show'
+  haml (2.2.19) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  compass (0.8.17) [v] lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+  warden (0.9.2) lib/warden/manager.rb:34:in `call'
+  warden (0.9.2) lib/warden/manager.rb:33:in `catch'
+  warden (0.9.2) lib/warden/manager.rb:33:in `call'
+  passenger (2.2.9) lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+  passenger (2.2.9) lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:400:in `start_request_handler'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:351:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/utils.rb:184:in `safe_fork'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:349:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:163:in `start'
+  passenger (2.2.9) lib/phusion_passenger/railz/application_spawner.rb:209:in `start'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+  passenger (2.2.9) lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-02-15 22:32:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"pages"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendering template within layouts/application
+Rendering pages/index
+  MONGODB lean_crm_development.activities.find({"user_id"=>4b727c2344b4126010000006}, {})
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+  MONGODB lean_crm_development.accounts.find({:_id=>4b72a61a44b4127f9e000006}, {}).limit(-1)
+Rendered shared/_activity (11.2ms)
+Rendered shared/_navigation (1.4ms)
+Completed in 29ms (View: 15, DB: 0) | 200 OK [http://lean-crm.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"category"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"category_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"completed_by_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"completed_by_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_type"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_type_1"}])
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-02-15 22:32:41) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.tasks.find({"user_id"=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering tasks/index
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendered tasks/_task (100.9ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 125ms (View: 112, DB: 0) | 200 OK [http://lean-crm.local/tasks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 22:32:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (1.9ms)
+Rendered leads/_lead (0.8ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 25ms (View: 14, DB: 0) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2010-02-15 22:32:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.accounts.find({"user_id"=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering accounts/index
+Rendered accounts/_account (1.0ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 20ms (View: 11, DB: 0) | 200 OK [http://lean-crm.local/accounts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"account_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"account_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"lead_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"lead_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"assignee_id_1"}])
+
+
+Processing ContactsController#index (for 127.0.0.1 at 2010-02-15 22:32:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"contacts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.contacts.find({"user_id"=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering contacts/index
+Rendered contacts/_contact (1.0ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 20ms (View: 10, DB: 1) | 200 OK [http://lean-crm.local/contacts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-02-15 22:32:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"pages"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendering template within layouts/application
+Rendering pages/index
+  MONGODB lean_crm_development.activities.find({"user_id"=>4b727c2344b4126010000006}, {})
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+  MONGODB lean_crm_development.accounts.find({:_id=>4b72a61a44b4127f9e000006}, {}).limit(-1)
+Rendered shared/_activity (10.5ms)
+Rendered shared/_navigation (1.4ms)
+Completed in 93ms (View: 14, DB: 0) | 200 OK [http://lean-crm.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"category"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"category_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"completed_by_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"completed_by_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_type"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_type_1"}])
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-02-15 22:32:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.tasks.find({"user_id"=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering tasks/index
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendered tasks/_task (7.2ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 80ms (View: 10, DB: 0) | 200 OK [http://lean-crm.local/tasks]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 22:32:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (1.0ms)
+Rendered leads/_lead (0.8ms)
+Rendered shared/_navigation (1.7ms)
+Completed in 18ms (View: 8, DB: 0) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2010-02-15 22:32:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.accounts.find({"user_id"=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering accounts/index
+Rendered accounts/_account (0.5ms)
+Rendered shared/_navigation (3.6ms)
+Completed in 15ms (View: 5, DB: 0) | 200 OK [http://lean-crm.local/accounts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"account_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"account_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"lead_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"lead_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"assignee_id_1"}])
+
+
+Processing ContactsController#index (for 127.0.0.1 at 2010-02-15 22:32:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"contacts"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.contacts.find({"user_id"=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering contacts/index
+Rendered contacts/_contact (0.5ms)
+Rendered shared/_navigation (3.6ms)
+Completed in 15ms (View: 5, DB: 0) | 200 OK [http://lean-crm.local/contacts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-02-15 22:32:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"leads"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.leads.find({:user_id=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering leads/index
+Rendered leads/_lead (1.0ms)
+Rendered leads/_lead (0.8ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 18ms (View: 8, DB: 0) | 200 OK [http://lean-crm.local/leads]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"category"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"category_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"completed_by_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"completed_by_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_type"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_type_1"}])
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-02-15 22:32:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tasks"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB lean_crm_development.tasks.find({"user_id"=>4b727c2344b4126010000006}, {})
+Rendering template within layouts/application
+Rendering tasks/index
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendered tasks/_task (7.4ms)
+Rendered shared/_navigation (1.8ms)
+Completed in 20ms (View: 11, DB: 0) | 200 OK [http://lean-crm.local/tasks]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-02-15 22:32:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"pages"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendering template within layouts/application
+Rendering pages/index
+  MONGODB lean_crm_development.activities.find({"user_id"=>4b727c2344b4126010000006}, {})
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+  MONGODB lean_crm_development.accounts.find({:_id=>4b72a61a44b4127f9e000006}, {}).limit(-1)
+Rendered shared/_activity (78.2ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 97ms (View: 82, DB: 0) | 200 OK [http://lean-crm.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-02-15 22:38:13) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+Redirected to http://lean-crm.local/
+Completed in 16ms (DB: 0) | 302 Found [http://lean-crm.local/users/sign_out]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-02-15 22:38:13) [GET]
+  Parameters: {"action"=>"index", "controller"=>"pages"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-02-15 22:38:13) [GET]
+  Parameters: {"unauthenticated"=>"true", "action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (1.1ms)
+Rendered shared/_navigation (1.6ms)
+Completed in 24ms (View: 12, DB: 0) | 200 OK [http://lean-crm.local/users/sign_in?unauthenticated=true]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PasswordsController#new (for 127.0.0.1 at 2010-02-15 22:38:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"passwords"}
+Rendering template within layouts/application
+Rendering passwords/new
+Rendered shared/_devise_links (0.2ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 17ms (View: 10, DB: 0) | 200 OK [http://lean-crm.local/users/password/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PasswordsController#create (for 127.0.0.1 at 2010-02-15 22:38:21) [POST]
+  Parameters: {"commit"=>"Send me reset password instructions", "action"=>"create", "authenticity_token"=>"dtjaECdXxSNC1u4Xifqw6EdkEGELZvCR8qTxX9TSe/U=", "controller"=>"passwords", "user"=>{"email"=>"mattbeedle@googlemail.com"}}
+  MONGODB lean_crm_development.users.find({:email=>"mattbeedle@googlemail.com"}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.comments", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"commentable_id"=>1}, :ns=>"lean_crm_development.comments", :unique=>nil, :name=>"commentable_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"commentable_type"=>1}, :ns=>"lean_crm_development.comments", :unique=>nil, :name=>"commentable_type_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"category"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"category_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"completed_by_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"completed_by_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_type"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_type_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"account_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"account_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"lead_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"lead_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.users.update({:_id=>4b727c2344b4126010000006}, {"encrypted_password"=>"9e21dbad76f9defc35a604841f38f0c35859e6b1", "created_at"=>Wed Feb 10 09:28:03 UTC 2010, "updated_at"=>Mon Feb 15 21:38:21 UTC 2010, "_id"=>4b727c2344b4126010000006, "username"=>nil, "api_key"=>nil, "sign_in_count"=>nil, "password_salt"=>"LWiSUrwQHWelgzBPJKBu", "remember_token"=>nil, "reset_password_token"=>"n-eViozYm2qAZ9_PW8uM", "current_sign_in_ip"=>nil, "remember_created_at"=>nil, "current_sign_in_at"=>nil, "email"=>"mattbeedle@googlemail.com"})
+Sent mail to mattbeedle@googlemail.com
+
+Date: Mon, 15 Feb 2010 22:38:21 +0100
+From: please-change-me@config-initializers-devise.com
+To: mattbeedle@googlemail.com
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html; charset=utf-8
+
+Hello mattbeedle@googlemail.com!
+
+Someone has requested a link to change your password, and you can do this through the link below.
+
+<a href="http://lean-crm.local/users/password/edit?reset_password_token=n-eViozYm2qAZ9_PW8uM">Change my password</a>
+
+If you didn't request this, please ignore this email.
+Your password won't change until you access the link above and create a new one.
+Redirected to http://lean-crm.local/users/sign_in
+Completed in 346ms (DB: 0) | 302 Found [http://lean-crm.local/users/password]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-02-15 22:38:21) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered shared/_devise_links (2.2ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 13ms (View: 6, DB: 0) | 200 OK [http://lean-crm.local/users/sign_in]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PasswordsController#edit (for 127.0.0.1 at 2010-02-15 22:38:32) [GET]
+  Parameters: {"action"=>"edit", "reset_password_token"=>"[FILTERED]", "controller"=>"passwords"}
+Rendering template within layouts/application
+Rendering passwords/edit
+Rendered shared/_devise_links (2.2ms)
+Rendered shared/_navigation (1.5ms)
+Completed in 87ms (View: 9, DB: 0) | 200 OK [http://lean-crm.local/users/password/edit?reset_password_token=n-eViozYm2qAZ9_PW8uM]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PasswordsController#update (for 127.0.0.1 at 2010-02-15 22:38:42) [PUT]
+  Parameters: {"commit"=>"Change my password", "action"=>"update", "_method"=>"put", "authenticity_token"=>"dtjaECdXxSNC1u4Xifqw6EdkEGELZvCR8qTxX9TSe/U=", "controller"=>"passwords", "user"=>{"password_confirmation"=>"[FILTERED]", "reset_password_token"=>"[FILTERED]", "password"=>"[FILTERED]"}}
+  MONGODB lean_crm_development.users.find({:reset_password_token=>"n-eViozYm2qAZ9_PW8uM"}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"campaign_id"=>1}, :ns=>"lean_crm_development.leads", :unique=>nil, :name=>"campaign_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.comments", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"commentable_id"=>1}, :ns=>"lean_crm_development.comments", :unique=>nil, :name=>"commentable_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"commentable_type"=>1}, :ns=>"lean_crm_development.comments", :unique=>nil, :name=>"commentable_type_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"category"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"category_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"completed_by_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"completed_by_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_id"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"asset_type"=>1}, :ns=>"lean_crm_development.tasks", :unique=>nil, :name=>"asset_type_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"account_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"account_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"lead_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"lead_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.contacts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.users.update({:_id=>4b727c2344b4126010000006}, {"encrypted_password"=>"ba5e3d7e3fa811a272d8d575725fdd86ef15fede", "created_at"=>Wed Feb 10 09:28:03 UTC 2010, "updated_at"=>Mon Feb 15 21:38:42 UTC 2010, "_id"=>4b727c2344b4126010000006, "username"=>nil, "api_key"=>nil, "sign_in_count"=>nil, "password_salt"=>"ZB-JP8YyUq5cumS7CzA6", "remember_token"=>nil, "reset_password_token"=>nil, "current_sign_in_ip"=>nil, "remember_created_at"=>nil, "current_sign_in_at"=>nil, "email"=>"mattbeedle@googlemail.com"})
+Redirected to http://lean-crm.local/
+Completed in 115ms (DB: 0) | 302 Found [http://lean-crm.local/users/password]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2010-02-15 22:38:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"pages"}
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_id"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"subject_type"=>1}, :ns=>"lean_crm_development.activities", :unique=>nil, :name=>"subject_type_1"}])
+Rendering template within layouts/application
+Rendering pages/index
+  MONGODB lean_crm_development.activities.find({"user_id"=>4b727c2344b4126010000006}, {})
+  MONGODB lean_crm_development.users.find({:_id=>4b727c2344b4126010000006}, {}).limit(-1)
+  MONGODB db.system.indexes.insert([{:key=>{"user_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"user_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"assignee_id"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"assignee_id_1"}])
+  MONGODB db.system.indexes.insert([{:key=>{"access"=>1}, :ns=>"lean_crm_development.accounts", :unique=>nil, :name=>"access_1"}])
+  MONGODB lean_crm_development.accounts.find({:_id=>4b72a61a44b4127f9e000006}, {}).limit(-1)
+Rendered shared/_activity (81.4ms)
+Rendered shared/_navigation (1.4ms)
+Completed in 102ms (View: 88, DB: 2) | 200 OK [http://lean-crm.local/]

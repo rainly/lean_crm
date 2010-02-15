@@ -21,10 +21,15 @@ class Task
   belongs_to :assignee, :class_name => 'User'
   belongs_to :completed_by, :class_name => 'User'
 
+  has_many :activities, :as => :subject
+
   named_scope :incomplete, :conditions => { :completed_at => nil }
   named_scope :due_today, lambda { { :conditions => { :due_at => { '$lt' => Time.zone.now.tomorrow.midnight } } } }
 
-  after_save :notify_assignee
+  before_update :log_reassignment
+  after_create  :log_creation
+  after_update  :log_update
+  after_save    :notify_assignee
 
   def self.daily_email
     Task.due_today.group_by(&:user).each do |user, tasks|
@@ -97,5 +102,17 @@ class Task
 
   def notify_assignee
     TaskMailer.deliver_assignment_notification(self) if @reassigned
+  end
+
+  def log_creation
+    Activity.log(self.user, self, 'Created')
+  end
+
+  def log_update
+    Activity.log(self.user, self, 'Updated') unless @reassigned
+  end
+
+  def log_reassignment
+    Activity.log(self.user, self, 'Re-assigned') if @reassigned and valid?
   end
 end

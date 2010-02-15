@@ -59,6 +59,17 @@ en:
 
   delete_task: Delete Task
 
+  activity_actions:
+    - 'Viewed'
+    - 'Created'
+    - 'Updated'
+    - 'Won'
+    - 'Completed'
+    - 'Re-assigned'
+    - 'Rejected'
+    - 'Re-scheduled'
+    - 'Converted'
+
   emails:
     task_reassigned:
       subject: You have been assigned a new task

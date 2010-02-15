@@ -16,7 +16,7 @@ User.blueprint do
 end
 
 User.blueprint(:annika) do
-  email { 'annika.fleisher@1000jobboersen.de' }
+  email { 'annika.fleischer@1000jobboersen.de' }
   password { 'password' }
   password_confirmation { 'password' }
 end
@@ -80,4 +80,13 @@ Contact.blueprint(:florian) do
   last_name { 'Behn' }
   user { User.make(:annika) }
   account { Account.make(:careermee) }
+end
+
+Activity.blueprint do
+end
+
+Activity.blueprint(:viewed_erich) do
+  user { User.make(:annika) }
+  subject { Lead.make(:erich) }
+  action { 'Viewed' }
 end

@@ -11,6 +11,7 @@ Feature: Manage leads
     When I press "lead_submit"
     Then I should be on the leads page
     And I should see "Erich Feldmeier"
+    And a created activity should exist for lead with first_name "Erich"
 
   Scenario: Adding a comment
     Given I am registered and logged in as annika
@@ -24,13 +25,14 @@ Feature: Manage leads
 
   Scenario: Editing a lead
     Given I am registered and logged in as annika
-    And a lead exists with user: annika
+    And a lead: "erich" exists with user: annika
     And I am on the leads page
     And I follow "edit"
     And I fill in "lead_phone" with "999"
     When I press "lead_submit"
     Then I should be on the leads page
     And a lead should exist with phone: "999"
+    And an updated activity should exist for lead with first_name "Erich"
 
   Scenario: Filtering leads
     Given I am registered and logged in as annika
@@ -41,6 +43,16 @@ Feature: Manage leads
     And I press "filter"
     Then I should see "Erich"
     And I should not see "Markus"
+
+  Scenario: Viewing a lead
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika
+    And I am on the dashboard page
+    And I follow "leads"
+    When I follow "erich-feldmeier"
+    Then I should be on the lead page
+    And I should see "Erich"
+    And a view activity should have been created for lead with first_name "Erich"
 
   Scenario: Adding a task to a lead
     Given I am registered and logged in as annika
@@ -76,6 +88,15 @@ Feature: Manage leads
     And a task should not exist
     And I should not see "Call to get offer details"
 
+  Scenario: Rejecting a lead
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika
+    And I am on the lead's page
+    When I press "reject"
+    Then I should be on the leads page
+    And lead "erich" should exist with status: 3
+    And a new "Rejected" activity should have been created for "Lead" with "first_name" "Erich"
+
   Scenario: Converting a lead to a new account
     Given I am registered and logged in as annika
     And a lead: "erich" exists with user: annika
@@ -86,6 +107,7 @@ Feature: Manage leads
     Then I should be on the account page
     And I should see "World Dating"
     And I should see "Erich"
+    And a new "Converted" activity should have been created for "Lead" with "first_name" "Erich"
 
   Scenario: Converting a lead to an existing account
     Given I am registered and logged in as annika

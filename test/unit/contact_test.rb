@@ -24,6 +24,34 @@ class ContactTest < ActiveSupport::TestCase
       @contact = Contact.make_unsaved(:florian)
     end
 
+    context 'activity logging' do
+      setup do
+        @contact.save!
+        @contact = Contact.find(@contact.id)
+      end
+
+      should 'log an activity when created' do
+        assert @contact.activities.any? {|a| a.action == 'Created' }
+      end
+
+      should 'log an activity when updated' do
+        @contact.update_attributes :first_name => 'test'
+        assert @contact.activities.any? {|a| a.action == 'Updated' }
+      end
+
+      should 'not log an update activity when created' do
+        assert_equal 1, @contact.activities.count
+      end
+    end
+
+    should 'have full name' do
+      assert_equal 'Florian Behn', @contact.full_name
+    end
+
+    should 'alias full_name to name' do
+      assert_equal @contact.name, @contact.full_name
+    end
+
     should 'require first name' do
       @contact.first_name = nil
       assert !@contact.valid?
