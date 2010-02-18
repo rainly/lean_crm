@@ -16,6 +16,11 @@ class ContactTest < ActiveSupport::TestCase
         assert Contact.find_by_first_name_and_last_name(@lead.first_name, @lead.last_name)
         assert_equal 1, @account.contacts.count
       end
+
+      should 'assign lead to contact' do
+        contact = Contact.create_for(@lead, @account)
+        assert_equal @lead, contact.lead
+      end
     end
   end
 

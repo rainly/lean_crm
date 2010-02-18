@@ -78,6 +78,11 @@ class LeadTest < ActiveSupport::TestCase
         @lead.promote!('A company')
         assert @lead.status_is?('Converted')
       end
+
+      should 'assign lead to contact' do
+        @lead.promote!('company name')
+        assert_equal @lead, Account.find_by_name('company name').contacts.first.lead
+      end
     end
 
     should 'require first name' do

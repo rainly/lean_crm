@@ -27,6 +27,18 @@ User.blueprint(:benny) do
   password_confirmation { 'password' }
 end
 
+Admin.blueprint do
+  email
+  password { 'password' }
+  password_confirmation { 'password' }
+end
+
+Admin.blueprint(:matt) do
+  email { 'matt.beedle@1000jobboersen.de' }
+  password { 'password' }
+  password_confirmation { 'password' }
+end
+
 Lead.blueprint do
   first_name
   last_name
@@ -89,4 +101,21 @@ Activity.blueprint(:viewed_erich) do
   user { User.make(:annika) }
   subject { Lead.make(:erich) }
   action { 'Viewed' }
+end
+
+Comment.blueprint do
+end
+
+Comment.blueprint(:made_offer_to_erich) do
+  user { User.make(:annika) }
+  commentable { Lead.make(:erich) }
+  text { 'Called erich, made offer' }
+end
+
+Attachment.blueprint do
+end
+
+Attachment.blueprint(:erich_offer_pdf) do
+  subject { Comment.make(:made_offer_to_erich) }
+  attachment { File.open("#{Rails.root}/test/upload-files/erich_offer.pdf") }
 end

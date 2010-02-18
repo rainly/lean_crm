@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
 
   before_filter :authenticate_user!
+  before_filter :configuration_check
   after_filter :log_viewed_item
 
 protected
@@ -24,6 +25,12 @@ protected
       redirect_to params[:return_to]
     else
       redirect_to default
+    end
+  end
+
+  def configuration_check
+    unless @configuration ||= Configuration.first
+      Configuration.create!
     end
   end
 end

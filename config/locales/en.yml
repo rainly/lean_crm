@@ -73,3 +73,22 @@ en:
   emails:
     task_reassigned:
       subject: You have been assigned a new task
+
+  navigation:
+    dashboard: Dashboard
+    tasks: Tasks
+    leads: Leads
+    accounts: Accounts
+    contacts: Contacts
+    profile: Profile
+    login: Login
+    logout: Logout
+
+  profiles:
+    heading: 'My Profile'
+
+  admin:
+    navigation:
+      dashboard: Dashboard
+      configuration: Configuration
+      logout: Logout

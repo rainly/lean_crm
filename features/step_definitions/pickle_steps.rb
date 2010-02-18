@@ -34,7 +34,7 @@ end
 
 # find exactly n models
 Then(/^(\d+) #{capture_plural_factory} should exist(?: with #{capture_fields})?$/) do |count, plural_factory, fields|
-  find_models(plural_factory.singularize, fields).size.should == count.to_i
+  assert_equal count.to_i, find_models(plural_factory.singularize, fields).size
 end
 
 # assert equality of models

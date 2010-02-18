@@ -5,7 +5,8 @@ Feature: Manage leads
 
   Scenario: Creating a lead
     Given I am registered and logged in as annika
-    And I am on the new lead page
+    And I am on the leads page
+    And I follow "new"
     And I fill in "lead_first_name" with "Erich"
     And I fill in "lead_last_name" with "Feldmeier"
     When I press "lead_submit"
@@ -21,7 +22,18 @@ Feature: Manage leads
     When I press "comment_submit"
     Then I should be on the lead page
     And I should see "This is a good lead"
-    And a comment should have been created
+    And 1 comments should exist
+
+  Scenario: Adding an comment with an attachment
+    Given I am registered and logged in as annika
+    And a lead exists with user: annika
+    And I am on the lead's page
+    And I fill in "comment_text" with "Sent offer"
+    And I attach the file at "test/upload-files/erich_offer.pdf" to "Attachment"
+    When I press "comment_submit"
+    Then I should be on the lead page
+    And I should see "Sent offer"
+    And I should see "erich_offer.pdf"
 
   Scenario: Editing a lead
     Given I am registered and logged in as annika
@@ -107,6 +119,9 @@ Feature: Manage leads
     Then I should be on the account page
     And I should see "World Dating"
     And I should see "Erich"
+    And an account should exist with name: "World Dating"
+    And a contact should exist with first_name: "Erich"
+    And a lead should exist with first_name: "Erich", status: 2
     And a new "Converted" activity should have been created for "Lead" with "first_name" "Erich"
 
   Scenario: Converting a lead to an existing account

@@ -11,6 +11,8 @@ class Activity
   belongs_to :user
   belongs_to :subject, :polymorphic => true
 
+  validates_presence_of :subject
+
   has_constant :actions, lambda { I18n.t(:activity_actions) }
 
   def self.log( user, subject, action )

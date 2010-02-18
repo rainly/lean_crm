@@ -8,7 +8,7 @@
   = link_to t('add_task'), new_task_path(:asset_id => @lead.id, :asset_type => 'Lead', :return_to => request.request_uri), :id => 'add_task'
   = render :partial => 'tasks/task', :collection => @lead.tasks.incomplete
 .add_comment
-  - simple_form_for @comment || Comment.new do |form|
+  - simple_form_for @comment || Comment.new, :html => { :multipart => true } do |form|
     = form.hidden_field :commentable_type, :value => 'Lead'
     = form.hidden_field :commentable_id, :value => @lead.id
     = hidden_field_tag :return_to, request.request_uri

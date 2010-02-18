@@ -7,9 +7,16 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    
+
     when /the home\s?page/
       '/'
+
+    when /the new comments page/
+      new_comments_path
+
+    when /the new users page/
+      new_users_path
+
     when /the new activities page/
       new_activities_path
 
@@ -44,6 +51,16 @@ module NavigationHelpers
       contacts_path
     when /the contact page/
       contact_path(@contact || Contact.last(:order => 'created_at'))
+
+    when /the admin login page/
+      new_admin_session_path
+    when /the admin dashboard page/
+      admin_root_path
+
+    when /the admin edit configuration page/
+      edit_admin_configuration_path
+    when /the admin configuration page/
+      admin_configuration_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

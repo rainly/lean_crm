@@ -1,0 +1,5 @@
+%ul#navigation
+  - if admin_signed_in?
+    %li= link_to t('admin.navigation.dashboard'), admin_root_path
+    %li= link_to t('admin.navigation.configuration'), admin_configuration_path
+    %li= link_to t('admin.navigation.logout'), destroy_admin_session_path, :id => 'logout'

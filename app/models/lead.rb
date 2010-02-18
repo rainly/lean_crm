@@ -36,7 +36,7 @@ class Lead
 
   before_validation_on_create :set_initial_state
   after_create  :log_creation
-  after_save    :log_update
+  after_update  :log_update
 
   has_constant :titles, lambda { I18n.t('titles') }
   has_constant :statuses, lambda { I18n.t('lead_statuses') }

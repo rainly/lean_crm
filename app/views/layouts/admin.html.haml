@@ -1,0 +1,10 @@
+%html
+  %head
+    = render :partial => 'shared/header'
+  %body.bp
+    .container
+      .span-24.lead
+        = render :partial => 'admin/shared/navigation'
+      .span-4
+      .span-20.last
+        = yield

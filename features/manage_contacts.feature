@@ -6,7 +6,8 @@ Feature: Manage contacts
   Scenario: Adding a contact when the account exists
     Given I am registered and logged in as annika
     And an account: "careermee" exists
-    And I am on the new contact page
+    And I am on the contacts page
+    And I follow "new"
     And I select "CareerMee" from "contact_account_id"
     And I fill in "contact_first_name" with "Florian"
     And I fill in "contact_last_name" with "Behn"

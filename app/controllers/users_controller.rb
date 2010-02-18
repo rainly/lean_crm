@@ -6,4 +6,8 @@ class UsersController < InheritedResources::Base
       success.html { redirect_to root_path }
     end
   end
+
+  def profile
+    @user = current_user
+  end
 end

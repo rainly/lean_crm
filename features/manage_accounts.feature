@@ -5,7 +5,8 @@ Feature: Manage accounts
 
   Scenario: Creating an account
     Given I am registered and logged in as annika
-    And I am on the new account page
+    And I am on the accounts page
+    And I follow "new"
     And I fill in "account_name" with "CareerMee"
     When I press "account_submit"
     Then I should be on the account page

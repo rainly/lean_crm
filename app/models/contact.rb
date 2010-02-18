@@ -34,8 +34,10 @@ class Contact
   belongs_to :account
   belongs_to :user
   belongs_to :assignee, :class => 'User'
+  belongs_to :lead
 
   has_many :activities, :as => :subject
+  has_many :comments, :as => :commentable
 
   after_create :log_creation
   after_update :log_update
@@ -47,7 +49,7 @@ class Contact
 
   def self.create_for( lead, account )
     contact = account.contacts.create :user => lead.user, :first_name => lead.first_name,
-      :last_name => lead.last_name
+      :last_name => lead.last_name, :lead => lead
   end
 
   def log_creation
