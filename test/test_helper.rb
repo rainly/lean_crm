@@ -48,6 +48,16 @@ class ActiveSupport::TestCase
     end
   end
 
+  def self.should_act_as_paranoid
+    klass = self.name.gsub(/Test$/, '').constantize
+    should 'act as paranoid' do
+      assert klass.new.respond_to?('deleted_at')
+      obj = klass.make
+      obj.destroy
+      assert obj.deleted_at
+    end
+  end
+
   setup do
     Sham.reset
     Dir[Rails.root + 'app/models/**/*.rb'].each do |model_path|

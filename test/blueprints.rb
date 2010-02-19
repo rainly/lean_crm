@@ -51,6 +51,13 @@ Lead.blueprint(:erich) do
   user { User.make(:annika) }
 end
 
+Lead.blueprint(:kerstin) do
+  first_name { 'Kerstin' }
+  last_name { 'Pätzol' }
+  user { User.make(:annika) }
+  deleted_at { Time.now }
+end
+
 Lead.blueprint(:markus) do
   first_name { 'Markus' }
   last_name { 'Sitek' }
@@ -85,6 +92,7 @@ Contact.blueprint do
   first_name
   last_name
   user { User.make(:annika) }
+  account { Account.make }
 end
 
 Contact.blueprint(:florian) do

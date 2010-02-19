@@ -3,6 +3,7 @@ require 'test_helper.rb'
 class LeadTest < ActiveSupport::TestCase
   context 'Class' do
     should_have_constant :titles, :statuses, :sources, :salutations
+    should_act_as_paranoid
   end
 
   context 'Named Scopes' do
@@ -16,6 +17,19 @@ class LeadTest < ActiveSupport::TestCase
         assert_equal [@new], Lead.with_status('New')
         assert_equal [@rejected], Lead.with_status('Rejected')
         assert_equal [@new, @rejected], Lead.with_status(['New', 'Rejected'])
+      end
+    end
+
+    context 'not_deleted' do
+      setup do
+        @new = Lead.make(:erich)
+        @rejected = Lead.make(:markus)
+        @deleted = Lead.make(:kerstin)
+      end
+
+      should 'return all leads which are not deleted' do
+        assert_equal 2, Lead.not_deleted.count
+        assert !Lead.not_deleted.include?(@deleted)
       end
     end
   end
@@ -39,6 +53,12 @@ class LeadTest < ActiveSupport::TestCase
         @lead = Lead.find_by_id(@lead.id)
         @lead.update_attributes :first_name => 'test'
         assert @lead.activities.any? {|a| a.action == 'Updated' }
+      end
+
+      should 'log an activity when destroyed' do
+        @lead = Lead.find_by_id(@lead.id)
+        @lead.destroy
+        assert @lead.activities.any? {|a| a.action == 'Deleted' }
       end
 
       should 'log an activity when converted' do

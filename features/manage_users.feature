@@ -10,3 +10,4 @@ Feature: Manage users
     Then I should see "annika.fleischer@1000jobboersen.de"
     And I should see "My Profile"
     And I should see "dropbox@"
+    And an activity should not exist

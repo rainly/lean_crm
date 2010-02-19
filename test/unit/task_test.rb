@@ -75,36 +75,6 @@ class TaskTest < ActiveSupport::TestCase
       @task = Task.make_unsaved
     end
 
-    context 'activity logging' do
-      setup do
-        @task.save!
-        @task = Task.find(@task.id)
-      end
-
-      should 'log activity when created' do
-        assert @task.activities.any? {|a| a.action == 'Created' }
-      end
-
-      should 'log activity when update' do
-        @task.update_attributes :name => 'test update'
-        assert @task.activities.any? {|a| a.action == 'Updated' }
-      end
-
-      should 'not log update activity when created' do
-        assert_equal 1, @task.activities.count
-      end
-
-      should 'log activity when re-assigned' do
-        @task.update_attributes :assignee_id => User.make(:benny).id
-        assert @task.activities.any? {|a| a.action == 'Re-assigned' }
-      end
-
-      should 'not log update activity when re-assigned' do
-        @task.update_attributes :assignee_id => User.make(:benny).id
-        assert !@task.activities.any? {|a| a.action == 'Updated' }
-      end
-    end
-
     should 'send a notification email to the assignee if the assignee is changed' do
       @task.save!
       @benny = User.make(:benny)

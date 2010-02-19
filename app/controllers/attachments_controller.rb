@@ -1,5 +1,7 @@
 class AttachmentsController < InheritedResources::Base
 
+  skip_before_filter :log_viewed_item
+
   def show
     GridFS::GridStore.open(MongoMapper.database,
                            resource.attachment.url.gsub(/\/image\/show\//, ''), 'r') do |file|

@@ -1,6 +1,7 @@
 class Lead
   include MongoMapper::Document
   include HasConstant
+  include ParanoidDelete
 
   key :user_id,       ObjectId, :required => true, :index => true
   key :first_name,    String, :required => true
@@ -45,6 +46,7 @@ class Lead
 
   named_scope :with_status, lambda {|statuses| { :conditions => {
     :status => statuses.map {|status| Lead.statuses.index(status) } } } }
+  named_scope :not_deleted, :conditions => { :deleted_at => nil }
 
   def full_name
     "#{first_name} #{last_name}"
@@ -75,10 +77,12 @@ protected
   end
 
   def log_update
-    unless @recently_created
-      Activity.log(user, self, 'Updated') if not @recently_converted and not @recently_rejected
-      Activity.log(user, self, 'Converted') if @recently_converted
-      Activity.log(user, self, 'Rejected') if @recently_rejected
+    case
+    when @recently_converted then Activity.log(user, self, 'Converted')
+    when @recently_rejected then Activity.log(user, self, 'Rejected')
+    when @recently_destroyed then Activity.log(user, self, 'Deleted')
+    else
+      Activity.log(user, self, 'Updated')
     end
   end
 end

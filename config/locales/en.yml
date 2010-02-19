@@ -60,15 +60,17 @@ en:
   delete_task: Delete Task
 
   activity_actions:
-    - 'Viewed'
-    - 'Created'
-    - 'Updated'
-    - 'Won'
-    - 'Completed'
+    - Viewed
+    - Created
+    - Updated
+    - Won
+    - Completed
     - 'Re-assigned'
-    - 'Rejected'
+    - Rejected
     - 'Re-scheduled'
-    - 'Converted'
+    - Converted
+    - Commented
+    - Deleted
 
   emails:
     task_reassigned:

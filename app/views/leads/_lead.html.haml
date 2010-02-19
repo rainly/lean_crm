@@ -3,4 +3,6 @@
   = lead.rating
   = I18n.t(:created_ago, :time => time_ago_in_words(lead.created_at))
   .actions
-    = link_to t('edit'), [:edit, lead]
+    = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
+    - simple_form_for lead, :html => { :method => :delete } do |form|
+      = form.button :submit, t('delete'), :id => "delete_#{lead.full_name.to_dom_id}"

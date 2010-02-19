@@ -39,12 +39,21 @@ Feature: Manage leads
     Given I am registered and logged in as annika
     And a lead: "erich" exists with user: annika
     And I am on the leads page
-    And I follow "edit"
+    And I follow "edit_erich-feldmeier"
     And I fill in "lead_phone" with "999"
     When I press "lead_submit"
     Then I should be on the leads page
     And a lead should exist with phone: "999"
     And an updated activity should exist for lead with first_name "Erich"
+
+  Scenario: Deleting a lead
+    Given I am registered and logged in as annika
+    And a lead "erich" exists with user: annika
+    And I am on the leads page
+    When I press "delete_erich-feldmeier"
+    Then I should be on the leads page
+    And lead "erich" should have been deleted
+    And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich"
 
   Scenario: Filtering leads
     Given I am registered and logged in as annika
@@ -55,6 +64,12 @@ Feature: Manage leads
     And I press "filter"
     Then I should see "Erich"
     And I should not see "Markus"
+
+  Scenario: Deleted leads
+    Given I am registered and logged in as annika
+    And a lead: "kerstin" exists with user: annika
+    When I am on the leads page
+    Then I should not see "Kerstin"
 
   Scenario: Viewing a lead
     Given I am registered and logged in as annika

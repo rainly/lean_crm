@@ -31,3 +31,8 @@ Then /^a new "([^\"]*)" activity should have been created for "([^\"]*)" with "(
   assert Activity.first(:conditions => { :action => Activity.actions.index(action), :subject_type => model }).
     subject.send(field) == value
 end
+
+Then /^lead "([^\"]*)" should have been deleted$/ do |lead|
+  l = Lead.first
+  assert l.deleted_at
+end

@@ -32,7 +32,7 @@ class LeadsController < InheritedResources::Base
 
 protected
   def collection
-    @leads ||= apply_scopes(Lead).scoped(:conditions => { :user_id => current_user.id })
+    @leads ||= apply_scopes(Lead).scoped(:conditions => { :user_id => current_user.id }).not_deleted
   end
 
   def begin_of_association_chain
