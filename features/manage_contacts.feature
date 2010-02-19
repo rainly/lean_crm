@@ -50,3 +50,19 @@ Feature: Manage contacts
     Then I should see "Florian Behn"
     And I should be on the contact page
     And a new "Viewed" activity should have been created for "Contact" with "first_name" "Florian"
+
+  Scenario: Deleting a contact
+    Given I am registered and logged in as annika
+    And a contact "florian" exists with user: annika
+    And I am on the contact's page
+    When I press "delete"
+    Then I should be on the contacts page
+    And I should not see "Florian"
+
+  Scenario: Deleting from the index page
+    Given I am registered and logged in as annika
+    And a contact "florian" exists with user: annika
+    And I am on the contacts page
+    When I press "delete_florian-behn"
+    Then I should be on the contacts page
+    And I should not see "Florian"

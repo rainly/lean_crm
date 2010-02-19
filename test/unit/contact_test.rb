@@ -47,6 +47,11 @@ class ContactTest < ActiveSupport::TestCase
       should 'not log an update activity when created' do
         assert_equal 1, @contact.activities.count
       end
+
+      should 'log an activity when deleted' do
+        @contact.destroy
+        assert @contact.activities.any? {|a| a.action == 'Deleted' }
+      end
     end
 
     should 'have full name' do

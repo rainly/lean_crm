@@ -1,6 +1,7 @@
 class Contact
   include MongoMapper::Document
   include HasConstant
+  include ParanoidDelete
 
   key :account_id,          ObjectId, :index => true
   key :user_id,             ObjectId, :required => true, :index => true
@@ -54,10 +55,10 @@ class Contact
 
   def log_creation
     Activity.log(self.user, self, 'Created')
-    @recently_created = true
   end
 
   def log_update
-    Activity.log(self.user, self, 'Updated') unless @recently_created
+    Activity.log(self.user, self, 'Updated') unless @recently_destroyed
+    Activity.log(self.user, self, 'Deleted') if @recently_destroyed
   end
 end
