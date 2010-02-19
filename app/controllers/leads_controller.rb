@@ -1,12 +1,15 @@
 class LeadsController < InheritedResources::Base
-
   before_filter :resource, :only => [:convert, :promote, :reject]
+
+  respond_to :html
+  respond_to :xml, :only => [:create]
 
   has_scope :with_status, :type => :array
 
   def create
     create! do |success, failure|
       success.html { redirect_to leads_path }
+      success.xml { head :ok }
     end
   end
 

@@ -14,6 +14,11 @@ Feature: Manage leads
     And I should see "Erich Feldmeier"
     And a created activity should exist for lead with first_name "Erich"
 
+  Scenario: Creating a lead via XML
+    Given I am registered and logged in as annika
+    When I POST attributes for lead: "erich" to the leads page
+    Then 1 leads should exist
+
   Scenario: Adding a comment
     Given I am registered and logged in as annika
     And a lead exists with user: annika
