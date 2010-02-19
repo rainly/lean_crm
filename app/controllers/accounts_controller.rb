@@ -8,7 +8,7 @@ class AccountsController < InheritedResources::Base
 
 protected
   def collection
-    @accounts ||= current_user.accounts
+    @accounts ||= current_user.accounts.not_deleted
   end
 
   def begin_of_association_chain

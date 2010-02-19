@@ -1,6 +1,7 @@
 class Account
   include MongoMapper::Document
   include HasConstant
+  include ParanoidDelete
 
   key :user_id,         ObjectId, :index => true, :required => true
   key :assignee_id,     ObjectId, :index => true
@@ -24,7 +25,7 @@ class Account
   has_many :activities, :as => :subject
 
   after_create  :log_creation
-  after_save    :log_update
+  after_update  :log_update
 
 private
   def log_creation
@@ -33,6 +34,7 @@ private
   end
 
   def log_update
-    Activity.log(self.user, self, 'Updated') unless @recently_created
+    Activity.log(self.user, self, 'Updated') unless @recently_destroyed
+    Activity.log(self.user, self, 'Deleted') if @recently_destroyed
   end
 end

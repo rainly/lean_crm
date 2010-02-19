@@ -25,6 +25,21 @@ Feature: Manage accounts
     And I should not see "CareerMee"
     And a new "Updated" activity should have been created for "Account" with "name" "a test"
 
+  Scenario: Editing from index page
+    Given I am registered and logged in as annika
+    And account: "careermee" exists with user: annika
+    And I am on the accounts page
+    When I follow "edit_careermee"
+    Then I should be on the account's edit page
+
+  Scenario: Deleting an account from the index page
+    Given I am registered and logged in as annika
+    And account: "careermee" exists with user: annika
+    And I am on the accounts page
+    When I press "delete_careermee"
+    Then I should be on the accounts page
+    And I should not see "CareerMee"
+
   Scenario: Viewing accounts
     Given I am registered and logged in as annika
     And account: "careermee" exists with user: annika

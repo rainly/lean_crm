@@ -2,7 +2,7 @@ class Contact
   include MongoMapper::Document
   include HasConstant
 
-  key :account_id,          ObjectId, :required => true, :index => true
+  key :account_id,          ObjectId, :index => true
   key :user_id,             ObjectId, :required => true, :index => true
   key :lead_id,             ObjectId, :index => true
   key :assignee_id,         ObjectId, :index => true

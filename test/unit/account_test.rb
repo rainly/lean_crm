@@ -3,6 +3,7 @@ require 'test_helper.rb'
 class AccountTest < ActiveSupport::TestCase
   context 'Class' do
     should_have_constant :accesses
+    should_act_as_paranoid
   end
 
   context 'Instance' do
@@ -28,6 +29,11 @@ class AccountTest < ActiveSupport::TestCase
 
       should 'not log an update activity when created' do
         assert_equal 1, @account.activities.length
+      end
+
+      should 'log an activity when deleted' do
+        @account.destroy
+        assert @account.activities.any? {|a| a.action == 'Deleted' }
       end
     end
 

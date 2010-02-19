@@ -5,6 +5,7 @@ module ParanoidDelete
     base.class_eval do
       alias_method_chain :destroy, :paranoid
     end
+    base.named_scope :not_deleted, :conditions => { :deleted_at => nil }
   end
 
   module InstanceMethods
