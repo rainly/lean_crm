@@ -5,7 +5,14 @@ Given /^I am registered and logged in as #{capture_model}$/ do |user|
   visit new_user_session_path
   fill_in_login_form(:email => User.plan(user.to_sym)[:email])
   click_button 'user_submit'
-  store_model('user', 'annika', User.last(:order => 'created_at'))
+  store_model('user', user, User.last(:order => 'created_at'))
+end
+
+Given /^I login as #{capture_model}$/ do |user|
+  m = model!(user)
+  visit new_user_session_path
+  fill_in_login_form(:email => m.email)
+  click_button 'user_submit'
 end
 
 Given /^erich is shared with annika$/ do

@@ -5,7 +5,7 @@ Feature: Manage configurations
 
   Scenario: Editing Configuration
     Given an admin: "matt" exists
-    And I login as admin: "matt"
+    And I login as an administrator: "matt"
     And I follow "edit_configuration"
     And I fill in "configuration_imap_user" with "mr_blobby"
     And I fill in "configuration_imap_password" with "blobby"

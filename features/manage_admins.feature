@@ -13,7 +13,7 @@ Feature: Manage admins
 
   Scenario: Logging out as admin
     Given an admin: "matt" exists
-    And I login as admin: "matt"
+    And I login as an administrator: "matt"
     And I am on the admin dashboard page
     When I follow "logout"
     Then I should be on the dashboard page

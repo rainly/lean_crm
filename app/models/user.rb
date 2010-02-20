@@ -16,8 +16,7 @@ class User < AbstractUser
   def recent_items
     Activity.all(:conditions => { :user_id => self.id,
                  :action => I18n.locale_around(:en) { Activity.actions.index('Viewed') } },
-                 :order => 'updated_at desc', :limit => 5).
-                 map(&:subject)
+                 :order => 'updated_at desc', :limit => 5).map(&:subject)
   end
 
 protected

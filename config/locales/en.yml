@@ -3,9 +3,9 @@
 
 en:
   permissions:
-    - Private
     - Public
     - Shared
+    - Private
 
   overdue: As soon as possible
   due_today: Today

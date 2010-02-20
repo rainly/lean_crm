@@ -2,7 +2,7 @@ require 'test_helper.rb'
 
 class ContactTest < ActiveSupport::TestCase
   context "Class" do
-    should_have_constant :accesses, :titles
+    should_have_constant :accesses, :titles, :permissions
 
     context 'create_for' do
       setup do
@@ -27,6 +27,40 @@ class ContactTest < ActiveSupport::TestCase
   context "Instance" do
     setup do
       @contact = Contact.make_unsaved(:florian)
+    end
+
+    context 'permitted_for' do
+      setup do
+        @annika = User.make(:annika)
+        @benny = User.make(:benny)
+        @florian = Contact.make(:florian, :user => @annika, :permission => 'Public')
+        @steven = Contact.make(:steven, :user => @benny, :permission => 'Public')
+      end
+
+      should 'return all public contacts' do
+        assert Contact.permitted_for(@annika).include?(@florian)
+        assert Contact.permitted_for(@annika).include?(@steven)
+      end
+
+      should 'return all contacts belonging to the user' do
+        @florian.update_attributes :permission => 'Private'
+        assert Contact.permitted_for(@annika).include?(@florian)
+      end
+
+      should 'NOT return private contacts belonging to another user' do
+        @steven.update_attributes :permission => 'Private'
+        assert !Contact.permitted_for(@annika).include?(@steven)
+      end
+
+      should 'return shared contacts where the user is in the permitted users list' do
+        @steven.update_attributes :permission => 'Shared', :permitted_user_ids => [@florian.user_id]
+        assert Contact.permitted_for(@annika).include?(@steven)
+      end
+
+      should 'NOT return shared contacts where the user is not in the permitted users list' do
+        @steven.update_attributes :permission => 'Shared', :permitted_user_ids => [@steven.user_id]
+        assert !Contact.permitted_for(@annika).include?(@steven)
+      end
     end
 
     context 'activity logging' do
@@ -60,6 +94,12 @@ class ContactTest < ActiveSupport::TestCase
 
     should 'alias full_name to name' do
       assert_equal @contact.name, @contact.full_name
+    end
+
+    should 'require at least one permitted user if permission is "Shared"' do
+      @contact.permission = 'Shared'
+      assert !@contact.valid?
+      assert @contact.errors.on(:permitted_user_ids)
     end
 
     should 'require first name' do

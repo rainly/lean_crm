@@ -166,6 +166,22 @@ Feature: Manage leads
     Then I should not see "Erich"
     And I should see "Markus"
 
+  Scenario: Shared lead visibility on leads page
+    Given I am registered and logged in as benny
+    And a lead: "markus" exists with user: benny, permission: "Private"
+    And user: "annika" exists
+    And I go to the new lead page
+    And I fill in "lead_first_name" with "Erich"
+    And I fill in "lead_last_name" with "Feldmeier"
+    And I select "Shared" from "lead_permission"
+    And I select "annika.fleischer@1000jobboersen.de" from "lead_permitted_user_ids"
+    And I press "lead_submit"
+    And I logout
+    And I login as annika
+    When I go to the leads page
+    Then I should see "Erich"
+    And I should not see "Markus"
+
   Scenario: Shared lead (in)visibility on leads page
     Given I am registered and logged in as annika
     And user: "benny" exists
@@ -177,7 +193,7 @@ Feature: Manage leads
     Then I should see "Erich"
     And I should not see "Markus"
 
-  Scenario: Viewing a shared lead
+  Scenario: Viewing a shared lead details
     Given I am registered and logged in as annika
     And user: "benny" exists
     And a lead: "erich" exists with user: benny

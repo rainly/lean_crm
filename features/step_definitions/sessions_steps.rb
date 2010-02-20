@@ -8,6 +8,10 @@ Given /^I am logged in$/ do
   click_button 'user_submit'
 end
 
+Given /^I logout$/ do
+  visit destroy_user_session_path
+end
+
 module SessionHelper
   def fill_in_login_form( options = {} )
     fill_in 'user_email', :with => options[:email] || 'matt.beedle@1000jobboersen.de'

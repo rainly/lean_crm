@@ -102,6 +102,13 @@ Contact.blueprint(:florian) do
   account { Account.make(:careermee) }
 end
 
+Contact.blueprint(:steven) do
+  first_name { 'Steven' }
+  last_name { 'Garcia' }
+  user { User.make(:annika) }
+  account { Account.make(:careermee) }
+end
+
 Activity.blueprint do
 end
 

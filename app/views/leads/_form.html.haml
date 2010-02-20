@@ -26,3 +26,5 @@
   = form.input :xing
 %fieldset
   = form.input :notes, :as => :text
+%fieldset
+  = render :partial => 'shared/permissions_form', :locals => { :form => form }
