@@ -8,7 +8,11 @@ class AccountsController < InheritedResources::Base
 
 protected
   def collection
-    @accounts ||= current_user.accounts.not_deleted
+    @accounts ||= Account.permitted_for(current_user).not_deleted
+  end
+
+  def resource
+    @account ||= Account.permitted_for(current_user).find_by_id(params[:id])
   end
 
   def begin_of_association_chain

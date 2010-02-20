@@ -1,2 +1,5 @@
-= form.input :name
-= form.input :assignee_id, :collection => User.all.map {|u| [u.email,u.id] }
+%fieldset
+  = form.input :name
+  = form.input :assignee_id, :collection => User.all.map {|u| [u.email,u.id] }
+%fieldset
+  = render :partial => 'shared/permissions_form', :locals => { :form => form }

@@ -2,6 +2,7 @@ class Account
   include MongoMapper::Document
   include HasConstant
   include ParanoidDelete
+  include Permission
 
   key :user_id,         ObjectId, :index => true, :required => true
   key :assignee_id,     ObjectId, :index => true

@@ -11,6 +11,40 @@ class AccountTest < ActiveSupport::TestCase
       @account = Account.make_unsaved(:careermee)
     end
 
+    context 'permitted_for' do
+      setup do
+        @annika = User.make(:annika)
+        @benny = User.make(:benny)
+        @careermee = Account.make(:careermee, :user => @annika, :permission => 'Public')
+        @world_dating = Account.make(:world_dating, :user => @benny, :permission => 'Public')
+      end
+
+      should 'return all public contacts' do
+        assert Account.permitted_for(@annika).include?(@careermee)
+        assert Account.permitted_for(@annika).include?(@world_dating)
+      end
+
+      should 'return all contacts belonging to the user' do
+        @careermee.update_attributes :permission => 'Private'
+        assert Account.permitted_for(@annika).include?(@careermee)
+      end
+
+      should 'NOT return private contacts belonging to another user' do
+        @world_dating.update_attributes :permission => 'Private'
+        assert !Account.permitted_for(@annika).include?(@world_dating)
+      end
+
+      should 'return shared contacts where the user is in the permitted users list' do
+        @world_dating.update_attributes :permission => 'Shared', :permitted_user_ids => [@annika.id]
+        assert Account.permitted_for(@annika).include?(@world_dating)
+      end
+
+      should 'NOT return shared contacts where the user is not in the permitted users list' do
+        @world_dating.update_attributes :permission => 'Shared', :permitted_user_ids => [@world_dating.id]
+        assert !Account.permitted_for(@annika).include?(@world_dating)
+      end
+    end
+
     context 'activity logging' do
       setup do
         @account.save
@@ -35,6 +69,12 @@ class AccountTest < ActiveSupport::TestCase
         @account.destroy
         assert @account.activities.any? {|a| a.action == 'Deleted' }
       end
+    end
+
+    should 'require at least one permitted user if permission is "Shared"' do
+      @account.permission = 'Shared'
+      assert !@account.valid?
+      assert @account.errors.on(:permitted_user_ids)
     end
 
     should 'require name' do

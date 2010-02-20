@@ -76,7 +76,7 @@ Feature: Manage contacts
     Then I should see "Florian"
     And I should not see "Joe"
 
-  Scenario: Shared lead visibility on leads page
+  Scenario: Shared lead visibility on contacts page
     Given I am registered and logged in as benny
     And a contact: "florian" exists with user: benny, permission: "Private"
     And user: "annika" exists

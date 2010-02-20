@@ -88,6 +88,11 @@ Account.blueprint(:careermee) do
   user { User.make(:annika) }
 end
 
+Account.blueprint(:world_dating) do
+  name { 'World Dating' }
+  user { User.make(:benny) }
+end
+
 Contact.blueprint do
   first_name
   last_name
