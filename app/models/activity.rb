@@ -25,7 +25,9 @@ class Activity
   end
 
   def self.create_activity( user, subject, action )
-    user.activities.create :subject => subject, :action => action unless subject.is_a?(Task)
+    unless subject.is_a?(Task) and action == 'Viewed'
+      user.activities.create :subject => subject, :action => action
+    end
   end
 
   def self.update_activity( user, subject, action )
