@@ -25,7 +25,8 @@ Rails::Initializer.run do |config|
   config.gem 'devise'
   config.gem 'mongo'
   config.gem 'carrierwave'
-  config.gem 'compass'
+  config.gem 'compass', :version=>"0.10.0.pre5", :source => "http://gems.github.com"
+  config.gem 'fancy-buttons'
   config.gem 'shoulda'
   config.gem 'cucumber'
   config.gem 'machinist'

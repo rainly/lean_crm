@@ -2,6 +2,15 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  #------------------------------------------------------------------
+  # Navigation
+  #------------------------------------------------------------------
+  dashboard: Dashboard
+  tasks: Tasks
+  leads: Leads
+  accounts: Accounts
+  contacts: Contacts
+  
   access_levels:
     - Private
     - Public
@@ -13,7 +22,6 @@ en:
   due_this_week: This week
   due_next_week: Next week
   due_later: Sometime later
-
   salutations:
     - Mr
     - Ms
@@ -62,3 +70,7 @@ en:
   emails:
     task_reassigned:
       subject: You have been assigned a new task
+  logout: Log Out
+
+  
+  

@@ -1,6 +1,3 @@
-- simple_form_for @user do |form|
-  %fieldset
-    = form.input :email
-    = form.input :password
-    = form.input :password_confirmation
-  = form.button :submit
+= User.all.map(&:id)
+- simple_form_for @user do |f|
+  = render :partial => "form", :locals => { :f => f }
