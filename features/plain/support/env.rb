@@ -30,6 +30,9 @@ Before do
   end
   ActionMailer::Base.deliveries.clear
   Sham.reset
+
+  # Setup basic site settings
+  Configuration.create!
 end
 
 World(Shoulda::ActionMailer::Assertions)

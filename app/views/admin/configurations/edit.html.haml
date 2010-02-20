@@ -1,0 +1,12 @@
+- simple_form_for @configuration, :url => admin_configuration_path do |form|
+  %fieldset
+    %p
+      = form.input :imap_user
+    %p
+      = form.input :imap_password
+    %p
+      = form.input :imap_host
+    %p
+      = form.button :submit
+      = t('or')
+      = link_to t('cancel'), :back

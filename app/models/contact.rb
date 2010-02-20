@@ -1,8 +1,10 @@
 class Contact
   include MongoMapper::Document
   include HasConstant
+  include ParanoidDelete
+  include Permission
 
-  key :account_id,          ObjectId, :required => true, :index => true
+  key :account_id,          ObjectId, :index => true
   key :user_id,             ObjectId, :required => true, :index => true
   key :lead_id,             ObjectId, :index => true
   key :assignee_id,         ObjectId, :index => true
@@ -34,13 +36,30 @@ class Contact
   belongs_to :account
   belongs_to :user
   belongs_to :assignee, :class => 'User'
+  belongs_to :lead
+
+  has_many :activities, :as => :subject
+  has_many :comments, :as => :commentable
+
+  after_create :log_creation
+  after_update :log_update
 
   def full_name
     "#{first_name} #{last_name}"
   end
+  alias :name :full_name
 
   def self.create_for( lead, account )
     contact = account.contacts.create :user => lead.user, :first_name => lead.first_name,
-      :last_name => lead.last_name
+      :last_name => lead.last_name, :lead => lead
+  end
+
+  def log_creation
+    Activity.log(self.user, self, 'Created')
+  end
+
+  def log_update
+    Activity.log(self.user, self, 'Updated') unless @recently_destroyed
+    Activity.log(self.user, self, 'Deleted') if @recently_destroyed
   end
 end

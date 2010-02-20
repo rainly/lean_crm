@@ -1,4 +1,8 @@
-= form.input :first_name
-= form.input :last_name
-= form.input :account_id, :collection => Account.all.map {|a| [a.name, a.id] }
-= link_to t('add_account'), new_account_path(:return_to => request.request_uri), :id => 'new_account'
+%fieldset
+  = form.input :first_name
+  = form.input :last_name
+  = form.input :account_id, :collection => Account.all.map {|a| [a.name, a.id] }
+  = link_to t('add_account'), new_account_path(:return_to => request.request_uri), :id => 'new_account'
+%fieldset
+  = render :partial => 'shared/permissions_form', :locals => { :form => form }
+

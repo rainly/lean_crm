@@ -6,3 +6,4 @@ log/*.log
 tmp/*
 tmp
 tmp/
+config/settings.yml

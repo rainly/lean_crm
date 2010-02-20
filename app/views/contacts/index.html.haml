@@ -1,2 +1,4 @@
+.actions
+  = link_to t('new_contact'), new_contact_path, :id => 'new'
 .contacts
   = render :partial => 'contacts/contact', :collection => @contacts

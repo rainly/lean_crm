@@ -1,0 +1,11 @@
+.actions
+  = link_to t('edit'), edit_admin_configuration_path, :id => 'edit_configuration'
+
+%h2 Email
+%dl
+  %dt IMAP User
+  %dd= @configuration.imap_user
+  %dt IMAP Password
+  %dd= @configuration.imap_password
+  %dt IMAP Host
+  %dd= @configuration.imap_host

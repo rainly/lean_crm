@@ -16,6 +16,9 @@ end
 
 ActionController::Base.rescue_responses['MongoMapper::DocumentNotFound'] = :not_found
 
+require 'carrierwave'
+require 'carrierwave/orm/mongomapper'
+
 CarrierWave.configure do |config|
   mongo = db_config[Rails.env]
   config.grid_fs_database = mongo['database']

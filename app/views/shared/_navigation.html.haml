@@ -1,7 +1,11 @@
 %ul#navigation
-  %li= link_to t('dashboard'), root_path
-  %li= link_to t('tasks'), tasks_path
-  %li= link_to t('leads'), leads_path
-  %li= link_to t('accounts'), accounts_path, :id => 'accounts'
-  %li= link_to t('contacts'), contacts_path, :id => 'contacts'
-  %li= link_to t('logout'), destroy_user_session_path, :id => 'logout'
+  - if user_signed_in?
+    %li= link_to t('navigation.dashboard'), root_path
+    %li= link_to t('navigation.tasks'), tasks_path
+    %li= link_to t('navigation.leads'), leads_path, :id => 'leads'
+    %li= link_to t('navigation.accounts'), accounts_path, :id => 'accounts'
+    %li= link_to t('navigation.contacts'), contacts_path, :id => 'contacts'
+    %li= link_to t('navigation.profile'), profile_path, :id => 'profile'
+    %li= link_to t('navigation.logout'), destroy_user_session_path, :id => 'logout'
+  - else
+    %li= link_to t('navigation.login'), new_user_session_path, :id => 'login'

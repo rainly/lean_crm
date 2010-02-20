@@ -2,7 +2,8 @@ require 'test_helper.rb'
 
 class LeadTest < ActiveSupport::TestCase
   context 'Class' do
-    should_have_constant :titles, :statuses, :sources, :salutations
+    should_have_constant :titles, :statuses, :sources, :salutations, :permissions
+    should_act_as_paranoid
   end
 
   context 'Named Scopes' do
@@ -18,6 +19,51 @@ class LeadTest < ActiveSupport::TestCase
         assert_equal [@new, @rejected], Lead.with_status(['New', 'Rejected'])
       end
     end
+
+    context 'not_deleted' do
+      setup do
+        @new = Lead.make(:erich)
+        @rejected = Lead.make(:markus)
+        @deleted = Lead.make(:kerstin)
+      end
+
+      should 'return all leads which are not deleted' do
+        assert_equal 2, Lead.not_deleted.count
+        assert !Lead.not_deleted.include?(@deleted)
+      end
+    end
+
+    context 'permitted_for' do
+      setup do
+        @erich = Lead.make(:erich, :permission => 'Public')
+        @markus = Lead.make(:markus, :permission => 'Public')
+      end
+
+      should 'return all public leads' do
+        assert Lead.permitted_for(@erich.user).include?(@erich)
+        assert Lead.permitted_for(@erich.user).include?(@markus)
+      end
+
+      should 'return all leads belonging to the user' do
+        @erich.update_attributes :permission => 'Private'
+        assert Lead.permitted_for(@erich.user).include?(@erich)
+      end
+
+      should 'NOT return private leads belonging to another user' do
+        @markus.update_attributes :permission => 'Private'
+        assert !Lead.permitted_for(@erich.user).include?(@markus)
+      end
+
+      should 'return shared leads where the user is in the permitted user list' do
+        @markus.update_attributes :permission => 'Shared', :permitted_user_ids => [@erich.user.id]
+        assert Lead.permitted_for(@erich.user).include?(@markus)
+      end
+
+      should 'NOT return shared leads where the user is not in the permitted user list' do
+        @markus.update_attributes :permission => 'Shared', :permitted_user_ids => [@markus.user.id]
+        assert !Lead.permitted_for(@erich.user).include?(@markus)
+      end
+    end
   end
 
   context 'Instance' do
@@ -25,17 +71,69 @@ class LeadTest < ActiveSupport::TestCase
       @lead = Lead.make_unsaved(:erich)
     end
 
+    context 'activity logging' do
+      setup do
+        @lead.save!
+      end
+
+      should 'log an activity when created' do
+        assert_equal 1, @lead.activities.count
+        assert @lead.activities.any? {|a| a.action == 'Created' }
+      end
+
+      should 'log an activity when updated' do
+        @lead = Lead.find_by_id(@lead.id)
+        @lead.update_attributes :first_name => 'test'
+        assert @lead.activities.any? {|a| a.action == 'Updated' }
+      end
+
+      should 'log an activity when destroyed' do
+        @lead = Lead.find_by_id(@lead.id)
+        @lead.destroy
+        assert @lead.activities.any? {|a| a.action == 'Deleted' }
+      end
+
+      should 'log an activity when converted' do
+        @lead = Lead.find_by_id(@lead.id)
+        @lead.promote!('A new company')
+        assert @lead.activities.any? {|a| a.action == 'Converted' }
+      end
+
+      should 'not log an update activity when converted' do
+        @lead = Lead.find(@lead.id)
+        @lead.promote!('A company')
+        assert !@lead.activities.any? {|a| a.action == 'Updated' }
+      end
+
+      should 'log an activity when rejected' do
+        @lead = Lead.find(@lead.id)
+        @lead.reject!
+        assert @lead.activities.any? {|a| a.action == 'Rejected' }
+      end
+
+      should 'not log an update activity when rejected' do
+        @lead = Lead.find(@lead.id)
+        @lead.reject!
+        assert !@lead.activities.any? {|a| a.action == 'Updated' }
+      end
+    end
+
     context 'promote' do
       should 'create a new account and contact when a new account is specified' do
-        @lead.promote('Super duper company')
+        @lead.promote!('Super duper company')
         assert account = Account.find_by_name('Super duper company')
         assert account.contacts.any? {|c| c.first_name == @lead.first_name &&
           c.last_name == @lead.last_name }
       end
 
       should 'change the lead status to "converted"' do
-        @lead.promote('A company')
+        @lead.promote!('A company')
         assert @lead.status_is?('Converted')
+      end
+
+      should 'assign lead to contact' do
+        @lead.promote!('company name')
+        assert_equal @lead, Account.find_by_name('company name').contacts.first.lead
       end
     end
 
@@ -57,12 +155,22 @@ class LeadTest < ActiveSupport::TestCase
       assert @lead.errors.on(:user_id)
     end
 
+    should 'require at least one permitted user if permission is "Shared"' do
+      @lead.permission = 'Shared'
+      assert !@lead.valid?
+      assert @lead.errors.on(:permitted_user_ids)
+    end
+
     should 'be valid' do
       assert @lead.valid?
     end
 
     should 'have full_name' do
       assert_equal 'Erich Feldmeier', @lead.full_name
+    end
+
+    should 'alias full_name to name' do
+      assert_equal @lead.name, @lead.full_name
     end
 
     should 'start with status "New"' do

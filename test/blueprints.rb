@@ -16,13 +16,25 @@ User.blueprint do
 end
 
 User.blueprint(:annika) do
-  email { 'annika.fleisher@1000jobboersen.de' }
+  email { 'annika.fleischer@1000jobboersen.de' }
   password { 'password' }
   password_confirmation { 'password' }
 end
 
 User.blueprint(:benny) do
   email { 'benjamin.pochhammer@1000jobboersen.de' }
+  password { 'password' }
+  password_confirmation { 'password' }
+end
+
+Admin.blueprint do
+  email
+  password { 'password' }
+  password_confirmation { 'password' }
+end
+
+Admin.blueprint(:matt) do
+  email { 'matt.beedle@1000jobboersen.de' }
   password { 'password' }
   password_confirmation { 'password' }
 end
@@ -37,6 +49,13 @@ Lead.blueprint(:erich) do
   first_name { 'Erich' }
   last_name { 'Feldmeier' }
   user { User.make(:annika) }
+end
+
+Lead.blueprint(:kerstin) do
+  first_name { 'Kerstin' }
+  last_name { 'Pätzol' }
+  user { User.make(:annika) }
+  deleted_at { Time.now }
 end
 
 Lead.blueprint(:markus) do
@@ -69,10 +88,16 @@ Account.blueprint(:careermee) do
   user { User.make(:annika) }
 end
 
+Account.blueprint(:world_dating) do
+  name { 'World Dating' }
+  user { User.make(:benny) }
+end
+
 Contact.blueprint do
   first_name
   last_name
   user { User.make(:annika) }
+  account { Account.make }
 end
 
 Contact.blueprint(:florian) do
@@ -80,4 +105,37 @@ Contact.blueprint(:florian) do
   last_name { 'Behn' }
   user { User.make(:annika) }
   account { Account.make(:careermee) }
+end
+
+Contact.blueprint(:steven) do
+  first_name { 'Steven' }
+  last_name { 'Garcia' }
+  user { User.make(:annika) }
+  account { Account.make(:careermee) }
+end
+
+Activity.blueprint do
+end
+
+Activity.blueprint(:viewed_erich) do
+  user { User.make(:annika) }
+  subject { Lead.make(:erich) }
+  action { 'Viewed' }
+end
+
+Comment.blueprint do
+end
+
+Comment.blueprint(:made_offer_to_erich) do
+  user { User.make(:annika) }
+  commentable { Lead.make(:erich) }
+  text { 'Called erich, made offer' }
+end
+
+Attachment.blueprint do
+end
+
+Attachment.blueprint(:erich_offer_pdf) do
+  subject { Comment.make(:made_offer_to_erich) }
+  attachment { File.open("#{Rails.root}/test/upload-files/erich_offer.pdf") }
 end

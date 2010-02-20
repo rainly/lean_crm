@@ -1,12 +1,15 @@
 class LeadsController < InheritedResources::Base
+  before_filter :resource, :only => [:convert, :promote, :reject]
 
-  before_filter :resource, :only => [:convert, :promote]
+  respond_to :html
+  respond_to :xml, :only => [:create]
 
   has_scope :with_status, :type => :array
 
   def create
     create! do |success, failure|
       success.html { redirect_to leads_path }
+      success.xml { head :ok }
     end
   end
 
@@ -21,13 +24,22 @@ class LeadsController < InheritedResources::Base
   end
 
   def promote
-    @account, @contact = @lead.promote(params[:account_name])
+    @account, @contact = @lead.promote!(params[:account_name])
     redirect_to account_path(@account)
+  end
+
+  def reject
+    @lead.reject!
+    redirect_to leads_path
   end
 
 protected
   def collection
-    @leads ||= apply_scopes(Lead).scoped(:conditions => { :user_id => current_user.id })
+    @leads ||= apply_scopes(Lead).not_deleted.permitted_for(current_user)
+  end
+
+  def resource
+    @lead ||= Lead.permitted_for(current_user).find_by_id(params[:id])
   end
 
   def begin_of_association_chain

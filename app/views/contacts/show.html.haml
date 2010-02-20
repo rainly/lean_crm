@@ -1,2 +1,5 @@
+.actions
+  - simple_form_for @contact, :html => { :method => :delete } do |form|
+    = form.button :submit, t('delete'), :id => 'delete'
 = @contact.account.name
 = @contact.full_name

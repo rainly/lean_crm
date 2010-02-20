@@ -6,6 +6,32 @@ class UserTest < ActiveSupport::TestCase
       @user = User.make_unsaved(:annika)
     end
 
+    context 'recent_items' do
+      should 'return recently viewed items' do
+        @lead = Lead.make
+        Activity.log(@user, @lead, 'Viewed')
+        assert @user.recent_items.include?(@lead)
+      end
+
+      should 'order items by when they where viewed' do
+        @lead = Lead.make
+        @contact = Contact.make
+        @contact2 = Contact.make
+        Activity.log(@user, @lead, 'Viewed')
+        Activity.log(@user, @contact2, 'Viewed')
+        Activity.log(@user, @contact, 'Viewed')
+        assert_equal [@contact, @contact2, @lead], @user.recent_items
+      end
+
+      should 'return a maximum of 5 items' do
+        6.times do
+          @lead = Lead.make
+          Activity.log(@user, @lead, 'Viewed')
+        end
+        assert_equal 5, @user.recent_items.length
+      end
+    end
+
     should 'have uuid after creation' do
       @user.save!
       assert !@user.api_key.blank?

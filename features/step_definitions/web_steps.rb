@@ -11,10 +11,12 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   if defined?(Steam)
     assert_equal 200, response.status
   end
+  follow_redirect! if redirect?
 end
  
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
+  follow_redirect! if redirect?
 end
  
 When /^(?:|I )press "([^\"]*)"$/ do |button|

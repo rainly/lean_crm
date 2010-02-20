@@ -1,0 +1,2 @@
+.item
+  = "#{link_to activity.user.email, activity.user} #{activity.action.downcase} #{activity.subject_type.downcase} #{link_to activity.subject.name, activity.subject}"
