@@ -42,3 +42,20 @@ class Activity
     activity
   end
 end
+
+module MongoMapper
+  module Plugins
+    module NamedScope
+      class Scope
+        def visible_to( user )
+          delete_if do |activity|
+            (activity.subject.permission_is?('Private') and activity.subject.user != user) or
+            (activity.subject.permission_is?('Shared') and not
+             activity.subject.permitted_user_ids.include?(user.id) and
+             activity.subject.user != user)
+          end
+        end
+      end
+    end
+  end
+end
