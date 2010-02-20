@@ -2,7 +2,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  access_levels:
+  permissions:
     - Private
     - Public
     - Shared
@@ -63,7 +63,6 @@ en:
     - Viewed
     - Created
     - Updated
-    - Won
     - Completed
     - 'Re-assigned'
     - Rejected

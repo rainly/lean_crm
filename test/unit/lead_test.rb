@@ -2,7 +2,7 @@ require 'test_helper.rb'
 
 class LeadTest < ActiveSupport::TestCase
   context 'Class' do
-    should_have_constant :titles, :statuses, :sources, :salutations
+    should_have_constant :titles, :statuses, :sources, :salutations, :permissions
     should_act_as_paranoid
   end
 
@@ -30,6 +30,38 @@ class LeadTest < ActiveSupport::TestCase
       should 'return all leads which are not deleted' do
         assert_equal 2, Lead.not_deleted.count
         assert !Lead.not_deleted.include?(@deleted)
+      end
+    end
+
+    context 'permitted_for' do
+      setup do
+        @erich = Lead.make(:erich, :permission => 'Public')
+        @markus = Lead.make(:markus, :permission => 'Public')
+      end
+
+      should 'return all public leads' do
+        assert Lead.permitted_for(@erich.user).include?(@erich)
+        assert Lead.permitted_for(@erich.user).include?(@markus)
+      end
+
+      should 'return all leads belonging to the user' do
+        @erich.update_attributes :permission => 'Private'
+        assert Lead.permitted_for(@erich.user).include?(@erich)
+      end
+
+      should 'NOT return private leads belonging to another user' do
+        @markus.update_attributes :permission => 'Private'
+        assert !Lead.permitted_for(@erich.user).include?(@markus)
+      end
+
+      should 'return shared leads where the user is in the permitted user list' do
+        @markus.update_attributes :permission => 'Shared', :permitted_user_ids => [@erich.user.id]
+        assert Lead.permitted_for(@erich.user).include?(@markus)
+      end
+
+      should 'NOT return shared leads where the user is not in the permitted user list' do
+        @markus.update_attributes :permission => 'Shared', :permitted_user_ids => [@markus.user.id]
+        assert !Lead.permitted_for(@erich.user).include?(@markus)
       end
     end
   end
@@ -121,6 +153,12 @@ class LeadTest < ActiveSupport::TestCase
       @lead.user_id = nil
       assert !@lead.valid?
       assert @lead.errors.on(:user_id)
+    end
+
+    should 'require at least one permitted user if permission is "Shared"' do
+      @lead.permission = 'Shared'
+      assert !@lead.valid?
+      assert @lead.errors.on(:permitted_user_ids)
     end
 
     should 'be valid' do

@@ -8,6 +8,17 @@ Given /^I am registered and logged in as #{capture_model}$/ do |user|
   store_model('user', 'annika', User.last(:order => 'created_at'))
 end
 
+Given /^erich is shared with annika$/ do
+  lead = Lead.find_by_first_name('Erich')
+  user = User.find_by_email('annika.fleischer@1000jobboersen.de')
+  lead.update_attributes :permitted_user_ids => [user.id], :permission => 'Shared'
+end
+
+Given /^markus is not shared with annika$/ do
+  lead = Lead.find_by_first_name('Markus')
+  lead.update_attributes :permitted_user_ids => [lead.user_id], :permission => 'Shared'
+end
+
 Then /^a task should have been created$/ do
   assert_equal 1, Task.count
 end

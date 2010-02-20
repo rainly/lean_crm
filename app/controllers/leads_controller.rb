@@ -35,7 +35,11 @@ class LeadsController < InheritedResources::Base
 
 protected
   def collection
-    @leads ||= apply_scopes(Lead).scoped(:conditions => { :user_id => current_user.id }).not_deleted
+    @leads ||= apply_scopes(Lead).not_deleted.permitted_for(current_user)
+  end
+
+  def resource
+    @lead ||= Lead.permitted_for(current_user).find_by_id(params[:id])
   end
 
   def begin_of_association_chain

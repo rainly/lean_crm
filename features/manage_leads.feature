@@ -156,3 +156,33 @@ Feature: Manage leads
     And I should see "CareerMee"
     And I should see "Erich"
     And 1 accounts should exist
+
+  Scenario: Private lead (in)visiblity on leads page
+    Given I am registered and logged in as annika
+    And user: "benny" exists
+    And a lead: "erich" exists with user: benny, permission: "Private"
+    And a lead: "markus" exists with user: benny, permission: "Public"
+    When I go to the leads page
+    Then I should not see "Erich"
+    And I should see "Markus"
+
+  Scenario: Shared lead (in)visibility on leads page
+    Given I am registered and logged in as annika
+    And user: "benny" exists
+    And a lead: "erich" exists with user: benny
+    And a lead: "markus" exists with user: benny
+    And erich is shared with annika
+    And markus is not shared with annika
+    When I go to the leads page
+    Then I should see "Erich"
+    And I should not see "Markus"
+
+  Scenario: Viewing a shared lead
+    Given I am registered and logged in as annika
+    And user: "benny" exists
+    And a lead: "erich" exists with user: benny
+    And erich is shared with annika
+    And I am on the leads page
+    When I follow "erich-feldmeier"
+    Then I should see "Erich"
+    And I should be on the lead's page

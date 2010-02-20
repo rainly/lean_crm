@@ -28,12 +28,16 @@ class Lead
   key :linked_in,     String
   key :facebook,      String
   key :xing,          String
+  key :permission,    Integer
+  key :permitted_user_ids, Array
   timestamps!
 
   belongs_to :user
   has_many :comments, :as => :commentable
   has_many :tasks, :as => :asset
   has_many :activities, :as => :subject
+
+  validate :require_permitted_users
 
   before_validation_on_create :set_initial_state
   after_create  :log_creation
@@ -43,10 +47,17 @@ class Lead
   has_constant :statuses, lambda { I18n.t('lead_statuses') }
   has_constant :sources, lambda { I18n.t('lead_sources') }
   has_constant :salutations, lambda { I18n.t('salutations') }
+  has_constant :permissions, lambda { I18n.t('permissions') }
 
   named_scope :with_status, lambda {|statuses| { :conditions => {
     :status => statuses.map {|status| Lead.statuses.index(status) } } } }
   named_scope :not_deleted, :conditions => { :deleted_at => nil }
+  named_scope :permitted_for, lambda {|user| { :conditions => {
+    '$where' => <<-JAVASCRIPT
+      this.user_id == '#{user.id}' || this.permission == '#{Lead.permissions.index('Public')}' ||
+      (this.permission == '#{Lead.permissions.index('Shared')}' && this.permitted_user_ids[0] == '#{user.id}')
+    JAVASCRIPT
+  } } }
 
   def full_name
     "#{first_name} #{last_name}"
@@ -83,6 +94,12 @@ protected
     when @recently_destroyed then Activity.log(user, self, 'Deleted')
     else
       Activity.log(user, self, 'Updated')
+    end
+  end
+
+  def require_permitted_users
+    if I18n.locale_around(:en) { permission_is?('Shared') } and permitted_user_ids.length < 1
+      errors.add :permitted_user_ids, I18n.t('activerecord.errors.messages.blank')
     end
   end
 end
