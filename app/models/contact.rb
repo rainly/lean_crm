@@ -50,8 +50,11 @@ class Contact
   alias :name :full_name
 
   def self.create_for( lead, account )
-    contact = account.contacts.create :user => lead.user, :first_name => lead.first_name,
-      :last_name => lead.last_name, :lead => lead
+    contact = account.contacts.build :user => lead.user, :first_name => lead.first_name,
+      :last_name => lead.last_name, :lead => lead, :permission => account.permission,
+      :permitted_user_ids => account.permitted_user_ids
+    contact.save if account.valid?
+    contact
   end
 
   def log_creation

@@ -14,6 +14,9 @@ class Activity
 
   validates_presence_of :subject
 
+  named_scope :limit, lambda { |limit| { :limit => limit } }
+  named_scope :order, lambda { |key, direction| { :order => "#{key} #{direction}" } }
+
   has_constant :actions, lambda { I18n.t(:activity_actions) }
 
   def self.log( user, subject, action )
@@ -40,5 +43,22 @@ class Activity
       create_activity(user, subject, action)
     end
     activity
+  end
+end
+
+module MongoMapper
+  module Plugins
+    module NamedScope
+      class Scope
+        def visible_to( user )
+          delete_if do |activity|
+            (activity.subject.permission_is?('Private') and activity.subject.user != user) or
+            (activity.subject.permission_is?('Shared') and not
+             activity.subject.permitted_user_ids.include?(user.id) and
+             activity.subject.user != user)
+          end
+        end
+      end
+    end
   end
 end

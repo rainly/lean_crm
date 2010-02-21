@@ -1,9 +1,10 @@
 .show
   = @lead.full_name
 .actions
-  = link_to t('convert_lead'), convert_lead_path(@lead)
-  - simple_form_for @lead, :url => reject_lead_path(@lead), :html => { :method => :put } do |form|
-    = form.button :submit, t('reject_lead'), :id => 'reject'
+  - unless @lead.status_is?('Converted') or @lead.status_is?('Rejected')
+    = link_to t('convert_lead'), convert_lead_path(@lead)
+    - simple_form_for @lead, :url => reject_lead_path(@lead), :html => { :method => :put } do |form|
+      = form.button :submit, t('reject_lead'), :id => 'reject'
 .tasks
   = link_to t('add_task'), new_task_path(:asset_id => @lead.id, :asset_type => 'Lead', :return_to => request.request_uri), :id => 'add_task'
   = render :partial => 'tasks/task', :collection => @lead.tasks.incomplete

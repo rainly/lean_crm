@@ -54,11 +54,28 @@ class Lead
   end
   alias :name :full_name
 
-  def promote!( account_name )
-    account = self.user.accounts.find_or_create_by_name(account_name)
+  def promote!( account_name, options = {} )
+    begin
+      account = Account.find_by_id(Mongo::ObjectID.from_string(account_name))
+    rescue Mongo::InvalidObjectID => e
+      logger.debug e
+    end
+    unless account
+      if options[:permission] == 'Lead'
+        permission = self.permission
+        permitted = self.permitted_user_ids
+      else
+        permission = options[:permission]
+        permitted = options[:permitted_user_ids]
+      end
+      account = self.user.accounts.create :permission => permission,
+        :name => account_name, :permitted_user_ids => permitted
+    end
     contact = Contact.create_for(self, account)
     @recently_converted = true
-    I18n.locale_around(:en) { update_attributes :status => 'Converted' }
+    if account.valid? and contact.valid?
+      I18n.locale_around(:en) { update_attributes :status => 'Converted' }
+    end
     return account, contact
   end
 

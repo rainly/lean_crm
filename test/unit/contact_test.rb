@@ -21,6 +21,12 @@ class ContactTest < ActiveSupport::TestCase
         contact = Contact.create_for(@lead, @account)
         assert_equal @lead, contact.lead
       end
+
+      should 'not create the contact if the supplied account is invalid' do
+        @account.name = nil
+        contact = Contact.create_for(@lead, @account)
+        assert_equal 0, Contact.count
+      end
     end
   end
 

@@ -24,8 +24,12 @@ class LeadsController < InheritedResources::Base
   end
 
   def promote
-    @account, @contact = @lead.promote!(params[:account_name])
-    redirect_to account_path(@account)
+    @account, @contact = @lead.promote!(params[:account_id].blank? ? params[:account_name] : params[:account_id])
+    if @account.errors.blank? and @contact.errors.blank?
+      redirect_to account_path(@account)
+    else
+      render :action => :convert
+    end
   end
 
   def reject

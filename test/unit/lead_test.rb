@@ -135,6 +135,44 @@ class LeadTest < ActiveSupport::TestCase
         @lead.promote!('company name')
         assert_equal @lead, Account.find_by_name('company name').contacts.first.lead
       end
+
+      should 'be able to specify a "Private" permission level' do
+        @lead.promote!('A company', :permission => 'Private')
+        assert_equal 'Private', Account.first.permission
+        assert_equal 'Private', Contact.first.permission
+      end
+
+      should 'be able to specify a "Shared" permission level' do
+        @lead.promote!('A company', :permission => 'Shared', :permitted_user_ids => [@lead.user_id])
+        assert_equal 'Shared', Account.first.permission
+        assert_equal [@lead.user_id], Account.first.permitted_user_ids
+        assert_equal 'Shared', Contact.first.permission
+        assert_equal [@lead.user_id], Contact.first.permitted_user_ids
+      end
+
+      should 'be able to use leads permission level' do
+        @lead.update_attributes :permission => 'Shared', :permitted_user_ids => [@lead.user_id]
+        @lead.promote!('A company', :permission => 'Lead')
+        assert_equal @lead.permission, Account.first.permission
+        assert_equal @lead.permitted_user_ids, Account.first.permitted_user_ids
+        assert_equal @lead.permission, Contact.first.permission
+        assert_equal @lead.permitted_user_ids, Contact.first.permitted_user_ids
+      end
+
+      should 'return an invalid account without an account name' do
+        account, contact = @lead.promote!('')
+        assert !account.errors.blank?
+      end
+
+      should 'not create a contact when account is invalid' do
+        @lead.promote!('')
+        assert_equal 0, Contact.count
+      end
+
+      should 'not convert lead when account is invalid' do
+        @lead.promote!('')
+        assert_equal 'New', @lead.reload.status
+      end
     end
 
     should 'require first name' do

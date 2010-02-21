@@ -150,12 +150,20 @@ Feature: Manage leads
     And a account: "careermee" exists with user: annika
     And I am on the lead's page
     When I follow "convert"
-    And I fill in "account_name" with "CareerMee"
+    And I select "CareerMee" from "account_id"
     And I press "convert"
     Then I should be on the account page
     And I should see "CareerMee"
     And I should see "Erich"
     And 1 accounts should exist
+
+  Scenario: Trying to convert a lead without entering an account name
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika
+    And I am on the lead's page
+    When I follow "convert"
+    And I press "convert"
+    Then I should be on the lead's promote page
 
   Scenario: Private lead (in)visiblity on leads page
     Given I am registered and logged in as annika
@@ -202,3 +210,17 @@ Feature: Manage leads
     When I follow "erich-feldmeier"
     Then I should see "Erich"
     And I should be on the lead's page
+
+  Scenario: Actions for a converted lead
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika, status: "Converted"
+    When I am on the lead's page
+    Then I should not see "convert"
+    And I should not see "reject"
+
+  Scenario: Actions for a rejected lead
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika, status: "Rejected"
+    When I am on the lead's page
+    Then I should not see "convert"
+    And I should not see "reject"

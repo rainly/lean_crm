@@ -1,8 +1,23 @@
 - form_tag promote_lead_path(@lead), :method => :put do
-  %p
-    %label{ :for => 'account_name' }= t('account_name')
-    = text_field_tag 'account_name'
-  %p
-    = submit_tag t('convert_lead'), :id => 'convert'
-    = t('or')
-    = link_to t('cancel'), :back
+  %fieldset
+    %p
+      %label{ :for => 'account_name' }= t('account_name')
+      = text_field_tag 'account_name'
+    %p
+      %label{ :for => 'account_id' }= t('account_id')
+      = select_tag :account_id, options_for_select([''] + Account.all.map {|a| [a.name, a.id] }, params[:account_id])
+  %fieldset
+    %p
+      %label{ :for => 'permission' }= t('permission')
+      = select_tag :permission, options_for_select(Account.permissions, params[:permission]), :include_blank => true
+    %p
+      = t('permitted_users')
+      %br/
+      - User.all.each do |user|
+        = check_box_tag :permitted_user_ids, user.id, params[:permitted_user_ids] && params[:permitted_user_ids].include?(user.id), :id => "permitted_user_ids_#{user.id}"
+        %label{ :for => "permitted_user_ids_#{user.id}" }= user.email
+  %fieldset
+    %p
+      = submit_tag t('convert_lead'), :id => 'convert'
+      = t('or')
+      = link_to t('cancel'), :back
