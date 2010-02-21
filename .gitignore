@@ -5,5 +5,6 @@ log/development.log
 log/*.log
 tmp/*
 tmp
+tmp/sass-cache
 tmp/
 config/settings.yml
