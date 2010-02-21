@@ -14,6 +14,9 @@ class Activity
 
   validates_presence_of :subject
 
+  named_scope :limit, lambda { |limit| { :limit => limit } }
+  named_scope :order, lambda { |key, direction| { :order => "#{key} #{direction}" } }
+
   has_constant :actions, lambda { I18n.t(:activity_actions) }
 
   def self.log( user, subject, action )

@@ -59,6 +59,19 @@ class ActivityTest < ActiveSupport::TestCase
   end
 
   context 'Named Scopes' do
+    context 'limit' do
+      setup do
+        12.times do
+          Account.make
+        end
+      end
+
+      should 'limit the results to the specified length' do
+        assert_equal 2, Activity.limit(2).length
+        assert_equal 10, Activity.limit(10).length
+      end
+    end
+
     context 'visible_to' do
       setup do
         @annika = User.make(:annika)
