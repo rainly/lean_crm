@@ -13,6 +13,7 @@ class Task
   key :priority,        Integer
   key :completed_at,    Time
   key :deleted_at,      Time
+  timestamps!
 
   has_constant :categories, lambda { I18n.t(:task_categories) }
 
@@ -24,7 +25,54 @@ class Task
   has_many :activities, :as => :subject
 
   named_scope :incomplete, :conditions => { :completed_at => nil }
-  named_scope :due_today, lambda { { :conditions => { :due_at => { '$lt' => Time.zone.now.tomorrow.midnight } } } }
+
+  named_scope :due_today, lambda { { :conditions => { :due_at =>
+    { '$lt' => Time.zone.now.tomorrow.midnight } } } }
+
+  named_scope :for, lambda { |user| { :conditions =>
+    { '$where' => "this.user_id == '#{user.id}' || this.assignee_id == '#{user.id}'" } } }
+
+  named_scope :assigned, :conditions => { :assignee_id => { '$ne' => nil } }
+
+  named_scope :completed, :conditions => { :completed_at => { '$ne' => nil } }
+
+  named_scope :overdue, lambda { { :conditions => { :due_at => {
+    '$lt' => Time.zone.now.midnight.utc } } } }
+
+  named_scope :due_today, lambda { { :conditions => { :due_at =>
+    Time.zone.now.end_of_day.utc - 1.second } } }
+
+  named_scope :due_tomorrow, lambda { { :conditions => { :due_at =>
+    Time.zone.now.tomorrow.end_of_day.utc - 1.second } } }
+
+  named_scope :due_this_week, lambda { { :conditions => { :due_at => {
+    '$gte' => (Time.zone.now.tomorrow.end_of_day.utc + 1.day) - 1.second,
+    '$lt' => Time.zone.now.next_week.utc } } } }
+
+  named_scope :due_next_week, lambda { { :conditions => { :due_at => {
+    '$gte' => Time.zone.now.next_week.beginning_of_week.utc - 1.second,
+    '$lt' => Time.zone.now.next_week.end_of_week } } } }
+
+  named_scope :due_later, lambda { { :conditions => { :due_at => {
+    '$gt' => Time.zone.now.next_week.end_of_week } } } }
+
+  named_scope :completed_today, lambda { { :conditions => { :completed_at => {
+    '$gte' => Time.zone.now.midnight.utc, '$lt' => Time.zone.now.midnight.tomorrow.utc } } } }
+
+  named_scope :completed_yesterday, lambda { { :conditions => { :completed_at => {
+    '$gte' => Time.zone.now.midnight.yesterday.utc, '$lt' => Time.zone.now.midnight.utc } } } }
+
+  named_scope :completed_last_week, lambda { { :conditions => { :completed_at => {
+    '$gte' => Time.zone.now.beginning_of_week.utc - 7.days,
+    '$lt' => Time.zone.now.beginning_of_week.utc } } } }
+
+  named_scope :completed_this_month, lambda { { :conditions => { :completed_at => {
+    '$gte' => Time.zone.now.beginning_of_month.utc,
+    '$lt' => Time.zone.now.beginning_of_week.utc - 7.days } } } }
+
+  named_scope :completed_last_month, lambda { { :conditions => { :completed_at => {
+    '$gte' => (Time.zone.now.beginning_of_month.utc - 1.day).beginning_of_month.utc,
+    '$lt' => Time.zone.now.beginning_of_month.utc } } } }
 
   before_update :log_reassignment
   after_create  :log_creation
@@ -40,7 +88,7 @@ class Task
   def completed_by_id=( user_id )
     if user_id and not completed?
       @recently_completed = true
-      self[:completed_at] = Time.zone.now
+      self[:completed_at] = Time.zone.now unless self[:completed_at]
       self[:completed_by_id] = user_id
     end
   end

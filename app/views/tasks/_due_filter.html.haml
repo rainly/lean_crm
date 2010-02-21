@@ -1,0 +1,20 @@
+%fieldset
+  %p
+    %label{ :for => 'overdue' }= t('overdue')
+    = check_box_tag :overdue, true, params[:overdue]
+  %p
+    %label{ :for => 'due_today' }= t('due_today')
+    = check_box_tag :due_today, true, params[:due_today]
+  %p
+    %label{ :for => 'due_tomorrow' }= t('due_tomorrow')
+    = check_box_tag :due_tomorrow, true, params[:due_tomorrow]
+  %p
+    %label{ :for => 'due_this_week' }= t('due_this_week')
+    = check_box_tag :due_this_week, true, params[:due_this_week]
+  %p
+    %label{ :for => 'due_next_week' }= t('due_next_week')
+    = check_box_tag :due_next_week, true, params[:due_next_week]
+  %p
+    %label{ :for => 'due_later' }= t('due_later')
+    = check_box_tag :due_later, true, params[:due_later]
+

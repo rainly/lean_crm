@@ -49,6 +49,150 @@ class TaskTest < ActiveSupport::TestCase
       @task = Task.make(:call_erich)
     end
 
+    context 'overdue' do
+      setup do
+        @task.update_attributes :due_at => 'due_next_week'
+        @task2 = Task.make :due_at => 'overdue'
+      end
+
+      should 'return tasks which are due yesterday or earlier' do
+        assert_equal [@task2], Task.overdue
+      end
+    end
+
+    context 'due_today' do
+      setup do
+        @task.update_attributes :due_at => 'overdue'
+        @task2 = Task.make :due_at => 'due_today'
+      end
+
+      should 'return tasks which are due today' do
+        assert_equal [@task2], Task.due_today
+      end
+    end
+
+    context 'due_tomorrow' do
+      setup do
+        @task.update_attributes :due_at => 'overdue'
+        @task2 = Task.make :due_at => 'due_tomorrow'
+      end
+
+      should 'return tasks which are due tomorrow' do
+        assert_equal [@task2], Task.due_tomorrow
+      end
+    end
+
+    context 'due_next_week' do
+      setup do
+        @task.update_attributes :due_at => 'overdue'
+        @task2 = Task.make :due_at => 'due_next_week'
+      end
+
+      should 'return tasks which are due next week' do
+        assert_equal [@task2], Task.due_next_week
+      end
+    end
+
+    context 'due_later' do
+      setup do
+        @task.update_attributes :due_at => 'overdue'
+        @task2 = Task.make :due_at => 6.months.from_now
+      end
+
+      should 'return tasks which are due after next week' do
+        assert_equal [@task2], Task.due_later
+      end
+    end
+
+    context 'completed_today' do
+      setup do
+        @task2 = Task.make
+        @task2.update_attributes :completed_by_id => @task2.user_id
+        @task2.update_attributes :completed_at => Time.zone.now
+      end
+
+      should 'return tasks which were completed today' do
+        assert_equal [@task2], Task.completed_today
+      end
+    end
+
+    context 'completed_yesterday' do
+      setup do
+        @task2 = Task.make
+        @task2.update_attributes :completed_by_id => @task2.user_id
+        @task2.update_attributes :completed_at => Time.zone.now.yesterday.utc
+      end
+
+      should 'return tasks which were completed yesterday' do
+        assert_equal [@task2], Task.completed_yesterday
+      end
+    end
+
+    context 'completed_last_week' do
+      setup do
+        @task2 = Task.make
+        @task2.update_attributes :completed_by_id => @task2.user_id
+        @task2.update_attributes :completed_at => Time.zone.now.beginning_of_week.utc - 7.days
+      end
+
+      should 'return tasks which where completed last week' do
+        assert_equal [@task2], Task.completed_last_week
+      end
+    end
+
+    context 'completed_last_month' do
+      setup do
+        @task2 = Task.make
+        @task2.update_attributes :completed_by_id => @task2.user_id
+        @task2.update_attributes :completed_at => Time.zone.now.beginning_of_month - 1.month
+      end
+
+      should 'return tasks which where completed last month' do
+        assert_equal [@task2], Task.completed_last_month
+      end
+    end
+
+    context 'completed' do
+      setup do
+        @task = Task.make(:call_erich)
+        @task.update_attributes :completed_by_id => @task.user.id
+        @incomplete = Task.make
+      end
+
+      should 'return all completed tasks' do
+        assert_equal [@task], Task.completed
+      end
+    end
+
+    context 'assigned' do
+      setup do
+        @benny = User.make(:benny)
+        @assigned = Task.make(:call_erich, :assignee => @benny)
+        @unassigned = Task.make
+      end
+
+      should 'return all assigned tasks' do
+        assert_equal [@assigned], Task.assigned
+      end
+    end
+
+    context 'for' do
+      should 'return all tasks created by the supplied user' do
+        assert_equal [@task], Task.for(@task.user)
+      end
+
+      should 'return all tasks assigned to the current user' do
+        @benny = User.make(:benny)
+        @task.update_attributes :assignee_id => @benny.id
+        assert_equal [@task], Task.for(@benny)
+      end
+
+      should 'not return tasks not created by or assigned to the supplied user' do
+        @benny = User.make(:benny)
+        assert_equal [], Task.for(@benny)
+      end
+    end
+
     context 'incomplete' do
       should 'return tasks which have not been completed' do
         assert_equal [@task], Task.incomplete
@@ -226,7 +370,7 @@ class TaskTest < ActiveSupport::TestCase
 
       should 'set due_at to 100 years from midnight if "due_later" is specified' do
         @task.due_at = 'due_later'
-        assert (Time.zone.now.end_of_day + 5.years).to_i == @task.due_at.to_i
+        assert((Time.zone.now.end_of_day + 5.years).to_i == @task.due_at.to_i)
       end
 
       should 'set due_at to specified time, if an actual time is specified' do

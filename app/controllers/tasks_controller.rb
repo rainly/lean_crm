@@ -1,8 +1,23 @@
 class TasksController < InheritedResources::Base
 
+  has_scope :assigned,              :type => :boolean
+  has_scope :completed,             :type => :boolean
+  has_scope :incomplete,            :type => :boolean
+  has_scope :overdue,               :type => :boolean
+  has_scope :due_today,             :type => :boolean
+  has_scope :due_tomorrow,          :type => :boolean
+  has_scope :due_this_week,         :type => :boolean
+  has_scope :due_next_week,         :type => :boolean
+  has_scope :due_later,             :type => :boolean
+  has_scope :completed_today,       :type => :boolean
+  has_scope :completed_yesterday,   :type => :boolean
+  has_scope :completed_last_week,   :type => :boolean
+  has_scope :completed_this_month,  :type => :boolean
+  has_scope :completed_last_month,  :type => :boolean
+
   def create
     create! do |success, failure|
-      success.html { return_to_or_default task_path(@task) }
+      success.html { return_to_or_default tasks_path }
     end
   end
 
@@ -32,7 +47,7 @@ protected
   end
 
   def collection
-    @tasks ||= current_user.tasks.all
+    @tasks ||= apply_scopes(Task).for(current_user)
   end
 
   def begin_of_association_chain

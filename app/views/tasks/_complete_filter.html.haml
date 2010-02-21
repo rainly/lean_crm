@@ -1,0 +1,16 @@
+%fieldset
+  %p
+    %label{ :for => 'completed_today' }= t('today')
+    = check_box_tag :completed_today, true, params[:completed_today]
+  %p
+    %label{ :for => 'completed_yesterday' }= t('yesterday')
+    = check_box_tag :completed_yesterday, true, params[:completed_yesterday]
+  %p
+    %label{ :for => 'completed_last_week' }= t('last_week')
+    = check_box_tag :completed_last_week, true, params[:completed_last_week]
+  %p
+    %label{ :for => 'completed_this_month' }= t('this_month')
+    = check_box_tag :completed_this_month, true, params[:completed_this_month]
+  %p
+    %label{ :for => 'completed_last_month' }= t('last_month')
+    = check_box_tag :completed_last_month, true, params[:completed_last_month]
