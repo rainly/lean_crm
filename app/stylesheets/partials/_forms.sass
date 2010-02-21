@@ -1,0 +1,115 @@
+//---------------------------------------------------
+// Basic Elements
+//---------------------------------------------------
+fieldset
+  :border none
+label
+  :cursor pointer
+  :display block
+  :font-size 13px
+  :font-weight bold
+  :padding-bottom 5px
+  abbr
+    :border none
+    :color #f00
+    :display block
+    :float left
+    :width 7px
+input, textarea
+  :border 1px solid #aaa
+  +border-radius(2px)
+  :font-size 16px
+  +inset-box-shadow(#ddd,1px,1px,4px)
+  :padding 5px
+  :width 100%
+input[type="submit"]
+  +border-radius(14px)
+  :border 1px solid #{!act_grad_3}
+  +box-shadow(#999, 0px, 1px,3px)
+  :color #fff
+  :cursor pointer
+  :font-size 14px
+  :padding 4px 12px
+  +shiny-button(!act_grad_1, !act_grad_2, !act_grad_3)
+  +text-shadow(!act_grad_3 - 30, 2px, 2px,2px)
+  :width auto
+//---------------------------------------------------
+// Form Grids
+//---------------------------------------------------
+=field(!width,!input_width,!padding_right=3.6%)
+  :width = !width
+  :padding-right = !padding_right
+  &.last
+    :padding-right 0
+  input, textarea
+    :width = !input_width
+  select
+    :width = !input_width + 2%
+  span.error
+    :width = !input_width + 3%
+fieldset
+  +border-radius(5px)
+  :margin-bottom 20px
+  +v-grad(#efeee1,#d3d0c4)
+  :padding 20px 24px 20px 20px
+  div
+    :clear none
+    :float left
+    :margin 0 0 12px 0
+    &.last
+      :padding-right 0
+.\31 00
+  +field(100%,98.8%,0)
+.\38 0
+  +field(79.3%,98.5%)
+.\37 5
+  +field(74.1%,98.4%)
+.\37 0
+  +field(68.9%,98.2%)
+.\36 6
+  +field(65.5%,98.2%)
+.\36 0
+  +field(58.6%,98%)
+.\35 0
+  +field(48.2%,97.7%)
+.\34 0
+  +field(37.8%,96.7%)
+.\33 3
+  +field(30.9%,96.6%)
+.\33 0
+  +field(27.5%,95.7%)
+.\32 5
+  +field(22.3%,94.7%)
+
+.\32 0
+  +field(17.1%,93%)
+.\31 0
+  +field(6.76%,82%)
+
+#ruler
+  :width 100px
+  :height 1200px
+  :position absolute
+  :left 68.6%
+  :top 0em
+  :background #f00
+//---------------------------------------------------
+// Error Messages
+//---------------------------------------------------
+fieldset .fieldWithErrors
+  :margin 0px
+  :width 100%
+  input, textarea
+    :background-color #fcc
+    +inset-box-shadow(#daa,1px,1px,4px)
+    :border-color #f00
+span.error
+  :font-size 13px
+  :color #f00
+  :display block
+  :clear both
+  :margin-bottom 10px
+  :padding-left 5px
+  :font-weight bold
+.clear
+  :clear both

@@ -1,0 +1,58 @@
+/*
+Sass::SyntaxError: Undefined mixin 'fancy-button-structure'.
+on line 28 of /Users/home/code/apps/lean_crm/app/stylesheets/buttons.sass
+
+24: =invert-custom-fancy-gradient(!color1, !color2)
+25:   +custom-fancy-gradient(lighten(!color2, 10), lighten(!color2, 25))
+26:   
+27: a.button, button  
+28:   +fancy-button-structure
+29:   +fancy-button-colors
+30:   margin: 0 2px
+31:   vertical-align: middle
+32:   &.light
+33:     +fancy-button-colors-matte(#ddd)
+34:   &.matte-blue
+
+
+Backtrace:
+/Users/home/code/apps/lean_crm/app/stylesheets/buttons.sass:28
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/mixin_node.rb:27:in `_perform'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:158:in `perform'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:202:in `perform_children'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:202:in `map'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:202:in `perform_children'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:193:in `perform!'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/rule_node.rb:160:in `perform!'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:181:in `_perform'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:158:in `perform'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:202:in `perform_children'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:202:in `map'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:202:in `perform_children'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:193:in `perform!'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:181:in `_perform'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:158:in `perform'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/tree/node.rb:103:in `render'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/haml-2.2.20/lib/sass/engine.rb:164:in `render'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/compiler.rb:96:in `compile'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/logger.rb:42:in `red'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/compiler.rb:95:in `compile'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/compiler.rb:86:in `compile_if_required'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/compiler.rb:77:in `run'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/compiler.rb:75:in `each'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/compiler.rb:75:in `run'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/commands/watch_project.rb:91:in `recompile'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/commands/watch_project.rb:39:in `perform'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/commands/base.rb:18:in `execute'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/commands/project_base.rb:19:in `execute'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/exec/switch_ui.rb:166:in `do_command'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/exec/switch_ui.rb:35:in `perform!'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/lib/compass/exec/switch_ui.rb:18:in `run!'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/bin/compass:26
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/bin/compass:19:in `load'
+/Users/home/.rvm/gems/ree-1.8.7-2010.01/bin/compass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Sass::SyntaxError: Undefined mixin 'fancy-button-structure'.\A on line 28 of /Users/home/code/apps/lean_crm/app/stylesheets/buttons.sass\A \A 24: =invert-custom-fancy-gradient(!color1, !color2)\A 25:   +custom-fancy-gradient(lighten(!color2, 10), lighten(!color2, 25))\A 26:   \A 27: a.button, button  \A 28:   +fancy-button-structure\A 29:   +fancy-button-colors\A 30:   margin: 0 2px\A 31:   vertical-align: middle\A 32:   &.light\A 33:     +fancy-button-colors-matte(#ddd)\A 34:   &.matte-blue\A "; }

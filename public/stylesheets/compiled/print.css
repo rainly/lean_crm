@@ -1,71 +1,85 @@
-/*
-TypeError: can't convert nil into String
+/* line 23, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+body {
+  line-height: 1.5;
+  font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+  color: #000;
+  background: none;
+  font-size: 10pt;
+}
 
-Backtrace:
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/files.rb:94:in `join'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/files.rb:94:in `sassc_filename'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/files.rb:23:in `tree_for'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:96:in `update_stylesheet'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:82:in `update_stylesheets'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:77:in `each'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:77:in `update_stylesheets'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:75:in `each'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:75:in `update_stylesheets'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/plugin.rb:62:in `check_for_updates'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/haml-2.2.17/lib/sass/plugin/rails.rb:18:in `process_without_compass'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/compass-0.10.0.pre5/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/warden-0.9.2/lib/warden/manager.rb:34:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/warden-0.9.2/lib/warden/manager.rb:33:in `catch'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/warden-0.9.2/lib/warden/manager.rb:33:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
-/opt/ruby-enterprise-1.8.7-2009.10/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
-script/server:3
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "TypeError: can't convert nil into String"; }
+/* line 46, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+.container {
+  background: none;
+}
+
+/* line 48, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+hr {
+  background: #ccc;
+  color: #ccc;
+  width: 100%;
+  height: 2px;
+  margin: 2em 0;
+  padding: 0;
+  border: none;
+}
+/* line 56, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+hr.space {
+  background: #fff;
+  color: #fff;
+}
+
+/* line 59, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+h1, h2, h3, h4, h5, h6 {
+  font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+}
+
+/* line 61, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+code {
+  font-size: .9em;
+  font-family: 'andale mono', 'lucida console', monospace;
+}
+
+/* line 66, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+a img {
+  border: none;
+}
+/* line 68, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+a:link,
+a:visited {
+  background: transparent;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* line 73, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+p img.top {
+  margin-top: 0;
+}
+
+/* line 75, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+blockquote {
+  margin: 1.5em;
+  padding: 1em;
+  font-style: italic;
+  font-size: .9em;
+}
+
+/* line 80, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+.small {
+  font-size: .9em;
+}
+
+/* line 82, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+.large {
+  font-size: 1.1em;
+}
+
+/* line 84, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+.quiet {
+  color: #999;
+}
+
+/* line 86, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/blueprint/stylesheets/blueprint/_print.sass */
+.hide {
+  display: none;
+}

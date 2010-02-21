@@ -2,7 +2,6 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-<<<<<<< HEAD
   #------------------------------------------------------------------
   # Navigation
   #------------------------------------------------------------------
@@ -14,9 +13,7 @@ en:
   
   access_levels:
     - Private
-=======
   permissions:
->>>>>>> 776907b93afbed7edd67a6764b6bd1cbb114a22f
     - Public
     - Shared
     - Private
@@ -87,12 +84,7 @@ en:
   emails:
     task_reassigned:
       subject: You have been assigned a new task
-<<<<<<< HEAD
   logout: Log Out
-
-  
-  
-=======
 
   navigation:
     dashboard: Dashboard
@@ -112,4 +104,3 @@ en:
       dashboard: Dashboard
       configuration: Configuration
       logout: Logout
->>>>>>> 776907b93afbed7edd67a6764b6bd1cbb114a22f

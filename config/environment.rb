@@ -20,13 +20,13 @@ Rails::Initializer.run do |config|
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'haml'
-  config.gem 'inherited_resources'
+  config.gem 'inherited_resources', :version => "1.0.0"
+  config.gem 'responders', :version => "0.4.0"
   config.gem 'warden'
   config.gem 'devise'
   config.gem 'mongo'
   config.gem 'carrierwave'
   config.gem 'compass', :version=>"0.10.0.pre5", :source => "http://gems.github.com"
-  config.gem 'fancy-buttons'
   config.gem 'shoulda'
   config.gem 'cucumber'
   config.gem 'machinist'

@@ -1,12 +1,60 @@
 body
   :background = !body_background
   :width 100%
-  
+  :margin 0px
+  :position relative
+#header, #content
+  :min-width 960px
+//---------------------------------------------------
+// Header
+//---------------------------------------------------
 #header
-  +v-gradient(!header_grad_1, !header_grad_2)
+  :color = !header_color
+  +v-grad(!header_grad_1, !header_grad_2)
   :width 100%
+  +clearfix
+  h1
+    :color = !header_color
+    :float left
+    :font-weight normal
+    :margin-top 26px
+    :padding-bottom 12px
+    +text-shadow((!header_grad_2 - 30), 2px, 2px, 2px)
+    strong
+      :color #fff
   .pad
-    :padding 20px
+    :padding 0px 20px
+    +clearfix
+
+#menus
+  :float right
+  p
+    :text-align right
+    :padding-bottom 10px
 
 ul#navigation
-  +horizontal_list
+  :margin-right -12px
+  +tab_menu
+  :padding 4px 12px 0px 12px
+  
+  a
+    +box-shadow(#213340, 1px, 1px, 5px)
+    :color #fff
+    +shiny-button(!nav_grad_1, !nav_grad_2, !nav_grad_3)
+    :padding 8px 18px
+    +text-shadow(#000, 0px, 1px, 1px)
+
+//---------------------------------------------------
+// Content
+//---------------------------------------------------
+#content
+  .pad
+    :padding 20px
+div#main
+  :background #fff
+  +box-shadow(#666, 1px, 1px,5px)
+  +border-radius(4px)
+  :width 72%
+  .pad
+    :padding 20px
+  
