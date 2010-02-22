@@ -21,7 +21,7 @@ a, input {
   color: #b8d8f2;
   background: #405880;
   background: -webkit-gradient(linear, left top, left bottom, from(#648eaf), to(#405880));
-  background: -moz-linear-gradient(top, #648eaf, #405880);
+  background: -moz-linear-gradient(center top, #648eaf 0%, #405880 100%);
   width: 100%;
   overflow: hidden;
   display: inline-block;
@@ -135,8 +135,8 @@ ul#navigation a {
   box-shadow: #213340 1px 1px 5px;
   color: #fff;
   background: #648eaf;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #75a7d0), color-stop(0.87, #648eaf), color-stop(1, #516b8c) );
-  background: -moz-linear-gradient(top, #75a7d0 0%, #648eaf 14%,  #516b8c 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7cb3de), color-stop(0.17, #648eaf), color-stop(1, #516b8c) );
+  background: -moz-linear-gradient(top, #7cb3de 0%, #648eaf 17%,  #516b8c 100%);
   text-align: center;
   text-decoration: none;
   padding: 8px 18px;
@@ -145,16 +145,16 @@ ul#navigation a {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 ul#navigation a:hover {
   background: #78a2c3;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #89bbe4), color-stop(0.87, #78a2c3), color-stop(1, #657fa0) );
-  background: -moz-linear-gradient(top, #89bbe4 0%, #78a2c3 14%,  #657fa0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #90c7f2), color-stop(0.14, #78a2c3), color-stop(1, #657fa0) );
+  background: -moz-linear-gradient(top, #90c7f2 0%, #78a2c3 14%,  #657fa0 100%);
 }
 /* line 52, ../../../app/stylesheets/partials/_layout.sass */
 ul#navigation a.active {
   color: #6a6a6a;
   font-weight: bold;
   background: #dddddd;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeee), color-stop(0.87, #dddddd), color-stop(1, #cfcfcf) );
-  background: -moz-linear-gradient(top, #eeeeee 0%, #dddddd 14%,  #cfcfcf 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeee), color-stop(0.17, #dddddd), color-stop(1, #cfcfcf) );
+  background: -moz-linear-gradient(top, #eeeeee 0%, #dddddd 17%,  #cfcfcf 100%);
   text-align: center;
   text-decoration: none;
   text-shadow: white 0px 1px 0px;
@@ -162,7 +162,7 @@ ul#navigation a.active {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 ul#navigation a.active:hover {
   background: #ddddddfalse;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeeefalse), color-stop(0.87, #ddddddfalse), color-stop(1, #cfcfcffalse) );
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeeefalse), color-stop(0.14, #ddddddfalse), color-stop(1, #cfcfcffalse) );
   background: -moz-linear-gradient(top, #eeeeeefalse 0%, #ddddddfalse 14%,  #cfcfcffalse 100%);
 }
 
@@ -198,29 +198,11 @@ div#main h2.title {
 }
 /* line 75, ../../../app/stylesheets/partials/_layout.sass */
 div#main h2.title a {
-  border-radius: 14px;
-  -moz-border-radius: 14px;
-  -webkit-border-radius: 14px;
   float: right;
-  background: #dddddd;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.87, #dddddd), color-stop(1, #cccccc) );
-  background: -moz-linear-gradient(top, white 0%, #dddddd 14%,  #cccccc 100%);
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid #999;
-  color: #444;
-  text-shadow: white 0px 1px 0px;
-  font-size: 13px;
   margin-top: -8px;
-  padding: 5px 9px;
+  font-size: 13px;
 }
-/* line 18, ../../../app/stylesheets/partials/_tools.sass */
-div#main h2.title a:hover {
-  background: #f1f1f1;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.87, #f1f1f1), color-stop(1, #e0e0e0) );
-  background: -moz-linear-gradient(top, white 0%, #f1f1f1 14%,  #e0e0e0 100%);
-}
-/* line 82, ../../../app/stylesheets/partials/_layout.sass */
+/* line 79, ../../../app/stylesheets/partials/_layout.sass */
 div#main h2.title b {
   background: #999;
   border-radius: 10px;
@@ -237,14 +219,41 @@ div#main h2.title b {
   text-shadow: #555555 0px 1px 0px;
 }
 
-/* line 94, ../../../app/stylesheets/partials/_layout.sass */
+/* line 92, ../../../app/stylesheets/partials/_layout.sass */
+a#new {
+  border-radius: 14px;
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  background: #eaeaea;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
+  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%,  #cccccc 100%);
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #999;
+  color: #444;
+  text-shadow: white 0px 1px 0px;
+  padding: 5px 9px;
+  font-size: 13px;
+}
+/* line 18, ../../../app/stylesheets/partials/_tools.sass */
+a#new:hover {
+  background: #fefefe;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
+  background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
+}
+/* line 98, ../../../app/stylesheets/partials/_layout.sass */
+a#new:hover b {
+  background: #eee;
+}
+
+/* line 101, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar {
   clear: none;
   float: left;
   width: 26%;
   padding-left: 2%;
 }
-/* line 99, ../../../app/stylesheets/partials/_layout.sass */
+/* line 106, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters {
   margin: 0;
   padding: 0;
@@ -276,15 +285,16 @@ div#main h2.title b {
 #sidebar ul.filters li.last {
   padding-right: 0px;
 }
-/* line 102, ../../../app/stylesheets/partials/_layout.sass */
+/* line 109, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters li {
   margin: 0px;
   padding: 0px;
   display: block;
   float: left;
+  font-size: 12px;
   width: 33%;
 }
-/* line 108, ../../../app/stylesheets/partials/_layout.sass */
+/* line 116, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters li.first a {
   border-top-left-radius: 14px;
   -moz-border-radius-topleft: 14px;
@@ -293,7 +303,7 @@ div#main h2.title b {
   -moz-border-radius-bottomleft: 14px;
   -webkit-border-bottom-left-radius: 14px;
 }
-/* line 110, ../../../app/stylesheets/partials/_layout.sass */
+/* line 118, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters li.last a {
   border-top-right-radius: 14px;
   -moz-border-radius-topright: 14px;
@@ -302,12 +312,12 @@ div#main h2.title b {
   -moz-border-radius-bottomright: 14px;
   -webkit-border-bottom-right-radius: 14px;
 }
-/* line 112, ../../../app/stylesheets/partials/_layout.sass */
+/* line 120, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters a {
   display: block;
-  background: #dddddd;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.87, #dddddd), color-stop(1, #cccccc) );
-  background: -moz-linear-gradient(top, white 0%, #dddddd 14%,  #cccccc 100%);
+  background: #eaeaea;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
+  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%,  #cccccc 100%);
   text-align: center;
   text-decoration: none;
   border: 1px solid #999;
@@ -318,15 +328,15 @@ div#main h2.title b {
 }
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 #sidebar ul.filters a:hover {
-  background: #f1f1f1;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.87, #f1f1f1), color-stop(1, #e0e0e0) );
-  background: -moz-linear-gradient(top, white 0%, #f1f1f1 14%,  #e0e0e0 100%);
+  background: #fefefe;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
+  background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 117, ../../../app/stylesheets/partials/_layout.sass */
+/* line 125, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters a.active {
   background: #777777;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.87, #777777), color-stop(1, #999999) );
-  background: -moz-linear-gradient(top, #666666 0%, #777777 14%,  #999999 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.17, #777777), color-stop(1, #999999) );
+  background: -moz-linear-gradient(top, #666666 0%, #777777 17%,  #999999 100%);
   text-align: center;
   text-decoration: none;
   border: 1px solid #666;
@@ -336,24 +346,24 @@ div#main h2.title b {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 #sidebar ul.filters a.active:hover {
   background: #8b8b8b;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.87, #8b8b8b), color-stop(1, #adadad) );
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 119, ../../../app/stylesheets/partials/_layout.sass */
+/* line 127, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 12px;
 }
-/* line 122, ../../../app/stylesheets/partials/_layout.sass */
+/* line 130, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.gold {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #c0c0b1;
   background: #f2f2e3;
 }
 
-/* line 127, ../../../app/stylesheets/partials/_layout.sass */
+/* line 135, ../../../app/stylesheets/partials/_layout.sass */
 .inline-add {
   font-size: 14px;
   padding-top: 20px;
@@ -453,8 +463,8 @@ input[type="submit"] {
   font-size: 14px;
   padding: 4px 12px;
   background: #ff8800;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffae35), color-stop(0.87, #ff8800), color-stop(1, #d36f12) );
-  background: -moz-linear-gradient(top, #ffae35 0%, #ff8800 14%,  #d36f12 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffae35), color-stop(0.17, #ff8800), color-stop(1, #d36f12) );
+  background: -moz-linear-gradient(top, #ffae35 0%, #ff8800 17%,  #d36f12 100%);
   text-align: center;
   text-decoration: none;
   text-shadow: #b55100 2px 2px 2px;
@@ -463,11 +473,11 @@ input[type="submit"] {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 input[type="submit"]:hover {
   background: #ff9c14;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffc249), color-stop(0.87, #ff9c14), color-stop(1, #e78326) );
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffc249), color-stop(0.14, #ff9c14), color-stop(1, #e78326) );
   background: -moz-linear-gradient(top, #ffc249 0%, #ff9c14 14%,  #e78326 100%);
 }
 
-/* line 64, ../../../app/stylesheets/partials/_forms.sass */
+/* line 66, ../../../app/stylesheets/partials/_forms.sass */
 fieldset {
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -475,463 +485,463 @@ fieldset {
   margin-bottom: 20px;
   background: #d3d0c4;
   background: -webkit-gradient(linear, left top, left bottom, from(#efeee1), to(#d3d0c4));
-  background: -moz-linear-gradient(top, #efeee1, #d3d0c4);
+  background: -moz-linear-gradient(center top, #efeee1 0%, #d3d0c4 100%);
   padding: 20px 24px 10px 20px;
 }
-/* line 69, ../../../app/stylesheets/partials/_forms.sass */
+/* line 71, ../../../app/stylesheets/partials/_forms.sass */
 fieldset div {
   clear: none;
   float: left;
   margin: 0 0 12px 0;
 }
-/* line 73, ../../../app/stylesheets/partials/_forms.sass */
+/* line 75, ../../../app/stylesheets/partials/_forms.sass */
 fieldset div.last {
   padding-right: 0;
 }
 
-/* line 75, ../../../app/stylesheets/partials/_forms.sass */
+/* line 77, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00 {
   width: 100%;
   padding-right: 0;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00.boolean input, .\31 00.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00 input, .\31 00 textarea {
   width: 98.8%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00 select {
   width: 100.8%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00 span.error {
   width: 101.8%;
 }
 
-/* line 77, ../../../app/stylesheets/partials/_forms.sass */
+/* line 79, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 {
   width: 79.3%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.boolean input, .\38 0.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 input, .\38 0 textarea {
   width: 98.5%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 select {
   width: 100.5%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 span.error {
   width: 101.5%;
 }
 
-/* line 79, ../../../app/stylesheets/partials/_forms.sass */
+/* line 81, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5 {
   width: 74.1%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5.boolean input, .\37 5.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5 input, .\37 5 textarea {
   width: 98.4%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5 select {
   width: 100.4%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5 span.error {
   width: 101.4%;
 }
 
-/* line 81, ../../../app/stylesheets/partials/_forms.sass */
+/* line 83, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0 {
   width: 68.9%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0.boolean input, .\37 0.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0 input, .\37 0 textarea {
   width: 98.2%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0 select {
   width: 100.2%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0 span.error {
   width: 101.2%;
 }
 
-/* line 83, ../../../app/stylesheets/partials/_forms.sass */
+/* line 85, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6 {
   width: 65.5%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6.boolean input, .\36 6.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6 input, .\36 6 textarea {
   width: 98.2%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6 select {
   width: 100.2%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6 span.error {
   width: 101.2%;
 }
 
-/* line 85, ../../../app/stylesheets/partials/_forms.sass */
+/* line 87, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0 {
   width: 58.6%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0.boolean input, .\36 0.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0 input, .\36 0 textarea {
   width: 98%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0 select {
   width: 100%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0 span.error {
   width: 101%;
 }
 
-/* line 87, ../../../app/stylesheets/partials/_forms.sass */
+/* line 89, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0 {
   width: 48.2%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0.boolean input, .\35 0.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0 input, .\35 0 textarea {
   width: 97.7%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0 select {
   width: 99.7%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0 span.error {
   width: 100.7%;
 }
 
-/* line 89, ../../../app/stylesheets/partials/_forms.sass */
+/* line 91, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0 {
   width: 37.8%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0.boolean input, .\34 0.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0 input, .\34 0 textarea {
   width: 96.7%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0 select {
   width: 98.7%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0 span.error {
   width: 99.7%;
 }
 
-/* line 91, ../../../app/stylesheets/partials/_forms.sass */
+/* line 93, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3 {
   width: 30.9%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3.boolean input, .\33 3.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3 input, .\33 3 textarea {
   width: 96.6%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3 select {
   width: 98.6%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3 span.error {
   width: 99.6%;
 }
 
-/* line 93, ../../../app/stylesheets/partials/_forms.sass */
+/* line 95, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0 {
   width: 27.5%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0.boolean input, .\33 0.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0 input, .\33 0 textarea {
   width: 95.7%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0 select {
   width: 97.7%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0 span.error {
   width: 98.7%;
 }
 
-/* line 95, ../../../app/stylesheets/partials/_forms.sass */
+/* line 97, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5 {
   width: 22.3%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5.boolean input, .\32 5.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5 input, .\32 5 textarea {
   width: 94.7%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5 select {
   width: 96.7%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5 span.error {
   width: 97.7%;
 }
 
-/* line 98, ../../../app/stylesheets/partials/_forms.sass */
+/* line 100, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0 {
   width: 17.1%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0.boolean input, .\32 0.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0 input, .\32 0 textarea {
   width: 93%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0 select {
   width: 95%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0 span.error {
   width: 96%;
 }
 
-/* line 100, ../../../app/stylesheets/partials/_forms.sass */
+/* line 102, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0 {
   width: 6.76%;
   padding-right: 3.6%;
 }
-/* line 50, ../../../app/stylesheets/partials/_forms.sass */
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0.last {
   padding-right: 0;
 }
-/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0.boolean {
   padding-top: 25px;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 56, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0.boolean input {
   width: 13px;
 }
-/* line 56, ../../../app/stylesheets/partials/_forms.sass */
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0.boolean input, .\31 0.boolean label {
   display: inline;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0 input, .\31 0 textarea {
   width: 82%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0 select {
   width: 84%;
 }
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0 span.error {
   width: 85%;
 }
 
-/* line 103, ../../../app/stylesheets/partials/_forms.sass */
+/* line 105, ../../../app/stylesheets/partials/_forms.sass */
 #ruler {
   width: 100px;
   height: 1200px;
@@ -942,20 +952,20 @@ fieldset div.last {
 }
 
 
-/* line 116, ../../../app/stylesheets/partials/_forms.sass */
+/* line 118, ../../../app/stylesheets/partials/_forms.sass */
 .checks input, .boolean input {
   width: 13px;
 }
-/* line 118, ../../../app/stylesheets/partials/_forms.sass */
+/* line 120, ../../../app/stylesheets/partials/_forms.sass */
 .checks input, .checks label, .boolean input, .boolean label {
   display: inline;
 }
 
-/* line 120, ../../../app/stylesheets/partials/_forms.sass */
+/* line 122, ../../../app/stylesheets/partials/_forms.sass */
 ul.checks {
   list-style-type: none;
 }
-/* line 122, ../../../app/stylesheets/partials/_forms.sass */
+/* line 124, ../../../app/stylesheets/partials/_forms.sass */
 ul.checks.stacked {
   padding-left: 0px;
   margin-left: 0px;
@@ -966,12 +976,12 @@ ul.checks.stacked li {
   margin-left: 0px;
 }
 
-/* line 130, ../../../app/stylesheets/partials/_forms.sass */
+/* line 132, ../../../app/stylesheets/partials/_forms.sass */
 fieldset .fieldWithErrors {
   margin: 0px;
   width: 100%;
 }
-/* line 133, ../../../app/stylesheets/partials/_forms.sass */
+/* line 135, ../../../app/stylesheets/partials/_forms.sass */
 fieldset .fieldWithErrors input, fieldset .fieldWithErrors textarea {
   background-color: #fcc;
   -webkit-box-shadow: inset 1px 1px 4px #ddaaaa;
@@ -979,7 +989,7 @@ fieldset .fieldWithErrors input, fieldset .fieldWithErrors textarea {
   border-color: #f00;
 }
 
-/* line 137, ../../../app/stylesheets/partials/_forms.sass */
+/* line 139, ../../../app/stylesheets/partials/_forms.sass */
 span.error {
   font-size: 13px;
   color: #f00;
@@ -990,12 +1000,12 @@ span.error {
   font-weight: bold;
 }
 
-/* line 145, ../../../app/stylesheets/partials/_forms.sass */
+/* line 147, ../../../app/stylesheets/partials/_forms.sass */
 .clear {
   clear: both;
 }
 
-/* line 150, ../../../app/stylesheets/partials/_forms.sass */
+/* line 152, ../../../app/stylesheets/partials/_forms.sass */
 .flash {
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1011,15 +1021,183 @@ span.error {
   text-shadow: black 1px 1px 2px;
   text-align: center;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 159, ../../../app/stylesheets/partials/_forms.sass */
 .flash#notice {
   color: #fff;
   background: #25b023;
   background: -webkit-gradient(linear, left top, left bottom, from(#42cb7c), to(#25b023));
-  background: -moz-linear-gradient(top, #42cb7c, #25b023);
+  background: -moz-linear-gradient(center top, #42cb7c 0%, #25b023 100%);
 }
 
 /* line 1, ../../../app/stylesheets/models/session.sass */
 .devise_links {
   font-size: 13px;
+}
+
+/* line 10, ../../../app/stylesheets/models/_task.sass */
+h3.deadline {
+  border-top-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  color: #fff;
+  padding: 5px 10px;
+}
+/* line 14, ../../../app/stylesheets/models/_task.sass */
+h3.deadline#overdue {
+  background: white;
+  background: -webkit-gradient(linear, left top, right top, from(red), to(white));
+  background: -moz-linear-gradient(center left, red 0%, white 100%);
+}
+/* line 16, ../../../app/stylesheets/models/_task.sass */
+h3.deadline#due_today {
+  background: white;
+  background: -webkit-gradient(linear, left top, right top, from(#006200), to(white));
+  background: -moz-linear-gradient(center left, #006200 0%, white 100%);
+}
+/* line 18, ../../../app/stylesheets/models/_task.sass */
+h3.deadline#due_tomorrow {
+  background: white;
+  background: -webkit-gradient(linear, left top, right top, from(black), to(white));
+  background: -moz-linear-gradient(center left, black 0%, white 100%);
+}
+/* line 20, ../../../app/stylesheets/models/_task.sass */
+h3.deadline#due_this_week {
+  background: white;
+  background: -webkit-gradient(linear, left top, right top, from(#3b7d80), to(white));
+  background: -moz-linear-gradient(center left, #3b7d80 0%, white 100%);
+}
+/* line 22, ../../../app/stylesheets/models/_task.sass */
+h3.deadline#due_next_week {
+  background: white;
+  background: -webkit-gradient(linear, left top, right top, from(#4882b3), to(white));
+  background: -moz-linear-gradient(center left, #4882b3 0%, white 100%);
+}
+/* line 24, ../../../app/stylesheets/models/_task.sass */
+h3.deadline#due_later {
+  background: white;
+  background: -webkit-gradient(linear, left top, right top, from(#667acc), to(white));
+  background: -moz-linear-gradient(center left, #667acc 0%, white 100%);
+}
+
+/* line 27, ../../../app/stylesheets/models/_task.sass */
+.task input[type=submit] {
+  background: transparent;
+  border: none;
+  color: #00f;
+  padding: 0;
+  text-shadow: white 0px 0px 0px;
+  /* Webkit (Safari, Chrome) */
+  -webkit-box-shadow: white 0px 0px 0px;
+  /* Gecko (Firefox, Camino) */
+  -moz-box-shadow: white 0px 0px 0px;
+  /* CSS3 */
+  box-shadow: white 0px 0px 0px;
+}
+
+/* line 50, ../../../app/stylesheets/models/_task.sass */
+dl.item dt, dl.item dd {
+  clear: none;
+  display: block;
+  float: left;
+}
+/* line 54, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.category {
+  border-top-left-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  font-size: 10px;
+  padding: 3px 6px 3px 0px;
+  text-align: right;
+  width: 12%;
+}
+/* line 60, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.category.call {
+  background: #b5e7ff;
+  color: #5b8da5;
+}
+/* line 62, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.category.email {
+  background: #ffdeba;
+  color: #a58460;
+}
+/* line 64, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.category.follow_up {
+  background: #b5ffda;
+  color: #5ba580;
+}
+/* line 66, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.category.lunch {
+  background: #ffd2ba;
+  color: #a57860;
+}
+/* line 68, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.category.meeting {
+  background: #f5ed9d;
+  color: #9b9343;
+}
+/* line 70, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.category.money {
+  background: #d1ffba;
+  color: #77a560;
+}
+/* line 72, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.category.presentation {
+  background: #dedede;
+  color: #848484;
+}
+/* line 74, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.category.trip {
+  background: #dec7ff;
+  color: #846da5;
+}
+/* line 76, ../../../app/stylesheets/models/_task.sass */
+dl.item dd {
+  margin-left: 0px;
+  width: 87%;
+}
+/* line 79, ../../../app/stylesheets/models/_task.sass */
+dl.item dd span.task_item form {
+  float: left;
+}
+/* line 81, ../../../app/stylesheets/models/_task.sass */
+dl.item dd label {
+  display: inline;
+  font-size: 14px;
+}
+/* line 84, ../../../app/stylesheets/models/_task.sass */
+dl.item dd span.actions {
+  float: right;
+  clear: none;
+  display: block;
+  width: 6em;
+}
+/* line 90, ../../../app/stylesheets/models/_task.sass */
+dl.item dd span.actions a, dl.item dd span.actions input, dl.item dd span.actions b {
+  float: left;
+  display: inline;
+  padding: 0;
+  font-size: 12px;
+}
+/* line 95, ../../../app/stylesheets/models/_task.sass */
+dl.item dd span.actions a, dl.item dd span.actions input {
+  text-decoration: none;
+}
+/* line 97, ../../../app/stylesheets/models/_task.sass */
+dl.item dd span.actions a:hover, dl.item dd span.actions input:hover {
+  color: #000;
+}
+/* line 99, ../../../app/stylesheets/models/_task.sass */
+dl.item dd span.actions input {
+  margin-top: -1px;
+}
+/* line 101, ../../../app/stylesheets/models/_task.sass */
+dl.item dd span.actions b.divider {
+  color: #444;
+  padding: 0px 2px 0px 5px;
 }

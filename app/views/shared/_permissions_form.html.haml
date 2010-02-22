@@ -1,2 +1,2 @@
-= form.input :permission, :collection => Lead.permissions, :include_blank => false, :grid=>'30'
-= form.input :permitted_user_ids, :collection => User.all.map {|u| [u.email, u.id] }, :include_blank => true, :grid=>'30'
+= form.input :permission, :collection => Lead.permissions, :include_blank => false, :grid=>'33'
+= form.input :permitted_user_ids, :collection => User.all.map {|u| [u.email, u.id] }, :include_blank => true, :grid=>'33 last'

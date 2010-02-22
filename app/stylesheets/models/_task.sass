@@ -1,0 +1,103 @@
+//---------------------------------------------------
+// Task Deadlines
+//---------------------------------------------------
+!overdue = #f00
+!due_today = #006200
+!due_tomorrow = #000
+!due_this_week = #3b7d80
+!due_next_week = #4882b3
+!due_later = #667acc
+h3.deadline
+  +border-left-radius(3px)
+  :color #fff
+  :padding 5px 10px
+  &#overdue
+    +h-grad(!overdue,#fff)
+  &#due_today
+    +h-grad(!due_today,#fff)
+  &#due_tomorrow
+    +h-grad(!due_tomorrow,#fff)
+  &#due_this_week
+    +h-grad(!due_this_week,#fff)
+  &#due_next_week
+    +h-grad(!due_next_week,#fff)
+  &#due_later
+    +h-grad(!due_later,#fff)
+
+.task input[type=submit]
+  :background transparent
+  :border none
+  :color #00f
+  :padding 0
+  +text-shadow(#fff, 0px, 0px,0px)
+  +box-shadow(#fff, 0px, 0px,0px)
+
+//---------------------------------------------------
+// Task Categories
+//---------------------------------------------------
+!call = #b5e7ff
+!email = #ffdeba
+!follow_up = #b5ffda
+!lunch = #ffd2ba
+!meeting = #f5ed9d
+!money = #d1ffba
+!presentation = #dedede
+!trip = #dec7ff
+=task-category(!color)
+  :background = !color
+  :color = !color - 90
+dl.item
+  dt, dd
+    :clear none
+    :display block
+    :float left
+  dt.category
+    +border-left-radius(10px)
+    :font-size 10px
+    :padding 3px 6px 3px 0px
+    :text-align right
+    :width 12%
+    &.call
+      +task-category(!call)
+    &.email
+      +task-category(!email)
+    &.follow_up
+      +task-category(!follow_up)
+    &.lunch
+      +task-category(!lunch)
+    &.meeting
+      +task-category(!meeting)
+    &.money
+      +task-category(!money)
+    &.presentation
+      +task-category(!presentation)
+    &.trip
+      +task-category(!trip)
+  dd
+    :margin-left 0px
+    :width 87%
+    span.task_item form
+      :float left
+    label
+      :display inline
+      :font-size 14px
+    span.actions
+      :float right
+      :clear none
+      :display block
+      
+      :width 6em
+      a, input, b
+        :float left
+        :display inline
+        :padding 0
+        :font-size 12px
+      a, input
+        :text-decoration none
+        &:hover
+          :color #000
+      input
+        :margin-top -1px
+      b.divider
+        :color #444
+        :padding 0px 2px 0px 5px
