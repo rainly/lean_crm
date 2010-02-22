@@ -1,29 +1,29 @@
 =v-grad(!color_1,!color_2)
   :background = !color_2
   :background -webkit-gradient(linear, left top, left bottom, from(#{!color_1}), to(#{!color_2}))
-  :background -moz-linear-gradient(top, #{!color_1}, #{!color_2})
+  :background -moz-linear-gradient(center top, #{!color_1} 0%, #{!color_2} 100%)
 
 =h-grad(!color_1,!color_2)
   :background = !color_2
   :background -webkit-gradient(linear, left top, right top, from(#{!color_1}), to(#{!color_2}))
-  :background -moz-linear-gradient(left center, #{!color_1}, #{!color_2})
+  :background -moz-linear-gradient(center left, #{!color_1} 0%, #{!color_2} 100%)
 
 =shiny-button(!color_1,!color_2,!color_3,!lightness=20,!hover=true)
   :background = !color_2
-  :background -webkit-gradient(linear, left top, left bottom, color-stop(0, #{!color_1}), color-stop(0.87, #{!color_2}), color-stop(1, #{!color_3}) )
-  :background -moz-linear-gradient(top, #{!color_1} 0%, #{!color_2} 14%,  #{!color_3} 100%)
+  :background -webkit-gradient(linear, left top, left bottom, color-stop(0, #{!color_1}), color-stop(0.17, #{!color_2}), color-stop(1, #{!color_3}) )
+  :background -moz-linear-gradient(top, #{!color_1} 0%, #{!color_2} 17%,  #{!color_3} 100%)
   :text-align center
   :text-decoration none
   @if !hover
     &:hover
       :background = !color_2 + !lightness
-      :background -webkit-gradient(linear, left top, left bottom, color-stop(0, #{!color_1 + !lightness}), color-stop(0.87, #{!color_2 + !lightness}), color-stop(1, #{!color_3 + !lightness}) )
+      :background -webkit-gradient(linear, left top, left bottom, color-stop(0, #{!color_1 + !lightness}), color-stop(0.14, #{!color_2 + !lightness}), color-stop(1, #{!color_3 + !lightness}) )
       :background -moz-linear-gradient(top, #{!color_1 + !lightness} 0%, #{!color_2 + !lightness} 14%,  #{!color_3 + !lightness} 100%)
   @else
     :cursor default
 
 =silver-button
-  +shiny-button(#fff,#ddd,#ccc)
+  +shiny-button(#fff,#eaeaea,#ccc)
   :border 1px solid #999
   :color #444
   +letterpress

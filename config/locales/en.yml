@@ -34,9 +34,12 @@ en:
   back: Back
   cancel: Cancel
   completed: Completed
+  delete: Delete
+  edit: Edit
   filter: Filter
   or: or
   pending: Pending
+  save: Save
   submit: Submit
   
   #--------------------------------------------------------------
@@ -63,7 +66,7 @@ en:
   due_tomorrow: Tomorrow
   due_this_week: This week
   due_next_week: Next week
-  due_later: Sometime later
+  due_later: Sometime later 
   salutations:
     - Mr
     - Ms
