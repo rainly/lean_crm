@@ -1,5 +1,4 @@
 require 'compass'
-require 'compass-colors'
 
 # If you have any compass plugins, require them here.
 Compass.configuration.parse(File.join(RAILS_ROOT, "config", "compass.config"))

@@ -1,17 +1,19 @@
 %fieldset
-  = form.input :first_name
-  = form.input :last_name
-  = form.input :email
-  = form.input :phone
+  = form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s), :grid=>'20'
+  = form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s), :grid=>'20'
+  = form.input :first_name, :grid=>'30'
+  = form.input :last_name, :grid=>'30 last'
+  .clear
+  = form.input :email, :grid=> '70'
+  = form.input :phone, :grid=> '30 last'
 %fieldset
-  = form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false
-  = form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s)
-  = form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s)
-  = form.input :rating, :as => :select, :collection => 1..5
-  = form.input :campaign_id
+  = form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false, :grid=>'25'
+  = form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :grid=>'25'
+  = form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s), :grid=>'25'
+  = form.input :rating, :as => :select, :collection => 1..5, :grid=>'25 last'
+  = form.input :campaign_id, :grid=>'70 last'
 %fieldset
-  = form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s)
-  = form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s)
+  
   = form.input :company
   = form.input :alternative_email
   = form.input :mobile
