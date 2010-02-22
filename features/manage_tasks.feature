@@ -110,3 +110,17 @@ Feature: Manage tasks
     And I press "filter"
     Then I should see "another task"
     And I should not see "erich"
+
+  Scenario: Filtering several pending tasks
+    Given I am registered and logged in as annika
+    And a task: "call_erich" exists with user: annika, due_at: "overdue"
+    And a task exists with user: annika, name: "another task", due_at: "due_later"
+    And a task exists with user: annika, name: "third task", due_at: "next_week"
+    When I am on the tasks page
+    And I follow "pending"
+    And I check "overdue"
+    And I check "due_later"
+    And I press "filter"
+    Then I should see "another task"
+    And I should see "erich"
+    And I should not see "third task"

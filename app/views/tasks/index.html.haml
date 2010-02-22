@@ -8,7 +8,12 @@
     = hidden_field_tag :incomplete, params[:incomplete]
     = hidden_field_tag :assigned, params[:assigned]
     = hidden_field_tag :completed, params[:completed]
-    = render :partial => 'tasks/due_filter' unless params[:incomplete].blank? and params[:assigned].blank?
+    = render :partial => 'tasks/due_filter' if params[:completed].blank?
     = render :partial => 'tasks/complete_filter' unless params[:completed].blank?
     = submit_tag t('filter'), :id => 'filter'
-= render :partial => 'task', :collection => @tasks
+= render :partial => 'task', :collection => @tasks if @tasks.is_a?(Array)
+- if @tasks.is_a?(Hash)
+  - @tasks.each do |key, value|
+    - unless value.blank?
+      = key
+      = render :partial => 'task', :collection => value

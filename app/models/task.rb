@@ -85,10 +85,20 @@ class Task
     end
   end
 
+  def self.grouped_by_scope( scopes, options = {} )
+    tasks = {}
+    scopes.each do |scope|
+      if self.scopes.map(&:first).include?(scope.to_sym)
+        tasks[scope.to_sym] = (options[:target] || self).send(scope.to_sym)
+      end
+    end
+    tasks
+  end
+
   def completed_by_id=( user_id )
     if user_id and not completed?
       @recently_completed = true
-      self[:completed_at] = Time.zone.now unless self[:completed_at]
+      self[:completed_at] = Time.zone.now
       self[:completed_by_id] = user_id
     end
   end

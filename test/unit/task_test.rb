@@ -4,6 +4,32 @@ class TaskTest < ActiveSupport::TestCase
   context "Class" do
     should_have_constant :categories
 
+    context 'grouped_by_scope' do
+      setup do
+        @task = Task.make :due_at => 'due_next_week'
+        @task2 = Task.make :due_at => 'overdue'
+      end
+
+      should 'return tasks grouped by the supplied scopes' do
+        result = Task.grouped_by_scope(['due_next_week', 'overdue'])
+        assert result.is_a?(Hash)
+        assert_equal [@task], result[:due_next_week]
+        assert_equal [@task2], result[:overdue]
+      end
+
+      should 'scope tasks to the supplied scope' do
+        @task3 = Task.make :due_at => 'due_next_week'
+        @task3.update_attributes :completed_by_id => @task3.user_id
+        result = Task.grouped_by_scope(['due_next_week'], :target => Task.incomplete)
+        assert result[:due_next_week].include?(@task)
+        assert !result[:due_next_week].include?(@task3)
+      end
+
+      should 'not do anything for undefined scopes' do
+        assert Task.grouped_by_scope(['whtafdsf']) == {}
+      end
+    end
+
     context 'daily_email' do
       setup do
         @call_erich = Task.make(:call_erich, :due_at => 'due_today')
