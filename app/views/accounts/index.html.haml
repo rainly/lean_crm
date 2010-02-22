@@ -1,4 +1,6 @@
-.actions
-  = link_to t('new_account'), new_account_path, :id => 'new'
+%h2.title
+  Accounts
+  = add_new t('add_account'), new_account_path
+
 .accounts
   = render :partial => 'account', :collection => @accounts

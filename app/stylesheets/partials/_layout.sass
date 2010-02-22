@@ -29,21 +29,29 @@ body
 #menus
   :float right
   p
-    :text-align right
     :padding-bottom 10px
+    :text-align right
+    +text-shadow((!header_grad_2 - 30), 1px, 1px,1px)
+    a
+      :color = !amber
+      &:hover
+        :color #fff
 
 ul#navigation
-  :margin-right -12px
   +tab_menu
   :padding 4px 12px 0px 12px
-  
+  :margin-right -12px
   a
     +box-shadow(#213340, 1px, 1px, 5px)
     :color #fff
     +shiny-button(!nav_grad_1, !nav_grad_2, !nav_grad_3)
     :padding 8px 18px
     +text-shadow(#000, 0px, 1px, 1px)
-
+    &.active
+      :color #6a6a6a
+      :font-weight bold
+      +shiny-button(#eee, #ddd, #cfcfcf, false)
+      +text-shadow(#fff, 0px, 1px, 0px)
 //---------------------------------------------------
 // Content
 //---------------------------------------------------
@@ -57,4 +65,28 @@ div#main
   :width 72%
   .pad
     :padding 20px
-  
+  h2.title
+    :border-bottom 3px solid #ccc
+    :padding-bottom 5px
+    a
+      :border 1px solid #999
+      +border-radius(14px)
+      :color #444
+      :float right
+      +letterpress
+      +silver-button
+      :font-size 13px
+      :margin-top -8px
+      :padding 5px 9px
+    b
+      :background #999
+      +border-radius(10px)
+      :color #fff
+      :font-size 11px
+      :font-weight bold
+      :margin-right 5px
+      :padding 0px 3px 1px 3px
+      :position relative
+      :left -3px
+      :top -1px
+      +letterpress(#555)

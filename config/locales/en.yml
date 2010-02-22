@@ -2,14 +2,31 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  #------------------------------------------------------------------
+  #--------------------------------------------------------------
   # Navigation
-  #------------------------------------------------------------------
+  #--------------------------------------------------------------
   dashboard: Dashboard
   tasks: Tasks
   leads: Leads
   accounts: Accounts
   contacts: Contacts
+
+  #--------------------------------------------------------------
+  # UI
+  #--------------------------------------------------------------
+  cancel: Cancel
+  or: or
+  submit: Submit
+  
+  #--------------------------------------------------------------
+  # Models
+  #--------------------------------------------------------------
+  add_account: Add Account
+  add_lead: Add Lead
+  add_contact: Add Contact
+  add_task: Add Task
+
+  
   
   access_levels:
     - Private

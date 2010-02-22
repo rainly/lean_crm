@@ -8,16 +8,22 @@
   :background -webkit-gradient(linear, left top, right top, from(#{!color_1}), to(#{!color_2}))
   :background -moz-linear-gradient(left center, #{!color_1}, #{!color_2})
 
-=shiny-button(!color_1,!color_2,!color_3,!lightness=20)
-
+=shiny-button(!color_1,!color_2,!color_3,!lightness=20,!hover=true)
   :background = !color_2
   :background -webkit-gradient(linear, left top, left bottom, color-stop(0, #{!color_1}), color-stop(0.87, #{!color_2}), color-stop(1, #{!color_3}) )
   :background -moz-linear-gradient(top, #{!color_1} 0%, #{!color_2} 14%,  #{!color_3} 100%)
-  &:hover
-    :background = !color_2 + !lightness
-    :background -webkit-gradient(linear, left top, left bottom, color-stop(0, #{!color_1 + !lightness}), color-stop(0.87, #{!color_2 + !lightness}), color-stop(1, #{!color_3 + !lightness}) )
-    :background -moz-linear-gradient(top, #{!color_1 + !lightness} 0%, #{!color_2 + !lightness} 14%,  #{!color_3 + !lightness} 100%)
+  :text-align center
+  :text-decoration none
+  @if !hover
+    &:hover
+      :background = !color_2 + !lightness
+      :background -webkit-gradient(linear, left top, left bottom, color-stop(0, #{!color_1 + !lightness}), color-stop(0.87, #{!color_2 + !lightness}), color-stop(1, #{!color_3 + !lightness}) )
+      :background -moz-linear-gradient(top, #{!color_1 + !lightness} 0%, #{!color_2 + !lightness} 14%,  #{!color_3 + !lightness} 100%)
+  @else
+    :cursor default
 
+=silver-button
+  +shiny-button(#fff,#ddd,#ccc)
 
 =tab_menu(!radius=5px,!margin_left=5px)
   +horizontal-list
@@ -29,8 +35,9 @@
     a
       :display block
       +border-top-radius(!radius)
-      :text-align center
-      :text-decoration none
 =inset-box-shadow(!color = !default_box_shadow_color, !hoff = !default_box_shadow_h_offset, !voff = !default_box_shadow_v_offset, !blur = !default_box_shadow_blur)
   :-webkit-box-shadow= "inset" !hoff !voff !blur !color 
   :-moz-box-shadow= !hoff !voff !blur !color "inset"
+
+=letterpress(!color=#fff)
+  +text-shadow(!color, 0px, 1px, 0px)
