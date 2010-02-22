@@ -8,28 +8,4 @@
       = key
       = render :partial => 'task', :collection => value
 - content_for :sidebar do
-  .gold.box
-    %ul.filters
-      -# TODO: Refactor into a helper with tests
-      - if params[:incomplete] && params[:assigned]
-        - incomplete_path = tasks_path(:assigned=>true)
-        - assigned_path = tasks_path(:incomplete=>true)
-      - elsif params[:incomplete]
-        - incomplete_path = tasks_path
-        - assigned_path = tasks_path(:incomplete=>true,:assigned=>true)
-      - elsif params[:assigned] 
-        - incomplete_path = tasks_path(:incomplete=>true,:assigned=>true)
-        - assigned_path = tasks_path
-      - else
-        - incomplete_path = tasks_path(:incomplete=>true)
-        - assigned_path = tasks_path(:assigned=>true)
-      %li.first= link_to t('pending'), incomplete_path, :id => 'pending', :class=>active_if(params[:incomplete])
-      %li= link_to t('assigned'), assigned_path, :id => 'assigned',:class=>active_if(params[:assigned])
-      %li.last= link_to t('completed'), tasks_path(:completed => true), :id => 'completed', :class=>active_if(params[:completed])
-    - form_tag '', :method => :get do
-      = hidden_field_tag :incomplete, params[:incomplete]
-      = hidden_field_tag :assigned, params[:assigned]
-      = hidden_field_tag :completed, params[:completed]
-      = render :partial => 'tasks/due_filter' if params[:completed].blank?
-      = render :partial => 'tasks/complete_filter' unless params[:completed].blank?
-      = submit_tag t('filter'), :id => 'filter'
+  = render :partial => "filters"
