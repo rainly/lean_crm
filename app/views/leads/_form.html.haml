@@ -1,11 +1,11 @@
 %fieldset
-  = form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s), :grid=>'20', :required=>true
-  = form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s), :grid=>'20', :required=>true
-  = form.input :first_name, :grid=>'30', :required=>true
-  = form.input :last_name, :grid=>'30 last', :required=>true
+  = form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s), :grid=>'10'
+  = form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s), :grid=>'10'
+  = form.input :first_name, :grid=>'40', :required=>true
+  = form.input :last_name, :grid=>'40 last', :required=>true
   .clear
-  = form.input :email, :grid=> '70'
-  = form.input :phone, :grid=> '30 last'
+  = form.input :email, :grid=> '60'
+  = form.input :phone, :grid=> '40 last'
 %fieldset
   = form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false, :grid=>'25', :required=>true
   = form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :grid=>'25'
@@ -21,14 +21,20 @@
   .clear
   = form.input :address, :as=>:text, :input_html=>{:rows=>2},:grid=>'100'
   = form.input :referred_by, :grid=>'50'
-  = form.input :do_not_call, :as => :check_boxes, :collection => [true], :grid=>'50 last', :label=>""
+  .boolean.50.last
+    = form.check_box :do_not_call
+    = form.label :do_not_call
 %fieldset
-  = form.input :website
-  = form.input :twitter
-  = form.input :linked_in
-  = form.input :facebook
-  = form.input :xing
+  = form.input :website, :grid=>'100'
+  = form.input :twitter, :grid=>'100'
+  = form.input :linked_in, :grid=>'100'
+  = form.input :facebook, :grid=>'100'
+  = form.input :xing, :grid=>'100'    
 %fieldset
-  = form.input :notes, :as => :text
+  = form.input :notes, :as => :text, :grid=>'100'
 %fieldset
   = render :partial => 'shared/permissions_form', :locals => { :form => form }
+.act
+  = form.button :submit
+  = t('or')
+  = link_to t('back'), :back

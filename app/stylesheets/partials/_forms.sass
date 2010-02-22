@@ -22,18 +22,14 @@ input, textarea
   +inset-box-shadow(#ddd,1px,1px,4px)
   :padding 5px
   :width 100%
-.boolean
-  input
-    :width 13px
-  input, label
-    :display inline
+
 //---------------------------------------------------
 // Buttons
 //---------------------------------------------------
 .act
-  a
-    :font-size 13px
-    :margin-left 10px
+  :font-size 13px
+  input[type="submit"]
+    :font-size 14px
 input[type="submit"]
   +border-radius(14px)
   :border 1px solid #{!act_grad_3}
@@ -53,6 +49,12 @@ input[type="submit"]
   :padding-right = !padding_right
   &.last
     :padding-right 0
+  &.boolean
+    :padding-top 25px
+    input
+      :width 13px
+    input, label
+      :display inline
   input, textarea
     :width = !input_width
   select
