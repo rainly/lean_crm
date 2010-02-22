@@ -24,7 +24,7 @@ h3.deadline
   &#due_later
     +h-grad(!due_later,#fff)
 
-.task input[type=submit]
+.item dd input[type=submit]
   :background transparent
   :border none
   :color #00f
@@ -47,14 +47,16 @@ h3.deadline
   :background = !color
   :color = !color - 90
 dl.item
+  :margin 0px
   dt, dd
     :clear none
     :display block
     :float left
   dt.category
     +border-left-radius(10px)
-    :font-size 10px
-    :padding 3px 6px 3px 0px
+    :font-size 11px
+    :margin-top 2px
+    :padding 4px 6px 4px 0px
     :text-align right
     :width 12%
     &.call
@@ -74,8 +76,13 @@ dl.item
     &.trip
       +task-category(!trip)
   dd
+    :border-bottom 1px solid #ccc
     :margin-left 0px
+    :padding 3px 0px
     :width 87%
+    input[type=checkbox]
+      :width 14px
+      :margin 0 0 0 7px
     span.task_item form
       :float left
     label
@@ -85,7 +92,7 @@ dl.item
       :float right
       :clear none
       :display block
-      
+      :padding-top 3px
       :width 6em
       a, input, b
         :float left
