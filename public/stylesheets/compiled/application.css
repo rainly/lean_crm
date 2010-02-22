@@ -230,6 +230,14 @@ div#main h2.title b {
   text-shadow: #555555 0px 1px 0px;
 }
 
+/* line 93, ../../../app/stylesheets/partials/_layout.sass */
+.inline-add {
+  font-size: 14px;
+  padding-top: 20px;
+  display: block;
+  float: left;
+}
+
 /* line 1, ../../../app/stylesheets/partials/_typography.sass */
 body, h1, h2, h3, h4, h5, h6, p, ol, ul, dl, strong, em, div, a, table {
   font-family: "Lucida Grande", "Lucida Sans Unicode", helvetica, arial, sans-serif;
@@ -296,22 +304,16 @@ input, textarea {
   width: 100%;
 }
 
-/* line 26, ../../../app/stylesheets/partials/_forms.sass */
-.boolean input {
-  width: 13px;
-}
-/* line 28, ../../../app/stylesheets/partials/_forms.sass */
-.boolean input, .boolean label {
-  display: inline;
-}
-
-/* line 34, ../../../app/stylesheets/partials/_forms.sass */
-.act a {
+/* line 29, ../../../app/stylesheets/partials/_forms.sass */
+.act {
   font-size: 13px;
-  margin-left: 10px;
+}
+/* line 31, ../../../app/stylesheets/partials/_forms.sass */
+.act input[type="submit"] {
+  font-size: 14px;
 }
 
-/* line 37, ../../../app/stylesheets/partials/_forms.sass */
+/* line 33, ../../../app/stylesheets/partials/_forms.sass */
 input[type="submit"] {
   border-radius: 14px;
   -moz-border-radius: 14px;
@@ -342,7 +344,7 @@ input[type="submit"]:hover {
   background: -moz-linear-gradient(top, #ffc249 0%, #ff9c14 14%,  #e78326 100%);
 }
 
-/* line 62, ../../../app/stylesheets/partials/_forms.sass */
+/* line 64, ../../../app/stylesheets/partials/_forms.sass */
 fieldset {
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -353,304 +355,460 @@ fieldset {
   background: -moz-linear-gradient(top, #efeee1, #d3d0c4);
   padding: 20px 24px 20px 20px;
 }
-/* line 67, ../../../app/stylesheets/partials/_forms.sass */
+/* line 69, ../../../app/stylesheets/partials/_forms.sass */
 fieldset div {
   clear: none;
   float: left;
   margin: 0 0 12px 0;
 }
-/* line 71, ../../../app/stylesheets/partials/_forms.sass */
+/* line 73, ../../../app/stylesheets/partials/_forms.sass */
 fieldset div.last {
   padding-right: 0;
 }
 
-/* line 73, ../../../app/stylesheets/partials/_forms.sass */
+/* line 75, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00 {
   width: 100%;
   padding-right: 0;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\31 00.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\31 00.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\31 00.boolean input, .\31 00.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00 input, .\31 00 textarea {
   width: 98.8%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00 select {
   width: 100.8%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00 span.error {
   width: 101.8%;
 }
 
-/* line 75, ../../../app/stylesheets/partials/_forms.sass */
+/* line 77, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 {
   width: 79.3%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\38 0.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\38 0.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\38 0.boolean input, .\38 0.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 input, .\38 0 textarea {
   width: 98.5%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 select {
   width: 100.5%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 span.error {
   width: 101.5%;
 }
 
-/* line 77, ../../../app/stylesheets/partials/_forms.sass */
+/* line 79, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5 {
   width: 74.1%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\37 5.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\37 5.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\37 5.boolean input, .\37 5.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5 input, .\37 5 textarea {
   width: 98.4%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5 select {
   width: 100.4%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5 span.error {
   width: 101.4%;
 }
 
-/* line 79, ../../../app/stylesheets/partials/_forms.sass */
+/* line 81, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0 {
   width: 68.9%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\37 0.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\37 0.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\37 0.boolean input, .\37 0.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0 input, .\37 0 textarea {
   width: 98.2%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0 select {
   width: 100.2%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0 span.error {
   width: 101.2%;
 }
 
-/* line 81, ../../../app/stylesheets/partials/_forms.sass */
+/* line 83, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6 {
   width: 65.5%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\36 6.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\36 6.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\36 6.boolean input, .\36 6.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6 input, .\36 6 textarea {
   width: 98.2%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6 select {
   width: 100.2%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6 span.error {
   width: 101.2%;
 }
 
-/* line 83, ../../../app/stylesheets/partials/_forms.sass */
+/* line 85, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0 {
   width: 58.6%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\36 0.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\36 0.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\36 0.boolean input, .\36 0.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0 input, .\36 0 textarea {
   width: 98%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0 select {
   width: 100%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0 span.error {
   width: 101%;
 }
 
-/* line 85, ../../../app/stylesheets/partials/_forms.sass */
+/* line 87, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0 {
   width: 48.2%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\35 0.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\35 0.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\35 0.boolean input, .\35 0.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0 input, .\35 0 textarea {
   width: 97.7%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0 select {
   width: 99.7%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0 span.error {
   width: 100.7%;
 }
 
-/* line 87, ../../../app/stylesheets/partials/_forms.sass */
+/* line 89, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0 {
   width: 37.8%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\34 0.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\34 0.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\34 0.boolean input, .\34 0.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0 input, .\34 0 textarea {
   width: 96.7%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0 select {
   width: 98.7%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0 span.error {
   width: 99.7%;
 }
 
-/* line 89, ../../../app/stylesheets/partials/_forms.sass */
+/* line 91, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3 {
   width: 30.9%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\33 3.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\33 3.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\33 3.boolean input, .\33 3.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3 input, .\33 3 textarea {
   width: 96.6%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3 select {
   width: 98.6%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3 span.error {
   width: 99.6%;
 }
 
-/* line 91, ../../../app/stylesheets/partials/_forms.sass */
+/* line 93, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0 {
   width: 27.5%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\33 0.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\33 0.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\33 0.boolean input, .\33 0.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0 input, .\33 0 textarea {
   width: 95.7%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0 select {
   width: 97.7%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0 span.error {
   width: 98.7%;
 }
 
-/* line 93, ../../../app/stylesheets/partials/_forms.sass */
+/* line 95, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5 {
   width: 22.3%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\32 5.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\32 5.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\32 5.boolean input, .\32 5.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5 input, .\32 5 textarea {
   width: 94.7%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5 select {
   width: 96.7%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5 span.error {
   width: 97.7%;
 }
 
-/* line 96, ../../../app/stylesheets/partials/_forms.sass */
+/* line 98, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0 {
   width: 17.1%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\32 0.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\32 0.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\32 0.boolean input, .\32 0.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0 input, .\32 0 textarea {
   width: 93%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0 select {
   width: 95%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0 span.error {
   width: 96%;
 }
 
-/* line 98, ../../../app/stylesheets/partials/_forms.sass */
+/* line 100, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0 {
   width: 6.76%;
   padding-right: 3.6%;
 }
-/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+/* line 50, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0.last {
   padding-right: 0;
 }
+/* line 52, ../../../app/stylesheets/partials/_forms.sass */
+.\31 0.boolean {
+  padding-top: 25px;
+}
+/* line 54, ../../../app/stylesheets/partials/_forms.sass */
+.\31 0.boolean input {
+  width: 13px;
+}
 /* line 56, ../../../app/stylesheets/partials/_forms.sass */
+.\31 0.boolean input, .\31 0.boolean label {
+  display: inline;
+}
+/* line 58, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0 input, .\31 0 textarea {
   width: 82%;
 }
-/* line 58, ../../../app/stylesheets/partials/_forms.sass */
+/* line 60, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0 select {
   width: 84%;
 }
-/* line 60, ../../../app/stylesheets/partials/_forms.sass */
+/* line 62, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0 span.error {
   width: 85%;
 }
 
-/* line 101, ../../../app/stylesheets/partials/_forms.sass */
+/* line 103, ../../../app/stylesheets/partials/_forms.sass */
 #ruler {
   width: 100px;
   height: 1200px;
@@ -660,12 +818,22 @@ fieldset div.last {
   background: #f00;
 }
 
-/* line 111, ../../../app/stylesheets/partials/_forms.sass */
+
+/* line 112, ../../../app/stylesheets/partials/_forms.sass */
+.checks input, .boolean input {
+  width: 13px;
+}
+/* line 114, ../../../app/stylesheets/partials/_forms.sass */
+.checks input, .checks label, .boolean input, .boolean label {
+  display: inline;
+}
+
+/* line 119, ../../../app/stylesheets/partials/_forms.sass */
 fieldset .fieldWithErrors {
   margin: 0px;
   width: 100%;
 }
-/* line 114, ../../../app/stylesheets/partials/_forms.sass */
+/* line 122, ../../../app/stylesheets/partials/_forms.sass */
 fieldset .fieldWithErrors input, fieldset .fieldWithErrors textarea {
   background-color: #fcc;
   -webkit-box-shadow: inset 1px 1px 4px #ddaaaa;
@@ -673,7 +841,7 @@ fieldset .fieldWithErrors input, fieldset .fieldWithErrors textarea {
   border-color: #f00;
 }
 
-/* line 118, ../../../app/stylesheets/partials/_forms.sass */
+/* line 126, ../../../app/stylesheets/partials/_forms.sass */
 span.error {
   font-size: 13px;
   color: #f00;
@@ -684,12 +852,12 @@ span.error {
   font-weight: bold;
 }
 
-/* line 126, ../../../app/stylesheets/partials/_forms.sass */
+/* line 134, ../../../app/stylesheets/partials/_forms.sass */
 .clear {
   clear: both;
 }
 
-/* line 131, ../../../app/stylesheets/partials/_forms.sass */
+/* line 139, ../../../app/stylesheets/partials/_forms.sass */
 .flash {
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -705,7 +873,7 @@ span.error {
   text-shadow: black 1px 1px 2px;
   text-align: center;
 }
-/* line 138, ../../../app/stylesheets/partials/_forms.sass */
+/* line 146, ../../../app/stylesheets/partials/_forms.sass */
 .flash#notice {
   color: #fff;
   background: #25b023;
