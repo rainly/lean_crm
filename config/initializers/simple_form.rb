@@ -8,4 +8,15 @@ module SimpleForm
       end
     end
   end
+end        
+module SimpleForm
+  module Inputs
+    class Base
+
+    protected
+      def attribute_required?
+        options[:required] || false
+      end
+    end
+  end
 end
