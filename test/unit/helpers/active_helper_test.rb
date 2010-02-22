@@ -9,26 +9,26 @@ class ActiveHelperTest < ActionView::TestCase
   include ActionController::UrlWriter
   include ActionController::Caching
 
-  context "When on the accounts controller" do
+  context "When on the sessions controller" do
     setup do
-      @controller = AccountsController.new
+      @controller = SessionsController.new
       self.stubs(:controller).returns(@controller)
       @request = ActionController::TestRequest.new
       @request.stubs(:host).returns('localhost:3000')
       @controller.stubs(:request).returns(@request)
       @response = ActionController::TestResponse.new
-      self.stubs(:controller_name).returns('accounts')
+      self.stubs(:controller_name).returns('sessions')
       self.stubs(:action_name).returns('new')
       get :new
     end
 
     context "controller_is" do
-      should "be true for accounts" do
-        assert controller_is('accounts')
+      should "be true for sessions" do
+        assert controller_is('sessions')
       end
 
-      should "be true for accounts/jobs" do
-        assert controller_is('accounts', 'jobs')
+      should "be true for sessions/jobs" do
+        assert controller_is('sessions', 'jobs')
       end
 
       should "be false for jobs" do
@@ -61,7 +61,7 @@ class ActiveHelperTest < ActionView::TestCase
 
     context "controller_action_is" do
       should "be true if for current controller/action combination" do
-        assert controller_action_is('accounts', 'new')
+        assert controller_action_is('sessions', 'new')
       end
 
       should "be false for incorrect controller/action combination" do
@@ -79,11 +79,5 @@ class ActiveHelperTest < ActionView::TestCase
         assert_equal 'inactive', active_if(false)
       end
     end
-
-  # TODO: sort out these tests, although they were originally passing, they were testing if true == true
-  def test_nav_link_to
-    #assert_equal "<a href='/accounts' class='active'>New Account</a>", nav_link_to('New Account',{:controller=>'accounts',:action=>'new'},controller_is('accounts'))
-    #assert_equal "<a href='/jobs/new'>New Account</a>", nav_link_to('Jobs',{:controller=>'jobs',:action=>'index'},controller_is('jobs'))
-    #assert_equal "<a href='/jobs/new' id='test'>New Account</a>", nav_link_to('Jobs',{:controller=>'jobs',:action=>'index'},controller_is('jobs'), :id => 'test')
   end
 end
