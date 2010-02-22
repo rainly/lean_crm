@@ -114,17 +114,22 @@ fieldset
 // Check Boxes
 //---------------------------------------------------
 
-.checks, .boolean
+.checks, .boolean, .radio
   input
     :width 13px
   input, label
     :display inline
-ul.checks
-  :list-style-type none
-  &.stacked
-    +no-bullets
-    :padding-left 0px
-    :margin-left 0px
+  label
+    :margin-right 12px
+  label.block
+    :display block
+ul
+  &.checks, &.radio, &.boolean
+    :list-style-type none
+    &.stacked
+      +no-bullets
+      :padding-left 0px
+      :margin-left 0px
   
 //---------------------------------------------------
 // Error Messages
