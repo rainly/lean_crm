@@ -1,0 +1,69 @@
+%fieldset
+  = f.input :username, :grid=>'33', :required=>false
+  = f.input :email, :grid=>'66 last'
+  .clear
+  = f.input :password, :grid=>'50'
+  = f.input :password_confirmation, :grid=>'50 last'
+= f.button :submit
+
+-# Patched simple_forms to make grid layout stupidly easy
+
+-# Just supply :grid=> any of these values - [100,80,75,70,66,60,50,40,33,30,25,20,10]
+-# Make sure the numbers add up to 100 for perfect grid
+-# supply a 'last' argument to the final field o a row
+
+-# Uncomment below for more intensive examples
+
+-#.clear
+  %fieldset
+    = f.input :email, :grid=>'100', :label=>"100"
+    .clear
+    = f.input :email, :grid=>'75', :label=>"75"
+    = f.input :email, :grid=>'25 last', :label=>"25 last"
+    .clear                
+    = f.input :email, :grid=>'25', :label=>"25"
+    = f.input :email, :grid=>'75 last', :label=>'75 last' 
+    .clear                     
+    = f.input :email, :grid=>'66', :label=>'66'
+    = f.input :email, :grid=>'33 last', :label=>'33 last'
+    .clear                        
+    = f.input :email, :grid=>'33', :label=>'33'
+    = f.input :email, :grid=>'66 last', :label=>'66 last'
+    .clear
+    = f.input :email, :grid=>'60', :label=>'60'
+    = f.input :email, :grid=>'40 last', :label=>'40 last'
+    .clear
+    = f.input :email, :grid=>'40', :label=>'40'
+    = f.input :email, :grid=>'60 last', :label=>'60 last'
+    .clear                        
+    = f.input :email, :grid=>'50', :label=>'50'
+    = f.input :email, :grid=>'50 last', :label=>'50 last'
+    .clear                            
+    = f.input :email, :grid=>'33', :label=>'33'
+    = f.input :email, :grid=>'33', :label=>'33'
+    = f.input :email, :grid=>'33 last', :label=>'33 last'
+    .clear                        
+    = f.input :email, :grid=>'25', :label=>'25'
+    = f.input :email, :grid=>'25', :label=>'25'
+    = f.input :email, :grid=>'25', :label=>'25'
+    = f.input :email, :grid=>'25 last', :label=>'25 last'
+    .clear                                    
+    = f.input :email, :grid=>'20', :label=>'20'
+    = f.input :email, :grid=>'20', :label=>'20'
+    = f.input :email, :grid=>'20', :label=>'20'
+    = f.input :email, :grid=>'20', :label=>'20'
+    = f.input :email, :grid=>'20 last'
+    .clear                        
+    = f.input :email, :grid=>'10', :label=>'10'
+    = f.input :email, :grid=>'10', :label=>'10'
+    = f.input :email, :grid=>'10', :label=>'10'
+    = f.input :email, :grid=>'10', :label=>'10'
+    = f.input :email, :grid=>'10', :label=>'10'
+    = f.input :email, :grid=>'10', :label=>'10'
+    = f.input :email, :grid=>'10', :label=>'10'
+    = f.input :email, :grid=>'10', :label=>'10'
+    = f.input :email, :grid=>'10', :label=>'10'
+    = f.input :email, :grid=>'10 last', :label=>'10 last'
+    .clear                        
+    
+

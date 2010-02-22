@@ -88,6 +88,7 @@ module SimpleForm
           self.class.const_get(:"#{input_type.to_s.camelize}Input")
         klass.new(self).render
       end
+      
     end
     alias :attribute :input
 

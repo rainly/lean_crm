@@ -1,5 +1,8 @@
+%h2.title
+  Leads
+  = add_new t('add_lead'), new_lead_path
+
 .actions
-  = link_to t('new_lead'), new_lead_path, :id => 'new'
 - form_tag '', :method => :get do
   - Lead.statuses.each do |status|
     = check_box_tag 'with_status[]', status, (params[:with_status] and params[:with_status].include?(status)), :id => "status_#{status}"
