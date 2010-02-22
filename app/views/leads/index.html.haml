@@ -2,11 +2,14 @@
   Leads
   = add_new t('add_lead'), new_lead_path
 
-.actions
-- form_tag '', :method => :get do
-  .boolean
-    - Lead.statuses.each do |status|
-      = check_box_tag 'with_status[]', status, (params[:with_status] and params[:with_status].include?(status)), :id => "status_#{status}"
-      %label{ :for => "status_#{status}" }= status
-  = submit_tag t(:submit), :id => 'filter'
 = render :partial => 'lead', :collection => @leads
+
+-content_for :sidebar do
+  .gold.box
+    - form_tag '', :method => :get do
+      %ul.checks.stacked
+        - Lead.statuses.each do |status|
+          %li
+            = check_box_tag 'with_status[]', status, (params[:with_status] and params[:with_status].include?(status)), :id => "status_#{status}"
+            %label{ :for => "status_#{status}" }= status
+      = submit_tag t('filter'), :id => 'filter'

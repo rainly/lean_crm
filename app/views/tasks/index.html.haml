@@ -1,19 +1,11 @@
-.actions
-  = link_to t('new_task'), new_task_path, :id => 'new'
-.filters
-  = link_to t('pending'), tasks_path(:incomplete => true), :id => 'pending'
-  = link_to t('assigned'), tasks_path(:assigned => true, :incomplete => true), :id => 'assigned'
-  = link_to t('completed'), tasks_path(:completed => true), :id => 'completed'
-  - form_tag '', :method => :get do
-    = hidden_field_tag :incomplete, params[:incomplete]
-    = hidden_field_tag :assigned, params[:assigned]
-    = hidden_field_tag :completed, params[:completed]
-    = render :partial => 'tasks/due_filter' if params[:completed].blank?
-    = render :partial => 'tasks/complete_filter' unless params[:completed].blank?
-    = submit_tag t('filter'), :id => 'filter'
+%h2.title
+  = t('tasks')
+  = add_new t('add_task'), new_task_path
 = render :partial => 'task', :collection => @tasks if @tasks.is_a?(Array)
 - if @tasks.is_a?(Hash)
   - @tasks.each do |key, value|
     - unless value.blank?
       = key
       = render :partial => 'task', :collection => value
+- content_for :sidebar do
+  = render :partial => "filters"

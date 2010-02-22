@@ -3,6 +3,8 @@ body
   :width 100%
   :margin 0px
   :position relative
+a, input
+  :outline none
 #header, #content
   :min-width 960px
 //---------------------------------------------------
@@ -62,6 +64,8 @@ div#main
   :background #fff
   +box-shadow(#666, 1px, 1px,5px)
   +border-radius(4px)
+  :clear none
+  :float left
   :width 72%
   .pad
     :padding 20px
@@ -69,11 +73,8 @@ div#main
     :border-bottom 3px solid #ccc
     :padding-bottom 5px
     a
-      :border 1px solid #999
       +border-radius(14px)
-      :color #444
       :float right
-      +letterpress
       +silver-button
       :font-size 13px
       :margin-top -8px
@@ -90,6 +91,39 @@ div#main
       :left -3px
       :top -1px
       +letterpress(#555)
+#sidebar
+  :clear none
+  :float left
+  :width 26%
+  :padding-left 2%
+  ul.filters
+    +horizontal-list
+    :width 100%
+    li
+      :margin 0px
+      :padding 0px
+      :display block
+      :float left
+      :width 33%
+      &.first a
+        +border-left-radius(14px)
+      &.last a
+        +border-right-radius(14px)
+    a
+      :display block
+      +silver-button
+      :padding 5px 0px
+      :width 100%
+      &.active
+        +silver-button-pressed
+  .box
+    +border-radius(5px)
+    :padding 12px
+    &.gold
+      :border-bottom 1px solid #fff
+      :border-top 1px solid #{!gold - 50}
+      :background = !gold
+    
 .inline-add
   :font-size 14px
   :padding-top 20px

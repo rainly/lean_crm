@@ -1,20 +1,19 @@
-%fieldset
-  %p
-    %label{ :for => 'overdue' }= t('overdue')
+%ul.checks.stacked
+  %li
     = check_box_tag 'scopes[overdue]', true, params[:scopes] && params[:scopes][:overdue], :id => 'overdue'
-  %p
-    %label{ :for => 'due_today' }= t('due_today')
+    %label{ :for => 'overdue' }= t('overdue')
+  %li
     = check_box_tag 'scopes[due_today]', true, params[:scopes] && params[:scopes][:due_today], :id => 'due_today'
-  %p
-    %label{ :for => 'due_tomorrow' }= t('due_tomorrow')
+    %label{ :for => 'due_today' }= t('due_today')
+  %li
     = check_box_tag 'scopes[due_tomorrow]', true, params[:scopes] && params[:scopes][:due_tomorrow], :id => 'due_tomorrow'
-  %p
-    %label{ :for => 'due_this_week' }= t('due_this_week')
+    %label{ :for => 'due_tomorrow' }= t('due_tomorrow')
+  %li
     = check_box_tag 'scopes[due_this_week]', true, params[:scopes] && params[:scopes][:due_this_week], :id => 'due_this_week'
-  %p
-    %label{ :for => 'due_next_week' }= t('due_next_week')
+    %label{ :for => 'due_this_week' }= t('due_this_week')
+  %li
     = check_box_tag 'scopes[due_next_week]', true, params[:scopes] && params[:scopes][:due_next_week], :id => 'due_next_week'
-  %p
-    %label{ :for => 'due_later' }= t('due_later')
+    %label{ :for => 'due_next_week' }= t('due_next_week')
+  %li
     = check_box_tag 'scopes[due_later]', true, params[:scopes] && params[:scopes][:due_later], :id => 'due_later'
-
+    %label{ :for => 'due_later' }= t('due_later')

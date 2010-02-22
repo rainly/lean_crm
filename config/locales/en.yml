@@ -3,6 +3,22 @@
 
 en:
   #--------------------------------------------------------------
+  # Time
+  #--------------------------------------------------------------
+  last_year: Last Year
+  last_month: Last Month
+  last_week: Last Week
+  yesterday: Yesterday
+  today: Today
+  tomorrow: Tomorrow
+  next_week: Next Week
+  this_week: This Week
+  this_month: This Month
+  next_month: Next Month
+  next_year: Next Year
+  
+  
+  #--------------------------------------------------------------
   # Navigation
   #--------------------------------------------------------------
   dashboard: Dashboard
@@ -14,20 +30,26 @@ en:
   #--------------------------------------------------------------
   # UI
   #--------------------------------------------------------------
+  assigned: Assigned
   back: Back
   cancel: Cancel
+  completed: Completed
+  filter: Filter
   or: or
+  pending: Pending
   submit: Submit
   
   #--------------------------------------------------------------
-  # Models
+  # Model Actions
   #--------------------------------------------------------------
   add_account: Add Account
-  add_lead: Add Lead
   add_contact: Add Contact
+  add_lead: Add Lead
   add_task: Add Task
-
-  
+  edit_account: Edit Account
+  edit_contact: Edit Contact
+  edit_lead: Edit Lead
+  edit_task: Edit Task
   
   access_levels:
     - Private
