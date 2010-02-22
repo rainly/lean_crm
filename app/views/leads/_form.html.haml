@@ -1,3 +1,4 @@
+%h2.title= t('add_lead')
 %fieldset
   = form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s), :grid=>'10'
   = form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s), :grid=>'10'
@@ -26,12 +27,12 @@
     = form.label :do_not_call
 %fieldset
   = form.input :website, :grid=>'100'
-  = form.input :twitter, :grid=>'100'
-  = form.input :linked_in, :grid=>'100'
-  = form.input :facebook, :grid=>'100'
-  = form.input :xing, :grid=>'100'    
+  = form.input :twitter, :grid=>'50'
+  = form.input :linked_in, :grid=>'50 last'
+  = form.input :facebook, :grid=>'50'
+  = form.input :xing, :grid=>'50 last'
 %fieldset
-  = form.input :notes, :as => :text, :grid=>'100'
+  = form.input :notes, :as => :text, :grid=>'100', :input_html=>{:rows=>4}
 %fieldset
   = render :partial => 'shared/permissions_form', :locals => { :form => form }
 .act

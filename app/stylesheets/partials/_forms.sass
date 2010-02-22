@@ -65,7 +65,7 @@ fieldset
   +border-radius(5px)
   :margin-bottom 20px
   +v-grad(#efeee1,#d3d0c4)
-  :padding 20px 24px 20px 20px
+  :padding 20px 24px 10px 20px
   div
     :clear none
     :float left
@@ -108,11 +108,22 @@ fieldset
   :top 0em
   :background #f00
 /
+//---------------------------------------------------
+// Check Boxes
+//---------------------------------------------------
+
 .checks, .boolean
   input
     :width 13px
   input, label
     :display inline
+ul.checks
+  :list-style-type none
+  &.stacked
+    +no-bullets
+    :padding-left 0px
+    :margin-left 0px
+  
 //---------------------------------------------------
 // Error Messages
 //---------------------------------------------------

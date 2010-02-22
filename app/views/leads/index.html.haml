@@ -4,9 +4,9 @@
 
 .actions
 - form_tag '', :method => :get do
-  .boolean
-    - Lead.statuses.each do |status|
-      = check_box_tag 'with_status[]', status, (params[:with_status] and params[:with_status].include?(status)), :id => "status_#{status}"
-      %label{ :for => "status_#{status}" }= status
-  = submit_tag t(:submit), :id => 'filter'
+  
+  - Lead.statuses.each do |status|
+    = check_box_tag 'with_status[]', status, (params[:with_status] and params[:with_status].include?(status)), :id => "status_#{status}"
+    %label{ :for => "status_#{status}" }= status
+= submit_tag t(:submit), :id => 'filter'
 = render :partial => 'lead', :collection => @leads

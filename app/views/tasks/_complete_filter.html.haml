@@ -1,16 +1,16 @@
-%fieldset
-  %p
+%ul.checks.stacked
+  %li
+    = check_box_tag 'scopes[completed_today]', true, params[:scopes] && params[:scopes][:completed_today], :id => 'completed_today'
     %label{ :for => 'completed_today' }= t('today')
-    = check_box_tag 'scopes[completed_today]', true, params[:scopes] && params[:scopes][:completed_today], :id => 'today'
-  %p
+  %li
+    = check_box_tag 'scopes[completed_yesterday]', true, params[:scopes] && params[:scopes][:completed_yesterday], :id => 'completed_yesterday'
     %label{ :for => 'completed_yesterday' }= t('yesterday')
-    = check_box_tag 'scopes[completed_yesterday]', true, params[:scopes] && params[:scopes][:completed_yesterday], :id => 'yesterday'
-  %p
+  %li
+    = check_box_tag 'scopes[completed_last_week]', true, params[:scopes] && params[:scopes][:completed_last_week], :id => 'completed_last_week'
     %label{ :for => 'completed_last_week' }= t('last_week')
-    = check_box_tag 'scopes[completed_last_week]', true, params[:scopes] && params[:scopes][:completed_last_week], :id => 'last_week'
-  %p
+  %li
+    = check_box_tag 'scopes[completed_this_month]', true, params[:scopes] && params[:scopes][:completed_this_month], :id => 'completed_this_month'
     %label{ :for => 'completed_this_month' }= t('this_month')
-    = check_box_tag 'scopes[completed_this_month]', true, params[:scopes] && params[:scopes][:completed_this_month], :id => 'this_month'
-  %p
+  %li
+    = check_box_tag 'scopes[completed_last_month]', true, params[:scopes] && params[:scopes][:completed_last_month], :id => 'completed_last_month'
     %label{ :for => 'completed_last_month' }= t('last_month')
-    = check_box_tag 'scopes[completed_last_month]', true, params[:scopes] && params[:scopes][:completed_last_month], :id => 'last_month'
