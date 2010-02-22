@@ -282,9 +282,10 @@ div#main h2.title b {
   padding: 0px;
   display: block;
   float: left;
+  font-size: 11px;
   width: 33%;
 }
-/* line 108, ../../../app/stylesheets/partials/_layout.sass */
+/* line 109, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters li.first a {
   border-top-left-radius: 14px;
   -moz-border-radius-topleft: 14px;
@@ -293,7 +294,7 @@ div#main h2.title b {
   -moz-border-radius-bottomleft: 14px;
   -webkit-border-bottom-left-radius: 14px;
 }
-/* line 110, ../../../app/stylesheets/partials/_layout.sass */
+/* line 111, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters li.last a {
   border-top-right-radius: 14px;
   -moz-border-radius-topright: 14px;
@@ -302,7 +303,7 @@ div#main h2.title b {
   -moz-border-radius-bottomright: 14px;
   -webkit-border-bottom-right-radius: 14px;
 }
-/* line 112, ../../../app/stylesheets/partials/_layout.sass */
+/* line 113, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters a {
   display: block;
   background: #dddddd;
@@ -322,7 +323,7 @@ div#main h2.title b {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.87, #f1f1f1), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #f1f1f1 14%,  #e0e0e0 100%);
 }
-/* line 117, ../../../app/stylesheets/partials/_layout.sass */
+/* line 118, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters a.active {
   background: #777777;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.87, #777777), color-stop(1, #999999) );
@@ -339,21 +340,21 @@ div#main h2.title b {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.87, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 119, ../../../app/stylesheets/partials/_layout.sass */
+/* line 120, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 12px;
 }
-/* line 122, ../../../app/stylesheets/partials/_layout.sass */
+/* line 123, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.gold {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #c0c0b1;
   background: #f2f2e3;
 }
 
-/* line 127, ../../../app/stylesheets/partials/_layout.sass */
+/* line 128, ../../../app/stylesheets/partials/_layout.sass */
 .inline-add {
   font-size: 14px;
   padding-top: 20px;
