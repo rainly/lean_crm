@@ -65,5 +65,6 @@ class ActiveSupport::TestCase
       klass = model_name.classify.constantize
       klass.delete_all if klass.respond_to?('delete_all')
     end
+    Configuration.create!
   end
 end

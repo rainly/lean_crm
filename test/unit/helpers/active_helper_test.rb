@@ -79,11 +79,5 @@ class ActiveHelperTest < ActionView::TestCase
         assert_equal 'inactive', active_if(false)
       end
     end
-
-  # TODO: sort out these tests, although they were originally passing, they were testing if true == true
-  def test_nav_link_to
-    #assert_equal "<a href='/accounts' class='active'>New Account</a>", nav_link_to('New Account',{:controller=>'accounts',:action=>'new'},controller_is('accounts'))
-    #assert_equal "<a href='/jobs/new'>New Account</a>", nav_link_to('Jobs',{:controller=>'jobs',:action=>'index'},controller_is('jobs'))
-    #assert_equal "<a href='/jobs/new' id='test'>New Account</a>", nav_link_to('Jobs',{:controller=>'jobs',:action=>'index'},controller_is('jobs'), :id => 'test')
   end
 end
