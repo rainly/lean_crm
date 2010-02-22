@@ -230,6 +230,14 @@ div#main h2.title b {
   text-shadow: #555555 0px 1px 0px;
 }
 
+/* line 93, ../../../app/stylesheets/partials/_layout.sass */
+.inline-add {
+  font-size: 14px;
+  padding-top: 20px;
+  display: block;
+  float: left;
+}
+
 /* line 1, ../../../app/stylesheets/partials/_typography.sass */
 body, h1, h2, h3, h4, h5, h6, p, ol, ul, dl, strong, em, div, a, table {
   font-family: "Lucida Grande", "Lucida Sans Unicode", helvetica, arial, sans-serif;
@@ -810,12 +818,22 @@ fieldset div.last {
   background: #f00;
 }
 
-/* line 113, ../../../app/stylesheets/partials/_forms.sass */
+
+/* line 112, ../../../app/stylesheets/partials/_forms.sass */
+.checks input, .boolean input {
+  width: 13px;
+}
+/* line 114, ../../../app/stylesheets/partials/_forms.sass */
+.checks input, .checks label, .boolean input, .boolean label {
+  display: inline;
+}
+
+/* line 119, ../../../app/stylesheets/partials/_forms.sass */
 fieldset .fieldWithErrors {
   margin: 0px;
   width: 100%;
 }
-/* line 116, ../../../app/stylesheets/partials/_forms.sass */
+/* line 122, ../../../app/stylesheets/partials/_forms.sass */
 fieldset .fieldWithErrors input, fieldset .fieldWithErrors textarea {
   background-color: #fcc;
   -webkit-box-shadow: inset 1px 1px 4px #ddaaaa;
@@ -823,7 +841,7 @@ fieldset .fieldWithErrors input, fieldset .fieldWithErrors textarea {
   border-color: #f00;
 }
 
-/* line 120, ../../../app/stylesheets/partials/_forms.sass */
+/* line 126, ../../../app/stylesheets/partials/_forms.sass */
 span.error {
   font-size: 13px;
   color: #f00;
@@ -834,12 +852,12 @@ span.error {
   font-weight: bold;
 }
 
-/* line 128, ../../../app/stylesheets/partials/_forms.sass */
+/* line 134, ../../../app/stylesheets/partials/_forms.sass */
 .clear {
   clear: both;
 }
 
-/* line 133, ../../../app/stylesheets/partials/_forms.sass */
+/* line 139, ../../../app/stylesheets/partials/_forms.sass */
 .flash {
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -855,7 +873,7 @@ span.error {
   text-shadow: black 1px 1px 2px;
   text-align: center;
 }
-/* line 140, ../../../app/stylesheets/partials/_forms.sass */
+/* line 146, ../../../app/stylesheets/partials/_forms.sass */
 .flash#notice {
   color: #fff;
   background: #25b023;
