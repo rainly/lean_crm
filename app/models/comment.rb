@@ -5,7 +5,7 @@ class Comment
   key :commentable_id,    ObjectId, :index => true
   key :commentable_type,  String, :index => true
   key :text,              String
-  key :from_email,        Boolean
+  key :_type,             String
   timestamps!
 
   belongs_to :user
