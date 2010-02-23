@@ -1,6 +1,11 @@
 - simple_form_for @configuration, :url => admin_configuration_path do |form|
   %fieldset
     %p
+      = form.input :company_name
+    %p
+      = form.input :domain_name
+  %fieldset
+    %p
       = form.input :imap_user
     %p
       = form.input :imap_password

@@ -12,7 +12,7 @@
       .pad
         %h1
           %strong.logo LeanCRM:
-          = COMPANY_NAME
+          = @configuration.company_name if @configuration
         - if current_user
           #menus
             %p

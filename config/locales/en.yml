@@ -144,6 +144,7 @@ en:
   # Emails
   #--------------------------------------------------------------
   emails:
+    do_not_reply: "do-not-reply@{{host}}"
     task_reassigned:
       subject: You have been assigned a new task
   

@@ -28,9 +28,6 @@ class Task
   
   named_scope :not_due, :conditions => { :due_at => nil }
 
-  named_scope :due_today, lambda { { :conditions => { :due_at =>
-    { '$lt' => Time.zone.now.tomorrow.midnight } } } }
-
   named_scope :for, lambda { |user| { :conditions =>
     { '$where' => "this.user_id == '#{user.id}' || this.assignee_id == '#{user.id}'" } } }
   
@@ -43,8 +40,8 @@ class Task
   named_scope :overdue, lambda { { :conditions => { :due_at => {
     '$lt' => Time.zone.now.midnight.utc } } } }
 
-  named_scope :due_today, lambda { { :conditions => { :due_at =>
-    Time.zone.now.end_of_day.utc - 1.second } } }
+  named_scope :due_today, lambda { { :conditions => { :due_at => {
+    '$gte' => Time.zone.now.midnight.utc, '$lt' => Time.zone.now.end_of_day.utc } } } }
 
   named_scope :due_tomorrow, lambda { { :conditions => { :due_at =>
     Time.zone.now.tomorrow.end_of_day.utc - 1.second } } }

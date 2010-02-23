@@ -1,13 +1,12 @@
 require 'test_helper.rb'
 
 class EmailReaderTest < ActiveSupport::TestCase
+
   context "when email is outgoing (bcc'd)" do
     setup do
       @user = User.make(:annika)
-      @email = mock()
+      @email = Mail.new(File.read("#{Rails.root}/test/support/direct_email_with_attachment.txt").strip)
       @email.stubs(:bcc).returns(["dropbox@#{@user.api_key}.1000jobboersen.de"])
-      @email.stubs(:body).returns('This is the email body')
-      @email.stubs(:attachments).returns([File.open("#{Rails.root}/test/upload-files/erich_offer.pdf")])
     end
 
     context 'when sent to a single receiver' do
@@ -26,7 +25,7 @@ class EmailReaderTest < ActiveSupport::TestCase
         end
 
         should 'populate comment text from email body' do
-          assert_equal @email.body, @lead.comments.first.text
+          assert_equal @email.parts.first.parts.first.body.to_s, @lead.comments.first.text
         end
 
         should 'populate comment user from user found from email bcc address' do
@@ -63,23 +62,100 @@ class EmailReaderTest < ActiveSupport::TestCase
     end
   end
 
+  context "when email is forwarded, but the forwarded message was an outgoing message" do
+    setup do
+      @user = User.make(:annika, :email => 'matt.beedle@1000jobboersen.de')
+      @email = Mail.new(File.read("#{Rails.root}/test/support/forwarded_outgoing.txt").strip)
+      @email.stubs(:to).returns(["dropbox@#{@user.api_key}.1000jobboersen.de"])
+    end
+
+    context 'when receiver exists as a lead' do
+      setup do
+        @lead = Lead.make(:erich, :email => 'mattbeedle@gmail.com')
+        EmailReader.parse_email(@email)
+      end
+
+      should 'add comment to lead' do
+        assert_equal 1, @lead.comments.count
+        assert_equal @email.parts.first.body.to_s, @lead.comments.first.text
+      end
+
+      should 'add attachments to comment' do
+        assert_equal 1, @lead.comments.first.attachments.count
+      end
+    end
+
+    context 'when receiver exists as a contact' do
+      setup do
+        @contact = Contact.make(:florian, :email => 'mattbeedle@gmail.com')
+        EmailReader.parse_email(@email)
+      end
+
+      should 'add comment to contact' do
+        assert_equal 1, @contact.comments.count
+        assert_equal @email.parts.first.body.to_s, @contact.comments.first.text
+      end
+
+      should 'add attachments to comment' do
+        assert_equal 1, @contact.comments.first.attachments.count
+      end
+    end
+
+    context 'when receiver does not exist' do
+      setup do
+        EmailReader.parse_email(@email)
+      end
+
+      should 'create a new contact' do
+        assert_equal 1, Contact.count
+      end
+
+      should 'add attachments to comment' do
+        assert_equal 1, Comment.first.attachments.count
+      end
+    end
+  end
+
   context 'when email is incoming (forwarded)' do
     setup do
-      @message = mock()
+      @user = User.make(:annika)
+      @email = Mail.new(File.read("#{Rails.root}/test/support/forwarded_reply.txt").strip)
+      @email.stubs(:to).returns(["dropbox@#{@user.api_key}.1000jobboersen.de"])
     end
 
     context 'when sender exists as a lead' do
-      should 'add comment to lead'
+      setup do
+        @lead = Lead.make(:erich, :email => 'mattbeedle@googlemail.com')
+        EmailReader.parse_email(@email)
+      end
 
-      should 'save attachments against comment'
+      should 'add comment to lead' do
+        assert_equal 1, @lead.comments.count
+        assert_equal @email.body.to_s, @lead.comments.first.text
+      end
     end
 
     context 'when sender exists as a contact' do
-      should 'add comment to contact'
+      setup do
+        @contact = Contact.make(:florian, :email => 'mattbeedle@googlemail.com')
+        EmailReader.parse_email(@email)
+      end
+
+      should 'add comment to contact' do
+        assert_equal 1, @contact.comments.count
+      end
     end
 
     context 'when sender does not exist' do
-      should 'create contact and add comment to it'
+      setup do
+        EmailReader.parse_email(@email)
+      end
+
+      should 'create contact and add comment to it' do
+        assert_equal 1, Contact.count
+        assert_equal 1, Contact.first.comments.count
+        assert_equal 'mattbeedle@googlemail.com', Contact.first.email
+      end
     end
   end
 end
