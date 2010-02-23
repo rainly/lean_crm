@@ -12,5 +12,5 @@ Feature: Manage sessions
 
   Scenario: When logged out
     Given I am on the dashboard page
-    Then I should see "Login"
+    Then I should see "Sign in"
     And I should not see "Dashboard"
