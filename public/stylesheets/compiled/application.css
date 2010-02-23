@@ -1193,7 +1193,7 @@ dl.item dt.email, dl.item dt.contacted {
   color: #a58460;
 }
 /* line 66, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.follow_up, dl.item dt.converted {
+dl.item dt.follow-up, dl.item dt.converted {
   background: #b5ffda;
   color: #5ba580;
 }
