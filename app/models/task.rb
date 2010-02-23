@@ -3,13 +3,13 @@ class Task
   include HasConstant
 
   key :user_id,         ObjectId, :required => true, :index => true
-  key :name,            String, :required => true
+  key :name,            String,   :required => true
   key :due_at,          Time
-  key :assignee_id,     ObjectId, :index => true
-  key :category,        Integer, :required => true, :index => true
-  key :completed_by_id, ObjectId, :index => true
-  key :asset_id,        ObjectId, :index => true
-  key :asset_type,      String, :index => true
+  key :assignee_id,     ObjectId, :index    => true
+  key :category,        Integer,  :required => true, :index => true
+  key :completed_by_id, ObjectId, :index    => true
+  key :asset_id,        ObjectId, :index    => true
+  key :asset_type,      String,   :index    => true
   key :priority,        Integer
   key :completed_at,    Time
   key :deleted_at,      Time
@@ -25,10 +25,14 @@ class Task
   has_many :activities, :as => :subject
 
   named_scope :incomplete, :conditions => { :completed_at => nil }
+  
+  named_scope :not_due, :conditions => { :due_at => nil }
 
   named_scope :for, lambda { |user| { :conditions =>
     { '$where' => "this.user_id == '#{user.id}' || this.assignee_id == '#{user.id}'" } } }
-
+  
+  named_scope :pending, :conditions => { :completed_at => nil, :assignee_id => nil }
+  
   named_scope :assigned, :conditions => { :assignee_id => { '$ne' => nil } }
 
   named_scope :completed, :conditions => { :completed_at => { '$ne' => nil } }

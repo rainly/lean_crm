@@ -104,7 +104,7 @@ Feature: Manage leads
     And a lead exists with user: annika
     And a task exists with asset: the lead, name: "Call to get offer details", user: annika
     And I am on the lead's page
-    When I check "task_completed_by_id"
+    When I check "Call to get offer details"
     And I press "task_submit"
     Then the task "Call to get offer details" should have been completed
     And I should be on the lead's page
