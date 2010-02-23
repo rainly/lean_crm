@@ -177,7 +177,7 @@ class TaskTest < ActiveSupport::TestCase
         assert_equal [@task2], Task.completed_last_month
       end
     end
-
+    
     context 'completed' do
       setup do
         @task = Task.make(:call_erich)
