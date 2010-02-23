@@ -43,16 +43,35 @@ en:
   submit: Submit
   
   #--------------------------------------------------------------
-  # Model Actions
+  # Account
   #--------------------------------------------------------------
   add_account: Add Account
-  add_contact: Add Contact
-  add_lead: Add Lead
-  add_task: Add Task
   edit_account: Edit Account
+
+  #--------------------------------------------------------------
+  # Contact
+  #--------------------------------------------------------------
+  add_contact: Add Contact
   edit_contact: Edit Contact
+  
+  #--------------------------------------------------------------
+  # Lead
+  #--------------------------------------------------------------
+  add_lead: Add Lead
+  convert_lead: Convert Lead
   edit_lead: Edit Lead
+  reject_lead: Reject Lead
+  
+  #--------------------------------------------------------------
+  # Task
+  #--------------------------------------------------------------
+  add_task: Add Task
   edit_task: Edit Task
+  
+  
+  
+  
+  
   
   access_levels:
     - Private

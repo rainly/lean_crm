@@ -1115,32 +1115,32 @@ h3.deadline#overdue {
 /* line 16, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_today {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(#006200), to(white));
-  background: -moz-linear-gradient(center left, #006200 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(black), to(white));
+  background: -moz-linear-gradient(center left, black 0%, white 100%);
 }
 /* line 18, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_tomorrow {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(black), to(white));
-  background: -moz-linear-gradient(center left, black 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#222222), to(white));
+  background: -moz-linear-gradient(center left, #222222 0%, white 100%);
 }
 /* line 20, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_this_week {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(#3b7d80), to(white));
-  background: -moz-linear-gradient(center left, #3b7d80 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#444444), to(white));
+  background: -moz-linear-gradient(center left, #444444 0%, white 100%);
 }
 /* line 22, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_next_week {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(#4882b3), to(white));
-  background: -moz-linear-gradient(center left, #4882b3 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+  background: -moz-linear-gradient(center left, #666666 0%, white 100%);
 }
 /* line 24, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_later {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(#667acc), to(white));
-  background: -moz-linear-gradient(center left, #667acc 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#888888), to(white));
+  background: -moz-linear-gradient(center left, #888888 0%, white 100%);
 }
 
 /* line 27, ../../../app/stylesheets/models/_task.sass */
