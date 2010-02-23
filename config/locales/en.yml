@@ -78,6 +78,7 @@ en:
     - Lord
     - Madam
 
+  added_ago: "added {{time}} ago"
   created_ago: "created {{time}} ago"
   updated_ago: "updated {{time}} ago"
 
