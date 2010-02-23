@@ -4,5 +4,6 @@ module ApplicationHelper
   def add_new(text,path)
     "<a href='#{path}' id='new'><b>+</b>#{text}</a>"
   end
+
   
 end

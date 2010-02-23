@@ -1,4 +1,5 @@
 %dl.item{ :class => task.completed? ? 'completed' : nil }
+  = debug task.asset
   %dt.category{:class=>task.category.downcase}= task.category
   %dd
     %span.task_item
