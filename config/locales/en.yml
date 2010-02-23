@@ -3,8 +3,23 @@
 
 en:
   #--------------------------------------------------------------
+  # Layout
+  #--------------------------------------------------------------
+  dashboard: Dashboard
+  tasks: Tasks
+  leads: Leads
+  accounts: Accounts
+  contacts: Contacts
+  profile: Profile
+  login: Login
+  logout: Logout
+
+  #--------------------------------------------------------------
   # Time
   #--------------------------------------------------------------
+  added_ago: "added {{time}} ago"
+  created_ago: "created {{time}} ago"
+  updated_ago: "updated {{time}} ago"
   last_year: Last Year
   last_month: Last Month
   last_week: Last Week
@@ -17,22 +32,13 @@ en:
   next_month: Next Month
   next_year: Next Year
   
-  
-  #--------------------------------------------------------------
-  # Navigation
-  #--------------------------------------------------------------
-  dashboard: Dashboard
-  tasks: Tasks
-  leads: Leads
-  accounts: Accounts
-  contacts: Contacts
-
   #--------------------------------------------------------------
   # UI
   #--------------------------------------------------------------
   assigned: Assigned
   back: Back
   cancel: Cancel
+  configuration: Configuration
   completed: Completed
   delete: Delete
   edit: Edit
@@ -43,62 +49,38 @@ en:
   submit: Submit
   
   #--------------------------------------------------------------
-  # Model Actions
+  # Account
   #--------------------------------------------------------------
-  add_account: Add Account
-  add_contact: Add Contact
-  add_lead: Add Lead
-  add_task: Add Task
-  edit_account: Edit Account
-  edit_contact: Edit Contact
-  edit_lead: Edit Lead
-  edit_task: Edit Task
-  
   access_levels:
     - Private
+  add_account: Add Account
+  delete_account: Delete Account
+  edit_account: Edit Account
   permissions:
-    - Public
-    - Shared
-    - Private
-
-  overdue: As soon as possible
-  due_today: Today
-  due_tomorrow: Tomorrow
-  due_this_week: This week
-  due_next_week: Next week
-  due_later: Sometime later 
-  salutations:
-    - Mr
-    - Ms
-    - Mrs
-
-  titles:
-    - Dr
-    - Sir
-    - Lord
-    - Madam
-
-  created_ago: "created {{time}} ago"
-  updated_ago: "updated {{time}} ago"
-
-  task_categories:
-    - Call
-    - Email
-    - "Follow-up"
-    - Lunch
-    - Meeting
-    - Money
-    - Presentation
-    - Trip
-
-  task_reassigned: "Task has been re-assigned to {{user}}"
-
+  - Public
+  - Shared
+  - Private
+  
+  #--------------------------------------------------------------
+  # Contact
+  #--------------------------------------------------------------
+  add_contact: Add Contact
+  delete_contact: Delete Contact
+  edit_contact: Edit Contact
+  
+  #--------------------------------------------------------------
+  # Leads
+  #--------------------------------------------------------------
+  add_lead: Add Lead
+  convert_lead: Convert Lead
+  delete_lead: Delete Lead
+  edit_lead: Edit Lead
+  reject_lead: Reject Lead
   lead_statuses:
     - New
     - Contacted
     - Converted
     - Rejected
-
   lead_sources:
     - Campaign
     - Cold Call
@@ -108,10 +90,43 @@ en:
     - "Self-generated"
     - Website
     - Word of Mouth
-    - Other
-
+    - Other   
+  salutations:
+    - Mr
+    - Ms
+    - Mrs
+  titles:
+    - Dr
+    - Sir
+    - Lord
+    - Madam
+ 
+  #--------------------------------------------------------------
+  # Task
+  #--------------------------------------------------------------
+  add_task: Add Task
   delete_task: Delete Task
-
+  edit_task: Edit Task
+  due_today: Today
+  due_tomorrow: Tomorrow
+  due_this_week: This week
+  due_next_week: Next week
+  due_later: Sometime later
+  overdue: As soon as possible
+  task_categories:
+    - Call
+    - Email
+    - "Follow-up"
+    - Lunch
+    - Meeting
+    - Money
+    - Presentation
+    - Trip
+  task_reassigned: "Task has been re-assigned to {{user}}"
+  
+  #--------------------------------------------------------------
+  # Activity
+  #--------------------------------------------------------------
   activity_actions:
     - Viewed
     - Created
@@ -123,28 +138,16 @@ en:
     - Converted
     - Commented
     - Deleted
+  my_profile: My Profile
 
+  #--------------------------------------------------------------
+  # Emails
+  #--------------------------------------------------------------
   emails:
     do_not_reply: "do-not-reply@{{host}}"
     task_reassigned:
       subject: You have been assigned a new task
-  logout: Log Out
-
-  navigation:
-    dashboard: Dashboard
-    tasks: Tasks
-    leads: Leads
-    accounts: Accounts
-    contacts: Contacts
-    profile: Profile
-    login: Login
-    logout: Logout
-
-  profiles:
-    heading: 'My Profile'
-
-  admin:
-    navigation:
-      dashboard: Dashboard
-      configuration: Configuration
-      logout: Logout
+  
+  
+  
+  

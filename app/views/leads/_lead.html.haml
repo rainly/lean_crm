@@ -1,8 +1,30 @@
-.item
-  = link_to lead.full_name, lead, :id => lead.full_name.to_dom_id
-  = lead.rating
-  = I18n.t(:created_ago, :time => time_ago_in_words(lead.created_at))
-  .actions
-    = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
-    - simple_form_for lead, :html => { :method => :delete } do |form|
-      = form.button :submit, t('delete'), :id => "delete_#{lead.full_name.to_dom_id}"
+%dl.item.lead
+  %dt{:class=>lead.status.downcase}= lead.status
+  %dd
+    %strong= link_to lead.full_name, lead, :id => lead.full_name.to_dom_id
+    - if !lead.company.blank?
+      %small= "at #{lead.company}"
+    %br/
+    %span.rating
+      - if lead.rating.blank?
+        - 5.times do
+          %span.off &#9733;
+      - else
+        - lead.rating.times do
+          %span.on &#9733;
+        - (5 - lead.rating).times do
+          %span.off &#9733;
+    %small
+      - if !lead.email.blank?
+        |
+        = mail_to lead.email
+      - if !lead.phone.blank? && !lead.do_not_call
+        |
+        %strong= lead.phone
+      |
+      = I18n.t(:added_ago, :time => time_ago_in_words(lead.created_at))
+    %span.actions
+      = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
+      %b.divider= "|"
+      - simple_form_for lead, :html => { :method => :delete } do |form|
+        = form.button :submit, t('delete'), :id => "delete_#{lead.full_name.to_dom_id}"

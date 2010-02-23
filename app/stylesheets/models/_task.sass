@@ -14,15 +14,15 @@ h3.deadline
   &#overdue
     +h-grad(!overdue,#fff)
   &#due_today
-    +h-grad(!due_today,#fff)
+    +h-grad(#000,#fff)
   &#due_tomorrow
-    +h-grad(!due_tomorrow,#fff)
+    +h-grad(#222,#fff)
   &#due_this_week
-    +h-grad(!due_this_week,#fff)
+    +h-grad(#444,#fff)
   &#due_next_week
-    +h-grad(!due_next_week,#fff)
+    +h-grad(#666,#fff)
   &#due_later
-    +h-grad(!due_later,#fff)
+    +h-grad(#888,#fff)
 
 .item dd input[type=submit]
   :background transparent
@@ -52,20 +52,20 @@ dl.item
     :clear none
     :display block
     :float left
-  dt.category
+  dt
     +border-left-radius(10px)
     :font-size 11px
     :margin-top 2px
     :padding 4px 6px 4px 0px
     :text-align right
     :width 12%
-    &.call
+    &.call, &.new
       +task-category(!call)
-    &.email
+    &.email, &.contacted
       +task-category(!email)
-    &.follow_up
+    &.follow-up, &.converted
       +task-category(!follow_up)
-    &.lunch
+    &.lunch, &.rejected
       +task-category(!lunch)
     &.meeting
       +task-category(!meeting)

@@ -190,19 +190,25 @@ div#main {
 /* line 70, ../../../app/stylesheets/partials/_layout.sass */
 div#main .pad {
   padding: 20px;
+  overflow: hidden;
+  display: inline-block;
 }
-/* line 72, ../../../app/stylesheets/partials/_layout.sass */
+/* line 5, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+div#main .pad {
+  display: block;
+}
+/* line 73, ../../../app/stylesheets/partials/_layout.sass */
 div#main h2.title {
   border-bottom: 3px solid #ccc;
   padding-bottom: 5px;
 }
-/* line 75, ../../../app/stylesheets/partials/_layout.sass */
+/* line 76, ../../../app/stylesheets/partials/_layout.sass */
 div#main h2.title a {
   float: right;
   margin-top: -8px;
   font-size: 13px;
 }
-/* line 79, ../../../app/stylesheets/partials/_layout.sass */
+/* line 80, ../../../app/stylesheets/partials/_layout.sass */
 div#main h2.title b {
   background: #999;
   border-radius: 10px;
@@ -219,7 +225,7 @@ div#main h2.title b {
   text-shadow: #555555 0px 1px 0px;
 }
 
-/* line 92, ../../../app/stylesheets/partials/_layout.sass */
+/* line 93, ../../../app/stylesheets/partials/_layout.sass */
 a#new {
   border-radius: 14px;
   -moz-border-radius: 14px;
@@ -241,19 +247,19 @@ a#new:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 98, ../../../app/stylesheets/partials/_layout.sass */
+/* line 99, ../../../app/stylesheets/partials/_layout.sass */
 a#new:hover b {
   background: #eee;
 }
 
-/* line 101, ../../../app/stylesheets/partials/_layout.sass */
+/* line 102, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar {
   clear: none;
   float: left;
   width: 26%;
   padding-left: 2%;
 }
-/* line 106, ../../../app/stylesheets/partials/_layout.sass */
+/* line 107, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters {
   margin: 0;
   padding: 0;
@@ -285,7 +291,7 @@ a#new:hover b {
 #sidebar ul.filters li.last {
   padding-right: 0px;
 }
-/* line 109, ../../../app/stylesheets/partials/_layout.sass */
+/* line 110, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters li {
   margin: 0px;
   padding: 0px;
@@ -294,7 +300,7 @@ a#new:hover b {
   font-size: 12px;
   width: 33%;
 }
-/* line 116, ../../../app/stylesheets/partials/_layout.sass */
+/* line 117, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters li.first a {
   border-top-left-radius: 14px;
   -moz-border-radius-topleft: 14px;
@@ -303,7 +309,7 @@ a#new:hover b {
   -moz-border-radius-bottomleft: 14px;
   -webkit-border-bottom-left-radius: 14px;
 }
-/* line 118, ../../../app/stylesheets/partials/_layout.sass */
+/* line 119, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters li.last a {
   border-top-right-radius: 14px;
   -moz-border-radius-topright: 14px;
@@ -312,7 +318,7 @@ a#new:hover b {
   -moz-border-radius-bottomright: 14px;
   -webkit-border-bottom-right-radius: 14px;
 }
-/* line 120, ../../../app/stylesheets/partials/_layout.sass */
+/* line 121, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters a {
   display: block;
   background: #eaeaea;
@@ -332,7 +338,7 @@ a#new:hover b {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 125, ../../../app/stylesheets/partials/_layout.sass */
+/* line 126, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters a.active {
   background: #777777;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.17, #777777), color-stop(1, #999999) );
@@ -349,21 +355,21 @@ a#new:hover b {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 127, ../../../app/stylesheets/partials/_layout.sass */
+/* line 128, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 12px;
 }
-/* line 130, ../../../app/stylesheets/partials/_layout.sass */
+/* line 131, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.gold {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #c0c0b1;
   background: #f2f2e3;
 }
 
-/* line 135, ../../../app/stylesheets/partials/_layout.sass */
+/* line 136, ../../../app/stylesheets/partials/_layout.sass */
 .inline-add {
   font-size: 14px;
   padding-top: 20px;
@@ -1037,6 +1043,53 @@ span.error {
   background: -moz-linear-gradient(center top, #42cb7c 0%, #25b023 100%);
 }
 
+/* line 2, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead span.rating {
+  font-size: 13px;
+  padding-top: 4px;
+  width: 7%;
+}
+/* line 6, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead span.rating span.on, dl.item.lead span.rating span.off {
+  margin: -1px;
+}
+/* line 8, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead span.rating span.on {
+  color: #666;
+}
+/* line 10, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead span.rating span.off {
+  color: #ccc;
+}
+/* line 12, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead small {
+  color: #777;
+}
+/* line 14, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead small a {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 18, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead small a:hover {
+  text-decoration: underline;
+}
+/* line 20, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead small strong {
+  color: #333;
+}
+/* line 22, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead dd {
+  width: 86%;
+  padding-left: 1%;
+}
+/* line 25, ../../../app/stylesheets/models/_leads.sass */
+dl.item.lead dd span.actions {
+  padding-top: 0px;
+  margin-top: 4px;
+}
+
 /* line 1, ../../../app/stylesheets/models/session.sass */
 .devise_links {
   font-size: 13px;
@@ -1062,32 +1115,32 @@ h3.deadline#overdue {
 /* line 16, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_today {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(#006200), to(white));
-  background: -moz-linear-gradient(center left, #006200 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(black), to(white));
+  background: -moz-linear-gradient(center left, black 0%, white 100%);
 }
 /* line 18, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_tomorrow {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(black), to(white));
-  background: -moz-linear-gradient(center left, black 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#222222), to(white));
+  background: -moz-linear-gradient(center left, #222222 0%, white 100%);
 }
 /* line 20, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_this_week {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(#3b7d80), to(white));
-  background: -moz-linear-gradient(center left, #3b7d80 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#444444), to(white));
+  background: -moz-linear-gradient(center left, #444444 0%, white 100%);
 }
 /* line 22, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_next_week {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(#4882b3), to(white));
-  background: -moz-linear-gradient(center left, #4882b3 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#666666), to(white));
+  background: -moz-linear-gradient(center left, #666666 0%, white 100%);
 }
 /* line 24, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_later {
   background: white;
-  background: -webkit-gradient(linear, left top, right top, from(#667acc), to(white));
-  background: -moz-linear-gradient(center left, #667acc 0%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#888888), to(white));
+  background: -moz-linear-gradient(center left, #888888 0%, white 100%);
 }
 
 /* line 27, ../../../app/stylesheets/models/_task.sass */
@@ -1116,7 +1169,7 @@ dl.item dt, dl.item dd {
   float: left;
 }
 /* line 55, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.category {
+dl.item dt {
   border-top-left-radius: 10px;
   -moz-border-radius-topleft: 10px;
   -webkit-border-top-left-radius: 10px;
@@ -1130,42 +1183,42 @@ dl.item dt.category {
   width: 12%;
 }
 /* line 62, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.category.call {
+dl.item dt.call, dl.item dt.new {
   background: #b5e7ff;
   color: #5b8da5;
 }
 /* line 64, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.category.email {
+dl.item dt.email, dl.item dt.contacted {
   background: #ffdeba;
   color: #a58460;
 }
 /* line 66, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.category.follow_up {
+dl.item dt.follow-up, dl.item dt.converted {
   background: #b5ffda;
   color: #5ba580;
 }
 /* line 68, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.category.lunch {
+dl.item dt.lunch, dl.item dt.rejected {
   background: #ffd2ba;
   color: #a57860;
 }
 /* line 70, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.category.meeting {
+dl.item dt.meeting {
   background: #f5ed9d;
   color: #9b9343;
 }
 /* line 72, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.category.money {
+dl.item dt.money {
   background: #d1ffba;
   color: #77a560;
 }
 /* line 74, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.category.presentation {
+dl.item dt.presentation {
   background: #dedede;
   color: #848484;
 }
 /* line 76, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.category.trip {
+dl.item dt.trip {
   background: #dec7ff;
   color: #846da5;
 }
