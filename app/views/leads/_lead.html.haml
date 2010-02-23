@@ -24,8 +24,6 @@
       |
       = I18n.t(:added_ago, :time => time_ago_in_words(lead.created_at))
     %span.actions
-      = mail_to lead.email, "E-mail"
-      %b.divider= "|"
       = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
       %b.divider= "|"
       - simple_form_for lead, :html => { :method => :delete } do |form|
