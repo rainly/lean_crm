@@ -25,6 +25,8 @@ class Task
   has_many :activities, :as => :subject
 
   named_scope :incomplete, :conditions => { :completed_at => nil }
+  
+  named_scope :not_due, :conditions => { :due_at => nil }
 
   named_scope :due_today, lambda { { :conditions => { :due_at =>
     { '$lt' => Time.zone.now.tomorrow.midnight } } } }

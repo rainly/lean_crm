@@ -129,6 +129,17 @@ class TaskTest < ActiveSupport::TestCase
         assert_equal [@task2], Task.due_later
       end
     end
+    
+    context 'not_due' do
+      setup do
+        @task.update_attributes :due_at => nil
+        @task2 = Task.make :due_at => 6.months.from_now
+      end
+
+      should 'return tasks which have no due date' do
+        assert_equal [@task], Task.not_due
+      end
+    end
 
     context 'completed_today' do
       setup do
