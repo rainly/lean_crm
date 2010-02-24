@@ -130,17 +130,6 @@ class TaskTest < ActiveSupport::TestCase
       end
     end
     
-    context 'not_due' do
-      setup do
-        @task.update_attributes :due_at => nil
-        @task2 = Task.make :due_at => 6.months.from_now
-      end
-
-      should 'return tasks which have no due date' do
-        assert_equal [@task], Task.not_due
-      end
-    end
-
     context 'completed_today' do
       setup do
         @task2 = Task.make
@@ -241,12 +230,12 @@ class TaskTest < ActiveSupport::TestCase
 
     context 'due_today' do
       setup do
-        @call_erich = Task.make(:call_erich, :due_at => 'due_today')
-        @call_markus = Task.make(:call_markus, :due_at => 'due_next_week')
+        @task.update_attributes :due_at => 'due_today'
+        @call_markus = Task.make(:call_markus, :due_at => 'overdue')
       end
 
       should 'return tasks which are due before 00:00:00 tomorrow' do
-        assert_equal [@call_erich], Task.due_today
+        assert_equal [@task], Task.due_today
       end
     end
   end
@@ -254,6 +243,34 @@ class TaskTest < ActiveSupport::TestCase
   context "Instance" do
     setup do
       @task = Task.make_unsaved
+    end
+
+    should 'be valid with all required attributes' do
+      assert @task.valid?
+    end
+
+    should 'not be valid without user_id' do
+      @task.user_id = nil
+      assert !@task.valid?
+      assert @task.errors.on(:user_id)
+    end
+
+    should 'not be valid without name' do
+      @task.name = nil
+      assert !@task.valid?
+      assert @task.errors.on(:name)
+    end
+
+    should 'not be valid without due_at' do
+      @task.due_at = nil
+      assert !@task.valid?
+      assert @task.errors.on(:due_at)
+    end
+
+    should 'not be valid without category' do
+      @task.category = nil
+      assert !@task.valid?
+      assert @task.errors.on(:category)
     end
 
     context 'activity logging' do
@@ -310,7 +327,14 @@ class TaskTest < ActiveSupport::TestCase
       @task.update_attributes :assignee_id => @task.assignee_id
       assert_equal 0, ActionMailer::Base.deliveries.length
     end
-    
+
+    should 'not send a notification email when the task is created if the assignee is blank' do
+      @task = Task.make_unsaved(:call_erich)
+      ActionMailer::Base.deliveries.clear
+      @task.save!
+      assert_equal 0, ActionMailer::Base.deliveries.length
+    end
+
     context 'completed?' do
       should 'be true when task has been completed' do
         @task.completed_by_id = @task.user_id

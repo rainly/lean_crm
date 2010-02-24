@@ -28,6 +28,7 @@ Feature: Manage tasks
     And a task: "call_erich" exists with user: annika
     And I am on the task's edit page
     When I select "benjamin.pochhammer@1000jobboersen.de" from "task_assignee_id"
+    And I select "Today" from "task_due_at"
     And I press "task_submit"
     Then I should be on the tasks page
     And I should see "Task has been re-assigned"
@@ -115,7 +116,7 @@ Feature: Manage tasks
     Given I am registered and logged in as annika
     And a task: "call_erich" exists with user: annika, due_at: "overdue"
     And a task exists with user: annika, name: "another task", due_at: "due_later"
-    And a task exists with user: annika, name: "third task", due_at: "next_week"
+    And a task exists with user: annika, name: "third task", due_at: "due_next_week"
     When I am on the tasks page
     And I follow "pending"
     And I check "overdue"

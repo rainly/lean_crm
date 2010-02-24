@@ -6,9 +6,7 @@ class EmailReader
     imap.select('INBOX')
     imap.search(["NOT", "DELETED", "NOT", "SEEN"]).each do |message_id|
       email = Mail.new(imap.fetch(message_id, 'RFC822')[0].attr['RFC822'])
-      if parse_email(email)
-        imap.store(message_id, '+FLAGS', [:Deleted])
-      end
+      imap.store(message_id, '+FLAGS', [:Deleted]) if parse_email(email)
     end
     imap.expunge
     imap.logout
@@ -25,6 +23,7 @@ class EmailReader
       add_attachments( comment, email )
       comment
     end
+    user
   end
 
 protected

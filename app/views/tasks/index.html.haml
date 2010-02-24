@@ -6,9 +6,6 @@
     - if @tasks.send(deadline).any?
       %h3.deadline{:id=>deadline}= t(deadline)
       = render :partial => 'task', :collection => @tasks.send(deadline)
-  - if @tasks.not_due.any?
-    %h3.deadline{:id=>'due_later'} Not Due
-    = render :partial => 'task', :collection => @tasks.not_due
 - if @tasks.is_a?(Hash)
   - @tasks.each do |key, value|
     - unless value.blank?
