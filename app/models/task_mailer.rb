@@ -4,7 +4,7 @@ class TaskMailer < ActionMailer::Base
     recipients    task.assignee.email
     from          I18n.t('emails.do_not_reply', :host => Configuration.first.domain_name)
     subject       I18n.t('emails.task_reassigned.subject')
-    body          :url => task_url(task)
+    body          :url => task_url(task, :host => Configuration.first.domain_name)
     sent_on       Time.now
   end
 

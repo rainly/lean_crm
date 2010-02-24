@@ -3,6 +3,6 @@
 <% @tasks.each do |task| %>
   <tr>
     <td><%= task.name -%></td>
-    <td><%= task_url(task) -%></td>
+    <td><%= task_url(task, :host => Configuration.first.domain_name) -%></td>
   </tr>
 <% end %>
