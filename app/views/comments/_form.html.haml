@@ -1,4 +1,4 @@
 %fieldset
-  = form.input :text, :as => :text
+  = form.input :text, :as => :text, :input_html => {:rows => 4}, :grid => '100'
   - form.simple_fields_for 'attachments_attributes[]', Attachment.new do |attachment_form|
     = attachment_form.input :attachment, :as => :file

@@ -5,4 +5,26 @@ module ApplicationHelper
     "<a href='#{path}' id='new'><b>+</b>#{text}</a>"
   end
   
+  def show_attribute(object,attribute,custom=false)
+    if object.send(attribute).present?
+      att = ""
+      att << "<dt>#{I18n.t("simple_form.labels.#{attribute}")}</dt>"
+      att << "<dd>"
+      custom ? att << custom : att << object.send(attribute)
+      att << "</dd>"
+    end
+  end
+  
+  def rating_for(object)
+    rating = "<span class='rating'>"
+    if object.rating.present?
+      object.rating.times       { rating << "<span class='on'>&#9733;</span>" }
+      (5 - object.rating).times { rating << "<span class='off'>&#9733;</span>" }
+    else
+      5.times {rating << "<span class='off'>&#9733;</span>"}
+    end
+    rating << "</span>"
+    rating
+  end
+  
 end

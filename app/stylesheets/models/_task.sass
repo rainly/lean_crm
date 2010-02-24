@@ -80,31 +80,66 @@ dl.item
     :margin-left 0px
     :padding 3px 0px
     :width 87%
+    :position relative
     input[type=checkbox]
       :width 14px
       :margin 0 0 0 7px
+    input[type=submit]:hover
+      :color #000
     span.task_item form
       :float left
+      :width 85%
+      input[type=submit]
+        :font-size 12px
+        :margin-top 2px
     label
       :display inline
       :font-size 14px
+    span.save
+      :position absolute
+      :right 3.5em
+
     span.actions
       :float right
       :clear none
       :display block
       :padding-top 3px
-      :width 6em
+      :width auto
+      a
+        :padding 0 2px
       a, input, b
         :float left
         :display inline
-        :padding 0
         :font-size 12px
       a, input
         :text-decoration none
         &:hover
           :color #000
-      input
+      input,b
+        :padding 0px
+      form
+        :clear none
+        :float left
+        :width 15px
+      input[type="submit"].delete
+        :color #f00
         :margin-top -1px
+        :margin-left -2px
+        &:hover
+          :color #000
       b.divider
-        :color #444
-        :padding 0px 2px 0px 5px
+        :color #ccc
+        :padding 0px 2px 0px 2px
+  
+//---------------------------------------------------
+// Task Assets
+//---------------------------------------------------
+small.asset
+  :font-size 11px
+  :color #bbb
+  a
+    :color #969696
+    :font-weight bold
+    :text-decoration none
+    &:hover
+      :text-decoration underline

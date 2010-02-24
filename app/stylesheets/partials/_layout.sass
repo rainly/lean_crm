@@ -104,27 +104,14 @@ a#new
   :float left
   :width 26%
   :padding-left 2%
+  .box
+    +clearfix
+  h3
+    :margin 0px
   ul.filters
     +horizontal-list
     :width 100%
-    li
-      :margin 0px
-      :padding 0px
-      :display block
-      :float left
-      :font-size 12px
-      :width 33%
-      &.first a
-        +border-left-radius(14px)
-      &.last a
-        +border-right-radius(14px)
-    a
-      :display block
-      +silver-button
-      :padding 5px 0px
-      :width 100%
-      &.active
-        +silver-button-pressed
+    +silver-tabs
   .box
     +border-radius(5px)
     :padding 12px
@@ -138,3 +125,14 @@ a#new
   :padding-top 20px
   :display block
   :float left
+//----------------------------------------------------
+// Ratings
+//----------------------------------------------------
+span.rating
+  :font-size 13px
+  :padding-top 4px
+  :width 7%
+  span.on
+    :color #666
+  span.off
+    :color #ccc

@@ -115,7 +115,7 @@ Feature: Manage leads
     And a lead exists with user: annika
     And a task exists with asset: the lead, name: "Call to get offer details", user: annika
     And I am on the lead's page
-    When I press "Delete"
+    When I press "delete"
     Then I should be on the lead's page
     And a task should not exist
     And I should not see "Call to get offer details"
@@ -215,12 +215,12 @@ Feature: Manage leads
     Given I am registered and logged in as annika
     And a lead: "erich" exists with user: annika, status: "Converted"
     When I am on the lead's page
-    Then I should not see "convert"
-    And I should not see "reject"
+    Then I should not see "convert_lead"
+    And I should not see "reject_lead"
 
   Scenario: Actions for a rejected lead
     Given I am registered and logged in as annika
     And a lead: "erich" exists with user: annika, status: "Rejected"
     When I am on the lead's page
-    Then I should not see "convert"
-    And I should not see "reject"
+    Then I should not see "convert_lead"
+    And I should not see "reject_lead"

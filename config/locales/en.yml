@@ -47,6 +47,38 @@ en:
   pending: Pending
   save: Save
   submit: Submit
+  visit_website: Visit Website
+  
+  #--------------------------------------------------------------
+  # Form Labels
+  #--------------------------------------------------------------
+  simple_form:
+    labels:
+      address: Address
+      account_name: Account Name
+      account_id: Account
+      alternative_email: Other Email
+      campaign_id: Campaign
+      company: Company
+      do_not_call: Do Not Call
+      email: Email
+      facebook: Facebook
+      first_name: First Name
+      last_name: Last Name
+      linked_in: Linked In
+      mobile: Mobile
+      permission: Permission
+      permitted_users: Permitted Users
+      phone: Phone
+      status: Status
+      source: Source
+      rating: Rating
+      referred_by: Referred By
+      salutation: Salutation
+      title: Title
+      twitter: Twitter
+      xing: Xing
+      website: Website
   
   #--------------------------------------------------------------
   # Account
@@ -60,6 +92,11 @@ en:
   - Public
   - Shared
   - Private
+
+  #--------------------------------------------------------------
+  # Comment
+  #--------------------------------------------------------------
+  add_comment: Add Comment
   
   #--------------------------------------------------------------
   # Contact
@@ -72,10 +109,16 @@ en:
   # Leads
   #--------------------------------------------------------------
   add_lead: Add Lead
+  company: Company
+  convert: Convert
+  converted: Converted
   convert_lead: Convert Lead
   delete_lead: Delete Lead
   edit_lead: Edit Lead
   reject_lead: Reject Lead
+  reject: Reject
+  rejected: Rejected
+  
   lead_statuses:
     - New
     - Contacted
@@ -123,7 +166,7 @@ en:
     - Presentation
     - Trip
   task_reassigned: "Task has been re-assigned to {{user}}"
-  
+  no_tasks_for_lead: "There are no tasks for this lead. <a href='{{link}}'>Add one now</a>"
   #--------------------------------------------------------------
   # Activity
   #--------------------------------------------------------------
@@ -139,7 +182,12 @@ en:
     - Commented
     - Deleted
   my_profile: My Profile
-
+  
+  #--------------------------------------------------------------
+  # Contacts
+  #--------------------------------------------------------------
+  contact_info: Contact Info
+  
   #--------------------------------------------------------------
   # Emails
   #--------------------------------------------------------------

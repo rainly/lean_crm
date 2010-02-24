@@ -310,7 +310,7 @@ class TaskTest < ActiveSupport::TestCase
       @task.update_attributes :assignee_id => @task.assignee_id
       assert_equal 0, ActionMailer::Base.deliveries.length
     end
-
+    
     context 'completed?' do
       should 'be true when task has been completed' do
         @task.completed_by_id = @task.user_id

@@ -1,5 +1,4 @@
 %dl.item{ :class => task.completed? ? 'completed' : nil }
-  = debug task.asset
   %dt.category{:class=>task.category.downcase}= task.category
   %dd
     %span.task_item
@@ -9,15 +8,17 @@
         - simple_form_for task do |form|
           = hidden_field_tag :return_to, request.request_uri
           %span.boolean= check_box_tag 'task[completed_by_id]', current_user.id, false, :id=>"task_#{task.id}"
-          %label{:for=>"task_#{task.id}"}= task.name
-          = form.button :submit, t('save')
-    
-    %span.actions           
-      = link_to t('edit'), edit_task_path(task)
-      - unless task.completed?
-        %b.divider= "|"
-        - simple_form_for task, :html => { :method => :delete } do |form|
-          = hidden_field_tag :return_to, request.request_uri
-          = form.button :submit, t('delete'), :class=>'link'
-    
+          %label{ :for => "task_#{task.id}" }= task.name
+          %span.save
+            = form.button :submit, t('save')
+          -#%small.asset= task_asset_link(task) unless task.asset.nil?
+        %span.actions
+        
+          %b.divider= "|"
+          = link_to t('edit'), edit_task_path(task)
+          %b.divider= "|"
+          - simple_form_for task, :html => { :method => :delete } do |form|
+            = hidden_field_tag :return_to, request.request_uri
+            = form.button :submit, '&#10005;', :class => 'delete', :id => 'delete'
+
 .clear

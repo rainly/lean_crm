@@ -1,14 +1,7 @@
+//----------------------------------------------------
+// Index
+//----------------------------------------------------
 dl.item.lead
-  span.rating
-    :font-size 13px
-    :padding-top 4px
-    :width 7%
-    span.on,span.off
-      :margin -1px
-    span.on
-      :color #666
-    span.off
-      :color #ccc
   small
     :color #777
     a
@@ -25,3 +18,83 @@ dl.item.lead
     span.actions
       :padding-top 0px
       :margin-top 4px
+
+div#main h2.title
+  //----------------------------------------------------
+  // Convert or Reject
+  //----------------------------------------------------
+  .actions
+    :clear none
+    :float right
+    :margin 0px
+    :padding 0
+    +silver-tabs
+    :width 33%
+    li
+      a
+        +box-shadow(#999)
+      &.right
+        :float right
+    form
+      :clear none
+      :float left
+      :margin-top -8px
+      :width 100%
+      input
+        +border-left-radius(0px)
+        :border-left none
+        :font-size 13px
+        :font-weight bold
+        :padding 4px 0px
+        
+  .status
+    :float right
+    :font-size 13px
+    :line-height 23px
+    :margin-top -8px
+    :padding 0 16px 2px 11px
+    +border-right-radius(14px)
+    strong
+      :font-size 22px
+    &.converted
+      :background #BDFFBC
+      :color #070
+    &.rejected
+      :background #fdd
+      :color #900
+//----------------------------------------------------
+// Add Task
+//----------------------------------------------------
+h3.grad
+  a#add_task
+    +border-radius(10px)
+    :float right
+    :font-size 12px
+    :padding 2px 6px
+    +silver-button
+    b
+      :background #999
+      +border-radius(10px)
+      :color #fff
+      :font-size 11px
+      :font-weight bold
+      :margin-right 1px
+      :padding 0px 3px 1px 3px
+      :position relative
+      :left -3px
+      :top -1px
+      +letterpress(#555)
+//----------------------------------------------------
+// Contact Info
+//----------------------------------------------------
+#sidebar
+  dl.info
+    :font-size 13px
+    +dl-horizontal(25%,70%)
+    dt,dd
+      :padding 4px 0px
+    dt
+      :color = !gold - 90
+      :font-size 12px
+      :padding-right 10px
+      :text-align right

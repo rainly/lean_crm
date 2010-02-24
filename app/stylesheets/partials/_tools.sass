@@ -50,3 +50,38 @@
 
 =letterpress(!color=#fff)
   +text-shadow(!color, 0px, 1px, 0px)
+
+=dl-horizontal(!dt_width = 25%, !dd_width = 75%)
+  :clear both
+  :overflow none
+  :float left
+  :width 100%
+  dt, dd
+    :float left
+    :clear none
+    :display block
+    :margin 0px
+  dt
+    :width = !dt_width
+  dd
+    :width = !dd_width
+
+=silver-tabs
+  li
+    :margin 0px
+    :padding 0px
+    :display block
+    :float left
+    :font-size 12px
+    :width 33%
+    &.first a
+      +border-left-radius(14px)
+    &.last a
+      +border-right-radius(14px)
+  a,input
+    :display block
+    +silver-button
+    :padding 5px 0px
+    :width 100%
+    &.active
+      +silver-button-pressed

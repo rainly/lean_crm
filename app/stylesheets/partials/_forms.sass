@@ -51,12 +51,15 @@ input[type="submit"]
   :padding-right = !padding_right
   &.last
     :padding-right 0
-  &.boolean
+  &.boolean, &.check, &.radio
     :padding-top 25px
+  &.boolean, &.check, &.radio, .boolean, .check, .radio
     input
       :width 13px
     input, label
       :display inline
+    
+  
   input, textarea
     :width = !input_width
   select

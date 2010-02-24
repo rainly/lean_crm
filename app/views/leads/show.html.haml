@@ -1,22 +1,63 @@
-.show
+%h2.title.show
   = @lead.full_name
-.actions
-  - unless @lead.status_is?('Converted') or @lead.status_is?('Rejected')
-    = link_to t('convert_lead'), convert_lead_path(@lead)
-    - simple_form_for @lead, :url => reject_lead_path(@lead), :html => { :method => :put } do |form|
-      = form.button :submit, t('reject_lead'), :id => 'reject'
+  = rating_for(@lead)
+  - if @lead.status_is?('Converted')
+    %span.status.converted
+      %strong &#10004;
+      = t('converted')
+  - if @lead.status_is?('Rejected')
+    %span.status.rejected
+      %strong &#10008;
+      = t('rejected')
+
+  %ul.actions
+    %li.first{:class=>('right' if @lead.status_is?('Converted') or @lead.status_is?('Rejected'))}
+      = link_to t('edit_lead'), edit_lead_path(@lead)
+    - unless @lead.status_is?('Converted') or @lead.status_is?('Rejected')
+      %li= link_to t('convert'), convert_lead_path(@lead), :id=>'convert_lead'
+      %li.last
+        - simple_form_for @lead, :url => reject_lead_path(@lead), :html => { :method => :put } do |form|
+          = form.button :submit, t('reject'), :id => 'reject_lead'
+
+- if @lead.notes.present?
+  .notes= @lead.notes
+
 .tasks
-  = link_to t('add_task'), new_task_path(:asset_id => @lead.id, :asset_type => 'Lead', :return_to => request.request_uri), :id => 'add_task'
-  = render :partial => 'tasks/task', :collection => @lead.tasks.incomplete
+  %h3.grad
+    = t('tasks')
+    = link_to "<b>+</b>#{t('add_task')}", new_task_path(:asset_id => @lead.id, :asset_type => 'Lead', :return_to => request.request_uri), :id => 'add_task'
+  - if @lead.tasks.incomplete.any?
+    = render :partial => 'tasks/task', :collection => @lead.tasks.incomplete
+  - else
+    %p= t('no_tasks_for_lead',:link=>new_task_path(:asset_id => @lead.id, :asset_type => 'Lead', :return_to => request.request_uri))
 .add_comment
+  %h3.grad= t('add_comment')
   - simple_form_for @comment || Comment.new, :html => { :multipart => true } do |form|
     = form.hidden_field :commentable_type, :value => 'Lead'
     = form.hidden_field :commentable_id, :value => @lead.id
     = hidden_field_tag :return_to, request.request_uri
     = render :partial => 'comments/form', :locals => { :form => form }
-    %fieldset
-      = form.button :submit
-      = t('or')
-      = link_to t('cancel'), :back
+    = form.button :submit
+    = t('or')
+    = link_to t('cancel'), :back
 .comments
   = render :partial => 'comments/comment', :collection => @lead.comments
+
+- content_for :sidebar do
+  .box.gold
+    %h3= t('contact_info')
+    %dl.info
+      = show_attribute(@lead, 'company')
+      = show_attribute(@lead, 'email', mail_to(@lead.email))
+      = show_attribute(@lead, 'alternative_email', mail_to(@lead.alternative_email))
+      - unless @lead.do_not_call
+        = show_attribute(@lead, 'phone')
+        = show_attribute(@lead, 'mobile')
+      = show_attribute(@lead, 'address')
+      = show_attribute(@lead, 'referred_by')
+      = show_attribute(@lead, 'website', link_to(t('visit_website'),@lead.website))
+      = show_attribute(@lead, 'twitter')
+      = show_attribute(@lead, 'referred_by')
+      = show_attribute(@lead, 'linked_in')
+      = show_attribute(@lead, 'facebook')
+      = show_attribute(@lead, 'xing')
