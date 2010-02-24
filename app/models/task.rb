@@ -1,10 +1,11 @@
 class Task
   include MongoMapper::Document
   include HasConstant
+  include Permission
 
   key :user_id,         ObjectId, :required => true, :index => true
   key :name,            String,   :required => true
-  key :due_at,          Time
+  key :due_at,          Time,     :required => true
   key :assignee_id,     ObjectId, :index    => true
   key :category,        Integer,  :required => true, :index => true
   key :completed_by_id, ObjectId, :index    => true
@@ -26,8 +27,6 @@ class Task
 
   named_scope :incomplete, :conditions => { :completed_at => nil }
   
-  named_scope :not_due, :conditions => { :due_at => nil }
-
   named_scope :for, lambda { |user| { :conditions =>
     { '$where' => "this.user_id == '#{user.id}' || this.assignee_id == '#{user.id}'" } } }
   
@@ -109,7 +108,7 @@ class Task
   end
 
   def assignee_id=( assignee_id )
-    if assignee_id and assignee_id != self.assignee_id
+    if !assignee_id.blank? and assignee_id != self.assignee_id
       @reassigned = true
       self[:assignee_id] = assignee_id
     end

@@ -69,6 +69,7 @@ Task.blueprint do
   user { User.make(:annika) }
   name { Sham.sentence }
   category { 'Call' }
+  due_at { 'overdue' }
 end
 
 Task.blueprint(:call_erich) do
@@ -76,6 +77,7 @@ Task.blueprint(:call_erich) do
   name { 'Call erich to get offer details' }
   category { 'Call' }
   asset { Lead.make(:erich) }
+  due_at { 'due_today' }
 end
 
 Account.blueprint do

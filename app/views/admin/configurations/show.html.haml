@@ -1,6 +1,12 @@
 .actions
   = link_to t('edit'), edit_admin_configuration_path, :id => 'edit_configuration'
 
+%h2 Overview
+%dl
+  %dt Company Name
+  %dd= @configuration.company_name
+  %dt Domain Name
+  %dd= @configuration.domain_name
 %h2 Email
 %dl
   %dt IMAP User
