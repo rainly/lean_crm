@@ -12,7 +12,7 @@
 
   %ul.actions
     %li.first{:class=>('right' if @lead.status_is?('Converted') or @lead.status_is?('Rejected'))}
-      = link_to t('edit_lead'), edit_lead_path(@lead)
+      = link_to t('edit'), edit_lead_path(@lead)
     - unless @lead.status_is?('Converted') or @lead.status_is?('Rejected')
       %li= link_to t('convert'), convert_lead_path(@lead), :id=>'convert_lead'
       %li.last

@@ -1,27 +1,71 @@
 //---------------------------------------------------
-// Basic Elements
+// Fieldsets
 //---------------------------------------------------
 fieldset
-  :border none
+  :border 1px solid #CFCFB7
+  +border-radius(5px)
+  :margin-bottom 20px
+  +v-grad(#efeee1,#d3d0c4)
+  :padding 20px 24px 10px 20px
+  div
+    :clear none
+    :float left
+    :margin 0 0 12px 0
+    &.last
+      :padding-right 0
+//----------------------------------------------------
+// Labels
+//----------------------------------------------------
 label
   :cursor pointer
   :display block
-  :font-size 13px
+  :font-size 14px
   :font-weight bold
   :padding-bottom 5px
+  :color #776D47
+  +letterpress
   abbr
     :border none
     :color #f00
     :display block
     :float left
     :width 7px
-input, textarea
+body.index label
+  :color #000
+//----------------------------------------------------
+// Inputs
+//----------------------------------------------------
+input, textarea, select
+  :background #fff
   :border 1px solid #aaa
-  +border-radius(2px)
+  +border-radius(4px)
+  :font-family "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial
   :font-size 16px
-  +inset-box-shadow(#ddd,1px,1px,4px)
+  :font-weight bold
   :padding 5px
   :width 100%
+input, textarea
+  +inset-box-shadow(#ddd,1px,1px,4px)
+select
+  +border-radius(4px)
+  :font-size 14px
+  +inset-box-shadow(#BBB6A6,-1px,-1px,4px)
+.checks, .boolean, .radio
+  input
+    :width 13px
+  input, label
+    :display inline
+  label
+    :margin-right 12px
+  label.block
+    :display block
+ul
+  &.checks, &.radio, &.boolean
+    :list-style-type none
+    &.stacked
+      +no-bullets
+      :padding-left 0px
+      :margin-left 0px
 
 //---------------------------------------------------
 // Buttons
@@ -41,12 +85,47 @@ input[type="submit"]
   +shiny-button(!act_grad_1, !act_grad_2, !act_grad_3)
   +text-shadow(!act_grad_3 - 30, 2px, 2px,2px)
   :width auto
-
-    
+  
 //---------------------------------------------------
-// Form Grids
+// Error Messages
+//---------------------------------------------------
+fieldset .fieldWithErrors
+  :margin 0px
+  :width 100%
+  input, textarea
+    :background-color #fcc
+    +inset-box-shadow(#daa,1px,1px,4px)
+    :border-color #f00
+span.error
+  :font-size 13px
+  :color #f00
+  :display block
+  :clear both
+  :margin-bottom 10px
+  :padding-left 5px
+  :font-weight bold
+.clear
+  :clear both
+  
+//---------------------------------------------------
+// Flash Message
+//---------------------------------------------------
+.flash
+  +border-radius(5px)
+  :padding 20px
+  :margin-bottom 20px
+  +box-shadow(#aaa, 2px, 2px,2px)
+  +text-shadow(#000, 1px, 1px,2px)
+  :text-align center
+  &#notice
+    :color #fff
+    +v-grad(#42cb7c,#25b023)
+
+//---------------------------------------------------
+// Form Grid
 //---------------------------------------------------
 =field(!width,!input_width,!padding_right=3.6%)
+  :float left
   :width = !width
   :padding-right = !padding_right
   &.last
@@ -58,25 +137,12 @@ input[type="submit"]
       :width 13px
     input, label
       :display inline
-    
-  
   input, textarea
     :width = !input_width
   select
     :width = !input_width + 2%
   span.error
     :width = !input_width + 3%
-fieldset
-  +border-radius(5px)
-  :margin-bottom 20px
-  +v-grad(#efeee1,#d3d0c4)
-  :padding 20px 24px 10px 20px
-  div
-    :clear none
-    :float left
-    :margin 0 0 12px 0
-    &.last
-      :padding-right 0
 .\31 00
   +field(100%,98.8%,0)
 .\38 0
@@ -99,72 +165,9 @@ fieldset
   +field(27.5%,95.7%)
 .\32 5
   +field(22.3%,94.7%)
-
 .\32 0
   +field(17.1%,93%)
+.\31 5
+  +field(11.9%,100%)
 .\31 0
   +field(6.76%,82%)
-
-#ruler
-  :width 100px
-  :height 1200px
-  :position absolute
-  :left 68.6%
-  :top 0em
-  :background #f00
-/
-//---------------------------------------------------
-// Check Boxes
-//---------------------------------------------------
-
-.checks, .boolean, .radio
-  input
-    :width 13px
-  input, label
-    :display inline
-  label
-    :margin-right 12px
-  label.block
-    :display block
-ul
-  &.checks, &.radio, &.boolean
-    :list-style-type none
-    &.stacked
-      +no-bullets
-      :padding-left 0px
-      :margin-left 0px
-  
-//---------------------------------------------------
-// Error Messages
-//---------------------------------------------------
-fieldset .fieldWithErrors
-  :margin 0px
-  :width 100%
-  input, textarea
-    :background-color #fcc
-    +inset-box-shadow(#daa,1px,1px,4px)
-    :border-color #f00
-span.error
-  :font-size 13px
-  :color #f00
-  :display block
-  :clear both
-  :margin-bottom 10px
-  :padding-left 5px
-  :font-weight bold
-.clear
-  :clear both
-//---------------------------------------------------
-// Flash
-//---------------------------------------------------
-.flash
-  +border-radius(5px)
-  :padding 20px
-  :margin-bottom 20px
-  +box-shadow(#aaa, 2px, 2px,2px)
-  +text-shadow(#000, 1px, 1px,2px)
-  :text-align center
-  &#notice
-    :color #fff
-    +v-grad(#42cb7c,#25b023)
-    

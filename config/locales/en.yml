@@ -44,7 +44,9 @@ en:
   edit: Edit
   filter: Filter
   or: or
+  notes: Notes
   pending: Pending
+  privileges: Privileges
   save: Save
   submit: Submit
   visit_website: Visit Website
@@ -110,15 +112,18 @@ en:
   #--------------------------------------------------------------
   add_lead: Add Lead
   company: Company
+  contact_info: Contact Info
   convert: Convert
   converted: Converted
   convert_lead: Convert Lead
   delete_lead: Delete Lead
   edit_lead: Edit Lead
+  lead_name: Lead Name
   reject_lead: Reject Lead
   reject: Reject
   rejected: Rejected
-  
+  tracking_info: Tracking Info
+  web_and_social_media: "Web &amp; Social Media"
   lead_statuses:
     - New
     - Contacted

@@ -46,6 +46,7 @@ ul#navigation
   a
     +box-shadow(#213340, 1px, 1px, 5px)
     :color #fff
+    :font-size 14px
     +shiny-button(!nav_grad_1, !nav_grad_2, !nav_grad_3)
     :padding 8px 18px
     +text-shadow(#000, 0px, 1px, 1px)
@@ -89,7 +90,13 @@ div#main
       :left -3px
       :top -1px
       +letterpress(#555)
-
+  h3
+    :color #fff
+    +border-radius(3px)
+    +h-grad(#888,#fff)
+    :margin 0px 0px 10px 0px
+    :padding 5px 10px
+    +text-shadow(#000, 0px, 1px, 2px)
 a#new
   +border-radius(14px)
   +silver-button

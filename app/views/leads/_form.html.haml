@@ -1,40 +1,58 @@
 %h2.title= t('add_lead')
+%h3= t('lead_name') 
 %fieldset
-  = form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s), :grid=>'10'
-  = form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s), :grid=>'10'
-  = form.input :first_name, :grid=>'40', :required=>true
-  = form.input :last_name, :grid=>'40 last', :required=>true
-  .clear
-  = form.input :email, :grid=> '60'
-  = form.input :phone, :grid=> '40 last'
-%fieldset
-  = form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false, :grid=>'25', :required=>true
-  = form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :grid=>'25'
-  = form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s), :grid=>'25'
-  = form.input :rating, :as => :select, :collection => 1..5, :grid=>'25 last'
-  = form.input :campaign_id, :grid=>'70 last'
-%fieldset
+  = form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s), :grid => '15'
+  = form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s), :grid => '15'
+  = form.input :first_name, :grid => '30', :required=>true
+  = form.input :last_name, :grid => '40 last', :required=>true
+.50
+  %h3= t('contact_info')
+
+  %fieldset
+    = form.input :company, :grid =>'60'
+    = form.input :referred_by, :grid => '40 last'
+    .clear
+    = form.input :email, :grid => '60'
+    = form.input :phone, :grid => '40 last'
+    .clear
+    = form.input :alternative_email, :grid => '60 '
+    = form.input :mobile, :grid => '40 last'
+    .clear
+    = form.input :address, :as=>:text, :input_html => { :rows => 4 }, :grid => '60'
+    .40.last
+      .boolean
+        = form.check_box :do_not_call
+        = form.label :do_not_call  
   
-  = form.input :company, :grid=>'70 last'
-  .clear
-  = form.input :alternative_email, :grid=>'70'
-  = form.input :mobile, :grid=>'30 last'
-  .clear
-  = form.input :address, :as=>:text, :input_html=>{:rows=>2},:grid=>'100'
-  = form.input :referred_by, :grid=>'50'
-  .boolean.50.last
-    = form.check_box :do_not_call
-    = form.label :do_not_call
+.50.last
+  %h3= t('web_and_social_media')
+  %fieldset
+    = form.input :website, :grid => '100'
+    = form.input :twitter, :grid => '100'
+    = form.input :linked_in, :grid => '100'
+    = form.input :facebook, :grid => '100'
+    = form.input :xing, :grid => '100 last'
+  
+
+.50
+  %h3= t('tracking_info')
+  %fieldset
+    = form.input :campaign_id, :grid => '50'
+    = form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false, :grid => '50 last', :required=>true
+    .clear
+    = form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :grid => '33'
+    = form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s), :grid => '33'
+    = form.input :rating, :as => :select, :collection => 1..5, :grid => '33 last'
+
+.50.last
+  %h3= t('privileges')  
+  %fieldset
+    = render :partial => 'shared/permissions_form', :locals => { :form => form }
+.clear
+%h3= t('notes')
 %fieldset
-  = form.input :website, :grid=>'100'
-  = form.input :twitter, :grid=>'50'
-  = form.input :linked_in, :grid=>'50 last'
-  = form.input :facebook, :grid=>'50'
-  = form.input :xing, :grid=>'50 last'
-%fieldset
-  = form.input :notes, :as => :text, :grid=>'100', :input_html=>{:rows=>4}
-%fieldset
-  = render :partial => 'shared/permissions_form', :locals => { :form => form }
+  .100= form.text_area :notes, :rows=>2
+.clear
 .act
   = form.button :submit
   = t('or')
