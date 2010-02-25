@@ -32,7 +32,7 @@ Before do
   Sham.reset
 
   # Setup basic site settings
-  Configuration.create!
+  Configuration.make
 end
 
 World(Shoulda::ActionMailer::Assertions)

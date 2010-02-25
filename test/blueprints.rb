@@ -9,6 +9,11 @@ Sham.email { Faker::Internet.email }
 Sham.title { Faker::Lorem.sentence }
 Sham.sentence { Faker::Lorem.sentence }
 
+Configuration.blueprint do
+  domain_name 'lean-crm.com'
+  company_name 'A company'
+end
+
 User.blueprint do
   email
   password { 'password' }

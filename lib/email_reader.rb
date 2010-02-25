@@ -18,8 +18,11 @@ class EmailReader
       unless target = find_target(email)
         target = create_contact_from(email)
       end
-      comment = target.comments.create! :text => get_email_content(email),
-        :commentable => target, :user => user, :from_email => true
+      comment = Email.create! :text => get_email_content(email),
+        :commentable => target, :user => user, :from_email => true,
+        :subject => Mail.new(get_email_content(email)).subject || email.subject,
+        :target_id => target.id, :received_at => email.received.date_time,
+        :subject => email.subject
       add_attachments( comment, email )
       comment
     end
