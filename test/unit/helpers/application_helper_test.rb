@@ -40,5 +40,17 @@ class ApplicationHelperTest < ActionView::TestCase
     end
 
   end
-
+  
+  context "activity_icon" do
+    should "show appropriate unicode icon for a user's action" do
+      assert_equal activity_icon('created')    , "&#9998;"
+      assert_equal activity_icon('updated')    , "&#9998;"
+      assert_equal activity_icon('re-assigned'), "&#10132;"
+      assert_equal activity_icon('rejected')   , "&#10008;"
+      assert_equal activity_icon('converted')  , "&#10132;"
+      assert_equal activity_icon('deleted')    , "&#10006;"
+      assert_equal activity_icon('whatever')   , "&#9670;"
+    end                                                     
+  end
+  
 end

@@ -19,6 +19,7 @@ en:
   #--------------------------------------------------------------
   added_ago: "added {{time}} ago"
   created_ago: "created {{time}} ago"
+  done_ago: "{{time}} ago"
   updated_ago: "updated {{time}} ago"
   last_year: Last Year
   last_month: Last Month

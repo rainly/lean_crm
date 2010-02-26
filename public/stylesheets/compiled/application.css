@@ -618,6 +618,35 @@ span.rating span.off {
   color: #ccc;
 }
 
+/* line 267, ../../../app/stylesheets/partials/_layout.sass */
+.activities {
+  font-size: 13px;
+}
+/* line 269, ../../../app/stylesheets/partials/_layout.sass */
+.activities .item {
+  padding: 5px 0px;
+  border-bottom: 1px solid #ccc;
+}
+/* line 272, ../../../app/stylesheets/partials/_layout.sass */
+.activities .item a {
+  font-weight: bold;
+}
+
+/* line 274, ../../../app/stylesheets/partials/_layout.sass */
+span.icon {
+  color: #777;
+  font-size: 16px;
+  padding: 0px 5px;
+}
+
+/* line 278, ../../../app/stylesheets/partials/_layout.sass */
+small.timestamp {
+  color: #888;
+  font-style: italic;
+  float: right;
+  margin-top: 4px;
+}
+
 /* line 1, ../../../app/stylesheets/partials/_typography.sass */
 body, h1, h2, h3, h4, h5, h6, p, ol, ul, dl, strong, em, div, a, table {
   font-family: "Lucida Grande", "Lucida Sans Unicode", helvetica, arial, sans-serif;
@@ -683,6 +712,15 @@ ul.square {
 ul.plain {
   padding-left: 15px;
   list-style-type: none;
+}
+
+/* line 39, ../../../app/stylesheets/partials/_typography.sass */
+a {
+  color: #0073b1;
+}
+/* line 41, ../../../app/stylesheets/partials/_typography.sass */
+a:hover {
+  color: #000;
 }
 
 /* line 4, ../../../app/stylesheets/partials/_forms.sass */

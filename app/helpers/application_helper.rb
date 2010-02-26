@@ -27,4 +27,17 @@ module ApplicationHelper
     rating
   end
   
+  def activity_icon(string)
+    case string
+    when "created"; "&#9998;";
+    when "updated"; "&#9998;";
+    when "re-assigned"; "&#10132;";
+    when "rejected"; "&#10008;";
+    when "converted"; "&#10132;";
+    when "deleted"; "&#10006;";
+    else
+      "&#9670;"
+    end
+  end
+  
 end
