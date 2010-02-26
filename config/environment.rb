@@ -38,8 +38,8 @@ Rails::Initializer.run do |config|
   config.gem 'navvy'
   config.gem 'rufus-scheduler', :lib => 'rufus/scheduler'
   config.gem 'chronic'
-  config.gem 'ruby-gmail', :lib => 'gmail'
   config.gem 'mail'
+  config.gem 'beanstalk-client'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
