@@ -19,7 +19,9 @@ en:
   #--------------------------------------------------------------
   added_ago: "added {{time}} ago"
   created_ago: "created {{time}} ago"
+  done_ago: "{{time}} ago"
   updated_ago: "updated {{time}} ago"
+  wrote_ago: "wrote {{time}} ago"
   last_year: Last Year
   last_month: Last Month
   last_week: Last Week
@@ -40,7 +42,7 @@ en:
   cancel: Cancel
   configuration: Configuration
   completed: Completed
-  delete: Delete
+  delete: "&#10005;"
   edit: Edit
   filter: Filter
   filters: Filters
@@ -115,15 +117,19 @@ en:
     - Deleted
   my_profile: My Profile
   recent_items: Recent Items
+
   #--------------------------------------------------------------
-  # Comment
+  # Comments
   #--------------------------------------------------------------
   add_comment: Add Comment
-  
+  comment: Comment
+  comments: Comments
+  wrote: wrote
   #--------------------------------------------------------------
   # Contact
   #--------------------------------------------------------------
   add_contact: Add Contact
+  contact_info: Contact Info
   delete_contact: Delete Contact
   edit_contact: Edit Contact
   
@@ -194,12 +200,6 @@ en:
   task_reassigned: "Task has been re-assigned to {{user}}"
   no_tasks_for_lead: "There are no tasks for this lead. <a href='{{link}}'>Add one now</a>"
 
-  
-  #--------------------------------------------------------------
-  # Contacts
-  #--------------------------------------------------------------
-  contact_info: Contact Info
-  
   #--------------------------------------------------------------
   # Users
   #--------------------------------------------------------------

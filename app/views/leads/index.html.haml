@@ -4,6 +4,14 @@
 
 = render :partial => 'lead', :collection => @leads
 
+-# In case we want to group by status later on
+-#
+-# t('lead_statuses').each_with_index do |status, index|
+  - if @leads.with_status(status).any?
+    %h3.status{:id=>status}= t('lead_statuses')[index]
+    = render :partial => 'lead', :collection => @leads.with_status(status)
+    .clear
+
 -content_for :sidebar do
   .gold.box
     %h3= t('filter_by_status')

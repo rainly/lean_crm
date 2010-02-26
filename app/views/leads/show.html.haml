@@ -30,6 +30,11 @@
     = render :partial => 'tasks/task', :collection => @lead.tasks.incomplete
   - else
     %p= t('no_tasks_for_lead',:link=>new_task_path(:asset_id => @lead.id, :asset_type => 'Lead', :return_to => request.request_uri))
+
+.comments
+  %h3.grad= t('comments')
+  = render :partial => 'comments/comment', :collection => @lead.comments
+
 .add_comment
   %h3.grad= t('add_comment')
   - simple_form_for @comment || Comment.new, :html => { :multipart => true } do |form|
@@ -40,8 +45,6 @@
     = form.button :submit
     = t('or')
     = link_to t('cancel'), :back
-.comments
-  = render :partial => 'comments/comment', :collection => @lead.comments
 
 - content_for :sidebar do
   .box.gold

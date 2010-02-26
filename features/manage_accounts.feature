@@ -38,7 +38,7 @@ Feature: Manage accounts
     And I am on the accounts page
     When I press "delete_careermee"
     Then I should be on the accounts page
-    And I should not see "CareerMee"
+    And I should not see "CareerMee" within "#main"
 
   Scenario: Viewing accounts
     Given I am registered and logged in as annika

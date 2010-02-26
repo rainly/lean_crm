@@ -19,6 +19,6 @@
           %b.divider= "|"
           - simple_form_for task, :html => { :method => :delete } do |form|
             = hidden_field_tag :return_to, request.request_uri
-            = form.button :submit, '&#10005;', :class => 'delete', :id => 'delete'
+            = form.button :submit, t('delete'), :class => 'delete', :id => 'delete'
 
 .clear

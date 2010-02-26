@@ -3,8 +3,10 @@ body
   :width 100%
   :margin 0px
   :position relative
+
 a, input
   :outline none
+
 #header, #content
   :min-width 960px
 //---------------------------------------------------
@@ -78,6 +80,11 @@ div#main
       :float right
       :margin-top -8px
       :font-size 13px
+      &#edit
+        +border-radius(14px)
+        :padding 4px 12px
+        +silver-button
+        
     b
       :background #999
       +border-radius(10px)
@@ -129,6 +136,12 @@ a#new
 //----------------------------------------------------
 // Index Listing
 //----------------------------------------------------
+div.item
+  :border-bottom 1px solid #ccc
+  :margin-left 0px
+  :padding 3px 0px
+  :width 100%
+  :position relative
 dl.item
   :margin 0px
   dt, dd
@@ -172,34 +185,39 @@ dl.item
     span.save
       :position absolute
       :right 3.5em
-    span.actions
-      :float right
-      :clear none
-      :display block
-      :padding-top 3px
-      :width 3.3em
-      a
-        :padding 0 2px
-      a, input, b
-        :float left
-        :display inline
-        :font-size 12px
-      a, input
-        :text-decoration none
-        &:hover
-          :color #000
-      input,b
-        :padding 0px
-      input[type="submit"].delete
-        :color #f00
-        :font-size 13px
-        :margin-top -2px
-        :margin-left -2px
-        &:hover
-          :color #000
-      b.divider
-        :color #ccc
-        :padding 0px 2px 0px 2px
+div.item, dl.item dd
+  span.actions
+    :float right
+    :clear none
+    :display block
+    :padding-top 3px
+    :width 3.3em
+    a
+      :padding 0 2px
+    a, input, b
+      :float left
+      :display inline
+      :font-size 12px
+    a, input
+      :text-decoration none
+      &:hover
+        :color #000
+    input,b
+      :padding 0px
+    input[type="submit"].delete
+      :color #f00
+      :background transparent
+      :font-size 13px
+      :margin-top -2px
+      :margin-left -2px
+      +text-shadow(#fff)
+      +box-shadow(#fff)
+      :border none
+      &:hover
+        :color #000
+    b.divider
+      :color #ccc
+      :padding 0px 2px 0px 2px
 
 //----------------------------------------------------
 // Sidebar
@@ -240,7 +258,7 @@ dl.item
           :font-size 12px
           :padding-right 6px
           :text-align right
-          :width 50px
+          :width 60px
         
 
     
@@ -261,3 +279,22 @@ span.rating
     :color #666
   span.off
     :color #ccc
+//----------------------------------------------------
+// Activity
+//----------------------------------------------------
+.activities
+  :font-size 13px
+  .item
+    :padding 5px 0px
+    :border-bottom 1px solid #ccc
+    a
+      :font-weight bold
+span.icon
+  :color #777
+  :font-size 16px
+  :padding 0px 5px
+small.timestamp
+  :color #888
+  :font-style italic
+  :float right
+  :margin-top 4px

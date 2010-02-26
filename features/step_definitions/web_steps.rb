@@ -209,3 +209,8 @@ Then /^show me the page$/ do
     save_and_open_page
   end
 end
+
+
+Then /^(?:|I )should not see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
+  pending
+end

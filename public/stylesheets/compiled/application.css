@@ -6,17 +6,17 @@ body {
   position: relative;
 }
 
-/* line 6, ../../../app/stylesheets/partials/_layout.sass */
+/* line 7, ../../../app/stylesheets/partials/_layout.sass */
 a, input {
   outline: none;
 }
 
-/* line 8, ../../../app/stylesheets/partials/_layout.sass */
+/* line 10, ../../../app/stylesheets/partials/_layout.sass */
 #header, #content {
   min-width: 960px;
 }
 
-/* line 13, ../../../app/stylesheets/partials/_layout.sass */
+/* line 15, ../../../app/stylesheets/partials/_layout.sass */
 #header {
   color: #b8d8f2;
   background: #405880;
@@ -30,7 +30,7 @@ a, input {
 #header {
   display: block;
 }
-/* line 18, ../../../app/stylesheets/partials/_layout.sass */
+/* line 20, ../../../app/stylesheets/partials/_layout.sass */
 #header h1 {
   color: #b8d8f2;
   float: left;
@@ -39,11 +39,11 @@ a, input {
   padding-bottom: 12px;
   text-shadow: #223a62 2px 2px 2px;
 }
-/* line 25, ../../../app/stylesheets/partials/_layout.sass */
+/* line 27, ../../../app/stylesheets/partials/_layout.sass */
 #header h1 strong {
   color: #fff;
 }
-/* line 27, ../../../app/stylesheets/partials/_layout.sass */
+/* line 29, ../../../app/stylesheets/partials/_layout.sass */
 #header .pad {
   padding: 0px 20px;
   overflow: hidden;
@@ -54,26 +54,26 @@ a, input {
   display: block;
 }
 
-/* line 31, ../../../app/stylesheets/partials/_layout.sass */
+/* line 33, ../../../app/stylesheets/partials/_layout.sass */
 #menus {
   float: right;
 }
-/* line 33, ../../../app/stylesheets/partials/_layout.sass */
+/* line 35, ../../../app/stylesheets/partials/_layout.sass */
 #menus p {
   padding-bottom: 10px;
   text-align: right;
   text-shadow: #223a62 1px 1px 1px;
 }
-/* line 37, ../../../app/stylesheets/partials/_layout.sass */
+/* line 39, ../../../app/stylesheets/partials/_layout.sass */
 #menus p a {
   color: #ffc400;
 }
-/* line 39, ../../../app/stylesheets/partials/_layout.sass */
+/* line 41, ../../../app/stylesheets/partials/_layout.sass */
 #menus p a:hover {
   color: #fff;
 }
 
-/* line 42, ../../../app/stylesheets/partials/_layout.sass */
+/* line 44, ../../../app/stylesheets/partials/_layout.sass */
 ul#navigation {
   margin: 0;
   padding: 0;
@@ -125,7 +125,7 @@ ul#navigation li a {
   -moz-border-radius-topright: 5px;
   -webkit-border-top-right-radius: 5px;
 }
-/* line 46, ../../../app/stylesheets/partials/_layout.sass */
+/* line 48, ../../../app/stylesheets/partials/_layout.sass */
 ul#navigation a {
   /* Webkit (Safari, Chrome) */
   -webkit-box-shadow: #213340 1px 1px 5px;
@@ -149,7 +149,7 @@ ul#navigation a:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #90c7f2), color-stop(0.14, #78a2c3), color-stop(1, #657fa0) );
   background: -moz-linear-gradient(top, #90c7f2 0%, #78a2c3 14%,  #657fa0 100%);
 }
-/* line 53, ../../../app/stylesheets/partials/_layout.sass */
+/* line 55, ../../../app/stylesheets/partials/_layout.sass */
 ul#navigation a.active {
   color: #6a6a6a;
   font-weight: bold;
@@ -167,12 +167,12 @@ ul#navigation a.active:hover {
   background: -moz-linear-gradient(top, #eeeeeefalse 0%, #ddddddfalse 14%,  #cfcfcffalse 100%);
 }
 
-/* line 62, ../../../app/stylesheets/partials/_layout.sass */
+/* line 64, ../../../app/stylesheets/partials/_layout.sass */
 #content .pad {
   padding: 20px;
 }
 
-/* line 64, ../../../app/stylesheets/partials/_layout.sass */
+/* line 66, ../../../app/stylesheets/partials/_layout.sass */
 div#main {
   background: #fff;
   /* Webkit (Safari, Chrome) */
@@ -188,7 +188,7 @@ div#main {
   float: left;
   width: 72%;
 }
-/* line 71, ../../../app/stylesheets/partials/_layout.sass */
+/* line 73, ../../../app/stylesheets/partials/_layout.sass */
 div#main .pad {
   padding: 20px;
   overflow: hidden;
@@ -198,18 +198,39 @@ div#main .pad {
 div#main .pad {
   display: block;
 }
-/* line 74, ../../../app/stylesheets/partials/_layout.sass */
+/* line 76, ../../../app/stylesheets/partials/_layout.sass */
 div#main h2.title {
   border-bottom: 3px solid #ccc;
   padding-bottom: 5px;
 }
-/* line 77, ../../../app/stylesheets/partials/_layout.sass */
+/* line 79, ../../../app/stylesheets/partials/_layout.sass */
 div#main h2.title a {
   float: right;
   margin-top: -8px;
   font-size: 13px;
 }
-/* line 81, ../../../app/stylesheets/partials/_layout.sass */
+/* line 83, ../../../app/stylesheets/partials/_layout.sass */
+div#main h2.title a#edit {
+  border-radius: 14px;
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  padding: 4px 12px;
+  background: #eaeaea;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
+  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%,  #cccccc 100%);
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #999;
+  color: #444;
+  text-shadow: white 0px 1px 0px;
+}
+/* line 18, ../../../app/stylesheets/partials/_tools.sass */
+div#main h2.title a#edit:hover {
+  background: #fefefe;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
+  background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
+}
+/* line 88, ../../../app/stylesheets/partials/_layout.sass */
 div#main h2.title b {
   background: #999;
   border-radius: 10px;
@@ -225,7 +246,7 @@ div#main h2.title b {
   top: -1px;
   text-shadow: #555555 0px 1px 0px;
 }
-/* line 93, ../../../app/stylesheets/partials/_layout.sass */
+/* line 100, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3 {
   color: #fff;
   border-radius: 3px;
@@ -239,7 +260,7 @@ div#main h3 {
   padding: 5px 10px;
   cursor: pointer;
 }
-/* line 101, ../../../app/stylesheets/partials/_layout.sass */
+/* line 108, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3.toggler {
   background: #eaeaea;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
@@ -261,7 +282,7 @@ div#main h3.toggler:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 108, ../../../app/stylesheets/partials/_layout.sass */
+/* line 115, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3.open {
   border-bottom-left-radius: 0px;
   -moz-border-radius-bottomleft: 0px;
@@ -286,19 +307,19 @@ div#main h3.open:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 113, ../../../app/stylesheets/partials/_layout.sass */
+/* line 120, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3.open span {
   color: #555;
   text-shadow: #bbbbbb 0px 1px 0px;
 }
-/* line 116, ../../../app/stylesheets/partials/_layout.sass */
+/* line 123, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3 span {
   color: #999;
   font-size: 12px;
   margin-right: 5px;
 }
 
-/* line 120, ../../../app/stylesheets/partials/_layout.sass */
+/* line 127, ../../../app/stylesheets/partials/_layout.sass */
 a#new {
   border-radius: 14px;
   -moz-border-radius: 14px;
@@ -320,22 +341,31 @@ a#new:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 126, ../../../app/stylesheets/partials/_layout.sass */
+/* line 133, ../../../app/stylesheets/partials/_layout.sass */
 a#new:hover b {
   background: #eee;
 }
 
-/* line 132, ../../../app/stylesheets/partials/_layout.sass */
+/* line 139, ../../../app/stylesheets/partials/_layout.sass */
+div.item {
+  border-bottom: 1px solid #ccc;
+  margin-left: 0px;
+  padding: 3px 0px;
+  width: 100%;
+  position: relative;
+}
+
+/* line 145, ../../../app/stylesheets/partials/_layout.sass */
 dl.item {
   margin: 0px;
 }
-/* line 134, ../../../app/stylesheets/partials/_layout.sass */
+/* line 147, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dt, dl.item dd {
   clear: none;
   display: block;
   float: left;
 }
-/* line 138, ../../../app/stylesheets/partials/_layout.sass */
+/* line 151, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dt {
   border-top-left-radius: 10px;
   -moz-border-radius-topleft: 10px;
@@ -349,7 +379,7 @@ dl.item dt {
   text-align: right;
   width: 12%;
 }
-/* line 145, ../../../app/stylesheets/partials/_layout.sass */
+/* line 158, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd {
   border-bottom: 1px solid #ccc;
   margin-left: 0px;
@@ -357,97 +387,107 @@ dl.item dd {
   width: 87%;
   position: relative;
 }
-/* line 152, ../../../app/stylesheets/partials/_layout.sass */
+/* line 165, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.item_name form {
   float: left;
   width: 85%;
 }
-/* line 155, ../../../app/stylesheets/partials/_layout.sass */
+/* line 168, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.item_name form input[type=submit] {
   font-size: 12px;
   font-weight: normal;
   margin-top: 2px;
 }
-/* line 160, ../../../app/stylesheets/partials/_layout.sass */
+/* line 173, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.item_name span.actions form {
   clear: none;
   float: left;
   width: 15px;
 }
-/* line 164, ../../../app/stylesheets/partials/_layout.sass */
+/* line 177, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd input[type=checkbox] {
   width: 14px;
   margin: 3px 4px 0 7px;
 }
-/* line 167, ../../../app/stylesheets/partials/_layout.sass */
+/* line 180, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd input[type=submit]:hover {
   color: #000;
 }
-/* line 169, ../../../app/stylesheets/partials/_layout.sass */
+/* line 182, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd label {
   display: inline;
   font-size: 14px;
 }
-/* line 172, ../../../app/stylesheets/partials/_layout.sass */
+/* line 185, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.save {
   position: absolute;
   right: 3.5em;
 }
-/* line 175, ../../../app/stylesheets/partials/_layout.sass */
-dl.item dd span.actions {
+
+/* line 189, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions, dl.item dd span.actions {
   float: right;
   clear: none;
   display: block;
   padding-top: 3px;
   width: 3.3em;
 }
-/* line 181, ../../../app/stylesheets/partials/_layout.sass */
-dl.item dd span.actions a {
+/* line 195, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions a, dl.item dd span.actions a {
   padding: 0 2px;
 }
-/* line 183, ../../../app/stylesheets/partials/_layout.sass */
-dl.item dd span.actions a, dl.item dd span.actions input, dl.item dd span.actions b {
+/* line 197, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions a, div.item span.actions input, div.item span.actions b, dl.item dd span.actions a, dl.item dd span.actions input, dl.item dd span.actions b {
   float: left;
   display: inline;
   font-size: 12px;
 }
-/* line 187, ../../../app/stylesheets/partials/_layout.sass */
-dl.item dd span.actions a, dl.item dd span.actions input {
+/* line 201, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions a, div.item span.actions input, dl.item dd span.actions a, dl.item dd span.actions input {
   text-decoration: none;
 }
-/* line 189, ../../../app/stylesheets/partials/_layout.sass */
-dl.item dd span.actions a:hover, dl.item dd span.actions input:hover {
+/* line 203, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions a:hover, div.item span.actions input:hover, dl.item dd span.actions a:hover, dl.item dd span.actions input:hover {
   color: #000;
 }
-/* line 191, ../../../app/stylesheets/partials/_layout.sass */
-dl.item dd span.actions input, dl.item dd span.actions b {
+/* line 205, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions input, div.item span.actions b, dl.item dd span.actions input, dl.item dd span.actions b {
   padding: 0px;
 }
-/* line 193, ../../../app/stylesheets/partials/_layout.sass */
-dl.item dd span.actions input[type="submit"].delete {
+/* line 207, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions input[type="submit"].delete, dl.item dd span.actions input[type="submit"].delete {
   color: #f00;
+  background: transparent;
   font-size: 13px;
   margin-top: -2px;
   margin-left: -2px;
+  text-shadow: white 1px 1px 1px;
+  /* Webkit (Safari, Chrome) */
+  -webkit-box-shadow: white 1px 1px 5px;
+  /* Gecko (Firefox, Camino) */
+  -moz-box-shadow: white 1px 1px 5px;
+  /* CSS3 */
+  box-shadow: white 1px 1px 5px;
+  border: none;
 }
-/* line 198, ../../../app/stylesheets/partials/_layout.sass */
-dl.item dd span.actions input[type="submit"].delete:hover {
+/* line 216, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions input[type="submit"].delete:hover, dl.item dd span.actions input[type="submit"].delete:hover {
   color: #000;
 }
-/* line 200, ../../../app/stylesheets/partials/_layout.sass */
-dl.item dd span.actions b.divider {
+/* line 218, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions b.divider, dl.item dd span.actions b.divider {
   color: #ccc;
   padding: 0px 2px 0px 2px;
 }
 
-/* line 207, ../../../app/stylesheets/partials/_layout.sass */
+/* line 225, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar {
   clear: none;
   float: left;
   width: 26%;
   padding-left: 2%;
 }
-/* line 212, ../../../app/stylesheets/partials/_layout.sass */
+/* line 230, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   overflow: hidden;
   display: inline-block;
@@ -456,11 +496,11 @@ dl.item dd span.actions b.divider {
 #sidebar .box {
   display: block;
 }
-/* line 214, ../../../app/stylesheets/partials/_layout.sass */
+/* line 232, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar h3 {
   margin: 0px;
 }
-/* line 216, ../../../app/stylesheets/partials/_layout.sass */
+/* line 234, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters {
   margin: 0;
   padding: 0;
@@ -556,45 +596,45 @@ dl.item dd span.actions b.divider {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 220, ../../../app/stylesheets/partials/_layout.sass */
+/* line 238, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 12px;
 }
-/* line 223, ../../../app/stylesheets/partials/_layout.sass */
+/* line 241, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.gold {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #c0c0b1;
   background: #f2f2e3;
   margin-bottom: 20px;
 }
-/* line 228, ../../../app/stylesheets/partials/_layout.sass */
+/* line 246, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.ice {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #97b8bd;
   background: #c9eaef;
 }
-/* line 233, ../../../app/stylesheets/partials/_layout.sass */
+/* line 251, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul {
   color: #6f9095;
 }
-/* line 235, ../../../app/stylesheets/partials/_layout.sass */
+/* line 253, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul li {
   padding: 0px 0px 5px 0px;
 }
-/* line 237, ../../../app/stylesheets/partials/_layout.sass */
+/* line 255, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul span {
   display: block;
   float: left;
   font-size: 12px;
   padding-right: 6px;
   text-align: right;
-  width: 50px;
+  width: 60px;
 }
 
-/* line 247, ../../../app/stylesheets/partials/_layout.sass */
+/* line 265, ../../../app/stylesheets/partials/_layout.sass */
 .inline-add {
   font-size: 14px;
   padding-top: 27px;
@@ -603,19 +643,48 @@ dl.item dd span.actions b.divider {
   float: left;
 }
 
-/* line 256, ../../../app/stylesheets/partials/_layout.sass */
+/* line 274, ../../../app/stylesheets/partials/_layout.sass */
 span.rating {
   font-size: 13px;
   padding-top: 4px;
   width: 7%;
 }
-/* line 260, ../../../app/stylesheets/partials/_layout.sass */
+/* line 278, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.on {
   color: #666;
 }
-/* line 262, ../../../app/stylesheets/partials/_layout.sass */
+/* line 280, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.off {
   color: #ccc;
+}
+
+/* line 285, ../../../app/stylesheets/partials/_layout.sass */
+.activities {
+  font-size: 13px;
+}
+/* line 287, ../../../app/stylesheets/partials/_layout.sass */
+.activities .item {
+  padding: 5px 0px;
+  border-bottom: 1px solid #ccc;
+}
+/* line 290, ../../../app/stylesheets/partials/_layout.sass */
+.activities .item a {
+  font-weight: bold;
+}
+
+/* line 292, ../../../app/stylesheets/partials/_layout.sass */
+span.icon {
+  color: #777;
+  font-size: 16px;
+  padding: 0px 5px;
+}
+
+/* line 296, ../../../app/stylesheets/partials/_layout.sass */
+small.timestamp {
+  color: #888;
+  font-style: italic;
+  float: right;
+  margin-top: 4px;
 }
 
 /* line 1, ../../../app/stylesheets/partials/_typography.sass */
@@ -683,6 +752,21 @@ ul.square {
 ul.plain {
   padding-left: 15px;
   list-style-type: none;
+}
+
+/* line 39, ../../../app/stylesheets/partials/_typography.sass */
+a {
+  color: #0073b1;
+}
+/* line 41, ../../../app/stylesheets/partials/_typography.sass */
+a:hover {
+  color: #000;
+}
+
+/* line 43, ../../../app/stylesheets/partials/_typography.sass */
+small.acted {
+  color: #777;
+  font-style: italic;
 }
 
 /* line 4, ../../../app/stylesheets/partials/_forms.sass */
@@ -1248,6 +1332,34 @@ span.error {
 /* line 162, ../../../app/stylesheets/partials/_forms.sass */
 .\35.boolean input, .\35.boolean label, .\35.check input, .\35.check label, .\35.radio input, .\35.radio label, .\35 .boolean input, .\35 .boolean label, .\35 .check input, .\35 .check label, .\35 .radio input, .\35 .radio label {
   display: inline;
+}
+
+/* line 2, ../../../app/stylesheets/models/_comment.sass */
+.comment .quote {
+  color: #c9eaef;
+  font-size: 23px;
+  line-height: 18px;
+  padding-left: 20px;
+  padding-top: 4px;
+}
+/* line 8, ../../../app/stylesheets/models/_comment.sass */
+.comment .message {
+  border: 1px solid #b5d6db;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  color: #333;
+  line-height: 20px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #c9eaef;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e7ffff), color-stop(0.17, #c9eaef), color-stop(1, white) );
+  background: -moz-linear-gradient(top, #e7ffff 0%, #c9eaef 17%,  white 100%);
+  text-align: center;
+  text-decoration: none;
+  cursor: default;
+  text-align: left;
 }
 
 /* line 3, ../../../app/stylesheets/models/_leads.sass */

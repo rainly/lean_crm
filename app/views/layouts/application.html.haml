@@ -43,8 +43,10 @@
               %h3= t('recent_items')
               %ul.plain
                 - current_user.recent_items.each do |item|
-                  - text = item.instance_of?(Account) ? item.name : item.full_name
                   %li
                     %span== #{item.class.to_s}:
-                    = link_to text, item
+                    - if item.instance_of?(Comment)
+                      = "on " + link_to(item.commentable.full_name, item.commentable)
+                    - else
+                      = item.deleted_at.blank? ? link_to(item.name, item) : item.name
                     -#%small= l item.updated_at, :format => :short
