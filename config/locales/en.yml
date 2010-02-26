@@ -47,6 +47,7 @@ en:
   notes: Notes
   pending: Pending
   privileges: Privileges
+  tracking: Tracking
   save: Save
   submit: Submit
   visit_website: Visit Website
@@ -70,6 +71,7 @@ en:
       linked_in: Linked In
       mobile: Mobile
       permission: Permission
+      permissions: Permissions
       permitted_users: Permitted Users
       phone: Phone
       status: Status
@@ -192,6 +194,11 @@ en:
   # Contacts
   #--------------------------------------------------------------
   contact_info: Contact Info
+  
+  #--------------------------------------------------------------
+  # Users
+  #--------------------------------------------------------------
+  add_user: Add User
   
   #--------------------------------------------------------------
   # Emails

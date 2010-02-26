@@ -10,4 +10,4 @@
     = hidden_field_tag :completed, params[:completed]
     = render :partial => 'tasks/due_filter' if params[:completed].blank?
     = render :partial => 'tasks/complete_filter' unless params[:completed].blank?
-    = submit_tag t('filter'), :id => 'filter'
+    .clear= submit_tag t('filter'), :id => 'filter'

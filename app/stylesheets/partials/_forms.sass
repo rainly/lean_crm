@@ -5,14 +5,35 @@ fieldset
   :border 1px solid #CFCFB7
   +border-radius(5px)
   :margin-bottom 20px
+  :margin-left 0
   +v-grad(#efeee1,#d3d0c4)
-  :padding 20px 24px 10px 20px
+  :padding 20px 20px 10px 20px
+  div.a
+    div 
+      :padding-left 0px
+      :padding-right 10px
+
+  div.z
+    div
+      :padding-left 10px
+      :padding-right 0px
+
+      select
+        :width 100%
+  div.\31 00
+    div
+      :padding-left 0px
+      :padding-right 0px
+
   div
-    :clear none
-    :float left
-    :margin 0 0 12px 0
-    &.last
-      :padding-right 0
+    :padding 0px
+    div
+      :padding-left 10px
+      :padding-right 10px
+      :padding-bottom 20px
+
+.toggle fieldset
+  +border-top-radius(0px)
 //----------------------------------------------------
 // Labels
 //----------------------------------------------------
@@ -42,15 +63,18 @@ input, textarea, select
   :font-family "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial
   :font-size 16px
   :font-weight bold
-  :padding 5px
   :width 100%
 input, textarea
   +inset-box-shadow(#ddd,1px,1px,4px)
+  :padding 5px 0px
+  :text-indent 5px
 select
   +border-radius(4px)
   :font-size 14px
   +inset-box-shadow(#BBB6A6,-1px,-1px,4px)
+  :padding 5px
 .checks, .boolean, .radio
+  :float left
   input
     :width 13px
   input, label
@@ -72,6 +96,8 @@ ul
 //---------------------------------------------------
 .act
   :font-size 13px
+  &.pad
+    :padding 20px 0px 0px 0px
   input[type="submit"]
     :font-size 14px
 input[type="submit"]
@@ -124,12 +150,10 @@ span.error
 //---------------------------------------------------
 // Form Grid
 //---------------------------------------------------
-=field(!width,!input_width,!padding_right=3.6%)
-  :float left
+=field(!width)
+  @if !width!=100%
+    :float left
   :width = !width
-  :padding-right = !padding_right
-  &.last
-    :padding-right 0
   &.boolean, &.check, &.radio
     :padding-top 25px
   &.boolean, &.check, &.radio, .boolean, .check, .radio
@@ -137,37 +161,39 @@ span.error
       :width 13px
     input, label
       :display inline
-  input, textarea
-    :width = !input_width
-  select
-    :width = !input_width + 2%
-  span.error
-    :width = !input_width + 3%
 .\31 00
-  +field(100%,98.8%,0)
+  +field(100%)
 .\38 0
-  +field(79.3%,98.5%)
+  +field(90%)
+.\38 0
+  +field(80%)
 .\37 5
-  +field(74.1%,98.4%)
+  +field(75%)
 .\37 0
-  +field(68.9%,98.2%)
+  +field(70%)
 .\36 6
-  +field(65.5%,98.2%)
+  +field(66.66%)
 .\36 0
-  +field(58.6%,98%)
+  +field(60%)
 .\35 0
-  +field(48.2%,97.7%)
+  +field(50%)
 .\34 0
-  +field(37.8%,96.7%)
+  +field(40%)
+.\33 5
+  +field(35%)
 .\33 3
-  +field(30.9%,96.6%)
+  +field(33.33%)
 .\33 0
-  +field(27.5%,95.7%)
+  +field(30%)
 .\32 5
-  +field(22.3%,94.7%)
+  +field(25%)
 .\32 0
-  +field(17.1%,93%)
+  +field(20%)
+.\31 6
+  +field(16.66%)
 .\31 5
-  +field(11.9%,100%)
+  +field(15%)
 .\31 0
-  +field(6.76%,82%)
+  +field(10%)
+.\35
+  +field(5%)
