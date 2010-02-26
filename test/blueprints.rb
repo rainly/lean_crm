@@ -146,3 +146,14 @@ Attachment.blueprint(:erich_offer_pdf) do
   subject { Comment.make(:made_offer_to_erich) }
   attachment { File.open("#{Rails.root}/test/upload-files/erich_offer.pdf") }
 end
+
+Email.blueprint do
+end
+
+Email.blueprint(:erich_offer_email) do
+  user { User.make(:annika) }
+  commentable { Lead.make(:erich) }
+  text { 'Here is the offer body' }
+  subject { 'A great offer for you' }
+  received_at { 1.day.ago }
+end

@@ -1,22 +1,21 @@
 base: &base
   adapter: mongodb
-  database: coolapp
   #host: genesis.mongohq.com
   #username: your-username
   #password: your-password
 
 development:
   <<: *base
-  database: lean_crm_development
+  database: salesflip_development
 
 test:
   <<: *base
-  database: lean_crm_test
+  database: salesflip_test
 
 cucumber:
   <<: *base
-  database: lean_crm_cucumber
+  database: salesflip_cucumber
 
 production:
   <<: *base
-  database: lean_crm_production
+  database: salesflip_production

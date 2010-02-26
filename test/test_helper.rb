@@ -58,6 +58,17 @@ class ActiveSupport::TestCase
     end
   end
 
+  def self.should_require_key(*args)
+    klass = self.name.gsub(/Test$/, '').constantize
+    args.each do |arg|
+      should "require key '#{arg}'" do
+        obj = klass.new
+        obj.valid?
+        assert obj.errors.on(arg.to_sym)
+      end
+    end
+  end
+
   setup do
     Sham.reset
     Dir[Rails.root + 'app/models/**/*.rb'].each do |model_path|

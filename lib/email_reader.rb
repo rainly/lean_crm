@@ -21,8 +21,7 @@ class EmailReader
       comment = Email.create! :text => get_email_content(email),
         :commentable => target, :user => user, :from_email => true,
         :subject => Mail.new(get_email_content(email)).subject || email.subject,
-        :target_id => target.id, :received_at => email.received.date_time,
-        :subject => email.subject
+        :received_at => email.received.date_time, :subject => email.subject
       add_attachments( comment, email )
       comment
     end
@@ -32,7 +31,7 @@ class EmailReader
 protected
   def self.get_email_content( email )
     if email.content_type.match(/text\/plain/)
-      return email.body.to_s
+      return email.body.to_s.gsub(/mattbeedle@googlemail\.com.*$/, '')
     else
       email.parts.each do |part|
         return get_email_content(part)
