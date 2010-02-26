@@ -47,94 +47,32 @@ h3.deadline
   :background = !color
   :color = !color - 90
 
-dl.item
-  :margin 0px
+dl.item.task
   &.completed dd
     :padding-left 10px
     :width 85%
-  dt, dd
-    :clear none
-    :display block
-    :float left
-  dt
-    +border-left-radius(10px)
-    :font-size 11px
-    :margin-top 2px
-    :padding 4px 6px 4px 0px
-    :text-align right
-    :width 12%
-    &.call, &.new
-      +task-category(!call)
-    &.email, &.contacted
-      +task-category(!email)
-    &.follow-up, &.converted
-      +task-category(!follow_up)
-    &.lunch, &.rejected
-      +task-category(!lunch)
-    &.meeting
-      +task-category(!meeting)
-    &.money
-      +task-category(!money)
-    &.presentation
-      +task-category(!presentation)
-    &.trip
-      +task-category(!trip)
   dd
-    :border-bottom 1px solid #ccc
-    :margin-left 0px
-    :padding 3px 0px
-    :width 87%
-    :position relative
-    input[type=checkbox]
-      :width 14px
-      :margin 3px 4px 0 7px
-    input[type=submit]:hover
-      :color #000
-    span.task_item form
-      :float left
-      :width 85%
-      input[type=submit]
-        :font-size 12px
-        :margin-top 2px
-    label
-      :display inline
-      :font-size 14px
-    span.save
-      :position absolute
-      :right 3.5em
-
     span.actions
-      :float right
-      :clear none
-      :display block
-      :padding-top 3px
       :width auto
-      a
-        :padding 0 2px
-      a, input, b
-        :float left
-        :display inline
-        :font-size 12px
-      a, input
-        :text-decoration none
-        &:hover
-          :color #000
-      input,b
-        :padding 0px
-      form
-        :clear none
-        :float left
-        :width 15px
-      input[type="submit"].delete
-        :color #f00
-        :font-size 16px
-        :margin-top -5px
-        :margin-left -2px
-        &:hover
-          :color #000
-      b.divider
-        :color #ccc
-        :padding 0px 2px 0px 2px
+dl.item
+  &.task, &.lead
+    dt
+      &.call, &.new
+        +task-category(!call)
+      &.email, &.contacted
+        +task-category(!email)
+      &.follow-up, &.converted
+        +task-category(!follow_up)
+      &.lunch, &.rejected
+        +task-category(!lunch)
+      &.meeting
+        +task-category(!meeting)
+      &.money
+        +task-category(!money)
+      &.presentation
+        +task-category(!presentation)
+      &.trip
+        +task-category(!trip)
   
 //---------------------------------------------------
 // Task Assets

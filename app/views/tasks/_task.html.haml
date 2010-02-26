@@ -1,7 +1,7 @@
-%dl.item{ :class => task.completed? ? 'completed' : nil }
+%dl.item.task{ :class => task.completed? ? 'completed' : nil }
   %dt.category{:class=>task.category.downcase}= task.category
   %dd
-    %span.task_item
+    %span.item_name
       - if task.completed?
         %label= task.name
       - else
