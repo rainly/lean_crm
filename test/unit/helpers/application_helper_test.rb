@@ -47,7 +47,7 @@ class ApplicationHelperTest < ActionView::TestCase
       assert_equal activity_icon('updated')    , "&#9998;"
       assert_equal activity_icon('re-assigned'), "&#10132;"
       assert_equal activity_icon('rejected')   , "&#10008;"
-      assert_equal activity_icon('converted')  , "&#10132;"
+      assert_equal activity_icon('converted')  , "&#10004;"
       assert_equal activity_icon('deleted')    , "&#10006;"
       assert_equal activity_icon('whatever')   , "&#9670;"
     end                                                     

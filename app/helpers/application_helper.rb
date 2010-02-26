@@ -33,7 +33,7 @@ module ApplicationHelper
     when "updated"; "&#9998;";
     when "re-assigned"; "&#10132;";
     when "rejected"; "&#10008;";
-    when "converted"; "&#10132;";
+    when "converted"; "&#10004;";
     when "deleted"; "&#10006;";
     else
       "&#9670;"
