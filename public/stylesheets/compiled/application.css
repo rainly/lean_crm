@@ -1358,13 +1358,8 @@ span.error {
   background: -moz-linear-gradient(top, #e7ffff 0%, #c9eaef 17%,  white 100%);
   text-align: center;
   text-decoration: none;
+  cursor: default;
   text-align: left;
-}
-/* line 18, ../../../app/stylesheets/partials/_tools.sass */
-.comment .message:hover {
-  background: #ddfeff;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fbffff), color-stop(0.14, #ddfeff), color-stop(1, white) );
-  background: -moz-linear-gradient(top, #fbffff 0%, #ddfeff 14%,  white 100%);
 }
 
 /* line 3, ../../../app/stylesheets/models/_leads.sass */
