@@ -31,7 +31,7 @@ class EmailReader
 protected
   def self.get_email_content( email )
     if email.content_type.match(/text\/plain/)
-      return email.body.to_s.gsub(/mattbeedle@googlemail\.com.*$/, '')
+      return email.body.to_s
     else
       email.parts.each do |part|
         return get_email_content(part)
