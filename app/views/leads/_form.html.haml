@@ -35,9 +35,9 @@
 %h3.toggler= "#{t('tracking')} &amp; #{t('simple_form.labels.permissions')}"
 .toggle
   %fieldset
-    .33.a= form.input :campaign_id
-    .33= form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :include_blank => false
-    .33.z= form.input :rating, :as => :select, :collection => 1..5
+    .50.a= form.input :campaign_id
+    .25= form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :include_blank => false
+    .25.z= form.input :rating, :as => :select, :collection => 1..5
     .clear
     .25.a= form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false, :required=>true
     .25= form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s)
