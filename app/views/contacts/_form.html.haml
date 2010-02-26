@@ -1,8 +1,9 @@
 %fieldset
-  = form.input :first_name, :grid=>'50'
-  = form.input :last_name, :grid=>'50 last'
-  = form.input :account_id, :collection => Account.all.map {|a| [a.name, a.id] }, :grid=>'50'
-  = link_to t('add_account'), new_account_path(:return_to => request.request_uri), :id => 'new_account', :class=>'inline-add'
+  .50.a=   form.input :first_name
+  .50.z= form.input :last_name
+  .clear
+  .50.a= form.input :account_id, :collection => Account.all.map {|a| [a.name, a.id] }
+  .50.z= link_to t('add_account'), new_account_path(:return_to => request.request_uri), :id => 'new_account', :class=>'inline-add'
 %fieldset
-  = render :partial => 'shared/permissions_form', :locals => { :form => form }
+  = render :partial => 'shared/permissions_form', :locals => { :form => form, :p2=>'33' }
 

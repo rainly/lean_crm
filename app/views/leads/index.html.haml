@@ -6,10 +6,11 @@
 
 -content_for :sidebar do
   .gold.box
+    %h3= t('filter_by_status')
     - form_tag '', :method => :get do
       %ul.checks.stacked
         - Lead.statuses.each do |status|
           %li
             = check_box_tag 'with_status[]', status, (params[:with_status] and params[:with_status].include?(status)), :id => "status_#{status}"
             %label{ :for => "status_#{status}" }= status
-      = submit_tag t('filter'), :id => 'filter'
+      .clear= submit_tag t('filter'), :id => 'filter'

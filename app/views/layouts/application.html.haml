@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    = javascript_include_tag 'right.js'
+    = javascript_include_tag 'right.js','application.js'
     = stylesheet_link_tag 'compiled/application.css'
     = title_tag 'Lean CRM'
     = description_tag 'An unobtrusive, slim CRM built with MongoMapper and RightJS'
@@ -36,4 +36,15 @@
           .flash#error= flash[:error]
         #main{:class=> @main_class }
           .pad= yield
-        #sidebar= yield :sidebar
+        #sidebar
+          = yield :sidebar
+          - if action_is('index')
+            #recent_items.box.ice
+              %h3= t('recent_items')
+              %ul.plain
+                - current_user.recent_items.each do |item|
+                  - text = item.instance_of?(Account) ? item.name : item.full_name
+                  %li
+                    %span== #{item.class.to_s}:
+                    = link_to text, item
+                    -#%small= l item.updated_at, :format => :short

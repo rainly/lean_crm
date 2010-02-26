@@ -1,59 +1,58 @@
 %h2.title= t('add_lead')
-%h3= t('lead_name') 
-%fieldset
-  = form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s), :grid => '15'
-  = form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s), :grid => '15'
-  = form.input :first_name, :grid => '30', :required=>true
-  = form.input :last_name, :grid => '40 last', :required=>true
-.50
-  %h3= t('contact_info')
+%h3.toggler.open= t('lead_name') 
+.toggle
+  %fieldset
+    .16.a= form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s)
+    .16= form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s)
+    .33= form.input :first_name, :required=>true
+    .33.z= form.input :last_name, :required=>true
 
+%h3.toggler= t('contact_info')
+.toggle
   %fieldset
-    = form.input :company, :grid =>'60'
-    = form.input :referred_by, :grid => '40 last'
+    .33.a= form.input :company
+    .33=   form.input :email
+    .33.z= form.input :phone
     .clear
-    = form.input :email, :grid => '60'
-    = form.input :phone, :grid => '40 last'
+    .33.a= form.input :address, :as=>:text, :input_html => { :rows => 4 }
+    .33=    form.input :alternative_email
+    .33.z=    form.input :mobile
+    .33= form.input :referred_by
+    .33.boolean
+      =  form.check_box :do_not_call
+      =  form.label :do_not_call
     .clear
-    = form.input :alternative_email, :grid => '60 '
-    = form.input :mobile, :grid => '40 last'
-    .clear
-    = form.input :address, :as=>:text, :input_html => { :rows => 4 }, :grid => '60'
-    .40.last
-      .boolean
-        = form.check_box :do_not_call
-        = form.label :do_not_call  
-  
-.50.last
-  %h3= t('web_and_social_media')
-  %fieldset
-    = form.input :website, :grid => '100'
-    = form.input :twitter, :grid => '100'
-    = form.input :linked_in, :grid => '100'
-    = form.input :facebook, :grid => '100'
-    = form.input :xing, :grid => '100 last'
-  
 
-.50
-  %h3= t('tracking_info')
+%h3.toggler= t('web_and_social_media')
+.toggle
   %fieldset
-    = form.input :campaign_id, :grid => '50'
-    = form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false, :grid => '50 last', :required=>true
-    .clear
-    = form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :grid => '33'
-    = form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s), :grid => '33'
-    = form.input :rating, :as => :select, :collection => 1..5, :grid => '33 last'
+    .100=  form.input :website
+    .50.a= form.input :twitter
+    .50.z= form.input :linked_in
+    .50.a= form.input :facebook
+    .50.z= form.input :xing
 
-.50.last
-  %h3= t('privileges')  
+%h3.toggler= "#{t('tracking')} &amp; #{t('simple_form.labels.permissions')}"
+.toggle
   %fieldset
-    = render :partial => 'shared/permissions_form', :locals => { :form => form }
+    .25.a= form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :include_blank => false
+    .25= form.input :rating, :as => :select, :collection => 1..5
+    .25= form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false, :required=>true
+    .25.z= form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s)
+    .clear
+    = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1=>'25 a', :p2=>'25 z' }
+
+%h3.toggler= t('notes')
+.toggle
+  %fieldset
+    .100
+      .text.optional= form.text_area :notes, :rows => 4
 .clear
-%h3= t('notes')
-%fieldset
-  .100= form.text_area :notes, :rows=>2
-.clear
-.act
+
+.act.pad
   = form.button :submit
   = t('or')
   = link_to t('back'), :back
+
+// Eliminates style flicker, but makes Matt very, very sad
+=# javascript_tag "new Base().initialize;"

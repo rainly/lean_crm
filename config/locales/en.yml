@@ -43,10 +43,13 @@ en:
   delete: Delete
   edit: Edit
   filter: Filter
+  filters: Filters
+  filter_by_status: Filter by Status
   or: or
   notes: Notes
   pending: Pending
   privileges: Privileges
+  tracking: Tracking
   save: Save
   submit: Submit
   visit_website: Visit Website
@@ -70,6 +73,7 @@ en:
       linked_in: Linked In
       mobile: Mobile
       permission: Permission
+      permissions: Permissions
       permitted_users: Permitted Users
       phone: Phone
       status: Status
@@ -95,6 +99,22 @@ en:
   - Shared
   - Private
 
+  #--------------------------------------------------------------
+  # Activity
+  #--------------------------------------------------------------
+  activity_actions:
+    - Viewed
+    - Created
+    - Updated
+    - Completed
+    - 'Re-assigned'
+    - Rejected
+    - 'Re-scheduled'
+    - Converted
+    - Commented
+    - Deleted
+  my_profile: My Profile
+  recent_items: Recent Items
   #--------------------------------------------------------------
   # Comment
   #--------------------------------------------------------------
@@ -173,26 +193,17 @@ en:
     - Trip
   task_reassigned: "Task has been re-assigned to {{user}}"
   no_tasks_for_lead: "There are no tasks for this lead. <a href='{{link}}'>Add one now</a>"
-  #--------------------------------------------------------------
-  # Activity
-  #--------------------------------------------------------------
-  activity_actions:
-    - Viewed
-    - Created
-    - Updated
-    - Completed
-    - 'Re-assigned'
-    - Rejected
-    - 'Re-scheduled'
-    - Converted
-    - Commented
-    - Deleted
-  my_profile: My Profile
+
   
   #--------------------------------------------------------------
   # Contacts
   #--------------------------------------------------------------
   contact_info: Contact Info
+  
+  #--------------------------------------------------------------
+  # Users
+  #--------------------------------------------------------------
+  add_user: Add User
   
   #--------------------------------------------------------------
   # Emails
