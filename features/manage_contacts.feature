@@ -57,7 +57,7 @@ Feature: Manage contacts
     And I am on the contact's page
     When I press "delete"
     Then I should be on the contacts page
-    And I should not see "Florian"
+    And I should not see "Florian" within "#main"
 
   Scenario: Deleting from the index page
     Given I am registered and logged in as annika
@@ -65,7 +65,8 @@ Feature: Manage contacts
     And I am on the contacts page
     When I press "delete_florian-behn"
     Then I should be on the contacts page
-    And I should not see "Florian"
+    And I check the response
+    And I should not see "Florian" within "#main"
 
   Scenario: Private contact (in)visibility on the contacts page
     Given I am registered and logged in as annika

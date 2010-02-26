@@ -1,5 +1,5 @@
 .item
-  = link_to account.name, account, :id => account.name.downcase.gsub(/\s/, '-').gsub(/\w/, '')
+  = link_to account.name, account, :id => account.name.downcase.gsub(/\s/, '-').gsub(/\w/, ''), :class=>'account'
   %span.actions
     = link_to t('edit'), [:edit, account], :id => "edit_#{account.name.to_dom_id}"
     %b.divider= "|"
