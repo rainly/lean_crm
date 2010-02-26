@@ -1,7 +1,10 @@
 .comment
-  = link_to comment.user.email, comment.user
-  = t('created_ago', :time => time_ago_in_words(comment.created_at))
-  = comment.text
-  .attachments
-    - comment.attachments.each do |attachment|
-      = link_to attachment.attachment_filename, attachment
+  .user
+    = link_to comment.user.email, comment.user
+    %small.acted= t('wrote_ago', :time => time_ago_in_words(comment.created_at))
+  .quote &#9699;
+  .message
+    = comment.text
+    .attachments
+      - comment.attachments.each do |attachment|
+        = link_to attachment.attachment_filename, attachment

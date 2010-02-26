@@ -1,5 +1,5 @@
 .item
   = link_to contact.full_name, contact, :id => contact.full_name.to_dom_id
-  .actions
+  %span.actions
     - simple_form_for contact, :html => { :method => :delete } do |form|
-      = form.button :submit, t('delete'), :id => "delete_#{contact.full_name.to_dom_id}"
+      = form.button :submit, t('delete'), :id => "delete_#{contact.full_name.to_dom_id}", :class=>'delete'
