@@ -46,8 +46,12 @@ h3.deadline
 =task-category(!color)
   :background = !color
   :color = !color - 90
+
 dl.item
   :margin 0px
+  &.completed dd
+    :padding-left 10px
+    :width 85%
   dt, dd
     :clear none
     :display block

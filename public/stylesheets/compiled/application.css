@@ -453,9 +453,33 @@ a#new:hover b {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #c0c0b1;
   background: #f2f2e3;
+  margin-bottom: 20px;
+}
+/* line 150, ../../../app/stylesheets/partials/_layout.sass */
+#sidebar .box.ice {
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #97b8bd;
+  background: #c9eaef;
+}
+/* line 155, ../../../app/stylesheets/partials/_layout.sass */
+#sidebar .box#recent_items ul {
+  color: #6f9095;
+}
+/* line 157, ../../../app/stylesheets/partials/_layout.sass */
+#sidebar .box#recent_items ul li {
+  padding: 0px 0px 5px 0px;
+}
+/* line 159, ../../../app/stylesheets/partials/_layout.sass */
+#sidebar .box#recent_items ul span {
+  display: block;
+  float: left;
+  font-size: 12px;
+  padding-right: 6px;
+  text-align: right;
+  width: 50px;
 }
 
-/* line 150, ../../../app/stylesheets/partials/_layout.sass */
+/* line 169, ../../../app/stylesheets/partials/_layout.sass */
 .inline-add {
   font-size: 14px;
   padding-top: 27px;
@@ -464,17 +488,17 @@ a#new:hover b {
   float: left;
 }
 
-/* line 159, ../../../app/stylesheets/partials/_layout.sass */
+/* line 178, ../../../app/stylesheets/partials/_layout.sass */
 span.rating {
   font-size: 13px;
   padding-top: 4px;
   width: 7%;
 }
-/* line 163, ../../../app/stylesheets/partials/_layout.sass */
+/* line 182, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.on {
   color: #666;
 }
-/* line 165, ../../../app/stylesheets/partials/_layout.sass */
+/* line 184, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.off {
   color: #ccc;
 }
@@ -532,6 +556,18 @@ p, ol, ul, table {
 /* line 28, ../../../app/stylesheets/partials/_typography.sass */
 .right {
   text-align: right;
+}
+
+/* line 31, ../../../app/stylesheets/partials/_typography.sass */
+ul.square {
+  padding-left: 15px;
+  list-style-type: square;
+}
+
+/* line 35, ../../../app/stylesheets/partials/_typography.sass */
+ul.plain {
+  padding-left: 15px;
+  list-style-type: none;
 }
 
 /* line 4, ../../../app/stylesheets/partials/_forms.sass */
@@ -1415,17 +1451,22 @@ h3.deadline#due_later {
   box-shadow: white 0px 0px 0px;
 }
 
-/* line 49, ../../../app/stylesheets/models/_task.sass */
+/* line 50, ../../../app/stylesheets/models/_task.sass */
 dl.item {
   margin: 0px;
 }
-/* line 51, ../../../app/stylesheets/models/_task.sass */
+/* line 52, ../../../app/stylesheets/models/_task.sass */
+dl.item.completed dd {
+  padding-left: 10px;
+  width: 85%;
+}
+/* line 55, ../../../app/stylesheets/models/_task.sass */
 dl.item dt, dl.item dd {
   clear: none;
   display: block;
   float: left;
 }
-/* line 55, ../../../app/stylesheets/models/_task.sass */
+/* line 59, ../../../app/stylesheets/models/_task.sass */
 dl.item dt {
   border-top-left-radius: 10px;
   -moz-border-radius-topleft: 10px;
@@ -1439,47 +1480,47 @@ dl.item dt {
   text-align: right;
   width: 12%;
 }
-/* line 62, ../../../app/stylesheets/models/_task.sass */
+/* line 66, ../../../app/stylesheets/models/_task.sass */
 dl.item dt.call, dl.item dt.new {
   background: #b5e7ff;
   color: #5b8da5;
 }
-/* line 64, ../../../app/stylesheets/models/_task.sass */
+/* line 68, ../../../app/stylesheets/models/_task.sass */
 dl.item dt.email, dl.item dt.contacted {
   background: #ffdeba;
   color: #a58460;
 }
-/* line 66, ../../../app/stylesheets/models/_task.sass */
+/* line 70, ../../../app/stylesheets/models/_task.sass */
 dl.item dt.follow-up, dl.item dt.converted {
   background: #b5ffda;
   color: #5ba580;
 }
-/* line 68, ../../../app/stylesheets/models/_task.sass */
+/* line 72, ../../../app/stylesheets/models/_task.sass */
 dl.item dt.lunch, dl.item dt.rejected {
   background: #ffd2ba;
   color: #a57860;
 }
-/* line 70, ../../../app/stylesheets/models/_task.sass */
+/* line 74, ../../../app/stylesheets/models/_task.sass */
 dl.item dt.meeting {
   background: #f5ed9d;
   color: #9b9343;
 }
-/* line 72, ../../../app/stylesheets/models/_task.sass */
+/* line 76, ../../../app/stylesheets/models/_task.sass */
 dl.item dt.money {
   background: #d1ffba;
   color: #77a560;
 }
-/* line 74, ../../../app/stylesheets/models/_task.sass */
+/* line 78, ../../../app/stylesheets/models/_task.sass */
 dl.item dt.presentation {
   background: #dedede;
   color: #848484;
 }
-/* line 76, ../../../app/stylesheets/models/_task.sass */
+/* line 80, ../../../app/stylesheets/models/_task.sass */
 dl.item dt.trip {
   background: #dec7ff;
   color: #846da5;
 }
-/* line 78, ../../../app/stylesheets/models/_task.sass */
+/* line 82, ../../../app/stylesheets/models/_task.sass */
 dl.item dd {
   border-bottom: 1px solid #ccc;
   margin-left: 0px;
@@ -1487,36 +1528,36 @@ dl.item dd {
   width: 87%;
   position: relative;
 }
-/* line 84, ../../../app/stylesheets/models/_task.sass */
+/* line 88, ../../../app/stylesheets/models/_task.sass */
 dl.item dd input[type=checkbox] {
   width: 14px;
   margin: 3px 4px 0 7px;
 }
-/* line 87, ../../../app/stylesheets/models/_task.sass */
+/* line 91, ../../../app/stylesheets/models/_task.sass */
 dl.item dd input[type=submit]:hover {
   color: #000;
 }
-/* line 89, ../../../app/stylesheets/models/_task.sass */
+/* line 93, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.task_item form {
   float: left;
   width: 85%;
 }
-/* line 92, ../../../app/stylesheets/models/_task.sass */
+/* line 96, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.task_item form input[type=submit] {
   font-size: 12px;
   margin-top: 2px;
 }
-/* line 95, ../../../app/stylesheets/models/_task.sass */
+/* line 99, ../../../app/stylesheets/models/_task.sass */
 dl.item dd label {
   display: inline;
   font-size: 14px;
 }
-/* line 98, ../../../app/stylesheets/models/_task.sass */
+/* line 102, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.save {
   position: absolute;
   right: 3.5em;
 }
-/* line 102, ../../../app/stylesheets/models/_task.sass */
+/* line 106, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions {
   float: right;
   clear: none;
@@ -1524,63 +1565,63 @@ dl.item dd span.actions {
   padding-top: 3px;
   width: auto;
 }
-/* line 108, ../../../app/stylesheets/models/_task.sass */
+/* line 112, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions a {
   padding: 0 2px;
 }
-/* line 110, ../../../app/stylesheets/models/_task.sass */
+/* line 114, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions a, dl.item dd span.actions input, dl.item dd span.actions b {
   float: left;
   display: inline;
   font-size: 12px;
 }
-/* line 114, ../../../app/stylesheets/models/_task.sass */
+/* line 118, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions a, dl.item dd span.actions input {
   text-decoration: none;
 }
-/* line 116, ../../../app/stylesheets/models/_task.sass */
+/* line 120, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions a:hover, dl.item dd span.actions input:hover {
   color: #000;
 }
-/* line 118, ../../../app/stylesheets/models/_task.sass */
+/* line 122, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions input, dl.item dd span.actions b {
   padding: 0px;
 }
-/* line 120, ../../../app/stylesheets/models/_task.sass */
+/* line 124, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions form {
   clear: none;
   float: left;
   width: 15px;
 }
-/* line 124, ../../../app/stylesheets/models/_task.sass */
+/* line 128, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions input[type="submit"].delete {
   color: #f00;
   font-size: 16px;
   margin-top: -5px;
   margin-left: -2px;
 }
-/* line 129, ../../../app/stylesheets/models/_task.sass */
+/* line 133, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions input[type="submit"].delete:hover {
   color: #000;
 }
-/* line 131, ../../../app/stylesheets/models/_task.sass */
+/* line 135, ../../../app/stylesheets/models/_task.sass */
 dl.item dd span.actions b.divider {
   color: #ccc;
   padding: 0px 2px 0px 2px;
 }
 
-/* line 138, ../../../app/stylesheets/models/_task.sass */
+/* line 142, ../../../app/stylesheets/models/_task.sass */
 small.asset {
   font-size: 11px;
   color: #bbb;
 }
-/* line 141, ../../../app/stylesheets/models/_task.sass */
+/* line 145, ../../../app/stylesheets/models/_task.sass */
 small.asset a {
   color: #969696;
   font-weight: bold;
   text-decoration: none;
 }
-/* line 145, ../../../app/stylesheets/models/_task.sass */
+/* line 149, ../../../app/stylesheets/models/_task.sass */
 small.asset a:hover {
   text-decoration: underline;
 }
