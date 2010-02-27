@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate_user!
   before_filter :configuration_check
-  after_filter :log_viewed_item
+  after_filter :log_viewed_item, :only => :show
 
 protected
   def log_viewed_item
