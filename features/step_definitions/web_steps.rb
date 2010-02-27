@@ -140,7 +140,7 @@ end
  
 Then /^(?:|I )should see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
   within(selector) do |content|
-    assert_match(/#{text}/, content)
+    assert content.dom.inner_text.include?(text)
   end
 end
  
@@ -164,7 +164,7 @@ end
  
 Then /^(?:|I )should not see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
   within(selector) do |content|
-    assert_no_match(/#{text}/, content)
+    assert !content.dom.inner_text.include?(text)
   end
 end
  
@@ -208,9 +208,4 @@ Then /^show me the page$/ do
   else
     save_and_open_page
   end
-end
-
-
-Then /^(?:|I )should not see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
-  pending
 end
