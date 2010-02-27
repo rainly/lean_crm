@@ -14,7 +14,6 @@ class Account
   key :fax,             String
   key :billing_address, String
   key :shipping_address, String
-  key :deleted_at,      Time
   timestamps!
 
   has_constant :accesses, lambda { I18n.t(:access_levels) }
