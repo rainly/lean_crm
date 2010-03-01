@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    = javascript_include_tag 'right.js','application.js'
+    = javascript_include_tag 'right.js','right/rails.js','application.js'
     = stylesheet_link_tag 'compiled/application.css'
     = title_tag 'SalesFlip'
     = description_tag 'An unobtrusive, slim CRM built with MongoMapper and RightJS'
@@ -21,7 +21,6 @@
               = link_to t('my_profile'), profile_path, :id=>'profile'
               |
               = link_to t('logout'), destroy_user_session_path, :id => 'logout'
-
             %ul#navigation
               %li.first= link_to t('dashboard'), root_path, :class=> active_if(controller_is('pages'))
               %li= link_to t('tasks'), tasks_path, :class=> active_if(controller_is('tasks'))
@@ -31,9 +30,11 @@
     #content
       .pad
         - if flash[:notice]
-          .flash#notice= flash[:notice]
+          #flashes
+            #flash.notice= flash[:notice]
         - if flash[:error]
-          .flash#error= flash[:error]
+          #flashes
+            #flash.error= flash[:error]
         #main{:class=> @main_class }
           .pad= yield
         #sidebar

@@ -136,17 +136,18 @@ span.error
 //---------------------------------------------------
 // Flash Message
 //---------------------------------------------------
-.flash
+#flash
   +border-radius(5px)
-  :padding 20px
-  :margin-bottom 20px
   +box-shadow(#aaa, 2px, 2px,2px)
-  +text-shadow(#000, 1px, 1px,2px)
+  :color #fff
+  :margin-bottom 20px
+  :padding 20px
   :text-align center
-  &#notice
-    :color #fff
+  +text-shadow(#000, 1px, 1px,2px)
+  &.notice
     +v-grad(#42cb7c,#25b023)
-
+  &.error
+    +v-grad(#f00,#800)
 //---------------------------------------------------
 // Form Grid
 //---------------------------------------------------

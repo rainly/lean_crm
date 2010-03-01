@@ -988,348 +988,354 @@ span.error {
 }
 
 /* line 139, ../../../app/stylesheets/partials/_forms.sass */
-.flash {
+#flash {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
   /* Webkit (Safari, Chrome) */
   -webkit-box-shadow: #aaaaaa 2px 2px 2px;
   /* Gecko (Firefox, Camino) */
   -moz-box-shadow: #aaaaaa 2px 2px 2px;
   /* CSS3 */
   box-shadow: #aaaaaa 2px 2px 2px;
-  text-shadow: black 1px 1px 2px;
-  text-align: center;
-}
-/* line 146, ../../../app/stylesheets/partials/_forms.sass */
-.flash#notice {
   color: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+  text-shadow: black 1px 1px 2px;
+}
+/* line 147, ../../../app/stylesheets/partials/_forms.sass */
+#flash.notice {
   background: #25b023;
   background: -webkit-gradient(linear, left top, left bottom, from(#42cb7c), to(#25b023));
   background: -moz-linear-gradient(center top, #42cb7c 0%, #25b023 100%);
 }
+/* line 149, ../../../app/stylesheets/partials/_forms.sass */
+#flash.notice {
+  background: #880000;
+  background: -webkit-gradient(linear, left top, left bottom, from(red), to(#880000));
+  background: -moz-linear-gradient(center top, red 0%, #880000 100%);
+}
 
-/* line 164, ../../../app/stylesheets/partials/_forms.sass */
+/* line 165, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00 {
   width: 100%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00.boolean, .\31 00.check, .\31 00.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00.boolean input, .\31 00.check input, .\31 00.radio input, .\31 00 .boolean input, .\31 00 .check input, .\31 00 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\31 00.boolean input, .\31 00.boolean label, .\31 00.check input, .\31 00.check label, .\31 00.radio input, .\31 00.radio label, .\31 00 .boolean input, .\31 00 .boolean label, .\31 00 .check input, .\31 00 .check label, .\31 00 .radio input, .\31 00 .radio label {
   display: inline;
 }
 
-/* line 166, ../../../app/stylesheets/partials/_forms.sass */
+/* line 167, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 {
   float: left;
   width: 90%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.boolean, .\38 0.check, .\38 0.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.boolean input, .\38 0.check input, .\38 0.radio input, .\38 0 .boolean input, .\38 0 .check input, .\38 0 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.boolean input, .\38 0.boolean label, .\38 0.check input, .\38 0.check label, .\38 0.radio input, .\38 0.radio label, .\38 0 .boolean input, .\38 0 .boolean label, .\38 0 .check input, .\38 0 .check label, .\38 0 .radio input, .\38 0 .radio label {
   display: inline;
 }
 
-/* line 168, ../../../app/stylesheets/partials/_forms.sass */
+/* line 169, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0 {
   float: left;
   width: 80%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.boolean, .\38 0.check, .\38 0.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.boolean input, .\38 0.check input, .\38 0.radio input, .\38 0 .boolean input, .\38 0 .check input, .\38 0 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\38 0.boolean input, .\38 0.boolean label, .\38 0.check input, .\38 0.check label, .\38 0.radio input, .\38 0.radio label, .\38 0 .boolean input, .\38 0 .boolean label, .\38 0 .check input, .\38 0 .check label, .\38 0 .radio input, .\38 0 .radio label {
   display: inline;
 }
 
-/* line 170, ../../../app/stylesheets/partials/_forms.sass */
+/* line 171, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5 {
   float: left;
   width: 75%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5.boolean, .\37 5.check, .\37 5.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5.boolean input, .\37 5.check input, .\37 5.radio input, .\37 5 .boolean input, .\37 5 .check input, .\37 5 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\37 5.boolean input, .\37 5.boolean label, .\37 5.check input, .\37 5.check label, .\37 5.radio input, .\37 5.radio label, .\37 5 .boolean input, .\37 5 .boolean label, .\37 5 .check input, .\37 5 .check label, .\37 5 .radio input, .\37 5 .radio label {
   display: inline;
 }
 
-/* line 172, ../../../app/stylesheets/partials/_forms.sass */
+/* line 173, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0 {
   float: left;
   width: 70%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0.boolean, .\37 0.check, .\37 0.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0.boolean input, .\37 0.check input, .\37 0.radio input, .\37 0 .boolean input, .\37 0 .check input, .\37 0 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\37 0.boolean input, .\37 0.boolean label, .\37 0.check input, .\37 0.check label, .\37 0.radio input, .\37 0.radio label, .\37 0 .boolean input, .\37 0 .boolean label, .\37 0 .check input, .\37 0 .check label, .\37 0 .radio input, .\37 0 .radio label {
   display: inline;
 }
 
-/* line 174, ../../../app/stylesheets/partials/_forms.sass */
+/* line 175, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6 {
   float: left;
   width: 66.66%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6.boolean, .\36 6.check, .\36 6.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6.boolean input, .\36 6.check input, .\36 6.radio input, .\36 6 .boolean input, .\36 6 .check input, .\36 6 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\36 6.boolean input, .\36 6.boolean label, .\36 6.check input, .\36 6.check label, .\36 6.radio input, .\36 6.radio label, .\36 6 .boolean input, .\36 6 .boolean label, .\36 6 .check input, .\36 6 .check label, .\36 6 .radio input, .\36 6 .radio label {
   display: inline;
 }
 
-/* line 176, ../../../app/stylesheets/partials/_forms.sass */
+/* line 177, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0 {
   float: left;
   width: 60%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0.boolean, .\36 0.check, .\36 0.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0.boolean input, .\36 0.check input, .\36 0.radio input, .\36 0 .boolean input, .\36 0 .check input, .\36 0 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\36 0.boolean input, .\36 0.boolean label, .\36 0.check input, .\36 0.check label, .\36 0.radio input, .\36 0.radio label, .\36 0 .boolean input, .\36 0 .boolean label, .\36 0 .check input, .\36 0 .check label, .\36 0 .radio input, .\36 0 .radio label {
   display: inline;
 }
 
-/* line 178, ../../../app/stylesheets/partials/_forms.sass */
+/* line 179, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0 {
   float: left;
   width: 50%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0.boolean, .\35 0.check, .\35 0.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0.boolean input, .\35 0.check input, .\35 0.radio input, .\35 0 .boolean input, .\35 0 .check input, .\35 0 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\35 0.boolean input, .\35 0.boolean label, .\35 0.check input, .\35 0.check label, .\35 0.radio input, .\35 0.radio label, .\35 0 .boolean input, .\35 0 .boolean label, .\35 0 .check input, .\35 0 .check label, .\35 0 .radio input, .\35 0 .radio label {
   display: inline;
 }
 
-/* line 180, ../../../app/stylesheets/partials/_forms.sass */
+/* line 181, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0 {
   float: left;
   width: 40%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0.boolean, .\34 0.check, .\34 0.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0.boolean input, .\34 0.check input, .\34 0.radio input, .\34 0 .boolean input, .\34 0 .check input, .\34 0 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\34 0.boolean input, .\34 0.boolean label, .\34 0.check input, .\34 0.check label, .\34 0.radio input, .\34 0.radio label, .\34 0 .boolean input, .\34 0 .boolean label, .\34 0 .check input, .\34 0 .check label, .\34 0 .radio input, .\34 0 .radio label {
   display: inline;
 }
 
-/* line 182, ../../../app/stylesheets/partials/_forms.sass */
+/* line 183, ../../../app/stylesheets/partials/_forms.sass */
 .\33 5 {
   float: left;
   width: 35%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\33 5.boolean, .\33 5.check, .\33 5.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\33 5.boolean input, .\33 5.check input, .\33 5.radio input, .\33 5 .boolean input, .\33 5 .check input, .\33 5 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\33 5.boolean input, .\33 5.boolean label, .\33 5.check input, .\33 5.check label, .\33 5.radio input, .\33 5.radio label, .\33 5 .boolean input, .\33 5 .boolean label, .\33 5 .check input, .\33 5 .check label, .\33 5 .radio input, .\33 5 .radio label {
   display: inline;
 }
 
-/* line 184, ../../../app/stylesheets/partials/_forms.sass */
+/* line 185, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3 {
   float: left;
   width: 33.33%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3.boolean, .\33 3.check, .\33 3.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3.boolean input, .\33 3.check input, .\33 3.radio input, .\33 3 .boolean input, .\33 3 .check input, .\33 3 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\33 3.boolean input, .\33 3.boolean label, .\33 3.check input, .\33 3.check label, .\33 3.radio input, .\33 3.radio label, .\33 3 .boolean input, .\33 3 .boolean label, .\33 3 .check input, .\33 3 .check label, .\33 3 .radio input, .\33 3 .radio label {
   display: inline;
 }
 
-/* line 186, ../../../app/stylesheets/partials/_forms.sass */
+/* line 187, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0 {
   float: left;
   width: 30%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0.boolean, .\33 0.check, .\33 0.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0.boolean input, .\33 0.check input, .\33 0.radio input, .\33 0 .boolean input, .\33 0 .check input, .\33 0 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\33 0.boolean input, .\33 0.boolean label, .\33 0.check input, .\33 0.check label, .\33 0.radio input, .\33 0.radio label, .\33 0 .boolean input, .\33 0 .boolean label, .\33 0 .check input, .\33 0 .check label, .\33 0 .radio input, .\33 0 .radio label {
   display: inline;
 }
 
-/* line 188, ../../../app/stylesheets/partials/_forms.sass */
+/* line 189, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5 {
   float: left;
   width: 25%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5.boolean, .\32 5.check, .\32 5.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5.boolean input, .\32 5.check input, .\32 5.radio input, .\32 5 .boolean input, .\32 5 .check input, .\32 5 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\32 5.boolean input, .\32 5.boolean label, .\32 5.check input, .\32 5.check label, .\32 5.radio input, .\32 5.radio label, .\32 5 .boolean input, .\32 5 .boolean label, .\32 5 .check input, .\32 5 .check label, .\32 5 .radio input, .\32 5 .radio label {
   display: inline;
 }
 
-/* line 190, ../../../app/stylesheets/partials/_forms.sass */
+/* line 191, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0 {
   float: left;
   width: 20%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0.boolean, .\32 0.check, .\32 0.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0.boolean input, .\32 0.check input, .\32 0.radio input, .\32 0 .boolean input, .\32 0 .check input, .\32 0 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\32 0.boolean input, .\32 0.boolean label, .\32 0.check input, .\32 0.check label, .\32 0.radio input, .\32 0.radio label, .\32 0 .boolean input, .\32 0 .boolean label, .\32 0 .check input, .\32 0 .check label, .\32 0 .radio input, .\32 0 .radio label {
   display: inline;
 }
 
-/* line 192, ../../../app/stylesheets/partials/_forms.sass */
+/* line 193, ../../../app/stylesheets/partials/_forms.sass */
 .\31 6 {
   float: left;
   width: 16.66%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\31 6.boolean, .\31 6.check, .\31 6.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\31 6.boolean input, .\31 6.check input, .\31 6.radio input, .\31 6 .boolean input, .\31 6 .check input, .\31 6 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\31 6.boolean input, .\31 6.boolean label, .\31 6.check input, .\31 6.check label, .\31 6.radio input, .\31 6.radio label, .\31 6 .boolean input, .\31 6 .boolean label, .\31 6 .check input, .\31 6 .check label, .\31 6 .radio input, .\31 6 .radio label {
   display: inline;
 }
 
-/* line 194, ../../../app/stylesheets/partials/_forms.sass */
+/* line 195, ../../../app/stylesheets/partials/_forms.sass */
 .\31 5 {
   float: left;
   width: 15%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\31 5.boolean, .\31 5.check, .\31 5.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\31 5.boolean input, .\31 5.check input, .\31 5.radio input, .\31 5 .boolean input, .\31 5 .check input, .\31 5 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\31 5.boolean input, .\31 5.boolean label, .\31 5.check input, .\31 5.check label, .\31 5.radio input, .\31 5.radio label, .\31 5 .boolean input, .\31 5 .boolean label, .\31 5 .check input, .\31 5 .check label, .\31 5 .radio input, .\31 5 .radio label {
   display: inline;
 }
 
-/* line 196, ../../../app/stylesheets/partials/_forms.sass */
+/* line 197, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0 {
   float: left;
   width: 10%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0.boolean, .\31 0.check, .\31 0.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0.boolean input, .\31 0.check input, .\31 0.radio input, .\31 0 .boolean input, .\31 0 .check input, .\31 0 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\31 0.boolean input, .\31 0.boolean label, .\31 0.check input, .\31 0.check label, .\31 0.radio input, .\31 0.radio label, .\31 0 .boolean input, .\31 0 .boolean label, .\31 0 .check input, .\31 0 .check label, .\31 0 .radio input, .\31 0 .radio label {
   display: inline;
 }
 
-/* line 198, ../../../app/stylesheets/partials/_forms.sass */
+/* line 199, ../../../app/stylesheets/partials/_forms.sass */
 .\35 {
   float: left;
   width: 5%;
 }
-/* line 157, ../../../app/stylesheets/partials/_forms.sass */
+/* line 158, ../../../app/stylesheets/partials/_forms.sass */
 .\35.boolean, .\35.check, .\35.radio {
   padding-top: 25px;
 }
-/* line 160, ../../../app/stylesheets/partials/_forms.sass */
+/* line 161, ../../../app/stylesheets/partials/_forms.sass */
 .\35.boolean input, .\35.check input, .\35.radio input, .\35 .boolean input, .\35 .check input, .\35 .radio input {
   width: 13px;
 }
-/* line 162, ../../../app/stylesheets/partials/_forms.sass */
+/* line 163, ../../../app/stylesheets/partials/_forms.sass */
 .\35.boolean input, .\35.boolean label, .\35.check input, .\35.check label, .\35.radio input, .\35.radio label, .\35 .boolean input, .\35 .boolean label, .\35 .check input, .\35 .check label, .\35 .radio input, .\35 .radio label {
   display: inline;
 }
