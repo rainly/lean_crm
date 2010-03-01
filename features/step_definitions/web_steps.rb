@@ -214,3 +214,7 @@ end
 Then /^(?:|I )should not see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
   pending
 end
+
+Given /^I check the response$/ do
+  puts response.document.asXml
+end
