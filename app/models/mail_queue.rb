@@ -3,4 +3,5 @@ class MailQueue
 
   key :mail,      String, :required => true
   key :status,    String
+  timestamps!
 end
