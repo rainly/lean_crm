@@ -23,7 +23,7 @@ class Task
   belongs_to :assignee, :class_name => 'User'
   belongs_to :completed_by, :class_name => 'User'
 
-  has_many :activities, :as => :subject
+  has_many :activities, :as => :subject, :dependent => :destroy
 
   named_scope :incomplete, :conditions => { :completed_at => nil }
   

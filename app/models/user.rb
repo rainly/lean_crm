@@ -19,6 +19,11 @@ class User < AbstractUser
                  :order => 'updated_at desc', :limit => 5).map(&:subject)
   end
 
+  def tracked_items
+    (Lead.tracked_by(self) + Contact.tracked_by(self) + Account.tracked_by(self)).
+      sort_by(&:created_at)
+  end
+
 protected
   def set_api_key
     self.api_key = UUID.new.generate

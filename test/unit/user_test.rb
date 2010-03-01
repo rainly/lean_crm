@@ -6,6 +6,27 @@ class UserTest < ActiveSupport::TestCase
       @user = User.make_unsaved(:annika)
     end
 
+    context 'tracked_items' do
+      setup do
+        @user.save!
+      end
+
+      should 'return all tracked leads' do
+        lead = Lead.make(:erich, :tracker_ids => [@user.id])
+        assert @user.tracked_items.include?(lead)
+      end
+
+      should 'return all tracked contacts' do
+        contact = Contact.make(:florian, :tracker_ids => [@user.id])
+        assert @user.tracked_items.include?(contact)
+      end
+
+      should 'return all tracked accounts' do
+        account = Account.make(:careermee, :tracker_ids => [@user.id])
+        assert @user.tracked_items.include?(account)
+      end
+    end
+
     context 'recent_items' do
       should 'return recently viewed items' do
         @lead = Lead.make

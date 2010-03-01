@@ -66,6 +66,7 @@ class ActiveSupport::TestCase
       assert klass.new.respond_to?('tracker_ids=')
       assert klass.new.respond_to?('tracked_by?')
       assert klass.new.respond_to?('remove_tracker_ids=')
+      assert klass.respond_to?('tracked_by')
     end
   end
 

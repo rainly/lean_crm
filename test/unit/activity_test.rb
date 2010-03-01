@@ -3,6 +3,7 @@ require 'test_helper.rb'
 class ActivityTest < ActiveSupport::TestCase
   context 'Class' do
     should_have_constant :actions
+    should_require_key :user_id
 
     context 'log' do
       setup do
@@ -122,22 +123,10 @@ class ActivityTest < ActiveSupport::TestCase
       assert @activity.valid?
     end
 
-    should 'be invalid without user_id' do
-      @activity.user_id = nil
+    should 'be invalid without subject' do
+      @activity.subject = nil
       assert !@activity.valid?
-      assert @activity.errors.on(:user_id)
-    end
-
-    should 'be invalid without subject_id' do
-      @activity.subject_id = nil
-      assert !@activity.valid?
-      assert @activity.errors.on(:subject_id)
-    end
-
-    should 'be invalid without subject_type' do
-      @activity.subject_type = nil
-      assert !@activity.valid?
-      assert @activity.errors.on(:subject_type)
+      assert @activity.errors.on(:subject)
     end
   end
 end
