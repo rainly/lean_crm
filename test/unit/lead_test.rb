@@ -8,6 +8,22 @@ class LeadTest < ActiveSupport::TestCase
   end
 
   context 'Named Scopes' do
+
+    context 'tracked_by' do
+      setup do
+        @user = User.make(:annika)
+        @tracked = Lead.make(:erich, :tracker_ids => [@user.id])
+        @untracked = Lead.make(:markus)
+      end
+
+      should 'return leads which are tracked by the supplied user' do
+        assert_equal 1, Lead.tracked_by(@user).count
+        assert_equal [@tracked], Lead.tracked_by(@user)
+        @tracked.update_attributes :tracker_ids => [User.make(:benny).id]
+        assert_equal 0, Lead.tracked_by(@user).count
+      end
+    end
+
     context 'with_status' do
       setup do
         @new = Lead.make(:erich)

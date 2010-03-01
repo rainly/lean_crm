@@ -3,8 +3,8 @@ class Activity
   include HasConstant
 
   key :user_id,       ObjectId, :required => true, :index => true
-  key :subject_id,    ObjectId, :required => true, :index => true
-  key :subject_type,  String, :required => true, :index => true
+  key :subject_id,    ObjectId, :index => true
+  key :subject_type,  String, :index => true
   key :action,        Integer
   key :info,          String
   timestamps!
