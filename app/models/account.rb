@@ -22,6 +22,7 @@ class Account
   belongs_to :user
   belongs_to :assignee, :class_name => 'User'
   has_many :contacts
+  has_many :tasks, :as => :asset
   has_many :comments, :as => :commentable
   has_many :activities, :as => :subject
 

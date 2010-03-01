@@ -13,3 +13,5 @@
       = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
 = @contact.account.name
 = @contact.full_name
+
+= render :partial => "tasks/add_task", :locals=> { :object=>@contact }

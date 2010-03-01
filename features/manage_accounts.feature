@@ -91,3 +91,38 @@ Feature: Manage accounts
     When I follow "careermee"
     Then I should be on the account's page
     And I should see "CareerMee"
+
+  Scenario: Adding a task to an account
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And an account: "careermee" exists with user: benny
+    And I am on the account's page
+    And I follow "add_task"
+    And I fill in "task_name" with "Call to get offer details"
+    And I select "As soon as possible" from "task_due_at"
+    And I select "Call" from "task_category"
+    When I press "task_submit"
+    Then I should be on the account's page
+    And a task should have been created
+    And I should see "Call to get offer details"
+  
+  Scenario: Marking an account as completed
+    Given I am registered and logged in as annika
+    And an account exists with user: annika
+    And a task exists with asset: the account, name: "Call to get offer details", user: annika
+    And I am on the account's page
+    When I check "Call to get offer details"
+    And I press "task_submit"
+    Then the task "Call to get offer details" should have been completed
+    And I should be on the account's page
+    And I should not see "Call to get offer details"
+
+  Scenario: Deleting a task
+    Given I am registered and logged in as annika
+    And an account exists with user: annika
+    And a task exists with asset: the account, name: "Call to get offer details", user: annika
+    And I am on the account's page
+    When I press "delete"
+    Then I should be on the account's page
+    And a task should not exist
+    And I should not see "Call to get offer details"

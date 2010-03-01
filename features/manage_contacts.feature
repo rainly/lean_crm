@@ -101,3 +101,38 @@ Feature: Manage contacts
     When I follow "florian-behn"
     Then I should be on the contact's page
     And I should see "Florian"
+
+  Scenario: Adding a task to a contact
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And a contact: "careermee" exists with user: benny
+    And I am on the contact's page
+    And I follow "add_task"
+    And I fill in "task_name" with "Call to get offer details"
+    And I select "As soon as possible" from "task_due_at"
+    And I select "Call" from "task_category"
+    When I press "task_submit"
+    Then I should be on the contact's page
+    And a task should have been created
+    And I should see "Call to get offer details"
+  
+  Scenario: Marking a contact as completed
+    Given I am registered and logged in as annika
+    And a contact exists with user: annika
+    And a task exists with asset: the contact, name: "Call to get offer details", user: annika
+    And I am on the contact's page
+    When I check "Call to get offer details"
+    And I press "task_submit"
+    Then the task "Call to get offer details" should have been completed
+    And I should be on the contact's page
+    And I should not see "Call to get offer details"
+
+  Scenario: Deleting a task
+    Given I am registered and logged in as annika
+    And a contact exists with user: annika
+    And a task exists with asset: the contact, name: "Call to get offer details", user: annika
+    And I am on the contact's page
+    When I press "delete"
+    Then I should be on the contact's page
+    And a task should not exist
+    And I should not see "Call to get offer details"

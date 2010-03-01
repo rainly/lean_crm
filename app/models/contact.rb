@@ -39,6 +39,7 @@ class Contact
   belongs_to :assignee, :class => 'User'
   belongs_to :lead
 
+  has_many :tasks, :as => :asset
   has_many :activities, :as => :subject
   has_many :comments, :as => :commentable
 
