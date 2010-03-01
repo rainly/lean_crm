@@ -33,23 +33,33 @@ div#main h2.title
     :margin 0px
     :padding 0
     +silver-tabs
-    :width 33%
+    :width auto
     li
+      :width auto
       a
         +box-shadow(#999)
+      a, input
+        :padding-left 8px
+        :padding-right 8px
       &.right
         :float right
+    .last form input
+      +border-right-radius(14px)
+      :border-right 1px solid #999
     form
       :clear none
       :float left
       :margin-top -8px
-      :width 100%
+      :padding-right 15px
+      :width 91%
       input
         +border-left-radius(0px)
         :border-left none
+        +border-right-radius(0px)
+        :border-right none
         :font-size 13px
         :font-weight bold
-        :padding 4px 0px
+        :padding 4px 10px 4px 0px
         
   .status
     :float right

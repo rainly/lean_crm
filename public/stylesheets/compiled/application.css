@@ -1011,7 +1011,7 @@ span.error {
   background: -moz-linear-gradient(center top, #42cb7c 0%, #25b023 100%);
 }
 /* line 149, ../../../app/stylesheets/partials/_forms.sass */
-#flash.notice {
+#flash.error {
   background: #880000;
   background: -webkit-gradient(linear, left top, left bottom, from(red), to(#880000));
   background: -moz-linear-gradient(center top, red 0%, #880000 100%);
@@ -1408,7 +1408,7 @@ div#main h2.title .actions {
   float: right;
   margin: 0px;
   padding: 0;
-  width: 33%;
+  width: auto;
 }
 /* line 70, ../../../app/stylesheets/partials/_tools.sass */
 div#main h2.title .actions li {
@@ -1474,7 +1474,11 @@ div#main h2.title .actions a.active:hover, div#main h2.title .actions input.acti
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 38, ../../../app/stylesheets/models/_leads.sass */
+/* line 37, ../../../app/stylesheets/models/_leads.sass */
+div#main h2.title .actions li {
+  width: auto;
+}
+/* line 39, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions li a {
   /* Webkit (Safari, Chrome) */
   -webkit-box-shadow: #999999 1px 1px 5px;
@@ -1483,18 +1487,34 @@ div#main h2.title .actions li a {
   /* CSS3 */
   box-shadow: #999999 1px 1px 5px;
 }
-/* line 40, ../../../app/stylesheets/models/_leads.sass */
+/* line 41, ../../../app/stylesheets/models/_leads.sass */
+div#main h2.title .actions li a, div#main h2.title .actions li input {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+/* line 44, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions li.right {
   float: right;
 }
-/* line 42, ../../../app/stylesheets/models/_leads.sass */
+/* line 46, ../../../app/stylesheets/models/_leads.sass */
+div#main h2.title .actions .last form input {
+  border-top-right-radius: 14px;
+  -moz-border-radius-topright: 14px;
+  -webkit-border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  -moz-border-radius-bottomright: 14px;
+  -webkit-border-bottom-right-radius: 14px;
+  border-right: 1px solid #999;
+}
+/* line 49, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions form {
   clear: none;
   float: left;
   margin-top: -8px;
-  width: 100%;
+  padding-right: 15px;
+  width: 91%;
 }
-/* line 47, ../../../app/stylesheets/models/_leads.sass */
+/* line 55, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions form input {
   border-top-left-radius: 0px;
   -moz-border-radius-topleft: 0px;
@@ -1503,11 +1523,18 @@ div#main h2.title .actions form input {
   -moz-border-radius-bottomleft: 0px;
   -webkit-border-bottom-left-radius: 0px;
   border-left: none;
+  border-top-right-radius: 0px;
+  -moz-border-radius-topright: 0px;
+  -webkit-border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-right: none;
   font-size: 13px;
   font-weight: bold;
-  padding: 4px 0px;
+  padding: 4px 10px 4px 0px;
 }
-/* line 54, ../../../app/stylesheets/models/_leads.sass */
+/* line 64, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status {
   float: right;
   font-size: 13px;
@@ -1521,27 +1548,27 @@ div#main h2.title .status {
   -moz-border-radius-bottomright: 14px;
   -webkit-border-bottom-right-radius: 14px;
 }
-/* line 61, ../../../app/stylesheets/models/_leads.sass */
+/* line 71, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status strong {
   font-size: 22px;
 }
-/* line 63, ../../../app/stylesheets/models/_leads.sass */
+/* line 73, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.converted {
   background: #BDFFBC;
   color: #070;
 }
-/* line 66, ../../../app/stylesheets/models/_leads.sass */
+/* line 76, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected {
   background: #fdd;
   color: #900;
 }
-/* line 69, ../../../app/stylesheets/models/_leads.sass */
+/* line 79, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected strong {
   position: relative;
   top: 2px;
 }
 
-/* line 76, ../../../app/stylesheets/models/_leads.sass */
+/* line 86, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task {
   border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1564,7 +1591,7 @@ h3.grad a#add_task:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 82, ../../../app/stylesheets/models/_leads.sass */
+/* line 92, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task b {
   background: #999;
   border-radius: 10px;
@@ -1581,7 +1608,7 @@ h3.grad a#add_task b {
   text-shadow: #555555 0px 1px 0px;
 }
 
-/* line 98, ../../../app/stylesheets/models/_leads.sass */
+/* line 108, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info {
   font-size: 13px;
   clear: both;
@@ -1604,11 +1631,11 @@ h3.grad a#add_task b {
 #sidebar dl.info dd {
   width: 70%;
 }
-/* line 101, ../../../app/stylesheets/models/_leads.sass */
+/* line 111, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt, #sidebar dl.info dd {
   padding: 4px 0px;
 }
-/* line 103, ../../../app/stylesheets/models/_leads.sass */
+/* line 113, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt {
   color: #989889;
   font-size: 12px;
