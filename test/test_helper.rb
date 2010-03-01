@@ -58,6 +58,17 @@ class ActiveSupport::TestCase
     end
   end
 
+  def self.should_be_trackable
+    klass = self.name.gsub(/Test$/, '').constantize
+    should 'be trackable' do
+      assert klass.new.respond_to?('tracker_ids')
+      assert klass.new.respond_to?('trackers')
+      assert klass.new.respond_to?('tracker_ids=')
+      assert klass.new.respond_to?('tracked_by?')
+      assert klass.new.respond_to?('remove_tracker_ids=')
+    end
+  end
+
   def self.should_require_key(*args)
     klass = self.name.gsub(/Test$/, '').constantize
     args.each do |arg|

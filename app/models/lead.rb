@@ -3,6 +3,7 @@ class Lead
   include HasConstant
   include ParanoidDelete
   include Permission
+  include Trackable
 
   key :user_id,       ObjectId, :required => true, :index => true
   key :first_name,    String, :required => true
@@ -47,7 +48,6 @@ class Lead
 
   named_scope :with_status, lambda {|statuses| { :conditions => {
     :status => statuses.map {|status| Lead.statuses.index(status) } } } }
-  named_scope :not_deleted, :conditions => { :deleted_at => nil }
 
   def full_name
     "#{first_name} #{last_name}"

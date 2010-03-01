@@ -4,6 +4,7 @@ class AccountTest < ActiveSupport::TestCase
   context 'Class' do
     should_have_constant :accesses
     should_act_as_paranoid
+    should_be_trackable
   end
 
   context 'Instance' do

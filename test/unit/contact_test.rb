@@ -3,6 +3,8 @@ require 'test_helper.rb'
 class ContactTest < ActiveSupport::TestCase
   context "Class" do
     should_have_constant :accesses, :titles, :permissions
+    should_act_as_paranoid
+    should_be_trackable
 
     context 'create_for' do
       setup do

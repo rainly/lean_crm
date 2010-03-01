@@ -1,5 +1,15 @@
 .actions
   - simple_form_for @contact, :html => { :method => :delete } do |form|
     = form.button :submit, t('delete'), :id => 'delete'
+  - if @contact.tracked_by?(current_user)
+    - simple_form_for @contact do |form|
+      = hidden_field_tag :return_to, request.request_uri
+      = hidden_field_tag 'contact[remove_tracker_ids][]', current_user.id
+      = form.button :submit, t('stop_updating_me'), :id => 'stop_updating_me'
+  - else
+    - simple_form_for @contact do |form|
+      = hidden_field_tag :return_to, request.request_uri
+      = hidden_field_tag 'contact[tracker_ids][]', current_user.id
+      = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
 = @contact.account.name
 = @contact.full_name

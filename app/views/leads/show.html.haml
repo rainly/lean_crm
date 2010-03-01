@@ -11,13 +11,23 @@
       = t('rejected')
 
   %ul.actions
-    %li.first{:class=>('right' if @lead.status_is?('Converted') or @lead.status_is?('Rejected'))}
+    %li.first{ :class => ('right' if @lead.status_is?('Converted') or @lead.status_is?('Rejected'))}
       = link_to t('edit'), edit_lead_path(@lead)
     - unless @lead.status_is?('Converted') or @lead.status_is?('Rejected')
       %li= link_to t('convert'), convert_lead_path(@lead), :id=>'convert_lead'
       %li.last
         - simple_form_for @lead, :url => reject_lead_path(@lead), :html => { :method => :put } do |form|
           = form.button :submit, t('reject'), :id => 'reject_lead'
+    - if @lead.tracked_by?(current_user)
+      - simple_form_for @lead do |form|
+        = hidden_field_tag 'lead[remove_tracker_ids][]', current_user.id
+        = hidden_field_tag :return_to, request.request_uri
+        = form.button :submit, t('stop_updating_me'), :id => 'stop_updating_me'
+    - else @lead.tracked_by?(current_user)
+      - simple_form_for @lead do |form|
+        = hidden_field_tag 'lead[tracker_ids][]', current_user.id
+        = hidden_field_tag :return_to, request.request_uri
+        = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
 
 - if @lead.notes.present?
   .notes= @lead.notes

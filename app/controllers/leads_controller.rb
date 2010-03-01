@@ -15,7 +15,7 @@ class LeadsController < InheritedResources::Base
 
   def update
     update! do |success, failure|
-      success.html { redirect_to leads_path }
+      success.html { return_to_or_default leads_path }
     end
   end
 
@@ -39,7 +39,7 @@ class LeadsController < InheritedResources::Base
 
 protected
   def collection
-    @leads ||= apply_scopes(Lead).not_deleted.permitted_for(current_user)
+    @leads ||= apply_scopes(Lead).not_deleted.permitted_for(current_user).order('created_at', 'desc')
   end
 
   def resource

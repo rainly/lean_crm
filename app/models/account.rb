@@ -3,6 +3,7 @@ class Account
   include HasConstant
   include ParanoidDelete
   include Permission
+  include Trackable
 
   key :user_id,         ObjectId, :index => true, :required => true
   key :assignee_id,     ObjectId, :index => true

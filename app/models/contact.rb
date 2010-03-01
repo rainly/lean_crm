@@ -3,6 +3,7 @@ class Contact
   include HasConstant
   include ParanoidDelete
   include Permission
+  include Trackable
 
   key :account_id,          ObjectId, :index => true
   key :user_id,             ObjectId, :required => true, :index => true

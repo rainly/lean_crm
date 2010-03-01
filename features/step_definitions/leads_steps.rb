@@ -26,6 +26,18 @@ Given /^markus is not shared with annika$/ do
   lead.update_attributes :permitted_user_ids => [lead.user_id], :permission => 'Shared'
 end
 
+Then /^#{capture_model} should be observing the #{capture_model}$/ do |user, trackable|
+  t = model!(trackable)
+  u = model!(user)
+  assert t.tracker_ids.include?(u.id)
+end
+
+Then /^#{capture_model} should not be observing the #{capture_model}$/ do |user, trackable|
+  t = model!(trackable)
+  u = model!(user)
+  assert !t.tracker_ids.include?(u.id)
+end
+
 Then /^a task should have been created$/ do
   assert_equal 1, Task.count
 end

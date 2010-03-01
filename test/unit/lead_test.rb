@@ -4,6 +4,7 @@ class LeadTest < ActiveSupport::TestCase
   context 'Class' do
     should_have_constant :titles, :statuses, :sources, :salutations, :permissions
     should_act_as_paranoid
+    should_be_trackable
   end
 
   context 'Named Scopes' do
