@@ -2,7 +2,7 @@
 require 'rubygems'
 require 'mail'
 require 'beanstalk-client'
-require 'mongomapper'
+require 'mongo_mapper'
 require File.join(File.dirname(__FILE__), '..', 'app', 'models', 'mail_queue')
 
 MongoMapper.database = 'salesflip_production'

@@ -158,4 +158,32 @@ class EmailReaderTest < ActiveSupport::TestCase
       end
     end
   end
+
+  context "when replying and bcc'ing" do
+    setup do
+      @user = User.make(:annika)
+      @email = Mail.new(File.read("#{Rails.root}/test/support/replying_and_bcc_ing.txt"))
+      @email.stubs(:bcc).returns(["dropbox@#{@user.api_key}.1000jobboersen.de"])
+    end
+
+    context 'when lead exists' do
+      setup do
+        @lead = Lead.make(:erich, :email => 'mattbeedle@googlemail.com')
+        EmailReader.parse_email(@email)
+      end
+
+      should 'add comment to lead' do
+        assert_equal 1, @lead.comments.length
+        assert_equal 'Re: this is just a test', @lead.comments.first.subject
+        assert_match(/ok, and now I am replying again./, @lead.comments.first.text)
+      end
+    end
+  end
+
+  context 'when forwarding a reply to my reply' do
+    setup do
+      @user = User.make(:annika)
+      @email = Mail.new(File.read("#{Rails.root}/test/support/forwarding_reply_to_my_reply_to_dropbox.txt"))
+    end
+  end
 end
