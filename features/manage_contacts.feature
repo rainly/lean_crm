@@ -132,7 +132,7 @@ Feature: Manage contacts
     And a contact exists with user: annika
     And a task exists with asset: the contact, name: "Call to get offer details", user: annika
     And I am on the contact's page
-    When I press "delete"
+    When I press "delete_task"
     Then I should be on the contact's page
     And a task should not exist
     And I should not see "Call to get offer details"

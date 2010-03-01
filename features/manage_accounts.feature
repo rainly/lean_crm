@@ -122,7 +122,7 @@ Feature: Manage accounts
     And an account exists with user: annika
     And a task exists with asset: the account, name: "Call to get offer details", user: annika
     And I am on the account's page
-    When I press "delete"
+    When I press "delete_task"
     Then I should be on the account's page
     And a task should not exist
     And I should not see "Call to get offer details"
