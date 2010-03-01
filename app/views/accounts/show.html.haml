@@ -5,3 +5,5 @@
 %h3= t('contacts')
 .contacts
   = render :partial => 'contacts/contact', :collection => @account.contacts
+
+= render :partial => "tasks/add_task", :locals=> { :object=>@account }

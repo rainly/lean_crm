@@ -3,3 +3,5 @@
     = form.button :submit, t('delete'), :id => 'delete'
 = @contact.account.name
 = @contact.full_name
+
+= render :partial => "tasks/add_task", :locals=> { :object=>@contact }
