@@ -27,3 +27,5 @@ CarrierWave.configure do |config|
   config.grid_fs_username = mongo['username'] if mongo['username']
   config.grid_fs_password =  mongo['password'] if mongo['password']
 end
+
+MongoMapper::Document.append_inclusions(UsefulScopes)
