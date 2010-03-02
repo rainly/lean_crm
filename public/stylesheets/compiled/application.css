@@ -1368,6 +1368,20 @@ span.error {
   text-align: left;
 }
 
+/* line 2, ../../../app/stylesheets/models/_contact.sass */
+body.accounts.show div.item span.actions {
+  width: 1em;
+}
+
+/* line 8, ../../../app/stylesheets/models/_contact.sass */
+body.contacts.show div#main h2.title .actions form {
+  width: 100%;
+}
+/* line 10, ../../../app/stylesheets/models/_contact.sass */
+body.contacts.show div#main h2.title .actions li.last input {
+  padding-bottom: 3px;
+}
+
 /* line 3, ../../../app/stylesheets/models/_leads.sass */
 body.leads.new #main, body.leads.create #main, body.leads.edit #main, body.leads.update #main {
   width: 100%;
@@ -1497,6 +1511,21 @@ div#main h2.title .actions li.right {
   float: right;
 }
 /* line 46, ../../../app/stylesheets/models/_leads.sass */
+div#main h2.title .actions .first form {
+  width: 100%;
+}
+/* line 48, ../../../app/stylesheets/models/_leads.sass */
+div#main h2.title .actions .first form input {
+  border-top-left-radius: 14px;
+  -moz-border-radius-topleft: 14px;
+  -webkit-border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  -moz-border-radius-bottomleft: 14px;
+  -webkit-border-bottom-left-radius: 14px;
+  border-left: 1px solid #999;
+  padding: 4px 10px 5px 0;
+}
+/* line 52, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions .last form input {
   border-top-right-radius: 14px;
   -moz-border-radius-topright: 14px;
@@ -1506,7 +1535,7 @@ div#main h2.title .actions .last form input {
   -webkit-border-bottom-right-radius: 14px;
   border-right: 1px solid #999;
 }
-/* line 49, ../../../app/stylesheets/models/_leads.sass */
+/* line 55, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions form {
   clear: none;
   float: left;
@@ -1514,7 +1543,7 @@ div#main h2.title .actions form {
   padding-right: 15px;
   width: 91%;
 }
-/* line 55, ../../../app/stylesheets/models/_leads.sass */
+/* line 61, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions form input {
   border-top-left-radius: 0px;
   -moz-border-radius-topleft: 0px;
@@ -1534,7 +1563,7 @@ div#main h2.title .actions form input {
   font-weight: bold;
   padding: 4px 10px 4px 0px;
 }
-/* line 64, ../../../app/stylesheets/models/_leads.sass */
+/* line 70, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status {
   float: right;
   font-size: 13px;
@@ -1548,27 +1577,27 @@ div#main h2.title .status {
   -moz-border-radius-bottomright: 14px;
   -webkit-border-bottom-right-radius: 14px;
 }
-/* line 71, ../../../app/stylesheets/models/_leads.sass */
+/* line 77, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status strong {
   font-size: 22px;
 }
-/* line 73, ../../../app/stylesheets/models/_leads.sass */
+/* line 79, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.converted {
   background: #BDFFBC;
   color: #070;
 }
-/* line 76, ../../../app/stylesheets/models/_leads.sass */
+/* line 82, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected {
   background: #fdd;
   color: #900;
 }
-/* line 79, ../../../app/stylesheets/models/_leads.sass */
+/* line 85, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected strong {
   position: relative;
   top: 2px;
 }
 
-/* line 86, ../../../app/stylesheets/models/_leads.sass */
+/* line 92, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task {
   border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1591,7 +1620,7 @@ h3.grad a#add_task:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 92, ../../../app/stylesheets/models/_leads.sass */
+/* line 98, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task b {
   background: #999;
   border-radius: 10px;
@@ -1608,7 +1637,7 @@ h3.grad a#add_task b {
   text-shadow: #555555 0px 1px 0px;
 }
 
-/* line 108, ../../../app/stylesheets/models/_leads.sass */
+/* line 114, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info {
   font-size: 13px;
   clear: both;
@@ -1631,11 +1660,11 @@ h3.grad a#add_task b {
 #sidebar dl.info dd {
   width: 70%;
 }
-/* line 111, ../../../app/stylesheets/models/_leads.sass */
+/* line 117, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt, #sidebar dl.info dd {
   padding: 4px 0px;
 }
-/* line 113, ../../../app/stylesheets/models/_leads.sass */
+/* line 119, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt {
   color: #989889;
   font-size: 12px;
