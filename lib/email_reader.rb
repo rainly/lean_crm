@@ -21,7 +21,8 @@ class EmailReader
       comment = Email.create! :text => get_email_content(email),
         :commentable => target, :user => user, :from_email => true,
         :subject => Mail.new(get_email_content(email)).subject || email.subject,
-        :received_at => Time.zone.now, :subject => email.subject
+        :received_at => Time.zone.now, :subject => email.subject,
+        :from => find_target_email(email)
       add_attachments( comment, email )
       comment
     end

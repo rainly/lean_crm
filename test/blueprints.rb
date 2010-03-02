@@ -156,4 +156,5 @@ Email.blueprint(:erich_offer_email) do
   text { 'Here is the offer body' }
   subject { 'A great offer for you' }
   received_at { 1.day.ago }
+  from { 'annika.fleischer@1000jobboersen.de' }
 end
