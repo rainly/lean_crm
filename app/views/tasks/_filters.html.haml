@@ -1,9 +1,9 @@
 .gold.box
   %ul.filters
     %li.first
-      = link_to t('pending'), tasks_path(:incomplete => true), :id => 'pending', :class => active_if( params[:incomplete] && !params[:assigned] )
-    %li= link_to t('assigned'), tasks_path(:assigned => true,:incomplete=>true), :id => 'assigned',:class => active_if( params[:assigned] )
-    %li.last= link_to t('completed'), tasks_path(:completed => true), :id => 'completed', :class => active_if( params[:completed] )
+      = link_to t('pending'), tasks_path(:incomplete => params[:incomplete] ? false : true), :id => 'pending', :class => active_if( params[:incomplete] && !params[:assigned] )
+    %li= link_to t('assigned'), tasks_path(:assigned => params[:assigned] ? false : true, :incomplete => params[:incomplete] ? false : true), :id => 'assigned',:class => active_if( params[:assigned] )
+    %li.last= link_to t('completed'), tasks_path(:completed => params[:completed] ? false : true), :id => 'completed', :class => active_if( params[:completed] )
   - form_tag '', :method => :get do
     = hidden_field_tag :incomplete, params[:incomplete]
     = hidden_field_tag :assigned, params[:assigned]
