@@ -1368,16 +1368,11 @@ span.error {
   text-align: left;
 }
 
-/* line 2, ../../../app/stylesheets/models/_contact.sass */
-body.accounts.show div.item span.actions {
-  width: 1em;
-}
-
-/* line 8, ../../../app/stylesheets/models/_contact.sass */
+/* line 4, ../../../app/stylesheets/models/_contact.sass */
 body.contacts.show div#main h2.title .actions form {
   width: 100%;
 }
-/* line 10, ../../../app/stylesheets/models/_contact.sass */
+/* line 6, ../../../app/stylesheets/models/_contact.sass */
 body.contacts.show div#main h2.title .actions li.last input {
   padding-bottom: 3px;
 }

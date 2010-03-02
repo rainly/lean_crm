@@ -1,0 +1,5 @@
+.comments
+  %h3.grad= t('comments')
+  = render :partial => "comments/comment", :collection => object.comments
+
+= render :partial => "comments/add_comment", :locals => {:object => object }

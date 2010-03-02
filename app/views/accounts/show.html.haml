@@ -17,4 +17,6 @@
 .contacts
   = render :partial => 'contacts/contact', :collection => @account.contacts
 
-= render :partial => "tasks/add_task", :locals=> { :object=>@account }
+= render :partial => "tasks/add_task", :locals=> { :object => @account }
+
+= render :partial => "comments/comments", :locals => {:object => @account }

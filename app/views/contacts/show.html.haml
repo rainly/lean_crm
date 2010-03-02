@@ -15,10 +15,10 @@
     %li.last
       - simple_form_for @contact, :html => { :method => :delete } do |form|
         = form.button :submit, t('delete'), :id => 'delete'
-    
 
+= render :partial => "tasks/add_task", :locals=> { :object => @contact }
 
-= render :partial => "tasks/add_task", :locals=> { :object=>@contact }
+= render :partial => "comments/comments", :locals => { :object => @contact }
 
 - content_for :sidebar do
   .box.gold

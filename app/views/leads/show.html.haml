@@ -25,7 +25,7 @@
           = hidden_field_tag :return_to, request.request_uri
           = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
     - unless @lead.status_is?('Converted') or @lead.status_is?('Rejected')
-      %li= link_to t('convert'), convert_lead_path(@lead), :id=>'convert_lead'
+      %li= link_to t('convert'), convert_lead_path(@lead), :id=> 'convert_lead'
       %li.last
         - simple_form_for @lead, :url => reject_lead_path(@lead), :html => { :method => :put } do |form|
           = form.button :submit, t('reject'), :id => 'reject_lead'
@@ -34,22 +34,10 @@
 - if @lead.notes.present?
   .notes= @lead.notes
 
-= render :partial => "tasks/add_task", :locals=>{:object=>@lead}
+= render :partial => "tasks/add_task", :locals => { :object => @lead }
 
-.comments
-  %h3.grad= t('comments')
-  = render :partial => 'comments/comment', :collection => @lead.comments
+= render :partial => 'comments/comments', :locals => { :object => @lead }
 
-.add_comment
-  %h3.grad= t('add_comment')
-  - simple_form_for @comment || Comment.new, :html => { :multipart => true } do |form|
-    = form.hidden_field :commentable_type, :value => 'Lead'
-    = form.hidden_field :commentable_id, :value => @lead.id
-    = hidden_field_tag :return_to, request.request_uri
-    = render :partial => 'comments/form', :locals => { :form => form }
-    = form.button :submit
-    = t('or')
-    = link_to t('cancel'), :back
 
 - content_for :sidebar do
   .box.gold

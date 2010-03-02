@@ -1,0 +1,10 @@
+.add_comment
+  %h3.grad= t('add_comment')
+  - simple_form_for @comment || Comment.new, :html => { :multipart => true } do |form|
+    = form.hidden_field :commentable_type, :value => object.class.to_s
+    = form.hidden_field :commentable_id, :value => object.id
+    = hidden_field_tag :return_to, request.request_uri
+    = render :partial => 'comments/form', :locals => { :form => form }
+    = form.button :submit
+    = t('or')
+    = link_to t('cancel'), :back
