@@ -1,15 +1,24 @@
-Given /^I am registered and logged in as #{capture_model}$/ do |user|
+Given /^I am registered and logged in as annika$/ do
   visit new_user_path
-  fill_in_registration_form(:email => User.plan(user.to_sym)[:email])
+  fill_in_registration_form(:email => 'annika.fleischer@1000jobboersen.de')
   click_button 'user_submit'
-  visit new_user_session_path
-  fill_in_login_form(:email => User.plan(user.to_sym)[:email])
+  visit user_confirmation_path(:confirmation_token =>
+                               User.last(:order => 'created_at').confirmation_token)
+  store_model('user', 'annika', User.last(:order => 'created_at'))
+end
+
+Given /^I am registered and logged in as benny$/ do
+  visit new_user_path
+  fill_in_registration_form(:email => 'benjamin.pochhammer@1000jobboersen.de')
   click_button 'user_submit'
-  store_model('user', user, User.last(:order => 'created_at'))
+  visit user_confirmation_path(:confirmation_token =>
+                               User.last(:order => 'created_at').confirmation_token)
+  store_model('user', 'benny', User.last(:order => 'created_at'))
 end
 
 Given /^I login as #{capture_model}$/ do |user|
   m = model!(user)
+  m.update_attributes :confirmed_at => Time.now
   visit new_user_session_path
   fill_in_login_form(:email => m.email)
   click_button 'user_submit'

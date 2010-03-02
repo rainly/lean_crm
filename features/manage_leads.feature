@@ -177,7 +177,7 @@ Feature: Manage leads
   Scenario: Shared lead visibility on leads page
     Given I am registered and logged in as benny
     And a lead: "markus" exists with user: benny, permission: "Private"
-    And user: "annika" exists
+    And user: "annika" exists with email: "annika.fleischer@1000jobboersen.de"
     And I go to the new lead page
     And I fill in "lead_first_name" with "Erich"
     And I fill in "lead_last_name" with "Feldmeier"

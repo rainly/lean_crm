@@ -1,6 +1,7 @@
 class User < AbstractUser
 
-  devise :authenticatable, :recoverable, :rememberable
+  devise :authenticatable, :confirmable, :recoverable, :rememberable, :trackable,
+    :validatable, :http_authenticatable
 
   key :api_key,               String
 

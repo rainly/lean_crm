@@ -10,6 +10,14 @@ class AbstractUser
   key :sign_in_count,         Integer
   key :current_sign_in_at,    Time
   key :current_sign_in_ip,    String
+  key :last_sign_in_ip,       String
+  key :failed_attempts,       Integer
+  key :confirmation_token,    String
+  key :confirmed_at,          Time
+  key :confirmation_sent_at,  Time
+  key :reset_password_token,  String
+  key :unlock_token,          String
+  key :locked_at,             Time
   timestamps!
 
   RegEmailName   = '[\w\.%\+\-]+'

@@ -6,6 +6,8 @@ Given /^I have registered$/ do
   visit new_user_path
   fill_in_registration_form
   click_button 'user_submit'
+  visit user_confirmation_path(:confirmation_token => User.last(:order => 'created_at').confirmation_token)
+  visit destroy_user_session_path
 end
 
 Then /^a new user should have been created$/ do

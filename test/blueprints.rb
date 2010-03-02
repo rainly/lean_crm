@@ -8,6 +8,7 @@ Sham.name { Faker::Name.name }
 Sham.email { Faker::Internet.email }
 Sham.title { Faker::Lorem.sentence }
 Sham.sentence { Faker::Lorem.sentence }
+Sham.annika_email { |index| "annika.fleischer#{index}@1000jobboersen.de" }
 
 Configuration.blueprint do
   domain_name 'lean-crm.com'
@@ -21,7 +22,7 @@ User.blueprint do
 end
 
 User.blueprint(:annika) do
-  email { 'annika.fleischer@1000jobboersen.de' }
+  email { Sham.annika_email }
   password { 'password' }
   password_confirmation { 'password' }
 end
