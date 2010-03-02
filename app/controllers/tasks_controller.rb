@@ -55,6 +55,10 @@ protected
     end
   end
 
+  def resource
+    @task ||= Task.for(current_user).find_by_id(params[:id])
+  end
+
   def begin_of_association_chain
     current_user
   end

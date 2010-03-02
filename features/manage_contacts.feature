@@ -79,7 +79,7 @@ Feature: Manage contacts
   Scenario: Shared lead visibility on contacts page
     Given I am registered and logged in as benny
     And a contact: "florian" exists with user: benny, permission: "Private"
-    And user: "annika" exists
+    And user: "annika" exists with email: "annika.fleischer@1000jobboersen.de"
     And I go to the new contact page
     And I fill in "contact_first_name" with "Steven"
     And I fill in "contact_last_name" with "Garcia"

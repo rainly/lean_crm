@@ -70,7 +70,7 @@ Feature: Manage accounts
   Scenario: Shared lead visibility on accounts page
     Given I am registered and logged in as benny
     And an account: "careermee" exists with user: benny, permission: "Private"
-    And user: "annika" exists
+    And user: "annika" exists with email: "annika.fleischer@1000jobboersen.de"
     And I go to the new account page
     And I fill in "account_name" with "World Dating"
     And I select "Shared" from "account_permission"

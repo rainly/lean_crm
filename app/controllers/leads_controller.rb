@@ -10,6 +10,7 @@ class LeadsController < InheritedResources::Base
     create! do |success, failure|
       success.html { redirect_to leads_path }
       success.xml { head :ok }
+      failure.xml { render :status => :unprocessable_entity, :xml => @lead.errors }
     end
   end
 
