@@ -54,10 +54,17 @@ class EmailReaderTest < ActiveSupport::TestCase
       end
 
       context 'when receiver does not exist' do
-        should 'create contact and add comment to it' do
+        setup do
           EmailReader.parse_email(@email)
+        end
+
+        should 'create contact and add comment to it' do
           assert_equal 1, Contact.count
           assert Contact.first(:conditions => { :email => @email.to })
+        end
+
+        should 'create an account' do
+          assert_equal 1, Account.count
         end
       end
     end
@@ -113,6 +120,10 @@ class EmailReaderTest < ActiveSupport::TestCase
 
       should 'add attachments to comment' do
         assert_equal 1, Comment.first.attachments.count
+      end
+
+      should 'create an account' do
+        assert_equal 1, Account.count
       end
     end
   end
@@ -208,6 +219,10 @@ class EmailReaderTest < ActiveSupport::TestCase
       should 'actually create the comment as an email' do
         assert_equal 1, Email.count
       end
+
+      should 'create an account' do
+        assert_equal 1, Account.count
+      end
     end
   end
 
@@ -262,6 +277,10 @@ class EmailReaderTest < ActiveSupport::TestCase
       should 'add comment to contact (as an email)' do
         assert_equal 1, Contact.first.comments.count
         assert Contact.first.comments.first.is_a?(Email)
+      end
+
+      should 'create an account' do
+        assert_equal 1, Account.count
       end
     end
   end

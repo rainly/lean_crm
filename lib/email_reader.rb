@@ -66,10 +66,11 @@ protected
   end
 
   def self.create_contact_from( email )
-    account = Account.create(:name => find_target_email(email).split('@').last)
-    Contact.create(:email => find_target_email(email),
-                   :first_name => find_target_email(email).split('@').first.split('.').first,
-                   :last_name => find_target_email(email).first.split('@').first.split('.').last,
+    target_email = find_target_email(email)
+    account = Account.create!(:name => target_email.split('@').last, :user => find_user_from(email))
+    Contact.create(:email => target_email,
+                   :first_name => target_email.split('@').first.split('.').first,
+                   :last_name => target_email.split('@').first.split('.').last,
                    :account => account, :user => find_user_from(email))
   end
 

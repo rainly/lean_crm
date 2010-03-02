@@ -34,7 +34,7 @@
 - if @lead.notes.present?
   .notes= @lead.notes
 
-= render :partial => "tasks/add_task", :locals=>{:object=>@lead}
+= render :partial => "tasks/add_task", :locals => { :object => @lead }
 
 .comments
   %h3.grad= t('comments')
