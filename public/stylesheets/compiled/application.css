@@ -1343,8 +1343,8 @@ span.error {
 /* line 2, ../../../app/stylesheets/models/_comment.sass */
 .comment .quote {
   color: #c9eaef;
-  font-size: 23px;
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 11px;
   padding-left: 20px;
   padding-top: 4px;
 }
@@ -1366,6 +1366,24 @@ span.error {
   text-decoration: none;
   cursor: default;
   text-align: left;
+}
+
+/* line 20, ../../../app/stylesheets/models/_comment.sass */
+.user a {
+  font-size: 12px;
+}
+/* line 22, ../../../app/stylesheets/models/_comment.sass */
+.user span.icon {
+  padding: 0px;
+  position: relative;
+  top: 3px;
+  font-size: 22px;
+  font-style: normal;
+}
+/* line 28, ../../../app/stylesheets/models/_comment.sass */
+.user strong {
+  font-size: 12px;
+  color: #333;
 }
 
 /* line 4, ../../../app/stylesheets/models/_contact.sass */

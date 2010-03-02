@@ -22,6 +22,7 @@ en:
   done_ago: "{{time}} ago"
   updated_ago: "updated {{time}} ago"
   wrote_ago: "wrote {{time}} ago"
+  email_sent_ago: "sent via email {{time}} ago"
   last_year: Last Year
   last_month: Last Month
   last_week: Last Week
@@ -51,6 +52,7 @@ en:
   notes: Notes
   pending: Pending
   privileges: Privileges
+  subject: Subject
   tracking: Tracking
   save: Save
   submit: Submit

@@ -136,3 +136,24 @@ Feature: Manage contacts
     Then I should be on the contact's page
     And a task should not exist
     And I should not see "Call to get offer details"
+
+  Scenario: Adding a comment
+    Given I am registered and logged in as annika
+    And a contact exists with user: annika
+    And I am on the contact's page
+    And I fill in "comment_text" with "This is a good lead"
+    When I press "comment_submit"
+    Then I should be on the contact page
+    And I should see "This is a good lead"
+    And 1 comments should exist
+    
+  Scenario: Adding a comment with an attachment
+    Given I am registered and logged in as annika
+    And a contact exists with user: annika
+    And I am on the contact's page
+    And I fill in "comment_text" with "Sent offer"
+    And I attach the file at "test/upload-files/erich_offer.pdf" to "Attachment"
+    When I press "comment_submit"
+    Then I should be on the contact page
+    And I should see "Sent offer"
+    And I should see "erich_offer.pdf"
