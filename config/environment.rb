@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   config.gem 'responders'
   config.gem 'warden'
   config.gem 'devise'
-  config.gem 'mongo'
+  #config.gem 'mongo'
   config.gem 'carrierwave'
   config.gem 'compass', :version => "0.10.0.pre5", :source => "http://gems.github.com"
   config.gem 'shoulda'

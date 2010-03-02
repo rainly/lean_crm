@@ -202,8 +202,8 @@ en:
     - Presentation
     - Trip
   task_reassigned: "Task has been re-assigned to {{user}}"
-  no_tasks_for_lead: "There are no tasks for this lead. <a href='{{link}}'>Add one now</a>"
-  no_tasks_for: "There are no tasks for this {{object}}. <a href='{{link}}'>Add one now</a>"
+  no_tasks_for_lead: "You have no tasks for this lead. <a href='{{link}}'>Add one now</a>"
+  no_tasks_for: "You have no tasks for this {{object}}. <a href='{{link}}'>Add one now</a>"
 
   #--------------------------------------------------------------
   # Users

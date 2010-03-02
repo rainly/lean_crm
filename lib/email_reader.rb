@@ -21,11 +21,14 @@ class EmailReader
       comment = Email.create! :text => get_email_content(email),
         :commentable => target, :user => user, :from_email => true,
         :subject => Mail.new(get_email_content(email)).subject || email.subject,
-        :received_at => email.received.date_time, :subject => email.subject
+        :received_at => Time.zone.now, :subject => email.subject,
+        :from => find_target_email(email)
       add_attachments( comment, email )
       comment
     end
     user
+  rescue
+    nil
   end
 
 protected
@@ -64,19 +67,18 @@ protected
   end
 
   def self.create_contact_from( email )
-    account = Account.create(:name => find_target_email(email).split('@').last)
-    Contact.create(:email => find_target_email(email),
-                   :first_name => find_target_email(email).split('@').first.split('.').first,
-                   :last_name => find_target_email(email).first.split('@').first.split('.').last,
+    target_email = find_target_email(email)
+    account = Account.create!(:name => target_email.split('@').last, :user => find_user_from(email))
+    Contact.create(:email => target_email,
+                   :first_name => target_email.split('@').first.split('.').first,
+                   :last_name => target_email.split('@').first.split('.').last,
                    :account => account, :user => find_user_from(email))
   end
 
   def self.find_user_from( email )
-    if email.bcc
-      api_key = email.bcc.to_a.first.split('@').last.split('.').first
-    else
-      api_key = email.to.to_a.first.split('@').last.split('.').first
-    end
-    User.first(:conditions => { :api_key => api_key })
+    api_key = email.to.to_a.first.split('@').last.split('.').first
+    user = User.first(:conditions => { :api_key => api_key })
+    user = User.first(:email => email.from.to_a.first.strip) if user.nil?
+    user
   end
 end
