@@ -66,11 +66,13 @@ en:
       address: Address
       account_name: Account Name
       account_id: Account
+      alt_email: Other Email
       alternative_email: Other Email
       campaign_id: Campaign
       company: Company
       do_not_call: Do Not Call
       email: Email
+      fax: Fax
       facebook: Facebook
       first_name: First Name
       last_name: Last Name

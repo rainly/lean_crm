@@ -1,17 +1,18 @@
 %h2.title.show
   = @account.name
-  = link_to t('edit_account'), [:edit, @account], :id => 'edit'
-  - if @account.tracked_by?(current_user)
-    - simple_form_for @account do |form|
-      = hidden_field_tag :return_to, request.request_uri
-      = hidden_field_tag 'account[remove_tracker_ids][]', current_user.id
-      = form.button :submit, t('stop_updating_me'), :id => 'stop_updating_me'
-  - else
-    - simple_form_for @account do |form|
-      = hidden_field_tag :return_to, request.request_uri
-      = hidden_field_tag 'account[tracker_ids][]', current_user.id
-      = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
-
+  %ul.actions
+    %li.first
+      = link_to t('edit_account'), [:edit, @account]
+    %li.last
+      - simple_form_for @account do |form|
+        = hidden_field_tag :return_to, request.request_uri
+        - if @account.tracked_by?(current_user)
+          = hidden_field_tag 'account[remove_tracker_ids][]', current_user.id
+          = form.button :submit, t('stop_updating_me'), :id => 'stop_updating_me'
+        - else
+          = hidden_field_tag 'account[tracker_ids][]', current_user.id
+          = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
+          
 %h3= t('contacts')
 .contacts
   = render :partial => 'contacts/contact', :collection => @account.contacts
