@@ -1685,7 +1685,7 @@ h3.grad a#add_task b {
   text-align: right;
 }
 
-/* line 1, ../../../app/stylesheets/models/session.sass */
+/* line 1, ../../../app/stylesheets/models/_session.sass */
 .devise_links {
   font-size: 13px;
 }
@@ -1818,4 +1818,49 @@ small.asset a {
 /* line 87, ../../../app/stylesheets/models/_task.sass */
 small.asset a:hover {
   text-decoration: underline;
+}
+
+/* line 1, ../../../app/stylesheets/models/_user.sass */
+dl.profile {
+  clear: both;
+  overflow: none;
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+/* line 59, ../../../app/stylesheets/partials/_tools.sass */
+dl.profile dt, dl.profile dd {
+  float: left;
+  clear: none;
+  display: block;
+  margin: 0px;
+}
+/* line 64, ../../../app/stylesheets/partials/_tools.sass */
+dl.profile dt {
+  width: 14%;
+}
+/* line 66, ../../../app/stylesheets/partials/_tools.sass */
+dl.profile dd {
+  width: 86%;
+}
+/* line 4, ../../../app/stylesheets/models/_user.sass */
+dl.profile dt {
+  color: #999;
+}
+/* line 6, ../../../app/stylesheets/models/_user.sass */
+dl.profile dt, dl.profile dd {
+  padding: 4px 0;
+}
+/* line 9, ../../../app/stylesheets/models/_user.sass */
+dl.profile span.help {
+  display: block;
+  color: #777;
+  font-size: 13px;
+  padding-bottom: 10px;
+  position: relative;
+  top: 5px;
+}
+/* line 16, ../../../app/stylesheets/models/_user.sass */
+dl.profile span.up-arrow {
+  color: #aaa;
 }

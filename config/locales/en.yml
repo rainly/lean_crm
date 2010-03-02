@@ -228,3 +228,8 @@ en:
     email: "&#9993;"
     comment: "&#9699;"
   
+  #--------------------------------------------------------------
+  # Info
+  #--------------------------------------------------------------
+  info:
+    dropbox: "This is the account which is used to route external emails into your comments feeds"
