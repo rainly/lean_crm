@@ -11,7 +11,7 @@ class AccountsController < InheritedResources::Base
 
 protected
   def collection
-    @accounts ||= Account.permitted_for(current_user).not_deleted.
+    @accounts ||= Account.permitted_for(current_user).not_deleted.order('name', 'asc').
       paginate(:per_page => 10, :page => params[:page] || 1)
   end
 

@@ -5,7 +5,7 @@ class ContactsController < InheritedResources::Base
 
 protected
   def collection
-    @contacts ||= Contact.permitted_for(current_user).not_deleted.
+    @contacts ||= Contact.permitted_for(current_user).not_deleted.order('last_name', 'asc').
       paginate(:per_page => 10, :page => params[:page] || 1)
   end
 
