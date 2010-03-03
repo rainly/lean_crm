@@ -38,6 +38,8 @@ class QueryTest < Test::Unit::TestCase
     end
     
     %w{gt lt gte lte ne in nin mod all size where exists}.each do |operator|
+      next if operator == 'size' && RUBY_VERSION >= '1.9.1' # 1.9 defines Symbol#size
+
       should "convert #{operator} conditions" do
         Query.new(Room, :age.send(operator) => 21).criteria.should == {
           :age => {"$#{operator}" => 21}
@@ -174,6 +176,10 @@ class QueryTest < Test::Unit::TestCase
     should "just use sort if sort and order are present" do
       sort = [['$natural', 1]]
       Query.new(Room, :sort => sort, :order => 'foo asc').options[:sort].should == sort
+    end
+    
+    should "normalize id to _id" do
+      Query.new(Room, :order => :id.asc).options[:sort].should == [['_id', 1]]
     end
     
     should "convert natural in order to proper" do
