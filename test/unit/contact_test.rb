@@ -110,19 +110,13 @@ class ContactTest < ActiveSupport::TestCase
       assert @contact.errors.on(:permitted_user_ids)
     end
 
-    should 'require first name' do
-      @contact.first_name = nil
-      assert !@contact.valid?
-      assert @contact.errors.on(:first_name)
-    end
-
     should 'require last name' do
       @contact.last_name = nil
       assert !@contact.valid?
       assert @contact.errors.on(:last_name)
     end
 
-    should 'be valid' do
+    should 'be valid with all required attributes' do
       assert @contact.valid?
     end
   end

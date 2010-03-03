@@ -9,7 +9,7 @@ class Contact
   key :user_id,             ObjectId, :required => true, :index => true
   key :lead_id,             ObjectId, :index => true
   key :assignee_id,         ObjectId, :index => true
-  key :first_name,          String, :required => true
+  key :first_name,          String
   key :last_name,           String, :required => true
   key :access,              Integer
   key :title,               Integer
