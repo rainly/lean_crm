@@ -5,8 +5,8 @@ require 'steam'
 require 'test/unit'
 # require 'rspec'
 
-ENV['CLASSPATH'] = Dir["/home/matt/src/htmlunit-2.7/lib/*.jar"].join(':')
-Steam.config[:html_unit][:java_path] = '/home/matt/src/htmlunit-2.7'
+ENV['CLASSPATH'] = Dir["/opt/htmlunit-2.7/lib/*.jar"].join(':')
+Steam.config[:html_unit][:java_path] = '/opt/htmlunit-2.7'
 
 browser = Steam::Browser.create
 World do
