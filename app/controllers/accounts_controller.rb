@@ -6,6 +6,7 @@ class AccountsController < InheritedResources::Base
   def create
     create! do |success, failure|
       success.html { return_to_or_default account_path(@account) }
+      success.xml { head :ok }
     end
   end
 
