@@ -1,5 +1,8 @@
 class ContactsController < InheritedResources::Base
 
+  respond_to :html
+  respond_to :xml
+
 protected
   def collection
     @contacts ||= Contact.permitted_for(current_user).not_deleted

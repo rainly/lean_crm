@@ -19,7 +19,7 @@ module MongoMapper
         end
 
         def all(options={})
-          klass.all(:conditions => scoped_options(options))
+          klass.scoped(:conditions => scoped_options(options))
         end
 
         def first(options={})

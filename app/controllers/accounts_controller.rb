@@ -1,5 +1,8 @@
 class AccountsController < InheritedResources::Base
 
+  respond_to :html
+  respond_to :xml
+
   def create
     create! do |success, failure|
       success.html { return_to_or_default account_path(@account) }

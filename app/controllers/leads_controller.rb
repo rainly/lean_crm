@@ -9,8 +9,6 @@ class LeadsController < InheritedResources::Base
   def create
     create! do |success, failure|
       success.html { redirect_to leads_path }
-      success.xml { head :ok }
-      failure.xml { render :status => :unprocessable_entity, :xml => @lead.errors }
     end
   end
 
@@ -25,7 +23,8 @@ class LeadsController < InheritedResources::Base
   end
 
   def promote
-    @account, @contact = @lead.promote!(params[:account_id].blank? ? params[:account_name] : params[:account_id])
+    @account, @contact = @lead.promote!(
+      params[:account_id].blank? ? params[:account_name] : params[:account_id])
     if @account.errors.blank? and @contact.errors.blank?
       redirect_to account_path(@account)
     else
@@ -40,7 +39,8 @@ class LeadsController < InheritedResources::Base
 
 protected
   def collection
-    @leads ||= apply_scopes(Lead).not_deleted.permitted_for(current_user).order('created_at', 'desc')
+    @leads ||= apply_scopes(Lead).not_deleted.permitted_for(current_user).
+      order('status asc, created_at', 'desc').paginate(:per_page => 2, :page => params[:page] || 1)
   end
 
   def resource

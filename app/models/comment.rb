@@ -4,6 +4,7 @@ class Comment
   key :user_id,           ObjectId, :required => true, :index => true
   key :commentable_id,    ObjectId, :index => true
   key :commentable_type,  String, :index => true
+  key :subject,           String
   key :text,              String, :required => true
   key :_type,             String
   timestamps!

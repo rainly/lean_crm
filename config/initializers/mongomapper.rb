@@ -29,3 +29,32 @@ CarrierWave.configure do |config|
 end
 
 MongoMapper::Document.append_inclusions(UsefulScopes)
+
+module Xml
+  def self.included( base )
+    base.extend(ClassMethods)
+    base.send(:include, InstanceMethods)
+  end
+
+  module ClassMethods
+    def from_xml( xml )
+      self.new Hash.from_xml(xml).values.first
+    end
+  end
+
+  module InstanceMethods
+    def to_xml( options = {} )
+      require 'builder'
+      xml = Builder::XmlMarkup.new
+      xml.instruct!
+      xml.tag! self.class.to_s.downcase do
+        self.keys.each do |key|
+          key = key.first.gsub(/^_/, '')
+          xml.tag! key.dasherize, self.send(key)
+        end
+      end
+    end
+  end
+end
+
+MongoMapper::Document.append_inclusions(Xml)

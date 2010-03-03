@@ -17,7 +17,7 @@ module Trackable
     end
 
     def tracker_ids=( ids )
-      self[:tracker_ids] = ids.map { |id| Mongo::ObjectID.from_string(id.to_s) }
+      self[:tracker_ids] = ids.map { |id| Mongo::ObjectID.from_string(id.to_s) } if ids
     end
 
     def remove_tracker_ids=( ids )
