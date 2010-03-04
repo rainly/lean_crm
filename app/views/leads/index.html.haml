@@ -3,6 +3,7 @@
   = add_new t('add_lead'), new_lead_path
 
 = render :partial => 'lead', :collection => @leads
+= will_paginate @leads
 
 -# In case we want to group by status later on
 -#

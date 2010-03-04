@@ -4,3 +4,4 @@
 
 .accounts
   = render :partial => 'account', :collection => @accounts
+  = will_paginate @accounts

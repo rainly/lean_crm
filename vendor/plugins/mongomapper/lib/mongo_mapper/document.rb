@@ -17,14 +17,16 @@ module MongoMapper
         plugin Plugins::Keys
         plugin Plugins::Dirty # for now dirty needs to be after keys
         plugin Plugins::Logger
+        plugin Plugins::Modifiers
         plugin Plugins::Pagination
         plugin Plugins::Protected
         plugin Plugins::Rails
         plugin Plugins::Serialization
+        plugin Plugins::Timestamps
+        plugin Plugins::Userstamps
         plugin Plugins::Validations
         plugin Plugins::Callbacks # for now callbacks needs to be after validations
         plugin Plugins::NamedScope
-        
         extend Plugins::Validations::DocumentMacros
       end
 
@@ -146,47 +148,6 @@ module MongoMapper
         find_each(options) { |document| document.destroy }
       end
 
-      def increment(*args)
-        modifier_update('$inc', args)
-      end
-
-      def decrement(*args)
-        criteria, keys = criteria_and_keys_from_args(args)
-        values, to_decrement = keys.values, {}
-        keys.keys.each_with_index { |k, i| to_decrement[k] = -values[i].abs }
-        collection.update(criteria, {'$inc' => to_decrement}, :multi => true)
-      end
-
-      def set(*args)
-        modifier_update('$set', args)
-      end
-
-      def push(*args)
-        modifier_update('$push', args)
-      end
-
-      def push_all(*args)
-        modifier_update('$pushAll', args)
-      end
-
-      def push_uniq(*args)
-        criteria, keys = criteria_and_keys_from_args(args)
-        keys.each { |key, value | criteria[key] = {'$ne' => value} }
-        collection.update(criteria, {'$push' => keys}, :multi => true)
-      end
-
-      def pull(*args)
-        modifier_update('$pull', args)
-      end
-
-      def pull_all(*args)
-        modifier_update('$pullAll', args)
-      end
-
-      def pop(*args)
-        modifier_update('$pop', args)
-      end
-
       def embeddable?
         false
       end
@@ -203,7 +164,7 @@ module MongoMapper
       def set_database_name(name)
         @database_name = name
       end
-      
+
       def database_name
         @database_name
       end
@@ -228,19 +189,6 @@ module MongoMapper
         database.collection(collection_name)
       end
 
-      def timestamps!
-        key :created_at, Time
-        key :updated_at, Time
-        class_eval { before_save :update_timestamps }
-      end
-
-      def userstamps!
-        key :creator_id, ObjectId
-        key :updater_id, ObjectId
-        belongs_to :creator, :class_name => 'User'
-        belongs_to :updater, :class_name => 'User'
-      end
-
       def single_collection_inherited?
         keys.key?(:_type) && single_collection_inherited_superclass?
       end
@@ -259,18 +207,6 @@ module MongoMapper
             instances << doc
           end
           instances.size == 1 ? instances[0] : instances
-        end
-
-        def modifier_update(modifier, args)
-          criteria, keys = criteria_and_keys_from_args(args)
-          modifiers = {modifier => keys}
-          collection.update(criteria, modifiers, :multi => true)
-        end
-
-        def criteria_and_keys_from_args(args)
-          keys     = args.pop
-          criteria = args[0].is_a?(Hash) ? args[0] : {:id => args}
-          [to_criteria(criteria), keys]
         end
 
         def assert_no_first_last_or_all(args)
@@ -378,7 +314,12 @@ module MongoMapper
       end
 
       def delete
+        @_destroyed = true
         self.class.delete(id) unless new?
+      end
+
+      def destroyed?
+        @_destroyed == true
       end
 
       def reload
@@ -389,6 +330,12 @@ module MongoMapper
         else
           raise DocumentNotFound, "Document match #{_id.inspect} does not exist in #{collection.name} collection"
         end
+      end
+
+      # Used by embedded docs to find root easily without if/respond_to? stuff.
+      # Documents are always root documents.
+      def _root_document
+        self
       end
 
     private
@@ -409,12 +356,6 @@ module MongoMapper
         safe = options[:safe] || false
         @new = false
         collection.save(to_mongo, :safe => safe)
-      end
-
-      def update_timestamps
-        now = Time.now.utc
-        self[:created_at] = now if new? && !created_at?
-        self[:updated_at] = now
       end
     end
   end # Document

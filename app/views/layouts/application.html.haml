@@ -11,8 +11,9 @@
     #header
       .pad
         %h1
-          %strong.logo SalesFlip:
-          = @configuration.company_name if @configuration
+          - link_to root_path do
+            %strong.logo SalesFlip:
+            = @configuration.company_name if @configuration
         - if current_user
           #menus
             %p

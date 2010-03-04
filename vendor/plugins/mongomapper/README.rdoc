@@ -1,6 +1,6 @@
 = MongoMapper
 
-Awesome gem for modeling your domain and storing it in mongo.
+A Ruby Object Mapper for Mongo.
 
 Releases are tagged on github and released on gemcutter. Master is pushed to whenever I add a patch or a new feature, but I do not release a new gem version each time I push.
 
@@ -23,6 +23,8 @@ http://groups.google.com/group/mongomapper
 
 To see if the problem you are having is a verified issue, you can see the MM pivotal tracker project:
 http://www.pivotaltracker.com/projects/33576
+
+There is no need to request to join the Pivotal Tracker project as I am only granting access to a select few (easier to keep things organized). If you have a problem, please use the mailing list. If I confirm it to be a bug, I am happy to add it to PT. Thanks!
 
 == Copyright
 

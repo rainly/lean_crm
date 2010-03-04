@@ -52,18 +52,21 @@ module MongoMapper
         def build(attrs={})
           doc = klass.new(attrs)
           apply_scope(doc)
+          reset
           doc
         end
 
         def create(attrs={})
           doc = klass.new(attrs)
           apply_scope(doc).save
+          reset
           doc
         end
 
         def create!(attrs={})
           doc = klass.new(attrs)
           apply_scope(doc).save!
+          reset
           doc
         end
 
@@ -109,7 +112,7 @@ module MongoMapper
           end
 
           def foreign_key
-            options[:foreign_key] || owner.class.name.underscore.gsub("/", "_") + "_id"
+            options[:foreign_key] || owner.class.name.to_s.underscore.gsub("/", "_") + "_id"
           end
       end
     end

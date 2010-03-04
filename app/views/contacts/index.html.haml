@@ -3,3 +3,4 @@
   = add_new t('add_contact'), new_contact_path
 .contacts
   = render :partial => 'contacts/contact', :collection => @contacts
+  = will_paginate @contacts
