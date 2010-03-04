@@ -17,7 +17,7 @@ module MongoMapper
         protected
           def find_target
             return nil if owner[association.foreign_key].nil?
-            klass.to_s.constantize.find_by_id(owner[association.foreign_key])
+            klass.find_by_id(owner[association.foreign_key])
           end
       end
     end
