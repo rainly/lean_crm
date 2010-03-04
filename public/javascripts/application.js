@@ -2,6 +2,28 @@ var Base = new Class({
 
   initialize: function() {
     this.watchTitleTogglers();
+    this.watchTaskCheckboxes();
+  },
+  
+  watchTaskCheckboxes: function() {
+
+    Event.include({
+      hideTaskInputs: function(input) {
+        input.form.send();
+        input.parent().hide();
+        input.parent().parent().next('span.actions').hide();
+        input.parent().next('label').addClass('clicked');
+      }
+    });
+    
+    $$(".simple_form.task span.boolean input").each( function(input) { 
+      input.onClick(function(event) {
+        event.hideTaskInputs(input);
+      });
+    });
+    
+    $$("span.save").each( function(span) { span.hide(); });
+    
   },
   
   watchTitleTogglers: function() {

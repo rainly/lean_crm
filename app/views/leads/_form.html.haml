@@ -40,7 +40,7 @@
     .25= form.input :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false, :required=>true
     .25.z= form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s)
     .clear
-    = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1=>'25 a', :p2=>'25 z' }
+    = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1=> '25 a', :p2=> '25 z' }
 
 %h3.toggler= t('notes')
 .toggle

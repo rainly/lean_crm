@@ -1,14 +1,16 @@
 %h2.title
   Deleted Items
 
-%table
-  - @items.each do |item|
-    %tr
-      %td= item.class.to_s
-      %td= item.name
-      %td= item.deleted_at.to_s :short
-      %td
-        - form_tag deleted_item_path(item), :method => :put do
-          = submit_tag t('restore'), :id => "restore_#{item.name.to_dom_id}"
-        - form_tag deleted_item_path(item), :method => :delete do
-          = submit_tag t('permanently_delete'), :id => "delete_#{item.name.to_dom_id}"
+- @items.each do |item|
+  %dl.item
+    %dt.category{:class=>item.class.to_s.underscore.downcase}= item.class.to_s
+    %dd
+      %span.item_name
+        %label= item.name
+        %small= t('removed_ago', :time => time_ago_in_words(item.deleted_at))
+        %span.actions
+          - form_tag deleted_item_path(item), :method => :put do
+            = submit_tag t('restore'), :id => "restore_#{item.name.to_dom_id}"
+          %b.divider= "|"
+          - form_tag deleted_item_path(item), :method => :delete do
+            = submit_tag t('permanently_delete'), :id => "delete_#{item.name.to_dom_id}", :class=>'delete-forever'

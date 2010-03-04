@@ -2,19 +2,16 @@
   %dt{:class=>lead.status.downcase}= lead.status
   %dd
     %strong= link_to lead.full_name, lead, :id => lead.full_name.to_dom_id
-    - if !lead.company.blank?
-      %small= "at #{lead.company}"
-    %br/
     = rating_for(lead)
     %small
-      - if !lead.email.blank?
-        |
-        = mail_to lead.email
-      - if !lead.phone.blank? && !lead.do_not_call
-        |
-        %strong= lead.phone
-      |
-      = I18n.t(:added_ago, :time => time_ago_in_words(lead.created_at))
+      = "at #{lead.company}" if !lead.company.blank?
+      = " | Email: #{mail_to lead.email}" if lead.email.present?
+      = " | Phone: #{lead.phone}" if lead.phone.present?
+      = " | Mobile: #{lead.mobile}" if lead.mobile.present?
+      %br/
+      %em.timestamp
+        = t('added_ago_by', :time => time_ago_in_words(lead.created_at), :by => lead.user.username)
+        = " : #{link_to(pluralize(lead.comments.size, t('comment')), lead)}" if lead.comments.any?
     %span.actions
       = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
       %b.divider= "|"

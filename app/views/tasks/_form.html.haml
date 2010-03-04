@@ -5,5 +5,5 @@
   .100= form.input :name, :required => true
   .33.a= form.input :category, :collection => Task.categories, :required => true
   .33= form.input :due_at, :collection => %w(overdue due_today due_tomorrow due_this_week due_next_week due_later).map {|key| [t(key), key] }
-  .33.z= form.input :assignee_id, :collection => User.all.map {|u| [u.email, u.id] }
+  .33.z= form.input :assignee_id, :collection => User.all.map {|u| [u.email, u.id] }, :required => true
   .clear

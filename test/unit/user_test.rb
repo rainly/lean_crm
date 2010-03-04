@@ -6,6 +6,18 @@ class UserTest < ActiveSupport::TestCase
       @user = User.make_unsaved(:annika)
     end
 
+    context 'full_name' do
+      should 'return username if present' do
+        @user.update_attributes(:username => 'annie')
+        @user.save!
+        assert_equal @user.full_name, "annie"
+      end
+      should 'return email if username is not present' do
+        @user.save!
+        assert_equal @user.full_name, "annika.fleischer1@1000jobboersen.de"
+      end
+    end
+    
     context 'tracked_items' do
       setup do
         @user.save!
