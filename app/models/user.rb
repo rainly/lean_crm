@@ -3,7 +3,7 @@ class User < AbstractUser
   devise :authenticatable, :confirmable, :recoverable, :rememberable, :trackable,
     :validatable, :http_authenticatable
 
-  key :api_key,               String
+  key :api_key, String, :index => true
 
   has_many :leads
   has_many :comments

@@ -14,9 +14,6 @@ class Activity
 
   validates_presence_of :subject
 
-  named_scope :limit, lambda { |limit| { :limit => limit } }
-  named_scope :order, lambda { |key, direction| { :order => "#{key} #{direction}" } }
-
   has_constant :actions, lambda { I18n.t(:activity_actions) }
 
   def self.log( user, subject, action )
@@ -57,6 +54,10 @@ module MongoMapper
              activity.subject.permitted_user_ids.include?(user.id) and
              activity.subject.user != user)
           end
+        end
+
+        def not_restored
+          delete_if { |activity| activity.subject.deleted_at.nil? }
         end
       end
     end

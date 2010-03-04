@@ -4,6 +4,7 @@ class Lead
   include ParanoidDelete
   include Permission
   include Trackable
+  include Activities
 
   key :user_id,       ObjectId, :required => true, :index => true
   key :first_name,    String, :required => true
@@ -35,11 +36,8 @@ class Lead
   belongs_to :user
   has_many :comments, :as => :commentable
   has_many :tasks, :as => :asset
-  has_many :activities, :as => :subject
 
   before_validation_on_create :set_initial_state
-  after_create  :log_creation
-  after_update  :log_update
 
   has_constant :titles, lambda { I18n.t('titles') }
   has_constant :statuses, lambda { I18n.t('lead_statuses') }
@@ -89,16 +87,12 @@ protected
     I18n.locale_around(:en) { self.status = 'New' unless self.status }
   end
 
-  def log_creation
-    @recently_created = true
-    Activity.log(user, self, 'Created')
-  end
-
   def log_update
     case
     when @recently_converted then Activity.log(user, self, 'Converted')
     when @recently_rejected then Activity.log(user, self, 'Rejected')
     when @recently_destroyed then Activity.log(user, self, 'Deleted')
+    when @recently_restored then Activity.log(user, self, 'Restored')
     else
       Activity.log(user, self, 'Updated')
     end

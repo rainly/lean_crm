@@ -70,6 +70,13 @@ class AccountTest < ActiveSupport::TestCase
         @account.destroy
         assert @account.activities.any? {|a| a.action == 'Deleted' }
       end
+
+      should 'log an activity when restored' do
+        @account.destroy
+        @account = Account.find(@account.id)
+        @account.update_attributes :deleted_at => nil
+        assert @account.activities.any? {|a| a.action == 'Restored' }
+      end
     end
 
     should 'require at least one permitted user if permission is "Shared"' do
