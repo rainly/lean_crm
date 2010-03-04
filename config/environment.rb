@@ -40,7 +40,6 @@ Rails::Initializer.run do |config|
   config.gem 'mail'
   config.gem 'beanstalk-client'
   config.gem 'will_paginate'
-  config.gem 'steam'
   config.gem 'mongosphinx'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
