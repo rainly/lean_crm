@@ -13,7 +13,11 @@ class User < AbstractUser
   has_many :activities
 
   before_validation_on_create :set_api_key
-
+  
+  def full_name
+    username.present? ? username : email
+  end
+  
   def recent_items
     Activity.all(:conditions => { :user_id => self.id,
                  :action => I18n.locale_around(:en) { Activity.actions.index('Viewed') } },

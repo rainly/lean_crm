@@ -1,7 +1,24 @@
-.item
-  = link_to contact.full_name, contact, :id => contact.full_name.to_dom_id
-  %span.actions
-    = link_to t('edit'), [:edit, contact], :id => "edit_#{contact.full_name.to_dom_id}"
-    %b.divider= "|"
-    - simple_form_for contact, :html => { :method => :delete } do |form|
-      = form.button :submit, t('delete'), :id => "delete_#{contact.full_name.to_dom_id}", :class=> 'delete'
+%dl.item.contact
+  %dt{:class=>contact.source.present? ? contact.source.downcase : "no-source"}
+    = contact.source.present? ? contact.source : t('no_source')
+  %dd
+    %strong= link_to contact.full_name, contact, :id => contact.full_name.to_dom_id
+    
+    %small
+      = "via #{contact.lead.full_name}#{" @ #{contact.lead.company}" if contact.lead.company.present?} | " if !contact.lead.nil?
+      - contact_info = []
+      = " | Email: #{mail_to(contact.email)}" if contact.email.present?
+      = " | Phone: <b>#{contact.phone}</b> | " if contact.phone.present?
+      = " | Mobile: <b>#{contact.mobile}</b>" if contact.mobile.present?
+      %br/
+      - contact_time = time_ago_in_words(contact.created_at)
+      %em.timestamp
+        - if contact.assignee_id.present?
+          = t('assigned_ago_by', :time => contact_time, :by => contact.user.username, :for => User.find(contact.assignee_id).full_name)
+        - else
+          = t('added_ago_by', :time => contact_time, :by => contact.user.username)
+    %span.actions
+      = link_to t('edit'), [:edit, contact], :id => "edit_#{contact.full_name.to_dom_id}"
+      %b.divider= "|"
+      - simple_form_for contact, :html => { :method => :delete } do |form|
+        = form.button :submit, t('delete'), :id => "delete_#{contact.full_name.to_dom_id}", :class=> 'delete'

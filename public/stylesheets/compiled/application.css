@@ -349,23 +349,24 @@ a#new:hover b {
 /* line 139, ../../../app/stylesheets/partials/_layout.sass */
 div.item {
   border-bottom: 1px solid #ccc;
+  clear: both;
   margin-left: 0px;
   padding: 3px 0px;
   width: 100%;
   position: relative;
 }
 
-/* line 145, ../../../app/stylesheets/partials/_layout.sass */
+/* line 146, ../../../app/stylesheets/partials/_layout.sass */
 dl.item {
   margin: 0px;
 }
-/* line 147, ../../../app/stylesheets/partials/_layout.sass */
+/* line 148, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dt, dl.item dd {
   clear: none;
   display: block;
   float: left;
 }
-/* line 151, ../../../app/stylesheets/partials/_layout.sass */
+/* line 152, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dt {
   border-top-left-radius: 10px;
   -moz-border-radius-topleft: 10px;
@@ -379,7 +380,7 @@ dl.item dt {
   text-align: right;
   width: 12%;
 }
-/* line 158, ../../../app/stylesheets/partials/_layout.sass */
+/* line 159, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd {
   border-bottom: 1px solid #ccc;
   margin-left: 0px;
@@ -387,49 +388,49 @@ dl.item dd {
   width: 87%;
   position: relative;
 }
-/* line 165, ../../../app/stylesheets/partials/_layout.sass */
+/* line 166, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.item_name form {
   float: left;
   width: 85%;
 }
-/* line 168, ../../../app/stylesheets/partials/_layout.sass */
+/* line 169, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.item_name form input[type=submit] {
   font-size: 12px;
   font-weight: normal;
   margin-top: 2px;
 }
-/* line 173, ../../../app/stylesheets/partials/_layout.sass */
+/* line 174, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.item_name span.actions form {
   clear: none;
   float: left;
   width: 15px;
 }
-/* line 177, ../../../app/stylesheets/partials/_layout.sass */
+/* line 178, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd input[type=checkbox] {
   width: 14px;
   margin: 3px 0 0 7px;
 }
-/* line 181, ../../../app/stylesheets/partials/_layout.sass */
+/* line 182, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd input[type=submit]:hover {
   color: #000;
 }
-/* line 183, ../../../app/stylesheets/partials/_layout.sass */
+/* line 184, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd label {
   display: inline;
   font-size: 14px;
   margin-left: 2px;
 }
-/* line 187, ../../../app/stylesheets/partials/_layout.sass */
+/* line 188, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd label.clicked {
   margin-left: 12px;
 }
-/* line 189, ../../../app/stylesheets/partials/_layout.sass */
+/* line 190, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.save {
   position: absolute;
   right: 3.5em;
 }
 
-/* line 193, ../../../app/stylesheets/partials/_layout.sass */
+/* line 195, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions, dl.item dd span.actions {
   float: right;
   clear: none;
@@ -437,29 +438,29 @@ div.item span.actions, dl.item dd span.actions {
   padding-top: 3px;
   width: 3.3em;
 }
-/* line 199, ../../../app/stylesheets/partials/_layout.sass */
+/* line 201, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a, dl.item dd span.actions a {
   padding: 0 2px;
 }
-/* line 201, ../../../app/stylesheets/partials/_layout.sass */
+/* line 203, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a, div.item span.actions input, div.item span.actions b, dl.item dd span.actions a, dl.item dd span.actions input, dl.item dd span.actions b {
   float: left;
   display: inline;
   font-size: 12px;
 }
-/* line 205, ../../../app/stylesheets/partials/_layout.sass */
+/* line 207, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a, div.item span.actions input, dl.item dd span.actions a, dl.item dd span.actions input {
   text-decoration: none;
 }
-/* line 207, ../../../app/stylesheets/partials/_layout.sass */
+/* line 209, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a:hover, div.item span.actions input:hover, dl.item dd span.actions a:hover, dl.item dd span.actions input:hover {
   color: #000;
 }
-/* line 209, ../../../app/stylesheets/partials/_layout.sass */
+/* line 211, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input, div.item span.actions b, dl.item dd span.actions input, dl.item dd span.actions b {
   padding: 0px;
 }
-/* line 211, ../../../app/stylesheets/partials/_layout.sass */
+/* line 213, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input[type="submit"].delete, dl.item dd span.actions input[type="submit"].delete {
   color: #f00;
   background: transparent;
@@ -475,24 +476,24 @@ div.item span.actions input[type="submit"].delete, dl.item dd span.actions input
   box-shadow: white 1px 1px 5px;
   border: none;
 }
-/* line 220, ../../../app/stylesheets/partials/_layout.sass */
+/* line 222, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input[type="submit"].delete:hover, dl.item dd span.actions input[type="submit"].delete:hover {
   color: #000;
 }
-/* line 222, ../../../app/stylesheets/partials/_layout.sass */
+/* line 224, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions b.divider, dl.item dd span.actions b.divider {
   color: #ccc;
   padding: 0px 2px 0px 2px;
 }
 
-/* line 229, ../../../app/stylesheets/partials/_layout.sass */
+/* line 231, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar {
   clear: none;
   float: left;
   width: 26%;
   padding-left: 2%;
 }
-/* line 234, ../../../app/stylesheets/partials/_layout.sass */
+/* line 236, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   overflow: hidden;
   display: inline-block;
@@ -501,11 +502,11 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
 #sidebar .box {
   display: block;
 }
-/* line 236, ../../../app/stylesheets/partials/_layout.sass */
+/* line 238, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar h3 {
   margin: 0px;
 }
-/* line 238, ../../../app/stylesheets/partials/_layout.sass */
+/* line 240, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters {
   margin: 0;
   padding: 0;
@@ -601,35 +602,35 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 242, ../../../app/stylesheets/partials/_layout.sass */
+/* line 244, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 12px;
 }
-/* line 245, ../../../app/stylesheets/partials/_layout.sass */
+/* line 247, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.gold {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #c0c0b1;
   background: #f2f2e3;
   margin-bottom: 20px;
 }
-/* line 250, ../../../app/stylesheets/partials/_layout.sass */
+/* line 252, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.ice {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #97b8bd;
   background: #c9eaef;
 }
-/* line 255, ../../../app/stylesheets/partials/_layout.sass */
+/* line 257, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul {
   color: #6f9095;
 }
-/* line 257, ../../../app/stylesheets/partials/_layout.sass */
+/* line 259, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul li {
   padding: 0px 0px 5px 0px;
 }
-/* line 259, ../../../app/stylesheets/partials/_layout.sass */
+/* line 261, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul span {
   display: block;
   float: left;
@@ -639,7 +640,7 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   width: 60px;
 }
 
-/* line 269, ../../../app/stylesheets/partials/_layout.sass */
+/* line 271, ../../../app/stylesheets/partials/_layout.sass */
 .inline-add {
   font-size: 14px;
   padding-top: 27px;
@@ -648,43 +649,43 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   float: left;
 }
 
-/* line 278, ../../../app/stylesheets/partials/_layout.sass */
+/* line 280, ../../../app/stylesheets/partials/_layout.sass */
 span.rating {
   font-size: 13px;
   padding-top: 4px;
   width: 7%;
 }
-/* line 282, ../../../app/stylesheets/partials/_layout.sass */
+/* line 284, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.on {
   color: #666;
 }
-/* line 284, ../../../app/stylesheets/partials/_layout.sass */
+/* line 286, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.off {
   color: #ccc;
 }
 
-/* line 289, ../../../app/stylesheets/partials/_layout.sass */
+/* line 291, ../../../app/stylesheets/partials/_layout.sass */
 .activities {
   font-size: 13px;
 }
-/* line 291, ../../../app/stylesheets/partials/_layout.sass */
+/* line 293, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item {
   padding: 5px 0px;
   border-bottom: 1px solid #ccc;
 }
-/* line 294, ../../../app/stylesheets/partials/_layout.sass */
+/* line 296, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item a {
   font-weight: bold;
 }
 
-/* line 296, ../../../app/stylesheets/partials/_layout.sass */
+/* line 298, ../../../app/stylesheets/partials/_layout.sass */
 span.icon {
   color: #777;
   font-size: 16px;
   padding: 0px 5px;
 }
 
-/* line 300, ../../../app/stylesheets/partials/_layout.sass */
+/* line 302, ../../../app/stylesheets/partials/_layout.sass */
 small.timestamp {
   color: #888;
   font-style: italic;
@@ -772,6 +773,11 @@ a:hover {
 small.acted {
   color: #777;
   font-style: italic;
+}
+
+/* line 46, ../../../app/stylesheets/partials/_typography.sass */
+em.timestamp {
+  font-size: 11px;
 }
 
 /* line 4, ../../../app/stylesheets/partials/_forms.sass */
@@ -1406,30 +1412,30 @@ body.leads.new #main, body.leads.create #main, body.leads.edit #main, body.leads
 }
 
 /* line 9, ../../../app/stylesheets/models/_leads.sass */
-dl.item.lead small {
+dl.item small {
   color: #777;
 }
 /* line 11, ../../../app/stylesheets/models/_leads.sass */
-dl.item.lead small a {
+dl.item small a {
   color: #333;
   font-weight: bold;
   text-decoration: none;
 }
 /* line 15, ../../../app/stylesheets/models/_leads.sass */
-dl.item.lead small a:hover {
+dl.item small a:hover {
   text-decoration: underline;
 }
 /* line 17, ../../../app/stylesheets/models/_leads.sass */
-dl.item.lead small strong {
+dl.item small strong {
   color: #333;
 }
 /* line 19, ../../../app/stylesheets/models/_leads.sass */
-dl.item.lead dd {
+dl.item dd {
   width: 86%;
   padding-left: 1%;
 }
 /* line 22, ../../../app/stylesheets/models/_leads.sass */
-dl.item.lead dd span.actions {
+dl.item dd span.actions {
   padding-top: 0px;
   margin-top: 4px;
 }
@@ -1768,59 +1774,64 @@ dl.item.task dd span.actions {
   width: auto;
 }
 
-/* line 60, ../../../app/stylesheets/models/_task.sass */
-dl.item.task dt.call, dl.item.task dt.new, dl.item.lead dt.call, dl.item.lead dt.new {
+/* line 59, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.no-source {
+  background: #cccccc;
+  color: #727272;
+}
+/* line 61, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.call, dl.item dt.new {
   background: #b5e7ff;
   color: #5b8da5;
 }
-/* line 62, ../../../app/stylesheets/models/_task.sass */
-dl.item.task dt.email, dl.item.task dt.contacted, dl.item.lead dt.email, dl.item.lead dt.contacted {
+/* line 63, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.email, dl.item dt.contacted {
   background: #ffdeba;
   color: #a58460;
 }
-/* line 64, ../../../app/stylesheets/models/_task.sass */
-dl.item.task dt.follow-up, dl.item.task dt.converted, dl.item.lead dt.follow-up, dl.item.lead dt.converted {
+/* line 65, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.follow-up, dl.item dt.converted {
   background: #b5ffda;
   color: #5ba580;
 }
-/* line 66, ../../../app/stylesheets/models/_task.sass */
-dl.item.task dt.lunch, dl.item.task dt.rejected, dl.item.lead dt.lunch, dl.item.lead dt.rejected {
+/* line 67, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.lunch, dl.item dt.rejected {
   background: #ffd2ba;
   color: #a57860;
 }
-/* line 68, ../../../app/stylesheets/models/_task.sass */
-dl.item.task dt.meeting, dl.item.lead dt.meeting {
+/* line 69, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.meeting {
   background: #f5ed9d;
   color: #9b9343;
 }
-/* line 70, ../../../app/stylesheets/models/_task.sass */
-dl.item.task dt.money, dl.item.lead dt.money {
+/* line 71, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.money {
   background: #d1ffba;
   color: #77a560;
 }
-/* line 72, ../../../app/stylesheets/models/_task.sass */
-dl.item.task dt.presentation, dl.item.lead dt.presentation {
+/* line 73, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.presentation {
   background: #dedede;
   color: #848484;
 }
-/* line 74, ../../../app/stylesheets/models/_task.sass */
-dl.item.task dt.trip, dl.item.lead dt.trip {
+/* line 75, ../../../app/stylesheets/models/_task.sass */
+dl.item dt.trip {
   background: #dec7ff;
   color: #846da5;
 }
 
-/* line 80, ../../../app/stylesheets/models/_task.sass */
+/* line 81, ../../../app/stylesheets/models/_task.sass */
 small.asset {
   font-size: 11px;
   color: #bbb;
 }
-/* line 83, ../../../app/stylesheets/models/_task.sass */
+/* line 84, ../../../app/stylesheets/models/_task.sass */
 small.asset a {
   color: #969696;
   font-weight: bold;
   text-decoration: none;
 }
-/* line 87, ../../../app/stylesheets/models/_task.sass */
+/* line 88, ../../../app/stylesheets/models/_task.sass */
 small.asset a:hover {
   text-decoration: underline;
 }

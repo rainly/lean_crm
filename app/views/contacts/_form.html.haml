@@ -15,7 +15,6 @@
     .33.z= form.input :mobile
     .33= form.input :fax
     .33
-      = form.input :source, :collection => t('lead_sources')
       .boolean
         =  form.check_box :do_not_call
         =  form.label :do_not_call
@@ -33,12 +32,9 @@
 %h3.toggler= "#{t('tracking')} &amp; #{t('simple_form.labels.permissions')}"
 .toggle
   %fieldset
-<<<<<<< HEAD
-    .33.a= form.input :source
-    = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1=> '33', :p2=> '33 z' }
-=======
-    = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1 => '33', :p2 => '33 z' }
->>>>>>> dc9729f183e538c58811dd701f279b322eccfc67
+    .25.a= form.input :source, :collection => t('lead_sources')
+    .25= form.input :assignee_id, :collection => User.all.map {|u| [u.full_name, u.object_id]}
+    = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1=> '25', :p2=> '25 z' }
 
 .act.pad
   = form.button :submit

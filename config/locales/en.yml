@@ -20,6 +20,8 @@ en:
   # Time
   #--------------------------------------------------------------
   added_ago: "added {{time}} ago"
+  added_ago_by: "added {{time}} ago by {{by}}"
+  assigned_ago_by: "assigned to {{for}} {{time}} ago by {{by}}"
   created_ago: "created {{time}} ago"
   done_ago: "{{time}} ago"
   updated_ago: "updated {{time}} ago"
@@ -52,6 +54,7 @@ en:
   filter_by_status: Filter by Status
   or: or
   notes: Notes
+  no_source: No Source
   pending: Pending
   privileges: Privileges
   subject: Subject

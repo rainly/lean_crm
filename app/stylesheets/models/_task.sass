@@ -55,24 +55,25 @@ dl.item.task
     span.actions
       :width auto
 dl.item
-  &.task, &.lead
-    dt
-      &.call, &.new
-        +task-category(!call)
-      &.email, &.contacted
-        +task-category(!email)
-      &.follow-up, &.converted
-        +task-category(!follow_up)
-      &.lunch, &.rejected
-        +task-category(!lunch)
-      &.meeting
-        +task-category(!meeting)
-      &.money
-        +task-category(!money)
-      &.presentation
-        +task-category(!presentation)
-      &.trip
-        +task-category(!trip)
+  dt
+    &.no-source
+      +task-category(#ccc)
+    &.call, &.new
+      +task-category(!call)
+    &.email, &.contacted
+      +task-category(!email)
+    &.follow-up, &.converted
+      +task-category(!follow_up)
+    &.lunch, &.rejected
+      +task-category(!lunch)
+    &.meeting
+      +task-category(!meeting)
+    &.money
+      +task-category(!money)
+    &.presentation
+      +task-category(!presentation)
+    &.trip
+      +task-category(!trip)
   
 //---------------------------------------------------
 // Task Assets
