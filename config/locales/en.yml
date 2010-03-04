@@ -24,6 +24,7 @@ en:
   assigned_ago_by: "assigned to {{for}} {{time}} ago by {{by}}"
   created_ago: "created {{time}} ago"
   done_ago: "{{time}} ago"
+  removed_ago: "removed {{time}} ago"
   updated_ago: "updated {{time}} ago"
   wrote_ago: "wrote {{time}} ago"
   email_sent_ago: "sent via email {{time}} ago"
