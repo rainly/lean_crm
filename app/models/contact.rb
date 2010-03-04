@@ -4,6 +4,7 @@ class Contact
   include ParanoidDelete
   include Permission
   include Trackable
+  include Activities
 
   key :account_id,          ObjectId, :index => true
   key :user_id,             ObjectId, :required => true, :index => true
@@ -40,11 +41,7 @@ class Contact
   belongs_to :lead
 
   has_many :tasks, :as => :asset
-  has_many :activities, :as => :subject
   has_many :comments, :as => :commentable
-
-  after_create :log_creation
-  after_update :log_update
 
   def full_name
     "#{first_name} #{last_name}"
@@ -57,14 +54,5 @@ class Contact
       :permitted_user_ids => account.permitted_user_ids
     contact.save if account.valid?
     contact
-  end
-
-  def log_creation
-    Activity.log(self.user, self, 'Created')
-  end
-
-  def log_update
-    Activity.log(self.user, self, 'Updated') unless @recently_destroyed
-    Activity.log(self.user, self, 'Deleted') if @recently_destroyed
   end
 end

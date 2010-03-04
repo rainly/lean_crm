@@ -21,8 +21,10 @@ require 'pickle/world'
 Pickle.configure do |config|
   config.adapters = [:machinist]#, :active_record]
   config.map 'I', 'myself', 'me', 'my', :to => 'user: "me"'
-  config.map 'annika', :to => 'user: "annika"'
-  config.map 'benny', :to => 'user: "benny"'
-  config.map 'careermee', :to => 'account: "careermee"'
+  config.map 'annika',      :to => 'user: "annika"'
+  config.map 'benny',       :to => 'user: "benny"'
+  config.map 'careermee',   :to => 'account: "careermee"'
+  config.map 'erich',       :to => 'lead: "erich"'
+  config.map 'florian',     :to => 'contact: "florian"'
 end
 require 'pickle/path/world'

@@ -133,6 +133,13 @@ class LeadTest < ActiveSupport::TestCase
         @lead.reject!
         assert !@lead.activities.any? {|a| a.action == 'Updated' }
       end
+
+      should 'log an activity when restored' do
+        @lead.destroy
+        @lead = Lead.find(@lead.id)
+        @lead.update_attributes :deleted_at => nil
+        assert @lead.activities.any? {|a| a.action == 'Restored' }
+      end
     end
 
     context 'promote' do
