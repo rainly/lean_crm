@@ -10,6 +10,15 @@ Feature: Recycle Bin
     When I press "delete_erich-feldmeier"
     Then I should see "(1)"
 
+  Scenario: Private item (in)visibility
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And a lead: "erich" exists with user: benny
+    And erich has been deleted
+    When I go to the recycle bin page
+    Then I should not see "Erich"
+    And I should not see "(1)"
+
   Scenario: Restoring a lead
     Given I am registered and logged in as annika
     And a lead: "erich" exists with user: annika
