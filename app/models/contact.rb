@@ -37,7 +37,7 @@ class Contact
 
   belongs_to :account
   belongs_to :user
-  belongs_to :assignee, :class => 'User'
+  belongs_to :assignee, :class_name => 'User'
   belongs_to :lead
 
   has_many :tasks, :as => :asset
