@@ -34,6 +34,7 @@ module ApplicationHelper
     when "re-assigned"; "&#10132;";
     when "rejected"; "&#10008;";
     when "converted"; "&#10004;";
+    when "completed"; "&#10004;";
     when "deleted"; "&#10006;";
     else
       "&#9670;"
