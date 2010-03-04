@@ -61,6 +61,9 @@ module NavigationHelpers
       edit_admin_configuration_path
     when /the admin configuration page/
       admin_configuration_path
+
+    when /the recycle bin page/
+      deleted_items_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

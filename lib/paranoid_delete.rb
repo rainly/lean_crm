@@ -13,5 +13,11 @@ module ParanoidDelete
       @recently_destroyed = true
       update_attributes :deleted_at => Time.now
     end
+
+    def deleted_at=( value )
+      original_value = self.deleted_at
+      self[:deleted_at] = value
+      @recently_restored = true if !original_value.nil? && self.deleted_at.nil?
+    end
   end
 end

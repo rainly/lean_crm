@@ -13,6 +13,8 @@ en:
   profile: Profile
   login: Login
   logout: Logout
+  recycle_bin_empty: Recycle Bin
+  recycle_bin: "Recycle Bin ({{count}})"
 
   #--------------------------------------------------------------
   # Time
@@ -121,6 +123,8 @@ en:
     - Converted
     - Commented
     - Deleted
+    - Restored
+
   my_profile: My Profile
   recent_items: Recent Items
 
@@ -206,6 +210,12 @@ en:
   task_reassigned: "Task has been re-assigned to {{user}}"
   no_tasks_for_lead: "You have no tasks for this lead. <a href='{{link}}'>Add one now</a>"
   no_tasks_for: "You have no tasks for this {{object}}. <a href='{{link}}'>Add one now</a>"
+
+  #--------------------------------------------------------------
+  # Deleted Items
+  #--------------------------------------------------------------
+  restore: restore
+  permanently_delete: permantently delete
 
   #--------------------------------------------------------------
   # Users

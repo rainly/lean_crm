@@ -20,7 +20,7 @@ loop do
     item = MailQueue.find_by_id(job_hash[:item]) if job_hash[:item]
     if EmailReader.parse_email(Mail.new(item.mail))
       job.delete
-      item.destroy
+      item.update_attributes :status => 'Success'
     else
       @logger.warn("Did not process email: #{job_hash.inspect}")
       job.bury

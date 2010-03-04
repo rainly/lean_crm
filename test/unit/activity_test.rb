@@ -73,6 +73,22 @@ class ActivityTest < ActiveSupport::TestCase
       end
     end
 
+    context 'not_restored' do
+      setup do
+        @deleted = Lead.make
+        @deleted.destroy
+        @restored = Lead.make
+        @restored.destroy
+        @restored = Lead.find(@restored.id)
+        @restored.update_attributes :deleted_at => nil
+      end
+
+      should 'only return activities where the subject deleted_at is not nil' do
+        assert_equal 1, Activity.action_is('Deleted').not_restored.count
+        assert Activity.scoped({}).not_restored.map(&:subject).include?(@deleted)
+      end
+    end
+
     context 'visible_to' do
       setup do
         @annika = User.make(:annika)

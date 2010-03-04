@@ -94,6 +94,14 @@ class ContactTest < ActiveSupport::TestCase
         @contact.destroy
         assert @contact.activities.any? {|a| a.action == 'Deleted' }
       end
+
+      should 'log an activity when restored' do
+        @contact.destroy
+        @contact.activities.each(&:destroy)
+        @contact = Contact.find(@contact.id)
+        @contact.update_attributes :deleted_at => nil
+        assert @contact.activities.any? {|a| a.action == 'Restored' }
+      end
     end
 
     should 'have full name' do
