@@ -33,9 +33,7 @@ class LeadTest < ActiveSupport::TestCase
       should 'return leads with any of the supplied statuses' do
         assert_equal [@new], Lead.with_status('New')
         assert_equal [@rejected], Lead.with_status('Rejected')
-        assert Lead.with_status(['New', 'Rejected']).include?(@new)
-        assert Lead.with_status(['New', 'Rejected']).include?(@rejected)
-        assert_equal 2, Lead.with_status(['New', 'Rejected']).count
+        assert_equal [@new, @rejected], Lead.with_status(['New', 'Rejected'])
       end
     end
 
