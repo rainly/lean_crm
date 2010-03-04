@@ -100,5 +100,6 @@ class AccountTest < ActiveSupport::TestCase
     should 'be valid' do
       assert @account.valid?
     end
+    
   end
 end
