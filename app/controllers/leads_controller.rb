@@ -40,7 +40,7 @@ class LeadsController < InheritedResources::Base
 protected
   def collection
     @leads ||= apply_scopes(Lead).not_deleted.permitted_for(current_user).
-      order('status asc, created_at', 'desc').paginate(:per_page => 2, :page => params[:page] || 1)
+      order('status asc, created_at', 'desc').paginate(:per_page => 10, :page => params[:page] || 1)
   end
 
   def resource

@@ -25,4 +25,16 @@ class Account
   has_many :contacts, :dependent => :nullify
   has_many :tasks, :as => :asset
   has_many :comments, :as => :commentable
+
+  fulltext_index :name
+  REINDEX_INTERVAL = 10.minutes
+  INDEXED_FIELDS = '_sphinx_id, name'
+
+  def self.search( query )
+    by_fulltext_index(query).each { |p| p }
+  end
+
+  def self.xml_for_sphinx_pipe
+    puts MongoSphinx::Indexer::XMLDocset.new(Account.all(:fields => INDEXED_FIELDS)).to_s.strip
+  end
 end
