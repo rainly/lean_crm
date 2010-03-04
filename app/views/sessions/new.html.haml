@@ -2,8 +2,8 @@
 
 - simple_form_for resource_name, resource, :url => session_path(resource_name) do |f|
   %fieldset
-    = f.input :email, :grid=>'100'
-    = f.input :password, :grid=>'100'
+    = f.input :email, :grid=> '100'
+    = f.input :password, :grid=> '100'
     - if devise_mapping.rememberable?
       .boolean
         = f.check_box :remember_me

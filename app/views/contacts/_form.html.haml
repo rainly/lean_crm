@@ -3,7 +3,7 @@
   .50.z= form.input :last_name
   .clear
   .50.a= form.input :account_id, :collection => Account.all.map {|a| [a.name, a.id] }
-  .50.z= link_to t('add_account'), new_account_path(:return_to => request.request_uri), :id => 'new_account', :class=>'inline-add'
+  .50.z= link_to t('add_account'), new_account_path(:return_to => request.request_uri), :id => 'new_account', :class=> 'inline-add'
 
 %h3.toggler= t('contact_info')
 .toggle
@@ -35,7 +35,7 @@
 .toggle
   %fieldset
     .33.a= form.input :source
-    = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1=>'33', :p2=>'33 z' }
+    = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1=> '33', :p2=> '33 z' }
 
 .act.pad
   = form.button :submit
