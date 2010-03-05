@@ -778,6 +778,7 @@ small.acted {
 /* line 46, ../../../app/stylesheets/partials/_typography.sass */
 em.timestamp {
   font-size: 11px;
+  color: #888;
 }
 
 /* line 4, ../../../app/stylesheets/partials/_forms.sass */
@@ -1349,6 +1350,29 @@ span.error {
 /* line 164, ../../../app/stylesheets/partials/_forms.sass */
 .\35.boolean input, .\35.boolean label, .\35.check input, .\35.check label, .\35.radio input, .\35.radio label, .\35 .boolean input, .\35 .boolean label, .\35 .check input, .\35 .check label, .\35 .radio input, .\35 .radio label {
   display: inline;
+}
+
+/* line 2, ../../../app/stylesheets/models/_account.sass */
+body#accounts dl.item {
+  clear: both;
+  overflow: none;
+  float: left;
+  width: 100%;
+}
+/* line 59, ../../../app/stylesheets/partials/_tools.sass */
+body#accounts dl.item dt, body#accounts dl.item dd {
+  float: left;
+  clear: none;
+  display: block;
+  margin: 0px;
+}
+/* line 64, ../../../app/stylesheets/partials/_tools.sass */
+body#accounts dl.item dt {
+  width: 0%;
+}
+/* line 66, ../../../app/stylesheets/partials/_tools.sass */
+body#accounts dl.item dd {
+  width: 100%;
 }
 
 /* line 2, ../../../app/stylesheets/models/_comment.sass */

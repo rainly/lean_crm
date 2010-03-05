@@ -8,7 +8,7 @@
       = "via #{contact.lead.full_name}#{" @ #{contact.lead.company}" if contact.lead.company.present?} | " if !contact.lead.nil?
       - contact_info = []
       = " | Email: #{mail_to(contact.email)}" if contact.email.present?
-      = " | Phone: <b>#{contact.phone}</b> | " if contact.phone.present?
+      = " | Phone: <b>#{contact.phone}</b>" if contact.phone.present?
       = " | Mobile: <b>#{contact.mobile}</b>" if contact.mobile.present?
       %br/
       - contact_time = time_ago_in_words(contact.created_at)

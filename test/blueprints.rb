@@ -33,6 +33,12 @@ User.blueprint(:benny) do
   password_confirmation { 'password' }
 end
 
+User.blueprint(:steven) do
+  email { 'steven.garcia@1000jobboersen.de' }
+  password { 'password' }
+  password_confirmation { 'password' }
+end
+
 Admin.blueprint do
   email
   password { 'password' }

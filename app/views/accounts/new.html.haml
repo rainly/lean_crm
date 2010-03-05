@@ -2,6 +2,3 @@
 - simple_form_for @account do |form|
   = render :partial => 'form', :locals => { :form => form }
   = hidden_field_tag :return_to, params[:return_to]
-  = form.button :submit
-  = t('or')
-  = link_to t('cancel'), :back
