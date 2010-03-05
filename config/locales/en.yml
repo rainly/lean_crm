@@ -6,8 +6,11 @@ en:
   # Layout
   #--------------------------------------------------------------
   dashboard: Dashboard
+  task: Task
   tasks: Tasks
+  lead: Lead
   leads: Leads
+  account: Account
   accounts: Accounts
   contacts: Contacts
   profile: Profile
@@ -76,6 +79,7 @@ en:
       account_id: Account
       alt_email: Other Email
       alternative_email: Other Email
+      billing_address: Billing Address
       campaign_id: Campaign
       company: Company
       do_not_call: Do Not Call
@@ -92,6 +96,7 @@ en:
       phone: Phone
       status: Status
       source: Source
+      shipping_address: Shipping Address
       rating: Rating
       referred_by: Referred By
       salutation: Salutation

@@ -101,5 +101,23 @@ class AccountTest < ActiveSupport::TestCase
       assert @account.valid?
     end
     
+    context 'named scope' do
+      setup do
+        @ann    = User.make    :annika, :email=>'an@an.com'
+        @ben    = User.make    :benny
+        @stevo  = User.make    :steven
+        @acme   = Account.make :name => 'Acme', :user => @ann,   :permission => 'Public'
+        @aol    = Account.make :name => 'AOL',  :user => @ben,   :permission => 'Public'
+        @bing   = Account.make :name => 'Bing', :user => @stevo, :permission => 'Public'
+      end
+
+      should 'return accounts where the name matches the query' do
+        assert_equal [@acme,@aol], Account.named("A")
+        assert_equal [@acme], Account.named("Ac")
+        assert_equal [@bing], Account.named("b")
+      end
+      
+    end
+    
   end
 end

@@ -20,3 +20,15 @@
 = render :partial => "tasks/add_task", :locals=> { :object => @account }
 
 = render :partial => "comments/comments", :locals => {:object => @account }
+
+- content_for :sidebar do
+  .box.gold
+    %h3= t('contact_info')
+    %dl.info
+      = show_attribute(@account, 'email', mail_to(@account.email))
+      = show_attribute(@account, 'phone')
+      = show_attribute(@account, 'fax')
+      = show_attribute(@account, 'billing_address')
+      = show_attribute(@account, 'shipping_address')
+      = show_attribute(@account, 'website', link_to(t('visit_website'),@account.website))
+  

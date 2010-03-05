@@ -1,7 +1,21 @@
-.item
-  = link_to account.name, account, :id => account.name.downcase.gsub(/\s/, '-').gsub(/\w/, ''), :class=> 'account'
-  %span.actions
-    = link_to t('edit'), [:edit, account], :id => "edit_#{account.name.to_dom_id}"
-    %b.divider= "|"
-    - simple_form_for account, :html => { :method => :delete } do |form|
-      = form.button :submit, t('delete'), :id => "delete_#{account.name.to_dom_id}", :class=> 'delete'
+%dl.item
+  %dd
+    = link_to account.name, account, :id => account.name.downcase.gsub(/\s/, '-').gsub(/\w/, ''), :class=> 'account'
+    %small
+      = "Email: #{mail_to(account.email)}" if account.email.present?
+      = " | Phone: <b>#{account.phone}</b>" if account.phone.present?
+      = " | Fax: <b>#{account.fax}</b>" if account.fax.present?
+    %br/
+    %em.timestamp
+      - account_time = time_ago_in_words(account.created_at)
+      - if account.assignee_id.present?
+        = t('assigned_ago_by', :time => account_time, :by => account.user.username, :for => User.find(account.assignee_id).full_name)
+      - else
+        = t('added_ago_by', :time => account_time, :by => account.user.username)  
+      = " : #{link_to(pluralize(account.comments.size, t('comment')), account)}" if account.comments.any?
+    %span.actions
+      = link_to t('edit'), [:edit, account], :id => "edit_#{account.name.to_dom_id}"
+    
+      %b.divider= "|"
+      - simple_form_for account, :html => { :method => :delete } do |form|
+        = form.button :submit, t('delete'), :id => "delete_#{account.name.to_dom_id}", :class=> 'delete'

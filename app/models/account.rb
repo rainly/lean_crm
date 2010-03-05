@@ -37,4 +37,8 @@ class Account
   def self.xml_for_sphinx_pipe
     puts MongoSphinx::Indexer::XMLDocset.new(Account.all(:fields => INDEXED_FIELDS)).to_s.strip
   end
+  
+  def self.named(query)
+    self.all( :name => /^#{query}.*/i )
+  end
 end
