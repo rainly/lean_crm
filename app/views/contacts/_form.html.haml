@@ -1,6 +1,8 @@
 %fieldset
-  .50.a=   form.input :first_name
-  .50.z= form.input :last_name
+  .16.a= form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s)
+  .16= form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s)
+  .33= form.input :first_name, :required => true
+  .33.z= form.input :last_name, :required => true
   .clear
   .50.a= form.input :account_id, :collection => Account.all.map {|a| [a.name, a.id] }
   .50.z= link_to t('add_account'), new_account_path(:return_to => request.request_uri), :id => 'new_account', :class=> 'inline-add'
