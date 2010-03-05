@@ -209,3 +209,7 @@ Then /^show me the page$/ do
     save_and_open_page
   end
 end
+
+When /I wait for the AJAX call to finish/ do
+  $browser.wait
+end
