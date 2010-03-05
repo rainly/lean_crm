@@ -1,5 +1,11 @@
 .item{:class => activity.action.downcase}
   %span.icon= activity_icon(activity.action.downcase)
   = "#{link_to activity.user.username.present? ? activity.user.username : activity.user.email, activity.user} #{activity.action.downcase} #{activity.subject_type.downcase}"
-  %strong= "#{(activity.subject.deleted_at || activity.subject.is_a?(Task)) ? activity.subject.name : link_to(activity.subject.name, activity.subject)}"
+  %strong
+    - if activity.subject.deleted_at || activity.subject.is_a?(Task)
+      = activity.subject.name
+    - elsif activity.subject.is_a?(Comment)
+      = link_to activity.subject.name, activity.subject.commentable
+    - else
+      = link_to activity.subject.name, activity.subject
   %small.timestamp= t('done_ago', :time => time_ago_in_words(activity.updated_at))

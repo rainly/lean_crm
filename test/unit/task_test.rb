@@ -40,12 +40,10 @@ class TaskTest < ActiveSupport::TestCase
       should 'send an email to all users who have tasks due for the day' do
         Task.daily_email
         assert_sent_email do |email|
-          email.to.include?(@call_erich.user.email) && email.body.match(/#{@call_erich.id}/) &&
-            email.body.match(/#{@call_erich.name}/)
+          email.to.include?(@call_erich.user.email) && email.body.match(/#{@call_erich.name}/)
         end
         assert_sent_email do |email|
-          email.to.include?(@call_markus.user.email) && email.body.match(/#{@call_markus.id}/) &&
-            email.body.match(/#{@call_markus.name}/)
+          email.to.include?(@call_markus.user.email) && email.body.match(/#{@call_markus.name}/)
         end
       end
 
@@ -53,8 +51,7 @@ class TaskTest < ActiveSupport::TestCase
         @call_markus.update_attributes :user_id => @call_erich.user_id
         Task.daily_email
         assert_sent_email do |email|
-          email.to.include?(@call_markus.user.email) && email.body.match(/#{@call_markus.id}/) &&
-            email.body.match(/#{@call_erich.id}/) && email.body.match(/#{@call_markus.name}/) &&
+          email.to.include?(@call_markus.user.email) && email.body.match(/#{@call_markus.name}/) &&
             email.body.match(/#{@call_erich.name}/)
         end
       end
@@ -63,8 +60,8 @@ class TaskTest < ActiveSupport::TestCase
         @call_erich.update_attributes :due_at => 'due_next_week'
         Task.daily_email
         assert_sent_email do |email|
-          email.to.include?(@call_markus.user.email) && email.body.match(/#{@call_markus.id}/) &&
-            !email.body.match(/#{@call_erich.id}/)
+          email.to.include?(@call_markus.user.email) && email.body.match(/#{@call_markus.name}/) &&
+            !email.body.match(/#{@call_erich.name}/)
         end
       end
     end

@@ -13,5 +13,9 @@ class EmailTest < ActiveSupport::TestCase
     should 'be valid with all required attributes' do
       assert @email.valid?
     end
+
+    should 'return subject for name' do
+      assert @email.subject == @email.name
+    end
   end
 end
