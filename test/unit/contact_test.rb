@@ -108,6 +108,17 @@ class ContactTest < ActiveSupport::TestCase
       assert_equal 'Florian Behn', @contact.full_name
     end
 
+    context 'listing_name' do
+      should 'return last name, then first name' do
+        assert_equal 'Behn, Florian', @contact.listing_name
+      end
+
+      should 'have no comma if there is no first name' do
+        @contact.first_name = nil
+        assert_equal 'Behn', @contact.listing_name
+      end
+    end
+
     should 'alias full_name to name' do
       assert_equal @contact.name, @contact.full_name
     end

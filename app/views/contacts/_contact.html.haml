@@ -1,9 +1,9 @@
 %dl.item.contact
-  %dt{:class=>contact.source.present? ? contact.source.downcase : "no-source"}
+  %dt{ :class => contact.source.present? ? contact.source.downcase : "no-source"}
     = contact.source.present? ? contact.source : t('no_source')
   %dd
-    %strong= link_to contact.full_name, contact, :id => contact.full_name.to_dom_id
-    
+    %strong= link_to contact.listing_name, contact, :id => contact.full_name.to_dom_id
+
     %small
       = "via #{contact.lead.full_name}#{" @ #{contact.lead.company}" if contact.lead.company.present?} | " if !contact.lead.nil?
       - contact_info = []

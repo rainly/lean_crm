@@ -48,6 +48,10 @@ class Contact
   end
   alias :name :full_name
 
+  def listing_name
+    "#{last_name}, #{first_name}".strip.gsub(/,$/, '')
+  end
+
   def self.create_for( lead, account )
     contact = account.contacts.build :user => lead.user, :first_name => lead.first_name,
       :last_name => lead.last_name, :lead => lead, :permission => account.permission,

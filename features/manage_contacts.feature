@@ -38,7 +38,7 @@ Feature: Manage contacts
     And a contact: "florian" exists with user: annika
     And I am on the dashboard page
     When I follow "contacts"
-    Then I should see "Florian Behn"
+    Then I should see "Behn, Florian"
     And I should be on the contacts page
 
   Scenario: Viewing a contact
