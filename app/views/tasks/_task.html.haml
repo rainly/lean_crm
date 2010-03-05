@@ -19,5 +19,5 @@
           - simple_form_for task, :html => { :method => :delete } do |form|
             = hidden_field_tag :return_to, request.request_uri
             = form.button :submit, t('delete'), :class => 'delete', :id => 'delete_task'
-
+      = task_asset_info( task,link_to(task.asset.name, task.asset) ) if !task.asset.nil?
 .clear

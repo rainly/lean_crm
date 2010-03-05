@@ -57,6 +57,14 @@ Lead.blueprint do
   user { User.make(:annika) }
 end
 
+Lead.blueprint(:with_contact_info) do
+  first_name { 'Erich' }
+  last_name { 'Feldmeier' }
+  user { User.make(:annika) }
+  email { "e.feldermeier@yahoo.de" }
+  phone { "102.321.2456" }
+end
+
 Lead.blueprint(:erich) do
   first_name { 'Erich' }
   last_name { 'Feldmeier' }
@@ -102,6 +110,13 @@ Account.blueprint(:careermee) do
   user { User.make(:annika) }
 end
 
+Account.blueprint(:with_contact_info) do
+  name { 'Contact Inc.' }
+  user { User.make(:annika) }
+  email { "info@contactinc.com" }
+  phone { "102.321.2456" }
+end
+
 Account.blueprint(:world_dating) do
   name { 'World Dating' }
   user { User.make(:benny) }
@@ -112,6 +127,15 @@ Contact.blueprint do
   last_name
   user { User.make(:annika) }
   account { Account.make }
+end
+
+Contact.blueprint(:with_contact_info) do
+  first_name
+  last_name
+  user { User.make(:annika) }
+  account { Account.make }
+  email { "contact@info.com" }
+  phone { "102.321.2456" }
 end
 
 Contact.blueprint(:florian) do

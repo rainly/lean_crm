@@ -780,6 +780,11 @@ small.acted {
 }
 
 /* line 46, ../../../app/stylesheets/partials/_typography.sass */
+small.xs {
+  font-size: 11px;
+}
+
+/* line 48, ../../../app/stylesheets/partials/_typography.sass */
 em.timestamp {
   font-size: 11px;
   color: #888;
