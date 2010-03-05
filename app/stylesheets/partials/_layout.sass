@@ -18,14 +18,17 @@ a, input
   :width 100%
   +clearfix
   h1
-    :color = !header_color
-    :float left
-    :font-weight normal
     :margin-top 26px
     :padding-bottom 12px
-    +text-shadow((!header_grad_2 - 30), 2px, 2px, 2px)
-    strong
-      :color #fff
+    :float left
+    a
+      :color = !header_color
+      :font-weight normal
+      :text-decoration none
+      +text-shadow((!header_grad_2 - 30), 2px, 2px, 2px)
+      strong
+        :color #fff
+      
   .pad
     :padding 0px 20px
     +clearfix
