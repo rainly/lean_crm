@@ -62,3 +62,12 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   config.action_mailer.default_url_options = { :host => 'salesflip.com' }
 end
+
+if defined?(PhusionPassenger)
+  PhusionPassenger.on_event(:starting_worker_process) do |forked|
+    if forked
+      MongoMapper.connection.close
+      load File.join(Rails.root, 'config/initializers/mongomapper.rb')
+    end
+  end
+end

@@ -1,6 +1,10 @@
 include MongoMapper
 
-db_config = YAML::load(File.read(File.join(Rails.root, "/config/mongodb.yml")))
+begin
+  db_config = YAML::load(File.read(File.join(Rails.root, "/config/mongodb.yml")))
+rescue
+  raise IOError, 'config/mongodb.yml could not be loaded'
+end
 
 if db_config[Rails.env] && db_config[Rails.env]['adapter'] == 'mongodb'
   mongo = db_config[Rails.env]

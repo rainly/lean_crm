@@ -1,21 +1,19 @@
-base: &base
+development: &global_settings
   adapter: mongodb
-  #host: genesis.mongohq.com
-  #username: your-username
-  #password: your-password
-
-development:
-  <<: *base
   database: salesflip_development
+  host: 127.0.0.1
+  port: 27017
+  username:
+  password:
 
 test:
-  <<: *base
+  <<: *global_settings
   database: salesflip_test
 
 cucumber:
-  <<: *base
+  <<: *global_settings
   database: salesflip_cucumber
 
 production:
-  <<: *base
+  <<: *global_settings
   database: salesflip_production
