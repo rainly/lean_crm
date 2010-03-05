@@ -16,15 +16,19 @@ loop do
   job_hash = job.ybody
   case job_hash[:type]
   when 'received_email'
-    @logger.info("Got email: #{job_hash.inspect}")
-    item = MailQueue.find_by_id(job_hash[:item]) if job_hash[:item]
-    if EmailReader.parse_email(Mail.new(item.mail))
-      job.delete
-      item.update_attributes :status => 'Success'
-    else
-      @logger.warn("Did not process email: #{job_hash.inspect}")
-      job.bury
-      item.update_attributes :status => 'Failed'
+    begin
+      @logger.info("Got email: #{job_hash.inspect}")
+      item = MailQueue.find_by_id(job_hash[:item]) if job_hash[:item]
+      if EmailReader.parse_email(Mail.new(item.mail))
+        job.delete
+        item.update_attributes :status => 'Success'
+      else
+        @logger.warn("Did not process email: #{job_hash.inspect}")
+        job.bury
+        item.update_attributes :status => 'Failed'
+      end
+    rescue StandardError => e
+      @logger.warn("The following error occurred in the queue processor loop: #{e}")
     end
   else
     @logger.warn("Don't know how to process #{job_hash.inspect}")
