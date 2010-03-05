@@ -13,11 +13,11 @@ Feature: Recycle Bin
   Scenario: Private item (in)visibility
     Given I am registered and logged in as annika
     And a user: "benny" exists
-    And a lead: "erich" exists with user: benny
+    And a lead: "erich" exists with user: benny, permission: "Private"
     And erich has been deleted
     When I go to the recycle bin page
     Then I should not see "Erich"
-    And I should not see "(1)"
+    And I should not see "Recycle Bin (1)"
 
   Scenario: Restoring a lead
     Given I am registered and logged in as annika

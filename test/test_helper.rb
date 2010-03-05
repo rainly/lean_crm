@@ -52,9 +52,16 @@ class ActiveSupport::TestCase
     klass = self.name.gsub(/Test$/, '').constantize
     should 'act as paranoid' do
       assert klass.new.respond_to?('deleted_at')
+      assert klass.respond_to?('not_deleted')
+      assert klass.respond_to?('deleted')
+      assert_equal [], klass.not_deleted
+      assert_equal [], klass.deleted
       obj = klass.make
+      assert_equal [obj], klass.not_deleted
       obj.destroy
       assert obj.deleted_at
+      assert_equal [obj], klass.deleted
+      assert_equal [], klass.not_deleted
     end
   end
 

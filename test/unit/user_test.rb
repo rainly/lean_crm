@@ -6,18 +6,43 @@ class UserTest < ActiveSupport::TestCase
       @user = User.make_unsaved(:annika)
     end
 
+    context 'deleted_items_count' do
+      setup do
+        @lead = Lead.make
+        @contact = Contact.make
+        @account = Account.make
+      end
+
+      should 'return a count of all deleted accounts, contacts and leads' do
+        assert_equal 0, @user.deleted_items_count
+        @lead.destroy
+        assert_equal 1, @user.deleted_items_count
+        @contact.destroy
+        assert_equal 2, @user.deleted_items_count
+        @account.destroy
+        assert_equal 3, @user.deleted_items_count
+      end
+
+      should 'not count permanently deleted items' do
+        @lead.destroy
+        @lead.destroy_without_paranoid
+        assert_equal 0, @user.deleted_items_count
+      end
+    end
+
     context 'full_name' do
       should 'return username if present' do
         @user.update_attributes(:username => 'annie')
         @user.save!
         assert_equal @user.full_name, "annie"
       end
+
       should 'return email if username is not present' do
         @user.save!
         assert_equal @user.full_name, "annika.fleischer1@1000jobboersen.de"
       end
     end
-    
+
     context 'tracked_items' do
       setup do
         @user.save!

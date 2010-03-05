@@ -4,9 +4,9 @@ class DeletedItemsController < ApplicationController
 
   def index
     @items ||= [
-      Lead.all(:deleted_at => { '$ne' => nil }) +
-      Contact.all(:deleted_at => { '$ne' => nil }) +
-      Account.all(:deleted_at => { '$ne' => nil })
+      Lead.permitted_for(current_user).all(:deleted_at => { '$ne' => nil }) +
+      Contact.permitted_for(current_user).all(:deleted_at => { '$ne' => nil }) +
+      Account.permitted_for(current_user).all(:deleted_at => { '$ne' => nil })
     ].flatten.sort_by(&:deleted_at)
   end
 

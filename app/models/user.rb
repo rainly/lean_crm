@@ -13,6 +13,12 @@ class User < AbstractUser
   has_many :activities
 
   before_validation_on_create :set_api_key
+
+  def deleted_items_count
+    [Lead, Contact, Account].map do |model|
+      model.permitted_for(self).deleted.count
+    end.inject {|sum, n| sum += n }
+  end
   
   def full_name
     username.present? ? username : email
