@@ -14,8 +14,9 @@ class Contact
   key :last_name,           String, :required => true
   key :access,              Integer
   key :title,               Integer
+  key :salutation,          Integer
   key :department,          String
-  key :source,              String
+  key :source,              Integer
   key :email,               String
   key :alt_email,           String
   key :phone,               String
@@ -34,6 +35,8 @@ class Contact
 
   has_constant :accesses, lambda { I18n.t('access_levels') }
   has_constant :titles, lambda { I18n.t('titles') }
+  has_constant :sources,  lambda { I18n.t('lead_sources') }
+  has_constant :salutations, lambda { I18n.t('salutations') }
 
   belongs_to :account
   belongs_to :user
