@@ -9,3 +9,4 @@ tmp/sass-cache
 tmp/
 config/settings.yml
 config/deploy.rb
+sphinx/*
