@@ -5,6 +5,7 @@ class Contact
   include Permission
   include Trackable
   include Activities
+  include SphinxIndex
 
   key :account_id,          ObjectId, :index => true
   key :user_id,             ObjectId, :required => true, :index => true
@@ -32,6 +33,9 @@ class Contact
   key :do_not_call,         Boolean
   key :deleted_at,          Time
   timestamps!
+
+  sphinx_index :first_name, :last_name, :department, :email, :alt_email, :phone, :mobile,
+    :fax, :website, :linked_in, :facebook, :twitter, :xing, :address
 
   has_constant :accesses, lambda { I18n.t('access_levels') }
   has_constant :titles, lambda { I18n.t('titles') }

@@ -5,6 +5,7 @@ class Lead
   include Permission
   include Trackable
   include Activities
+  include SphinxIndex
 
   key :user_id,       ObjectId, :required => true, :index => true
   key :first_name,    String, :required => true
@@ -32,6 +33,9 @@ class Lead
   key :facebook,      String
   key :xing,          String
   timestamps!
+
+  sphinx_index :first_name, :last_name, :email, :phone, :notes, :company, :alternative_email,
+    :mobile, :address, :referred_by, :website, :twitter, :linked_in, :facebook, :xing
 
   belongs_to :user
   has_many :comments, :as => :commentable
