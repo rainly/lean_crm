@@ -35,12 +35,14 @@ Rails::Initializer.run do |config|
   config.gem 'faker'
   config.gem 'has_scope'
   config.gem 'navvy'
-  config.gem 'rufus-scheduler', :lib => 'rufus/scheduler'
+  #config.gem 'rufus-scheduler', :lib => 'rufus/scheduler'
+  config.gem 'whenever'
   config.gem 'chronic'
   config.gem 'mail'
   config.gem 'beanstalk-client'
   config.gem 'will_paginate'
   config.gem 'mongosphinx'
+  config.gem 'smurf'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
