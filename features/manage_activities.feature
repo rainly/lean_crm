@@ -29,3 +29,11 @@ Feature: Manage activities
     When I go to the dashboard page
     Then I should see "Erich"
     And I should not see "Markus"
+
+  Scenario: Viewing an email activity
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika
+    And an email: "erich_offer_email" exists with user: annika, commentable: lead, subject: "test email"
+    When I go to the dashboard page
+    And I follow "test email"
+    Then I should be on the lead's page

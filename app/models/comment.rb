@@ -1,5 +1,9 @@
 class Comment
   include MongoMapper::Document
+  include HasConstant
+  include Activities
+  include Permission
+  include ParanoidDelete
 
   key :user_id,           ObjectId, :required => true, :index => true
   key :commentable_id,    ObjectId, :index => true

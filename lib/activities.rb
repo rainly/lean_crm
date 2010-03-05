@@ -25,5 +25,9 @@ module Activities
         Activity.log(self.user, self, 'Updated')
       end
     end
+
+    def related_activities
+      (activities + comments.map(&:activities)).flatten.sort_by(&:created_at)
+    end
   end
 end

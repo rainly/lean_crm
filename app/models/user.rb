@@ -19,11 +19,11 @@ class User < AbstractUser
       model.permitted_for(self).deleted.count
     end.inject {|sum, n| sum += n }
   end
-  
+
   def full_name
     username.present? ? username : email
   end
-  
+
   def recent_items
     Activity.all(:conditions => { :user_id => self.id,
                  :action => I18n.locale_around(:en) { Activity.actions.index('Viewed') } },
@@ -33,6 +33,12 @@ class User < AbstractUser
   def tracked_items
     (Lead.tracked_by(self) + Contact.tracked_by(self) + Account.tracked_by(self)).
       sort_by(&:created_at)
+  end
+
+  def self.send_tracked_items_mail
+    User.all.each do |user|
+      UserMailer.deliver_tracked_items_update(user)
+    end
   end
 
 protected

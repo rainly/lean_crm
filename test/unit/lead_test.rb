@@ -142,6 +142,11 @@ class LeadTest < ActiveSupport::TestCase
         @lead.update_attributes :deleted_at => nil
         assert @lead.activities.any? {|a| a.action == 'Restored' }
       end
+
+      should 'have related activities' do
+        @lead.comments.create! :subject => 'afefa', :text => 'asfewfewa', :user => @lead.user
+        assert @lead.related_activities.include?(@lead.comments.first.activities.first)
+      end
     end
 
     context 'promote' do

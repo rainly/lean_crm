@@ -3,4 +3,6 @@ class Email < Comment
   key :from,          String, :required => true
 
   validates_presence_of :subject
+
+  alias :name :subject
 end
