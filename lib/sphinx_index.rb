@@ -7,7 +7,7 @@ module SphinxIndex
   module ClassMethods
     def sphinx_index( *cols )
       self.class_eval do
-        fulltext_index(cols)
+        fulltext_index(*cols)
         indexed_fields = "_sphinx_id, #{cols.join(',')}"
       end
     end
