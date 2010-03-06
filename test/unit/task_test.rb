@@ -56,12 +56,17 @@ class TaskTest < ActiveSupport::TestCase
         end
       end
 
-      should 'only send tasks for the current day' do
+      should 'only send tasks for the current day or overdue' do
         @call_erich.update_attributes :due_at => 'due_next_week'
         Task.daily_email
         assert_sent_email do |email|
           email.to.include?(@call_markus.user.email) && email.body.match(/#{@call_markus.name}/) &&
             !email.body.match(/#{@call_erich.name}/)
+        end
+        @call_erich.update_attributes :due_at => 'overdue'
+        Task.daily_email
+        assert_sent_email do |email|
+          email.to.include?(@call_erich.user.email) && email.body.match(/#{@call_erich.name}/)
         end
       end
     end
