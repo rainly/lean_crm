@@ -238,6 +238,8 @@ en:
     do_not_reply: "do-not-reply@{{host}}"
     task_reassigned:
       subject: You have been assigned a new task
+    daily_task_summary:
+      subject: "Daily task summary for {{date}}"
   
   
   #--------------------------------------------------------------

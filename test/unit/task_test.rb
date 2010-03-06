@@ -37,6 +37,13 @@ class TaskTest < ActiveSupport::TestCase
         ActionMailer::Base.deliveries.clear
       end
 
+      should 'have todays date in the subject' do
+        Task.daily_email
+        assert_sent_email do |email|
+          email.subject =~ /#{Date.today.to_s(:long)}/
+        end
+      end
+
       should 'send an email to all users who have tasks due for the day' do
         Task.daily_email
         assert_sent_email do |email|

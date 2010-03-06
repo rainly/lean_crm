@@ -11,7 +11,7 @@ class TaskMailer < ActionMailer::Base
   def daily_task_summary( user, tasks )
     recipients    user.email
     from          I18n.t('emails.do_not_reply', :host => Configuration.first.domain_name)
-    subject       I18n.t('emails.daily_task_summary.subject')
+    subject       I18n.t('emails.daily_task_summary.subject', :date => Date.today.to_s(:long))
     body          :tasks => tasks
     sent_on       Time.now
   end

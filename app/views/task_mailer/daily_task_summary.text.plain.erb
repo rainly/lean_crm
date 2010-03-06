@@ -1,0 +1,5 @@
+You can view your complete task list here: <%= tasks_url -%>
+
+<% @tasks.each do |task| %>
+  <%= task.name -%>: <%= task.due_at_in_words -%>
+<% end %>

@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title><%= t('emails.daily_task_summary.subject') -%></title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>You can view your tasks here:</td>
+        <td><%= task_url -%></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Due at</th>
+            </tr>
+            <% @tasks.each do |task| %>
+              <tr>
+                <td><%= task.name -%></td>
+                <td><%= task.due_at_in_words -%></td>
+              </tr>
+            <% end %>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
