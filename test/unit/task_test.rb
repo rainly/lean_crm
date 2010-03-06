@@ -44,6 +44,14 @@ class TaskTest < ActiveSupport::TestCase
         end
       end
 
+      should 'not send an email if there are no tasks due' do
+        @call_erich.update_attributes :due_at => 'due_next_week'
+        @call_markus.update_attributes :due_at => 'due_next_week'
+        ActionMailer::Base.deliveries.clear
+        Task.daily_email
+        assert_equal 0, ActionMailer::Base.deliveries.length
+      end
+
       should 'send an email to all users who have tasks due for the day' do
         Task.daily_email
         assert_sent_email do |email|

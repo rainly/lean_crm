@@ -22,6 +22,8 @@ class Comment
 
   after_create :add_attachments
 
+  alias :name :subject
+
   def attachments_attributes=( attribs )
     @attachments_to_add = []
     attribs.each do |k,v|

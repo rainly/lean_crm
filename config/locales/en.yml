@@ -239,7 +239,9 @@ en:
     task_reassigned:
       subject: You have been assigned a new task
     daily_task_summary:
-      subject: "Daily task summary for {{date}}"
+      subject: "SalesFlip: Daily task summary for {{date}}"
+    tracked_items_update:
+      subject: "SalesFlip: Tracked items update for {{date}}"
   
   
   #--------------------------------------------------------------

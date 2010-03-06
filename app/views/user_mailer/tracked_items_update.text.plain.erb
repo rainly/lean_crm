@@ -1,0 +1,16 @@
+<% @items.each do |item| %>
+  Tracked <%= item.class.to_s -%> "<%= item.name -%>":
+  <% item.related_activities.not_notified(@user).each do |activity| %>
+    <%= activity.user.email -%> <%= activity.action.downcase -%> <%= activity.subject.class.to_s.downcase -%> "<%= activity.subject.name -%>" at <%= activity.created_at.to_s(:short) -%>
+    <% if activity.subject.is_a?(Comment) || activity.subject.is_a?(Email) %>
+      <%= activity.subject.text -%>
+
+      <% if activity.subject.attachments.count > 0 %>
+        Attachments:
+        <% activity.subject.attachments.each do |attachment| %>
+          <%= attachment.attachment_filename -%>: <%= attachment_url(attachment) -%>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

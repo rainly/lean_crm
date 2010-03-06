@@ -7,12 +7,18 @@ class Activity
   key :subject_type,  String, :index => true
   key :action,        Integer
   key :info,          String
+  key :notified_user_ids,  Array, :index => true
   timestamps!
 
   belongs_to :user
   belongs_to :subject, :polymorphic => true
 
   validates_presence_of :subject
+
+  named_scope :already_notified, lambda {|user| {
+    :conditions => { :notified_user_ids => user.id } } }
+  named_scope :not_notified, lambda { |user| {
+    :conditions => { :notified_user_ids => { '$ne' => user.id } } } }
 
   has_constant :actions, lambda { I18n.t(:activity_actions) }
 

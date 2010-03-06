@@ -27,7 +27,10 @@ module Activities
     end
 
     def related_activities
-      (activities + comments.map(&:activities)).flatten.sort_by(&:created_at)
+      conditions = ["(this.subject_type == 'Lead' && this.subject_id == '#{self.id}')"]
+      conditions << "((this.subject_type == 'Comment' || this.subject_type == 'Email') && '#{comments.map(&:id)}'.indexOf(this.subject_id) != -1)"
+      conditions << "(this.subject_type == 'Task' && '#{tasks.map(&:id)}'.indexOf(this.subject_id) != -1)"
+      Activity.scoped(:conditions => { '$where' => conditions.join(' || ') })
     end
   end
 end
