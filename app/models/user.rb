@@ -11,6 +11,7 @@ class User < AbstractUser
   has_many :accounts
   has_many :contacts
   has_many :activities
+  has_many :searches
 
   before_validation_on_create :set_api_key
 

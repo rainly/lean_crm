@@ -9,19 +9,19 @@ namespace :sphinx do
 
   desc "start up the sphinx daemon"
   task :start => :environment do
-    cmd = %( searchd --config "#{Rails.root}/config/sphinx.conf" )
+    cmd = %( searchd --config #{Rails.root}/config/sphinx.conf )
     system! cmd
   end
 
   desc "stop the sphinx daemon"
   task :stop => :environment do
-    system! %( searchd --config "#{Rails.root}/config/sphinx.conf" )
+    system! %( searchd --config #{Rails.root}/config/sphinx.conf --stop )
   end
 
   desc "run the sphinx indexer"
   task :index => :environment do
     Rake::Task['sphinx:genxml'].invoke
-    cmd = %( indexer --config "#{Rails.root}/config/sphinx.conf" --all )
+    cmd = %( indexer --config #{Rails.root}/config/sphinx.conf --all )
     cmd << ' --rotate' if ENV['rotate'] && ENV['rotate'].downcase == 'true'
     system! cmd
   end

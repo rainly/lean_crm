@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :contacts
   map.resources :attachments
   map.resources :deleted_items
+  map.resources :searches
 
   map.namespace(:admin) do |admin|
     admin.root :controller => 'configurations', :action => 'show'

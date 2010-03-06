@@ -54,7 +54,7 @@ module Xml
       xml.tag! self.class.to_s.downcase do
         self.keys.each do |key|
           key = key.first.gsub(/^_/, '')
-          xml.tag! key.dasherize, self.send(key)
+          xml.tag! key.dasherize, self.send(key) unless key == 'sphinx_id'
         end
       end
     end
