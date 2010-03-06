@@ -52,6 +52,10 @@ class User < AbstractUser
       inject {|sum,n| sum += n } || 0) > 0
   end
 
+  def dropbox_email
+    "dropbox@#{api_key}.salesflip.com"
+  end
+
 protected
   def set_api_key
     self.api_key = UUID.new.generate

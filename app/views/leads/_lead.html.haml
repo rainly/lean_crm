@@ -1,11 +1,11 @@
 %dl.item.lead
-  %dt{:class=>lead.status.downcase}= lead.status
+  %dt{ :class => lead.status.downcase }= lead.status
   %dd
     %strong= link_to lead.full_name, lead, :id => lead.full_name.to_dom_id
     = rating_for(lead)
     %small
       = "at #{lead.company}" if !lead.company.blank?
-      = " | Email: #{mail_to lead.email}" if lead.email.present?
+      = " | Email: #{mail_to lead.email, nil, :bcc => current_user.dropbox_email}" if lead.email.present?
       = " | Phone: #{lead.phone}" if lead.phone.present?
       = " | Mobile: #{lead.mobile}" if lead.mobile.present?
       %br/

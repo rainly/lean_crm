@@ -1,7 +1,7 @@
 .comment{ :class => !comment.is_a?(Email) ? 'email' : nil  }
   - if comment.is_a?(Email)
     .user
-      = mail_to comment.from
+      = mail_to comment.from, nil, :bcc => current_user.dropbox_email
       %span.icon= t('icons.email')
       %strong
         == #{t('subject')}:

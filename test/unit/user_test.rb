@@ -75,6 +75,11 @@ class UserTest < ActiveSupport::TestCase
       @user = User.make_unsaved(:annika)
     end
 
+    should 'have dropbox email' do
+      @user.save!
+      assert_equal "dropbox@#{@user.api_key}.salesflip.com", @user.dropbox_email
+    end
+
     context 'deleted_items_count' do
       setup do
         @lead = Lead.make

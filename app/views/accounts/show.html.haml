@@ -25,7 +25,7 @@
   .box.gold
     %h3= t('contact_info')
     %dl.info
-      = show_attribute(@account, 'email', mail_to(@account.email))
+      = show_attribute(@account, 'email', mail_to(@account.email, nil, :bcc => current_user.dropbox_email))
       = show_attribute(@account, 'phone')
       = show_attribute(@account, 'fax')
       = show_attribute(@account, 'billing_address')

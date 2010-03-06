@@ -44,8 +44,8 @@
     %h3= t('contact_info')
     %dl.info
       = show_attribute(@lead, 'company')
-      = show_attribute(@lead, 'email', mail_to(@lead.email))
-      = show_attribute(@lead, 'alternative_email', mail_to(@lead.alternative_email))
+      = show_attribute(@lead, 'email', mail_to(@lead.email, nil, :bcc => current_user.dropbox_email))
+      = show_attribute(@lead, 'alternative_email', mail_to(@lead.alternative_email, nil, :bcc => current_user.dropbox_email))
       - unless @lead.do_not_call
         = show_attribute(@lead, 'phone')
         = show_attribute(@lead, 'mobile')
