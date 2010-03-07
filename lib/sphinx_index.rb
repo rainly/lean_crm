@@ -1,7 +1,11 @@
 module SphinxIndex
   def self.included( base )
     base.extend(ClassMethods)
-    base.cattr_accessor :indexed_fields
+    base.send(:include, InstanceMethods)
+    base.class_eval do
+      cattr_accessor :indexed_fields
+      after_save :reindex
+    end
   end
 
   module ClassMethods
@@ -18,6 +22,12 @@ module SphinxIndex
 
     def xml_for_sphinx_pipe
       puts MongoSphinx::Indexer::XMLDocset.new(all(:fields => indexed_fields)).to_s
+    end
+  end
+
+  module InstanceMethods
+    def reindex
+      Rake::Task['sphinx:index'].invoke
     end
   end
 end

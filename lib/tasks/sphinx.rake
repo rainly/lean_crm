@@ -20,8 +20,8 @@ namespace :sphinx do
 
   desc "run the sphinx indexer"
   task :index => :environment do
-    Rake::Task['sphinx:genxml'].invoke
-    cmd = %( indexer --config #{Rails.root}/config/sphinx.conf --all )
+    #Rake::Task['sphinx:genxml'].invoke
+    cmd = %( indexer --config #{Rails.root}/config/sphinx.conf --rotate --all )
     cmd << ' --rotate' if ENV['rotate'] && ENV['rotate'].downcase == 'true'
     system! cmd
   end
