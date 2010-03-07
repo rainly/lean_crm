@@ -83,3 +83,9 @@ When /^I POST attributes for lead: "([^\"]*)" to (.+)$/ do |blueprint_name, page
        { 'Authorization' => 'Basic ' + ["#{annika.email}:password"].pack('m').delete("\r\n"),
          'Content-Type' => 'application/xml' })
 end
+
+Then /^#{capture_model} should be assigned to #{capture_model}$/ do |lead, user|
+  lead = model!(lead)
+  user = model!(user)
+  assert_equal user, lead.assignee
+end

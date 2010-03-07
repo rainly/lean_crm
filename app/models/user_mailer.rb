@@ -7,4 +7,12 @@ class UserMailer < ActionMailer::Base
     sent_on     Time.now
     body        :user => user, :items => user.tracked_items
   end
+
+  def lead_assignment_notification( lead )
+    recipients  lead.assignee.email
+    from        I18n.t('emails.do_not_reply', :host => 'salesflip.com')
+    subject     I18n.t('emails.lead_assignment.subject')
+    sent_on     Time.now
+    body        :lead => lead
+  end
 end

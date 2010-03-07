@@ -17,3 +17,10 @@
       %b.divider= "|"
       - simple_form_for lead, :html => { :method => :delete } do |form|
         = form.button :submit, t('delete'), :class => 'delete', :id => "delete_#{lead.full_name.to_dom_id}"
+      - unless lead.assignee == current_user
+        %b.divider= "|"
+        - simple_form_for lead, :html => { :method => :put } do |form|
+          = form.hidden_field :assignee_id, :value => current_user.id
+          = hidden_field_tag :return_to, lead_path(lead)
+          = form.hidden_field :do_not_notify, :value => true
+          = form.button :submit, t('accept'), :id => 'accept'

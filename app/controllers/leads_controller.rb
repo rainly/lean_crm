@@ -5,10 +5,12 @@ class LeadsController < InheritedResources::Base
   respond_to :xml, :only => [:create]
 
   has_scope :with_status, :type => :array
+  has_scope :unassigned, :type => :boolean
+  has_scope :assigned_to
 
   def create
     create! do |success, failure|
-      success.html { redirect_to leads_path }
+      success.html { return_to_or_default leads_path }
     end
   end
 

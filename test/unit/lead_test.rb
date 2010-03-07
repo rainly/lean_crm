@@ -9,6 +9,32 @@ class LeadTest < ActiveSupport::TestCase
 
   context 'Named Scopes' do
 
+    context 'unassigned' do
+      setup do
+        @user = User.make(:annika)
+        @assigned = Lead.make(:erich, :assignee => @user)
+        @unassigned = Lead.make(:markus, :assignee => nil)
+      end
+
+      should 'return all unassigned leads' do
+        assert_equal [@unassigned], Lead.unassigned
+      end
+    end
+
+    context 'assigned_to' do
+      setup do
+        @user = User.make(:annika)
+        @benny = User.make(:benny)
+        @mine = Lead.make(:erich, :assignee => @user)
+        @not_mine = Lead.make(:markus, :assignee => @benny)
+      end
+
+      should 'return all leads assigned to the supplied user' do
+        assert_equal [@mine], Lead.assigned_to(@user.id)
+        assert_equal [@not_mine], Lead.assigned_to(@benny.id)
+      end
+    end
+
     context 'tracked_by' do
       setup do
         @user = User.make(:annika)
@@ -88,6 +114,39 @@ class LeadTest < ActiveSupport::TestCase
   context 'Instance' do
     setup do
       @lead = Lead.make_unsaved(:erich)
+      @user = User.make(:benny)
+    end
+
+    context 'changing the assignee' do
+      should 'notify assignee' do
+        @lead.save!
+        ActionMailer::Base.deliveries.clear
+        @lead.update_attributes :assignee_id => @user.id
+        assert_sent_email do |email|
+          email.to.include?(@user.email)
+        end
+      end
+
+      should 'not notify assignee if do_not_notify is set' do
+        @lead.save!
+        ActionMailer::Base.deliveries.clear
+        @lead.update_attributes :assignee_id => @user.id, :do_not_notify => true
+        assert_equal 0, ActionMailer::Base.deliveries.length
+      end
+
+      should 'not try to send an email if the assignee is blank' do
+        @lead.assignee_id = @user.id
+        @lead.save!
+        ActionMailer::Base.deliveries.clear
+        @lead.update_attributes :assignee_id => nil
+        assert_equal 0, ActionMailer::Base.deliveries.length
+      end
+
+      should 'set the assignee_id' do
+        @lead.assignee_id = @user.id
+        @lead.save!
+        assert_equal @lead.assignee, @user
+      end
     end
 
     context 'activity logging' do
