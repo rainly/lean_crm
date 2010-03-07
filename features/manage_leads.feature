@@ -11,6 +11,14 @@ Feature: Manage leads
     Then I should be on the lead's page
     And the lead: "erich" should be assigned to annika
 
+  Scenario: Accepting a lead from the show page
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika
+    And I am on the lead's page
+    When I press "accept"
+    Then I should be on the lead's page
+    And the lead: "erich" should be assigned to annika
+
   Scenario: Creating a lead
     Given I am registered and logged in as annika
     And I am on the leads page
