@@ -41,6 +41,7 @@ Rails::Initializer.run do |config|
   config.gem 'mail'
   config.gem 'beanstalk-client'
   config.gem 'will_paginate'
+  config.gem 'riddle'
   config.gem 'mongosphinx'
   config.gem 'smurf'
 

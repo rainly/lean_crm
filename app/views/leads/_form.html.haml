@@ -35,12 +35,12 @@
 %h3.toggler= "#{t('tracking')} &amp; #{t('simple_form.labels.permissions')}"
 .toggle
   %fieldset
-    .25.a= form.input :status,  :as => :select, :collection => Lead.statuses.map(&:to_s), :include_blank => false
-    .25= form.input   :rating,  :as => :select, :collection => 1..5
-    .25= form.input   :user_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => false, :required => true
-    .25.z= form.input :source,  :as => :select, :collection => Lead.sources.map(&:to_s)
-    .clear
-    = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1=> '25 a', :p2=> '25' }
+  .25.a= form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :include_blank => false
+  .25= form.input :rating, :as => :select, :collection => 1..5
+  .25= form.input :assignee_id, :as => :select, :collection => User.all.map {|a| [a.email, a.id] }, :include_blank => true, :required => true
+  .25.z= form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s)
+  .clear
+  = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1 => '25 a', :p2 => '25' }
 
 %h3.toggler= t('notes')
 .toggle

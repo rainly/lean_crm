@@ -11,6 +11,7 @@ class User < AbstractUser
   has_many :accounts
   has_many :contacts
   has_many :activities
+  has_many :searches
 
   before_validation_on_create :set_api_key
 
@@ -37,8 +38,22 @@ class User < AbstractUser
 
   def self.send_tracked_items_mail
     User.all.each do |user|
-      UserMailer.deliver_tracked_items_update(user)
+      UserMailer.deliver_tracked_items_update(user) if user.new_activity?
+      user.tracked_items.each do |item|
+        item.related_activities.not_notified(user).each do |activity|
+          activity.update_attributes :notified_user_ids => (activity.notified_user_ids || []) << user.id
+        end
+      end
     end
+  end
+
+  def new_activity?
+    (self.tracked_items.map {|i| i.related_activities.not_notified(self).count }.
+      inject {|sum,n| sum += n } || 0) > 0
+  end
+
+  def dropbox_email
+    "dropbox@#{api_key}.salesflip.com"
   end
 
 protected

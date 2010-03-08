@@ -80,7 +80,8 @@ class Task
   after_save    :notify_assignee
 
   def self.daily_email
-    Task.due_today.group_by(&:user).each do |user, tasks|
+    (Task.overdue + Task.due_today).flatten.sort_by(&:due_at).group_by(&:user).
+      each do |user, tasks|
       TaskMailer.deliver_daily_task_summary(user, tasks)
     end
   end

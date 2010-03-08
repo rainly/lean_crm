@@ -68,6 +68,7 @@ en:
   visit_website: Visit Website
   keep_me_updated: Keep me updated
   stop_updating_me: Stop updating me
+  accept: accept
   
   #--------------------------------------------------------------
   # Form Labels
@@ -117,6 +118,13 @@ en:
   - Public
   - Shared
   - Private
+
+  #--------------------------------------------------------------
+  # Search
+  #--------------------------------------------------------------
+  search: Search
+  no_search_results: "There are no matches, <a href=\"{{link}}\">search again</a>"
+  results: Results
 
   #--------------------------------------------------------------
   # Activity
@@ -238,6 +246,10 @@ en:
     do_not_reply: "do-not-reply@{{host}}"
     task_reassigned:
       subject: You have been assigned a new task
+    daily_task_summary:
+      subject: "SalesFlip: Daily task summary for {{date}}"
+    tracked_items_update:
+      subject: "SalesFlip: Tracked items update for {{date}}"
   
   
   #--------------------------------------------------------------

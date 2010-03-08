@@ -1,9 +1,83 @@
 require 'test_helper.rb'
 
 class UserTest < ActiveSupport::TestCase
+  context 'Class' do
+    context 'send_tracked_items_mail' do
+      setup do
+        @user = User.make(:annika)
+        @benny = User.make(:benny)
+        @lead = Lead.make(:erich, :user => @user, :tracker_ids => [@benny.id])
+        @comment = @lead.comments.create! :user => @user, :subject => 'a comment',
+          :text => 'This is a good lead'
+        @email = Email.create! :user => @benny, :subject => 'an offer',
+          :text => 'Here is your offer', :commentable => @lead, :from => 'test@test.com',
+          :received_at => Time.zone.now
+        @attachment = @email.attachments.create! :subject => @email,
+          :attachment => File.open('test/upload-files/erich_offer.pdf')
+        @task = @lead.tasks.create! :name => 'Call this guy', :due_at => 'due_today',
+          :category => 'Call', :user => @user
+        ActionMailer::Base.deliveries.clear
+      end
+
+      should 'should add users id to notified_users list of all actions which were emailed' do
+        User.send_tracked_items_mail
+        assert @lead.related_activities.all? {|a| a.notified_user_ids.include?(@benny.id) }
+      end
+
+      should 'send tracked items email with all new activities included' do
+        User.send_tracked_items_mail
+        assert_sent_email do |email|
+          email.body =~ /#{@lead.name}/ && email.body =~ /#{@comment.text}/ &&
+            email.body =~ /#{@email.text}/ && email.body =~ /#{@task.name}/ &&
+            email.body =~ /#{@attachment.attachment_filename}/ && email.to.include?(@benny.email)
+        end
+      end
+
+      should 'not email users who are not tracking any items' do
+        User.send_tracked_items_mail
+        assert_sent_email do |email|
+          !email.to.include?(@user)
+        end
+      end
+
+      should 'not include activities in the email which have already been sent in a previous email' do
+        User.send_tracked_items_mail
+        comment2 = @lead.comments.create! :subject => 'another comment',
+          :text => 'a second comment', :user => @user
+        ActionMailer::Base.deliveries.clear
+        User.send_tracked_items_mail
+        assert_sent_email do |email|
+          email.body.match(/#{@lead.name}/) && !email.body.match(/#{@comment.text}/) &&
+            !email.body.match(/#{@email.text}/) && !email.body.match(/#{@task.name}/) &&
+            !email.body.match(/#{@attachment.attachment_filename}/) &&
+            email.to.include?(@benny.email) && email.body.match(/#{comment2.subject}/)
+        end
+      end
+
+      should 'not send an email at all if there are no new activities' do
+        User.send_tracked_items_mail
+        ActionMailer::Base.deliveries.clear
+        User.send_tracked_items_mail
+        assert_equal 0, ActionMailer::Base.deliveries.length
+      end
+
+      should 'have todays date in the subject' do
+        User.send_tracked_items_mail
+        assert_sent_email do |email|
+          email.subject =~ /#{Date.today.to_s(:long)}/
+        end
+      end
+    end
+  end
+
   context 'Instance' do
     setup do
       @user = User.make_unsaved(:annika)
+    end
+
+    should 'have dropbox email' do
+      @user.save!
+      assert_equal "dropbox@#{@user.api_key}.salesflip.com", @user.dropbox_email
     end
 
     context 'deleted_items_count' do

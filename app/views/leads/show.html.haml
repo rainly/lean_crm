@@ -13,6 +13,14 @@
   %ul.actions
     %li.first{ :class => ('right' if @lead.status_is?('Converted') or @lead.status_is?('Rejected'))}
       = link_to t('edit'), edit_lead_path(@lead)
+    - if @lead.assignee.nil?
+      %li
+        - simple_form_for @lead do |form|
+          = form.hidden_field :do_not_notify, :value => true
+          = form.hidden_field :assignee_id, :value => current_user.id
+          = hidden_field_tag :return_to, request.request_uri
+          = form.button :submit, t('accept').capitalize, :id => 'accept'
+    %li
     %li
       - if @lead.tracked_by?(current_user)
         - simple_form_for @lead do |form|
@@ -44,8 +52,8 @@
     %h3= t('contact_info')
     %dl.info
       = show_attribute(@lead, 'company')
-      = show_attribute(@lead, 'email', mail_to(@lead.email))
-      = show_attribute(@lead, 'alternative_email', mail_to(@lead.alternative_email))
+      = show_attribute(@lead, 'email', mail_to(@lead.email, nil, :bcc => current_user.dropbox_email))
+      = show_attribute(@lead, 'alternative_email', mail_to(@lead.alternative_email, nil, :bcc => current_user.dropbox_email))
       - unless @lead.do_not_call
         = show_attribute(@lead, 'phone')
         = show_attribute(@lead, 'mobile')

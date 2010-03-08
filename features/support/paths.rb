@@ -64,6 +64,11 @@ module NavigationHelpers
 
     when /the recycle bin page/
       deleted_items_path
+
+    when /the new search page/
+      new_search_path
+    when /the search results page/
+      search_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

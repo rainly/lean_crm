@@ -1,6 +1,0 @@
-<% items.each do |item| %>
-  <%= item.name -%>
-  <% item.related_activities.each do |activity| %>
-    <%= activity.user.email -%> <%= activity.action -%> <%= activity.subject.name -%> at <%= activity.created_at.to_s :short -%>
-  <% end %>
-<% end %>

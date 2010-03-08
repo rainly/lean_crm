@@ -3,6 +3,22 @@ Feature: Manage leads
   A user
   wants manage leads
 
+  Scenario: Accepting a lead
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika
+    And I am on the leads page
+    When I press "accept"
+    Then I should be on the lead's page
+    And the lead: "erich" should be assigned to annika
+
+  Scenario: Accepting a lead from the show page
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika
+    And I am on the lead's page
+    When I press "accept"
+    Then I should be on the lead's page
+    And the lead: "erich" should be assigned to annika
+
   Scenario: Creating a lead
     Given I am registered and logged in as annika
     And I am on the leads page
@@ -66,6 +82,28 @@ Feature: Manage leads
     And a lead exists with user: annika, status: "Rejected", first_name: "Markus"
     And I go to the leads page
     When I check "new"
+    And I press "filter"
+    Then I should see "Erich"
+    And I should not see "Markus"
+
+  Scenario: Filtering unassigned leads
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And a lead exists with user: annika, status: "New", first_name: "Erich"
+    And a lead exists with user: annika, status: "New", assignee: benny, first_name: "Markus"
+    And I go to the leads page
+    When I check "unassigned"
+    And I press "filter"
+    Then I should see "Erich"
+    And I should not see "Markus"
+
+  Scenario: Filtering leads assigned to me
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And a lead exists with user: annika, status: "New", first_name: "Erich", assignee: annika
+    And a lead exists with user: annika, status: "New", first_name: "Markus", assignee: benny
+    And I go to the leads page
+    When I check "assigned_to"
     And I press "filter"
     Then I should see "Erich"
     And I should not see "Markus"

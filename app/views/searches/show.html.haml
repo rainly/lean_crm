@@ -1,0 +1,11 @@
+- simple_form_for Search.new do |form|
+  = render :partial => 'form', :locals => { :form => form }
+
+%h2= t('results')
+- unless @search.results.blank?
+  - @search.results.each do |result|
+    %div{ :class => result.class }
+      = result.class.to_s
+      = link_to result.name, result
+- else
+  = t('no_search_results', :link => new_search_path)

@@ -22,4 +22,11 @@
           %li
             = check_box_tag 'with_status[]', status, (params[:with_status] and params[:with_status].include?(status)), :id => "status_#{status}"
             %label{ :for => "status_#{status}" }= status
+      %ul.checks.stacked
+        %li
+          = check_box_tag 'unassigned', true, params[:unassigned]
+          %label{ :for => 'unassigned' } Unassigned
+        %li
+          = check_box_tag 'assigned_to', current_user.id, params[:assigned_to]
+          %label{ :for => 'assigned_to' } Assigned to me
       .clear= submit_tag t('filter'), :id => 'filter'

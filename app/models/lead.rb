@@ -5,9 +5,11 @@ class Lead
   include Permission
   include Trackable
   include Activities
+  include SphinxIndex
 
   key :user_id,       ObjectId, :required => true, :index => true
-  key :first_name,    String, :required => true
+  key :assignee_id,   ObjectId, :index => true
+  key :first_name,    String
   key :last_name,     String, :required => true
   key :email,         String
   key :phone,         String
@@ -33,24 +35,32 @@ class Lead
   key :xing,          String
   timestamps!
 
+  sphinx_index :first_name, :last_name, :email, :phone, :notes, :company, :alternative_email,
+    :mobile, :address, :referred_by, :website, :twitter, :linked_in, :facebook, :xing
+
+  attr_accessor :do_not_notify
+
   belongs_to :user
+  belongs_to :assignee, :class_name => 'User'
   has_many :comments, :as => :commentable
   has_many :tasks, :as => :asset
 
   before_validation_on_create :set_initial_state
+  after_save :notify_assignee, :unless => :do_not_notify
 
   has_constant :titles, lambda { I18n.t('titles') }
   has_constant :statuses, lambda { I18n.t('lead_statuses') }
   has_constant :sources, lambda { I18n.t('lead_sources') }
   has_constant :salutations, lambda { I18n.t('salutations') }
 
-  named_scope :with_status, lambda {|statuses| { :conditions => {
+  named_scope :with_status, lambda { |statuses| { :conditions => {
     :status => statuses.map {|status| Lead.statuses.index(status) } } } }
+  named_scope :unassigned, :conditions => { :assignee_id => nil }
+  named_scope :assigned_to, lambda { |user_id| { :conditions => { :assignee_id => user_id } } }
 
   def full_name
     "#{first_name} #{last_name}"
   end
-  
   alias :name :full_name
 
   def promote!( account_name, options = {} )
@@ -83,7 +93,16 @@ class Lead
     I18n.locale_around(:en) { update_attributes :status => 'Rejected' }
   end
 
+  def assignee_id=( assignee_id )
+    @reassigned = assignee_id
+    self[:assignee_id] = assignee_id
+  end
+
 protected
+  def notify_assignee
+    UserMailer.deliver_lead_assignment_notification(self) if @reassigned
+  end
+
   def set_initial_state
     I18n.locale_around(:en) { self.status = 'New' unless self.status }
   end

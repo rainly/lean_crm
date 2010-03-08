@@ -73,6 +73,42 @@ class ActivityTest < ActiveSupport::TestCase
       end
     end
 
+    context 'already_notified' do
+      setup do
+        @user = User.make(:annika)
+        @lead = Lead.make(:erich)
+        @contact = Contact.make(:florian)
+        Activity.delete_all
+        @activity1 = Activity.log(@user, @lead, 'Created')
+        @activity2 = Activity.log(@user, @contact, 'Created')
+        @activity2.update_attributes :notified_user_ids => [@user.id]
+      end
+
+      should 'return activities where the supplied user has already been notified' do
+        assert Activity.already_notified(@user).include?(@activity2)
+        assert !Activity.already_notified(@user).include?(@activity)
+        assert_equal 1, Activity.already_notified(@user).count
+      end
+    end
+
+    context 'not_notified' do
+      setup do
+        @user = User.make(:annika)
+        @lead = Lead.make(:erich)
+        @contact = Contact.make(:florian)
+        Activity.delete_all
+        @activity1 = Activity.log(@user, @lead, 'Created')
+        @activity2 = Activity.log(@user, @contact, 'Created')
+        @activity2.update_attributes :notified_user_ids => [@user.id]
+      end
+
+      should 'return activities where the supplied user needs to be notified' do
+        assert Activity.not_notified(@user).include?(@activity1)
+        assert !Activity.not_notified(@user).include?(@activity2)
+        assert_equal 1, Activity.not_notified(@user).count
+      end
+    end
+
     context 'not_restored' do
       setup do
         @deleted = Lead.make
