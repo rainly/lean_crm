@@ -21,13 +21,15 @@ module SphinxIndex
     end
 
     def xml_for_sphinx_pipe
-      puts MongoSphinx::Indexer::XMLDocset.new(all(:fields => indexed_fields)).to_s
+      File.open("#{Rails.root}/tmp/#{self.to_s.downcase.pluralize}.xml", 'w+') do |f|
+        f.write MongoSphinx::Indexer::XMLDocset.new(all(:fields => indexed_fields)).to_s
+      end
     end
   end
 
   module InstanceMethods
     def reindex
-      Rake::Task['sphinx:index'].invoke
+      #Rake::Task['sphinx:index'].invoke
     end
   end
 end
