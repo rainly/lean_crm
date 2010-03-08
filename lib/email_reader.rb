@@ -18,12 +18,12 @@ class EmailReader
       unless target = find_target(email)
         target = create_contact_from(email)
       end
-      comment = Email.create! :text => get_email_content(email),
+      comment = Email.create :text => get_email_content(email),
         :commentable => target, :user => user, :from_email => true,
         :subject => Mail.new(get_email_content(email)).subject || email.subject,
         :received_at => Time.zone.now, :subject => email.subject,
         :from => find_target_email(email)
-      add_attachments( comment, email )
+      add_attachments( comment, email ) if comment
       comment
     end
     user
@@ -45,7 +45,7 @@ protected
   def self.add_attachments( comment, email )
     email.attachments.each do |attachment|
       file = File.open("tmp/#{attachment.filename}", 'w+') do |f|
-        f.write attachment.encoded
+        f.write attachment.read
       end
       comment.attachments << Attachment.new(:attachment => File.open("tmp/#{attachment.filename}"))
     end
@@ -71,7 +71,7 @@ protected
 
   def self.create_contact_from( email )
     target_email = find_target_email(email)
-    account = Account.create!(:name => target_email.split('@').last, :user => find_user_from(email))
+    account = Account.create(:name => target_email.split('@').last, :user => find_user_from(email))
     Contact.create(:email => target_email,
                    :first_name => target_email.split('@').first.split('.').first,
                    :last_name => target_email.split('@').first.split('.').last,
