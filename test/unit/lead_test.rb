@@ -265,12 +265,6 @@ class LeadTest < ActiveSupport::TestCase
       end
     end
 
-    should 'require first name' do
-      @lead.first_name = nil
-      assert !@lead.valid?
-      assert @lead.errors.on(:first_name)
-    end
-
     should 'require last name' do
       @lead.last_name = nil
       assert !@lead.valid?
