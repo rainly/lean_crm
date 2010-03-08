@@ -100,7 +100,7 @@ class Lead
 
 protected
   def notify_assignee
-    UserMailer.deliver_lead_assignment_notification(self) if @reassigned
+    UserMailer.deliver_lead_assignment_notification(self) if @reassigned and not assignee.blank?
   end
 
   def set_initial_state
