@@ -44,7 +44,10 @@ protected
 
   def self.add_attachments( comment, email )
     email.attachments.each do |attachment|
-      comment.attachments << Attachment.new(:attachment => attachment)
+      file = File.open("tmp/#{attachment.filename}", 'w+') do |f|
+        f.write attachment.encoded
+      end
+      comment.attachments << Attachment.new(:attachment => File.open("tmp/#{attachment.filename}"))
     end
   end
 
