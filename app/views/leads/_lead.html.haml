@@ -1,6 +1,6 @@
 %dl.item.lead
   %dt{ :class => lead.status.downcase }= lead.status
-  %dd
+  %dd{ :class => lead.assignee == current_user ? nil : "accept" }
     %strong= link_to lead.full_name, lead, :id => lead.full_name.to_dom_id
     = rating_for(lead)
     %small
@@ -14,9 +14,6 @@
         = " : #{link_to(pluralize(lead.comments.size, t('comment')), lead)}" if lead.comments.any?
     %span.actions
       = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
-      %b.divider= "|"
-      - simple_form_for lead, :html => { :method => :delete } do |form|
-        = form.button :submit, t('delete'), :class => 'delete', :id => "delete_#{lead.full_name.to_dom_id}"
       - unless lead.assignee == current_user
         %b.divider= "|"
         - simple_form_for lead, :html => { :method => :put } do |form|
@@ -24,3 +21,7 @@
           = hidden_field_tag :return_to, lead_path(lead)
           = form.hidden_field :do_not_notify, :value => true
           = form.button :submit, t('accept'), :id => 'accept'
+      %b.divider= "|"
+      - simple_form_for lead, :html => { :method => :delete } do |form|
+        = form.button :submit, t('delete'), :class => 'delete', :id => "delete_#{lead.full_name.to_dom_id}"
+      

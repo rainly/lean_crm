@@ -6,6 +6,7 @@ body.leads
 // Index
 //----------------------------------------------------
 dl.item
+  
   small
     :color #777
     a
@@ -22,7 +23,12 @@ dl.item
     span.actions
       :padding-top 0px
       :margin-top 4px
-
+      input#accept
+        :margin-top -1px
+    &.accept
+      span.actions
+        :width 7.2em
+    
 div#main h2.title
   //----------------------------------------------------
   // Convert or Reject

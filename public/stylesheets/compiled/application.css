@@ -461,10 +461,15 @@ div.item span.actions a:hover, div.item span.actions input:hover, dl.item dd spa
   color: #000;
 }
 /* line 214, ../../../app/stylesheets/partials/_layout.sass */
+div.item span.actions input, dl.item dd span.actions input {
+  font-size: 12px;
+  font-weight: normal;
+}
+/* line 217, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input, div.item span.actions b, dl.item dd span.actions input, dl.item dd span.actions b {
   padding: 0px;
 }
-/* line 216, ../../../app/stylesheets/partials/_layout.sass */
+/* line 219, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input[type="submit"].delete, dl.item dd span.actions input[type="submit"].delete {
   color: #f00;
   background: transparent;
@@ -480,24 +485,24 @@ div.item span.actions input[type="submit"].delete, dl.item dd span.actions input
   box-shadow: white 1px 1px 5px;
   border: none;
 }
-/* line 225, ../../../app/stylesheets/partials/_layout.sass */
+/* line 228, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input[type="submit"].delete:hover, dl.item dd span.actions input[type="submit"].delete:hover {
   color: #000;
 }
-/* line 227, ../../../app/stylesheets/partials/_layout.sass */
+/* line 230, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions b.divider, dl.item dd span.actions b.divider {
   color: #ccc;
   padding: 0px 2px 0px 2px;
 }
 
-/* line 234, ../../../app/stylesheets/partials/_layout.sass */
+/* line 237, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar {
   clear: none;
   float: left;
   width: 26%;
   padding-left: 2%;
 }
-/* line 239, ../../../app/stylesheets/partials/_layout.sass */
+/* line 242, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   overflow: hidden;
   display: inline-block;
@@ -506,11 +511,11 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
 #sidebar .box {
   display: block;
 }
-/* line 241, ../../../app/stylesheets/partials/_layout.sass */
+/* line 244, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar h3 {
   margin: 0px;
 }
-/* line 243, ../../../app/stylesheets/partials/_layout.sass */
+/* line 246, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters {
   margin: 0;
   padding: 0;
@@ -606,35 +611,35 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 247, ../../../app/stylesheets/partials/_layout.sass */
+/* line 250, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 12px;
 }
-/* line 250, ../../../app/stylesheets/partials/_layout.sass */
+/* line 253, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.gold {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #c0c0b1;
   background: #f2f2e3;
   margin-bottom: 20px;
 }
-/* line 255, ../../../app/stylesheets/partials/_layout.sass */
+/* line 258, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.ice {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #97b8bd;
   background: #c9eaef;
 }
-/* line 260, ../../../app/stylesheets/partials/_layout.sass */
+/* line 263, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul {
   color: #6f9095;
 }
-/* line 262, ../../../app/stylesheets/partials/_layout.sass */
+/* line 265, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul li {
   padding: 0px 0px 5px 0px;
 }
-/* line 264, ../../../app/stylesheets/partials/_layout.sass */
+/* line 267, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul span {
   display: block;
   float: left;
@@ -644,7 +649,7 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   width: 60px;
 }
 
-/* line 274, ../../../app/stylesheets/partials/_layout.sass */
+/* line 277, ../../../app/stylesheets/partials/_layout.sass */
 .inline-add {
   font-size: 14px;
   padding-top: 27px;
@@ -653,43 +658,43 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   float: left;
 }
 
-/* line 283, ../../../app/stylesheets/partials/_layout.sass */
+/* line 286, ../../../app/stylesheets/partials/_layout.sass */
 span.rating {
   font-size: 13px;
   padding-top: 4px;
   width: 7%;
 }
-/* line 287, ../../../app/stylesheets/partials/_layout.sass */
+/* line 290, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.on {
   color: #666;
 }
-/* line 289, ../../../app/stylesheets/partials/_layout.sass */
+/* line 292, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.off {
   color: #ccc;
 }
 
-/* line 294, ../../../app/stylesheets/partials/_layout.sass */
+/* line 297, ../../../app/stylesheets/partials/_layout.sass */
 .activities {
   font-size: 13px;
 }
-/* line 296, ../../../app/stylesheets/partials/_layout.sass */
+/* line 299, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item {
   padding: 5px 0px;
   border-bottom: 1px solid #ccc;
 }
-/* line 299, ../../../app/stylesheets/partials/_layout.sass */
+/* line 302, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item a {
   font-weight: bold;
 }
 
-/* line 301, ../../../app/stylesheets/partials/_layout.sass */
+/* line 304, ../../../app/stylesheets/partials/_layout.sass */
 span.icon {
   color: #777;
   font-size: 16px;
   padding: 0px 5px;
 }
 
-/* line 305, ../../../app/stylesheets/partials/_layout.sass */
+/* line 308, ../../../app/stylesheets/partials/_layout.sass */
 small.timestamp {
   color: #888;
   font-style: italic;
@@ -1461,36 +1466,44 @@ body.leads.new #main, body.leads.create #main, body.leads.edit #main, body.leads
   width: 100%;
 }
 
-/* line 9, ../../../app/stylesheets/models/_leads.sass */
+/* line 10, ../../../app/stylesheets/models/_leads.sass */
 dl.item small {
   color: #777;
 }
-/* line 11, ../../../app/stylesheets/models/_leads.sass */
+/* line 12, ../../../app/stylesheets/models/_leads.sass */
 dl.item small a {
   color: #333;
   font-weight: bold;
   text-decoration: none;
 }
-/* line 15, ../../../app/stylesheets/models/_leads.sass */
+/* line 16, ../../../app/stylesheets/models/_leads.sass */
 dl.item small a:hover {
   text-decoration: underline;
 }
-/* line 17, ../../../app/stylesheets/models/_leads.sass */
+/* line 18, ../../../app/stylesheets/models/_leads.sass */
 dl.item small strong {
   color: #333;
 }
-/* line 19, ../../../app/stylesheets/models/_leads.sass */
+/* line 20, ../../../app/stylesheets/models/_leads.sass */
 dl.item dd {
   width: 86%;
   padding-left: 1%;
 }
-/* line 22, ../../../app/stylesheets/models/_leads.sass */
+/* line 23, ../../../app/stylesheets/models/_leads.sass */
 dl.item dd span.actions {
   padding-top: 0px;
   margin-top: 4px;
 }
+/* line 26, ../../../app/stylesheets/models/_leads.sass */
+dl.item dd span.actions input#accept {
+  margin-top: -1px;
+}
+/* line 29, ../../../app/stylesheets/models/_leads.sass */
+dl.item dd.accept span.actions {
+  width: 7.2em;
+}
 
-/* line 30, ../../../app/stylesheets/models/_leads.sass */
+/* line 36, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions {
   clear: none;
   float: right;
@@ -1562,11 +1575,11 @@ div#main h2.title .actions a.active:hover, div#main h2.title .actions input.acti
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 37, ../../../app/stylesheets/models/_leads.sass */
+/* line 43, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions li {
   width: auto;
 }
-/* line 39, ../../../app/stylesheets/models/_leads.sass */
+/* line 45, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions li a {
   /* Webkit (Safari, Chrome) */
   -webkit-box-shadow: #999999 1px 1px 5px;
@@ -1575,20 +1588,20 @@ div#main h2.title .actions li a {
   /* CSS3 */
   box-shadow: #999999 1px 1px 5px;
 }
-/* line 41, ../../../app/stylesheets/models/_leads.sass */
+/* line 47, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions li a, div#main h2.title .actions li input {
   padding-left: 8px;
   padding-right: 8px;
 }
-/* line 44, ../../../app/stylesheets/models/_leads.sass */
+/* line 50, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions li.right {
   float: right;
 }
-/* line 46, ../../../app/stylesheets/models/_leads.sass */
+/* line 52, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions .first form {
   width: 100%;
 }
-/* line 48, ../../../app/stylesheets/models/_leads.sass */
+/* line 54, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions .first form input {
   border-top-left-radius: 14px;
   -moz-border-radius-topleft: 14px;
@@ -1599,7 +1612,7 @@ div#main h2.title .actions .first form input {
   border-left: 1px solid #999;
   padding: 4px 10px 5px 0;
 }
-/* line 52, ../../../app/stylesheets/models/_leads.sass */
+/* line 58, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions .last form input {
   border-top-right-radius: 14px;
   -moz-border-radius-topright: 14px;
@@ -1609,7 +1622,7 @@ div#main h2.title .actions .last form input {
   -webkit-border-bottom-right-radius: 14px;
   border-right: 1px solid #999;
 }
-/* line 55, ../../../app/stylesheets/models/_leads.sass */
+/* line 61, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions form {
   clear: none;
   float: left;
@@ -1617,7 +1630,7 @@ div#main h2.title .actions form {
   padding-right: 15px;
   width: 91%;
 }
-/* line 61, ../../../app/stylesheets/models/_leads.sass */
+/* line 67, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions form input {
   border-top-left-radius: 0px;
   -moz-border-radius-topleft: 0px;
@@ -1637,7 +1650,7 @@ div#main h2.title .actions form input {
   font-weight: bold;
   padding: 4px 10px 4px 0px;
 }
-/* line 70, ../../../app/stylesheets/models/_leads.sass */
+/* line 76, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status {
   float: right;
   font-size: 13px;
@@ -1651,27 +1664,27 @@ div#main h2.title .status {
   -moz-border-radius-bottomright: 14px;
   -webkit-border-bottom-right-radius: 14px;
 }
-/* line 77, ../../../app/stylesheets/models/_leads.sass */
+/* line 83, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status strong {
   font-size: 22px;
 }
-/* line 79, ../../../app/stylesheets/models/_leads.sass */
+/* line 85, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.converted {
   background: #BDFFBC;
   color: #070;
 }
-/* line 82, ../../../app/stylesheets/models/_leads.sass */
+/* line 88, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected {
   background: #fdd;
   color: #900;
 }
-/* line 85, ../../../app/stylesheets/models/_leads.sass */
+/* line 91, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected strong {
   position: relative;
   top: 2px;
 }
 
-/* line 92, ../../../app/stylesheets/models/_leads.sass */
+/* line 98, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task {
   border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1694,7 +1707,7 @@ h3.grad a#add_task:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 98, ../../../app/stylesheets/models/_leads.sass */
+/* line 104, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task b {
   background: #999;
   border-radius: 10px;
@@ -1711,7 +1724,7 @@ h3.grad a#add_task b {
   text-shadow: #555555 0px 1px 0px;
 }
 
-/* line 114, ../../../app/stylesheets/models/_leads.sass */
+/* line 120, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info {
   font-size: 13px;
   clear: both;
@@ -1734,11 +1747,11 @@ h3.grad a#add_task b {
 #sidebar dl.info dd {
   width: 70%;
 }
-/* line 117, ../../../app/stylesheets/models/_leads.sass */
+/* line 123, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt, #sidebar dl.info dd {
   padding: 4px 0px;
 }
-/* line 119, ../../../app/stylesheets/models/_leads.sass */
+/* line 125, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt {
   color: #989889;
   font-size: 12px;
@@ -1803,7 +1816,7 @@ h3.deadline#due_later {
 .item dd input[type=submit] {
   background: transparent;
   border: none;
-  color: #00f;
+  color: #0073b1;
   padding: 0;
   text-shadow: white 0px 0px 0px;
   /* Webkit (Safari, Chrome) */
