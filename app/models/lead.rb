@@ -42,8 +42,8 @@ class Lead
 
   belongs_to :user
   belongs_to :assignee, :class_name => 'User'
-  has_many :comments, :as => :commentable
-  has_many :tasks, :as => :asset
+  has_many :comments, :as => :commentable, :dependent => :delete_all
+  has_many :tasks, :as => :asset, :dependent => :delete_all
 
   before_validation_on_create :set_initial_state
   after_save :notify_assignee, :unless => :do_not_notify
