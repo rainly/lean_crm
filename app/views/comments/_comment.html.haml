@@ -8,7 +8,11 @@
         = comment.subject
       %small.acted= t('email_sent_ago', :time => time_ago_in_words(comment.created_at))
     .quote= t('icons.comment')
-    .message= comment.text
+    .message
+      = comment.text
+      .attachments
+        - comment.attachments.each do |attachment|
+          = link_to attachment.attachment_filename, attachment
   - else
     .user
       = link_to comment.user.email, comment.user
