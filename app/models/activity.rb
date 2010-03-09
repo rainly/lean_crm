@@ -41,7 +41,7 @@ class Activity
                               :subject_type => subject.class.name,
                               :action => Activity.actions.index(action) })
     if activity
-      activity.update_attributes(:updated_at => Time.now)
+      activity.update_attributes(:updated_at => Time.zone.now, :user_id => user.id)
     else
       create_activity(user, subject, action)
     end

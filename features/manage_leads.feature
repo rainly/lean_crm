@@ -30,6 +30,14 @@ Feature: Manage leads
     And I should see "Erich Feldmeier"
     And a created activity should exist for lead with first_name "Erich"
 
+  Scenario: Logging activity
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And a lead: "erich" exists with user: benny
+    And I am on the lead's edit page
+    When I press "lead_submit"
+    Then an activity should have been created with for lead: "erich" and user: "annika"
+
   Scenario: Creating a lead via XML
     Given I am registered and logged in as annika
     When I POST attributes for lead: "erich" to the leads page
@@ -69,12 +77,13 @@ Feature: Manage leads
 
   Scenario: Deleting a lead
     Given I am registered and logged in as annika
-    And a lead "erich" exists with user: annika
+    And a user: "benny" exists
+    And a lead "erich" exists with user: benny
     And I am on the leads page
     When I press "delete_erich-feldmeier"
     Then I should be on the leads page
     And lead "erich" should have been deleted
-    And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich"
+    And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
 
   Scenario: Filtering leads
     Given I am registered and logged in as annika
@@ -160,16 +169,18 @@ Feature: Manage leads
 
   Scenario: Rejecting a lead
     Given I am registered and logged in as annika
-    And a lead: "erich" exists with user: annika
+    And a user: "benny" exists
+    And a lead: "erich" exists with user: benny
     And I am on the lead's page
     When I press "reject"
     Then I should be on the leads page
     And lead "erich" should exist with status: 3
-    And a new "Rejected" activity should have been created for "Lead" with "first_name" "Erich"
+    And a new "Rejected" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
 
   Scenario: Converting a lead to a new account
     Given I am registered and logged in as annika
-    And a lead: "erich" exists with user: annika
+    And a user: "benny" exists
+    And a lead: "erich" exists with user: benny
     And I am on the lead's page
     When I follow "convert"
     And I fill in "account_name" with "World Dating"
@@ -180,7 +191,9 @@ Feature: Manage leads
     And an account should exist with name: "World Dating"
     And a contact should exist with first_name: "Erich"
     And a lead should exist with first_name: "Erich", status: 2
-    And a new "Converted" activity should have been created for "Lead" with "first_name" "Erich"
+    And a new "Converted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
+    And a new "Created" activity should have been created for "Account" with "name" "World Dating" and user: "annika"
+    And a new "Created" activity should have been created for "Contact" with "first_name" "Erich" and user: "annika"
 
   Scenario: Converting a lead to an existing account
     Given I am registered and logged in as annika

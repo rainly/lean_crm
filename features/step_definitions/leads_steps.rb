@@ -35,6 +35,12 @@ Given /^markus is not shared with annika$/ do
   lead.update_attributes :permitted_user_ids => [lead.user_id], :permission => 'Shared'
 end
 
+Then /^an activity should have been created with for lead: "([^\"]*)" and user: "([^\"]*)"$/ do |arg1, arg2|
+  lead = model!(arg1)
+  user = model!(arg2)
+  assert lead.activities.any? {|a| a.user == user }
+end
+
 Then /^#{capture_model} should be observing the #{capture_model}$/ do |user, trackable|
   t = model!(trackable)
   u = model!(user)
@@ -69,6 +75,13 @@ end
 Then /^a new "([^\"]*)" activity should have been created for "([^\"]*)" with "([^\"]*)" "([^\"]*)"$/ do |action, model, field, value|
   assert Activity.first(:conditions => { :action => Activity.actions.index(action),
                         :subject_type => model }).subject.send(field) == value
+end
+
+Then /^a new "([^\"]*)" activity should have been created for "([^\"]*)" with "([^\"]*)" "([^\"]*)" and user: "([^\"]*)"$/ do |action, model, field, value, modifier|
+  user = model!(modifier)
+  activity = Activity.first(:conditions => {
+    :action => Activity.actions.index(action), :subject_type => model, :user_id => user.id })
+  assert activity.subject.send(field) == value
 end
 
 Then /^lead "([^\"]*)" should have been deleted$/ do |lead|

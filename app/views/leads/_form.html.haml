@@ -1,26 +1,26 @@
 %h2.title= t('add_lead')
-%h3.toggler.open= t('lead_name') 
+%h3.toggler.open= t('lead_name')
 .toggle
   %fieldset
     .16.a= form.input :salutation, :as => :select, :collection => Lead.salutations.map(&:to_s)
     .16= form.input :title, :as => :select, :collection => Lead.titles.map(&:to_s)
-    .33= form.input :first_name, :required=>true
-    .33.z= form.input :last_name, :required=>true
+    .33= form.input :first_name, :required => true
+    .33.z= form.input :last_name, :required => true
 
 %h3.toggler= t('contact_info')
 .toggle
   %fieldset
     .33.a= form.input :company
-    .33=   form.input :email
+    .33=  form.input :email
     .33.z= form.input :phone
     .clear
-    .33.a= form.input :address, :as=>:text, :input_html => { :rows => 4 }
-    .33=    form.input :alternative_email
-    .33.z=    form.input :mobile
+    .33.a= form.input :address, :as => :text, :input_html => { :rows => 4 }
+    .33= form.input :alternative_email
+    .33.z= form.input :mobile
     .33= form.input :referred_by
     .33.boolean
-      =  form.check_box :do_not_call
-      =  form.label :do_not_call
+      = form.check_box :do_not_call
+      = form.label :do_not_call
     .clear
 
 %h3.toggler= t('web_and_social_media')
