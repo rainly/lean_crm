@@ -22,19 +22,22 @@ en:
   #--------------------------------------------------------------
   # Time
   #--------------------------------------------------------------
-  added_ago: "added {{time}} ago"
-  added_ago_by: "added {{time}} ago by {{by}}"
-  assigned_ago_by: "assigned to {{for}} {{time}} ago by {{by}}"
+  added_ago: "added on {{time}}"
+  added_ago_by: "added on {{time}} by {{by}}"
+  assigned_ago_by: "assigned to {{for}} on {{time}} by {{by}}"
   created_ago: "created {{time}} ago"
-  done_ago: "{{time}} ago"
-  removed_ago: "removed {{time}} ago"
-  updated_ago: "updated {{time}} ago"
-  wrote_ago: "wrote {{time}} ago"
-  email_sent_ago: "sent via email {{time}} ago"
+  done_ago: "done on {{time}}"
+  removed_ago: "removed on {{time}}"
+  updated_ago: "updated on {{time}} ago"
+  wrote_ago: "wrote on {{time}}"
+  email_sent_ago: "sent via email on {{time}}"
   last_year: Last Year
   last_month: Last Month
   last_week: Last Week
   yesterday: Yesterday
+  time:
+    formats:
+      short: "%b %d. %Y @ %I:%M%p"
   today: Today
   tomorrow: Tomorrow
   next_week: Next Week

@@ -440,7 +440,7 @@ div.item span.actions, dl.item dd span.actions {
   clear: none;
   display: block;
   padding-top: 3px;
-  width: 3.3em;
+  width: 3.4em;
 }
 /* line 204, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a, dl.item dd span.actions a {
@@ -700,6 +700,77 @@ small.timestamp {
   font-style: italic;
   float: right;
   margin-top: 4px;
+}
+
+/* line 316, ../../../app/stylesheets/partials/_layout.sass */
+.pagination {
+  clear: both;
+  padding-top: 8px;
+  text-align: right;
+}
+/* line 70, ../../../app/stylesheets/partials/_tools.sass */
+.pagination li {
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  float: left;
+  font-size: 12px;
+  width: 33%;
+}
+/* line 77, ../../../app/stylesheets/partials/_tools.sass */
+.pagination li.first a {
+  border-top-left-radius: 14px;
+  -moz-border-radius-topleft: 14px;
+  -webkit-border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
+  -moz-border-radius-bottomleft: 14px;
+  -webkit-border-bottom-left-radius: 14px;
+}
+/* line 79, ../../../app/stylesheets/partials/_tools.sass */
+.pagination li.last a {
+  border-top-right-radius: 14px;
+  -moz-border-radius-topright: 14px;
+  -webkit-border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+  -moz-border-radius-bottomright: 14px;
+  -webkit-border-bottom-right-radius: 14px;
+}
+/* line 81, ../../../app/stylesheets/partials/_tools.sass */
+.pagination a, .pagination input {
+  display: block;
+  background: #eaeaea;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
+  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%,  #cccccc 100%);
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #999;
+  color: #444;
+  text-shadow: white 0px 1px 0px;
+  padding: 5px 0px;
+  width: 100%;
+}
+/* line 18, ../../../app/stylesheets/partials/_tools.sass */
+.pagination a:hover, .pagination input:hover {
+  background: #fefefe;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
+  background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
+}
+/* line 86, ../../../app/stylesheets/partials/_tools.sass */
+.pagination a.active, .pagination input.active {
+  background: #777777;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.17, #777777), color-stop(1, #999999) );
+  background: -moz-linear-gradient(top, #666666 0%, #777777 17%,  #999999 100%);
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #666;
+  color: #fff;
+  text-shadow: #333333 0px 1px 0px;
+}
+/* line 18, ../../../app/stylesheets/partials/_tools.sass */
+.pagination a.active:hover, .pagination input.active:hover {
+  background: #8b8b8b;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
+  background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
 
 /* line 1, ../../../app/stylesheets/partials/_typography.sass */
@@ -1370,6 +1441,28 @@ span.error {
 body#accounts div.item span.actions, body#accounts dl.item dd span.actions {
   width: 3.4em;
 }
+/* line 5, ../../../app/stylesheets/models/_account.sass */
+body#accounts.index dl.item {
+  clear: both;
+  overflow: none;
+  float: left;
+  width: 100%;
+}
+/* line 59, ../../../app/stylesheets/partials/_tools.sass */
+body#accounts.index dl.item dt, body#accounts.index dl.item dd {
+  float: left;
+  clear: none;
+  display: block;
+  margin: 0px;
+}
+/* line 64, ../../../app/stylesheets/partials/_tools.sass */
+body#accounts.index dl.item dt {
+  width: 0%;
+}
+/* line 66, ../../../app/stylesheets/partials/_tools.sass */
+body#accounts.index dl.item dd {
+  width: 100%;
+}
 
 /* line 2, ../../../app/stylesheets/models/_comment.sass */
 .comment .quote {
@@ -1650,6 +1743,7 @@ div#main h2.title .status {
   font-size: 13px;
   line-height: 23px;
   margin-top: -8px;
+  margin-left: -12px;
   padding: 0 16px 2px 11px;
   border-top-right-radius: 14px;
   -moz-border-radius-topright: 14px;
@@ -1658,27 +1752,27 @@ div#main h2.title .status {
   -moz-border-radius-bottomright: 14px;
   -webkit-border-bottom-right-radius: 14px;
 }
-/* line 88, ../../../app/stylesheets/models/_leads.sass */
+/* line 89, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status strong {
   font-size: 22px;
 }
-/* line 90, ../../../app/stylesheets/models/_leads.sass */
+/* line 91, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.converted {
   background: #BDFFBC;
   color: #070;
 }
-/* line 93, ../../../app/stylesheets/models/_leads.sass */
+/* line 94, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected {
   background: #fdd;
   color: #900;
 }
-/* line 96, ../../../app/stylesheets/models/_leads.sass */
+/* line 97, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected strong {
   position: relative;
   top: 2px;
 }
 
-/* line 103, ../../../app/stylesheets/models/_leads.sass */
+/* line 104, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task {
   border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1701,7 +1795,7 @@ h3.grad a#add_task:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 109, ../../../app/stylesheets/models/_leads.sass */
+/* line 110, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task b {
   background: #999;
   border-radius: 10px;
@@ -1718,7 +1812,7 @@ h3.grad a#add_task b {
   text-shadow: #555555 0px 1px 0px;
 }
 
-/* line 125, ../../../app/stylesheets/models/_leads.sass */
+/* line 126, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info {
   font-size: 13px;
   clear: both;
@@ -1741,11 +1835,11 @@ h3.grad a#add_task b {
 #sidebar dl.info dd {
   width: 70%;
 }
-/* line 128, ../../../app/stylesheets/models/_leads.sass */
+/* line 129, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt, #sidebar dl.info dd {
   padding: 4px 0px;
 }
-/* line 130, ../../../app/stylesheets/models/_leads.sass */
+/* line 131, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt {
   color: #989889;
   font-size: 12px;

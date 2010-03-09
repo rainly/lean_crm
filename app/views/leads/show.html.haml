@@ -11,7 +11,7 @@
       = t('rejected')
 
   %ul.actions
-    %li.first{ :class => ('right' if @lead.status_is?('Converted') or @lead.status_is?('Rejected'))}
+    %li.first
       = link_to t('edit'), edit_lead_path(@lead)
     - if @lead.assignee.nil?
       %li

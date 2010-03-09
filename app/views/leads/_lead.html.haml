@@ -10,7 +10,7 @@
       = " | Mobile: #{lead.mobile}" if lead.mobile.present?
       %br/
       %em.timestamp
-        = t('added_ago_by', :time => time_ago_in_words(lead.created_at), :by => lead.user.username)
+        = t('added_ago_by', :time => l(lead.created_at, :format => :short), :by => lead.user.username)
         = " : #{link_to(pluralize(lead.comments.size, t('comment')), lead)}" if lead.comments.any?
     %span.actions
       = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
