@@ -1367,26 +1367,8 @@ span.error {
 }
 
 /* line 2, ../../../app/stylesheets/models/_account.sass */
-body#accounts dl.item {
-  clear: both;
-  overflow: none;
-  float: left;
-  width: 100%;
-}
-/* line 59, ../../../app/stylesheets/partials/_tools.sass */
-body#accounts dl.item dt, body#accounts dl.item dd {
-  float: left;
-  clear: none;
-  display: block;
-  margin: 0px;
-}
-/* line 64, ../../../app/stylesheets/partials/_tools.sass */
-body#accounts dl.item dt {
-  width: 0%;
-}
-/* line 66, ../../../app/stylesheets/partials/_tools.sass */
-body#accounts dl.item dd {
-  width: 100%;
+body#accounts div.item span.actions, body#accounts dl.item dd span.actions {
+  width: 3.4em;
 }
 
 /* line 2, ../../../app/stylesheets/models/_comment.sass */
@@ -1631,6 +1613,14 @@ div#main h2.title .actions form {
   width: 91%;
 }
 /* line 67, ../../../app/stylesheets/models/_leads.sass */
+div#main h2.title .actions form.accept {
+  width: 100%;
+}
+/* line 69, ../../../app/stylesheets/models/_leads.sass */
+div#main h2.title .actions form.update {
+  border-left: 1px solid #999;
+}
+/* line 71, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .actions form input {
   border-top-left-radius: 0px;
   -moz-border-radius-topleft: 0px;
@@ -1650,7 +1640,11 @@ div#main h2.title .actions form input {
   font-weight: bold;
   padding: 4px 10px 4px 0px;
 }
-/* line 76, ../../../app/stylesheets/models/_leads.sass */
+/* line 79, ../../../app/stylesheets/models/_leads.sass */
+div#main h2.title .actions form input#accept {
+  margin-right: -3px;
+}
+/* line 81, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status {
   float: right;
   font-size: 13px;
@@ -1664,27 +1658,27 @@ div#main h2.title .status {
   -moz-border-radius-bottomright: 14px;
   -webkit-border-bottom-right-radius: 14px;
 }
-/* line 83, ../../../app/stylesheets/models/_leads.sass */
+/* line 88, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status strong {
   font-size: 22px;
 }
-/* line 85, ../../../app/stylesheets/models/_leads.sass */
+/* line 90, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.converted {
   background: #BDFFBC;
   color: #070;
 }
-/* line 88, ../../../app/stylesheets/models/_leads.sass */
+/* line 93, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected {
   background: #fdd;
   color: #900;
 }
-/* line 91, ../../../app/stylesheets/models/_leads.sass */
+/* line 96, ../../../app/stylesheets/models/_leads.sass */
 div#main h2.title .status.rejected strong {
   position: relative;
   top: 2px;
 }
 
-/* line 98, ../../../app/stylesheets/models/_leads.sass */
+/* line 103, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task {
   border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1707,7 +1701,7 @@ h3.grad a#add_task:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 104, ../../../app/stylesheets/models/_leads.sass */
+/* line 109, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task b {
   background: #999;
   border-radius: 10px;
@@ -1724,7 +1718,7 @@ h3.grad a#add_task b {
   text-shadow: #555555 0px 1px 0px;
 }
 
-/* line 120, ../../../app/stylesheets/models/_leads.sass */
+/* line 125, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info {
   font-size: 13px;
   clear: both;
@@ -1747,11 +1741,11 @@ h3.grad a#add_task b {
 #sidebar dl.info dd {
   width: 70%;
 }
-/* line 123, ../../../app/stylesheets/models/_leads.sass */
+/* line 128, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt, #sidebar dl.info dd {
   padding: 4px 0px;
 }
-/* line 125, ../../../app/stylesheets/models/_leads.sass */
+/* line 130, ../../../app/stylesheets/models/_leads.sass */
 #sidebar dl.info dt {
   color: #989889;
   font-size: 12px;

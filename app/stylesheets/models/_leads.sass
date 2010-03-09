@@ -28,7 +28,7 @@ dl.item
     &.accept
       span.actions
         :width 7.2em
-    
+
 div#main h2.title
   //----------------------------------------------------
   // Convert or Reject
@@ -64,6 +64,10 @@ div#main h2.title
       :margin-top -8px
       :padding-right 15px
       :width 91%
+      &.accept
+        :width 100%
+      &.update
+        :border-left 1px solid #999
       input
         +border-left-radius(0px)
         :border-left none
@@ -72,7 +76,8 @@ div#main h2.title
         :font-size 13px
         :font-weight bold
         :padding 4px 10px 4px 0px
-        
+        &#accept
+          :margin-right -3px
   .status
     :float right
     :font-size 13px

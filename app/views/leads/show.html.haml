@@ -15,20 +15,19 @@
       = link_to t('edit'), edit_lead_path(@lead)
     - if @lead.assignee.nil?
       %li
-        - simple_form_for @lead do |form|
+        - simple_form_for @lead, :html => {:class => "accept"} do |form|
           = form.hidden_field :do_not_notify, :value => true
           = form.hidden_field :assignee_id, :value => current_user.id
           = hidden_field_tag :return_to, request.request_uri
           = form.button :submit, t('accept').capitalize, :id => 'accept'
     %li
-    %li
       - if @lead.tracked_by?(current_user)
-        - simple_form_for @lead do |form|
+        - simple_form_for @lead, :html => {:class => "stop update"} do |form|
           = hidden_field_tag 'lead[remove_tracker_ids][]', current_user.id
           = hidden_field_tag :return_to, request.request_uri
           = form.button :submit, t('stop_updating_me'), :id => 'stop_updating_me'
       - else @lead.tracked_by?(current_user)
-        - simple_form_for @lead do |form|
+        - simple_form_for @lead, :html => {:class => "start update"} do |form|
           = hidden_field_tag 'lead[tracker_ids][]', current_user.id
           = hidden_field_tag :return_to, request.request_uri
           = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
