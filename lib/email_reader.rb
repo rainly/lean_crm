@@ -40,7 +40,7 @@ protected
 
   def self.get_email_content( email )
     if email.content_type.match(/text\/plain/)
-      return Iconv.iconv(email.charset, 'utf-8', email.body.to_s)
+      return Iconv.iconv('utf-8', email.charset, email.body.to_s)
     else
       email.parts.each do |part|
         return get_email_content(part)
