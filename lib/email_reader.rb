@@ -19,10 +19,8 @@ class EmailReader
         target = create_contact_from(email)
       end
       comment = Email.create :text => get_email_content(email),
-        :commentable => target, :user => user, :from_email => true,
-        :subject => Mail.new(get_email_content(email)).subject || email.subject,
-        :received_at => Time.zone.now, :subject => email.subject,
-        :from => find_target_email(email)
+        :commentable => target, :user => user, :from_email => true, :subject => get_subject(email),
+        :received_at => Time.zone.now, :from => find_target_email(email)
       add_attachments( comment, email ) if comment
       comment
     end
@@ -32,9 +30,17 @@ class EmailReader
   end
 
 protected
+  def self.get_subject( email )
+    if subject = Mail.new(get_email_content(email)).subject
+      subject
+    else
+      (email.charset ? Iconv.iconv('utf-8', email.charset, email.subject) : email.subject)
+    end
+  end
+
   def self.get_email_content( email )
     if email.content_type.match(/text\/plain/)
-      return email.body.to_s
+      return Iconv.iconv(email.charset, 'utf-8', email.body.to_s)
     else
       email.parts.each do |part|
         return get_email_content(part)
