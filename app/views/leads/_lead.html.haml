@@ -16,6 +16,7 @@
       = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
       %b.divider= "|"
       - simple_form_for lead, :html => { :method => :delete } do |form|
+        = hidden_field_tag :return_to, request.request_uri
         = form.button :submit, t('delete'), :class => 'delete', :id => "delete_#{lead.full_name.to_dom_id}"
       - unless lead.assignee == current_user
         %b.divider= "|"

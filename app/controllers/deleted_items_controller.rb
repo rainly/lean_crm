@@ -17,7 +17,7 @@ class DeletedItemsController < ApplicationController
 
   def destroy
     @item.destroy_without_paranoid
-    redirect_to deleted_items_path
+    return_to_or_default deleted_items_path
   end
 
 protected
