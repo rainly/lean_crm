@@ -20,13 +20,11 @@ class EmailReader
       end
       comment = Email.create :text => get_email_content(email),
         :commentable => target, :user => user, :from_email => true, :subject => get_subject(email),
-        :received_at => Time.zone.now, :from => find_target_email(email)
+        :received_at => Time.zone.now, :from => incoming?(email) ? find_target_email(email) : user.email
       add_attachments( comment, email ) if comment
       comment
     end
     user
-  rescue
-    nil
   end
 
 protected
@@ -36,6 +34,11 @@ protected
     else
       (email.charset ? Iconv.iconv('utf-8', email.charset, email.subject) : email.subject)
     end
+  end
+
+  # emails sent directly to salesflip are forwarded
+  def self.incoming?( email )
+    email.to.to_a.first.match(/salesflip/)
   end
 
   def self.get_email_content( email )
