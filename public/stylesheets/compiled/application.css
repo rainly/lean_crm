@@ -708,72 +708,8 @@ small.timestamp {
   padding-top: 8px;
   text-align: right;
 }
-/* line 70, ../../../app/stylesheets/partials/_tools.sass */
-.pagination li {
-  margin: 0px;
-  padding: 0px;
-  display: block;
-  float: left;
-  font-size: 12px;
-  width: 33%;
-}
-/* line 77, ../../../app/stylesheets/partials/_tools.sass */
-.pagination li.first a {
-  border-top-left-radius: 14px;
-  -moz-border-radius-topleft: 14px;
-  -webkit-border-top-left-radius: 14px;
-  border-bottom-left-radius: 14px;
-  -moz-border-radius-bottomleft: 14px;
-  -webkit-border-bottom-left-radius: 14px;
-}
-/* line 79, ../../../app/stylesheets/partials/_tools.sass */
-.pagination li.last a {
-  border-top-right-radius: 14px;
-  -moz-border-radius-topright: 14px;
-  -webkit-border-top-right-radius: 14px;
-  border-bottom-right-radius: 14px;
-  -moz-border-radius-bottomright: 14px;
-  -webkit-border-bottom-right-radius: 14px;
-}
-/* line 81, ../../../app/stylesheets/partials/_tools.sass */
-.pagination a, .pagination input {
-  display: block;
-  background: #eaeaea;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
-  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%,  #cccccc 100%);
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid #999;
-  color: #444;
-  text-shadow: white 0px 1px 0px;
-  padding: 5px 0px;
-  width: 100%;
-}
-/* line 18, ../../../app/stylesheets/partials/_tools.sass */
-.pagination a:hover, .pagination input:hover {
-  background: #fefefe;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
-  background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
-}
-/* line 86, ../../../app/stylesheets/partials/_tools.sass */
-.pagination a.active, .pagination input.active {
-  background: #777777;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.17, #777777), color-stop(1, #999999) );
-  background: -moz-linear-gradient(top, #666666 0%, #777777 17%,  #999999 100%);
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid #666;
-  color: #fff;
-  text-shadow: #333333 0px 1px 0px;
-}
-/* line 18, ../../../app/stylesheets/partials/_tools.sass */
-.pagination a.active:hover, .pagination input.active:hover {
-  background: #8b8b8b;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
-  background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
-}
 
-/* line 324, ../../../app/stylesheets/partials/_layout.sass */
+/* line 323, ../../../app/stylesheets/partials/_layout.sass */
 #the_error {
   border-radius: 20px;
   -moz-border-radius: 20px;
@@ -787,17 +723,17 @@ small.timestamp {
   background: -moz-linear-gradient(center top, red 0%, #880000 100%);
   width: 43%;
 }
-/* line 332, ../../../app/stylesheets/partials/_layout.sass */
+/* line 331, ../../../app/stylesheets/partials/_layout.sass */
 #the_error h2, #the_error a {
   color: #fff;
   text-decoration: none;
 }
-/* line 335, ../../../app/stylesheets/partials/_layout.sass */
+/* line 334, ../../../app/stylesheets/partials/_layout.sass */
 #the_error a:hover {
   color: #fff;
   text-decoration: underline;
 }
-/* line 338, ../../../app/stylesheets/partials/_layout.sass */
+/* line 337, ../../../app/stylesheets/partials/_layout.sass */
 #the_error p {
   font-size: 16px;
 }
