@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
@@ -13,6 +14,18 @@ class ApplicationController < ActionController::Base
   after_filter :log_viewed_item, :only => :show
 
 protected
+
+  
+  def render_optional_error_file(status_code)  
+    status = interpret_status(status_code)
+    render :template => "/errors/#{status[0,3]}.html.haml", :status => status, :layout => 'errors.html.haml'
+  end
+  
+  def local_request?
+    false
+  end
+  
+  
   def log_viewed_item
     subject = instance_variable_get("@#{controller_name.singularize}")
     if subject and current_user and not subject.is_a?(Search)
@@ -30,7 +43,8 @@ protected
 
   def configuration_check
     unless @configuration ||= Configuration.first
-      Configuration.create!
+      @configuration = Configuration.create!
     end
   end
+
 end

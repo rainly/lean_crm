@@ -37,7 +37,7 @@ en:
   yesterday: Yesterday
   time:
     formats:
-      short: "%b %d. %Y @ %I:%M%p"
+      short: "<b>%b %d.</b> %Y @ <b>%I:%M%p</b>"
   today: Today
   tomorrow: Tomorrow
   next_week: Next Week
@@ -59,6 +59,7 @@ en:
   filter: Filter
   filters: Filters
   filter_by_status: Filter by Status
+  go_back: Go Back
   or: or
   notes: Notes
   no_source: No Source
@@ -269,3 +270,14 @@ en:
   #--------------------------------------------------------------
   info:
     dropbox: "This is the account which is used to route external emails into your comments feeds"
+  
+  #--------------------------------------------------------------
+  # Errors
+  #--------------------------------------------------------------
+  error_404: The page you are looking for cannot be found.
+  error_404_note: "Check if the URL is correct or {{link}}"
+  error_422: "The change you wanted was rejected."
+  error_422_note: "You may not have necessary permissions. {{link}}"
+  error_500: A system error has occurred.
+  error_500_note: "{{link}} or {{email}}"
+  contact_the_admin: contact the administrator

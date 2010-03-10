@@ -311,10 +311,29 @@ small.timestamp
   :float right
   :margin-top 4px
 //----------------------------------------------------
-// Pagintation
+// Pagination
 //----------------------------------------------------
 .pagination
   :clear both
   :padding-top 8px
   :text-align right
   +silver-tabs
+//----------------------------------------------------
+// Custom Error Pages
+//----------------------------------------------------
+#the_error
+  +border-radius(20px)
+  :color #fa8
+  :margin 0 25%
+  :margin-top 100px
+  :padding 40px
+  +v-grad(#f00,#800)
+  :width 43%
+  h2, a
+    :color #fff
+    :text-decoration none
+  a:hover
+    :color #fff
+    :text-decoration underline
+  p
+    :font-size 16px

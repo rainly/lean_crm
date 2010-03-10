@@ -773,6 +773,35 @@ small.timestamp {
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
 
+/* line 324, ../../../app/stylesheets/partials/_layout.sass */
+#the_error {
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  color: #fa8;
+  margin: 0 25%;
+  margin-top: 100px;
+  padding: 40px;
+  background: #880000;
+  background: -webkit-gradient(linear, left top, left bottom, from(red), to(#880000));
+  background: -moz-linear-gradient(center top, red 0%, #880000 100%);
+  width: 43%;
+}
+/* line 332, ../../../app/stylesheets/partials/_layout.sass */
+#the_error h2, #the_error a {
+  color: #fff;
+  text-decoration: none;
+}
+/* line 335, ../../../app/stylesheets/partials/_layout.sass */
+#the_error a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+/* line 338, ../../../app/stylesheets/partials/_layout.sass */
+#the_error p {
+  font-size: 16px;
+}
+
 /* line 1, ../../../app/stylesheets/partials/_typography.sass */
 body, h1, h2, h3, h4, h5, h6, p, ol, ul, dl, strong, em, div, a, table {
   font-family: "Lucida Grande", "Lucida Sans Unicode", helvetica, arial, sans-serif;
