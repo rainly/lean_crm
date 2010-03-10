@@ -1,4 +1,5 @@
 class ContactsController < InheritedResources::Base
+  before_filter :merge_updater_id, :only => [:update]
 
   respond_to :html
   respond_to :xml
@@ -7,6 +8,13 @@ class ContactsController < InheritedResources::Base
     create! do |success, failure|
       success.xml { head :ok }
     end
+  end
+
+  def destroy
+    resource
+    @contact.updater_id = current_user.id
+    @contact.destroy
+    redirect_to contacts_path
   end
 
 protected
@@ -21,5 +29,9 @@ protected
 
   def begin_of_association_chain
     current_user
+  end
+
+  def merge_updater_id
+    params[:contact].merge!(:updater_id => current_user.id) if params[:contact]
   end
 end

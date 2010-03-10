@@ -2,6 +2,27 @@ require 'test_helper.rb'
 
 class EmailReaderTest < ActiveSupport::TestCase
 
+  context 'when email is outgoing, encoded in "iso-8859-1" with weird german ä characters' do
+    setup do
+      @user = User.make(:annika, :email => 'annika.fleischer@1000jobboersen.de')
+      @email = Mail.new(File.read("#{Rails.root}/test/support/direct_email_in_latin1.txt").strip)
+    end
+
+    context 'when receiver does not exist' do
+      setup do
+        EmailReader.parse_email(@email)
+      end
+
+      should 'decode ä characters properly' do
+        assert_match(/ä/, Email.first.text)
+      end
+
+      should 'set from address' do
+        assert_equal @user.email, Email.first.from
+      end
+    end
+  end
+
   context "when email is outgoing (bcc'd)" do
     setup do
       @user = User.make(:annika, :email => 'mattbeedle@googlemail.com')

@@ -15,7 +15,8 @@ Feature: Manage accounts
 
   Scenario: Editing an account
     Given I am registered and logged in as annika
-    And account: "careermee" exists with user: annika
+    And a user: "benny" exists
+    And account: "careermee" exists with user: benny
     And I am on the account's page
     And I follow "edit"
     And I fill in "account_name" with "a test"
@@ -23,7 +24,7 @@ Feature: Manage accounts
     Then I should be on the account's page
     And I should see "a test"
     And I should not see "CareerMee"
-    And a new "Updated" activity should have been created for "Account" with "name" "a test"
+    And a new "Updated" activity should have been created for "Account" with "name" "a test" and user: "annika"
 
   Scenario: Editing from index page
     Given I am registered and logged in as annika
@@ -34,11 +35,13 @@ Feature: Manage accounts
 
   Scenario: Deleting an account from the index page
     Given I am registered and logged in as annika
-    And account: "careermee" exists with user: annika
+    And a user: "benny" exists
+    And account: "careermee" exists with user: benny
     And I am on the accounts page
     When I press "delete_careermee"
     Then I should be on the accounts page
     And I should not see "CareerMee" within "#main"
+    And a new "Deleted" activity should have been created for "Account" with "name" "CareerMee" and user: "annika"
 
   Scenario: Viewing accounts
     Given I am registered and logged in as annika
@@ -106,7 +109,7 @@ Feature: Manage accounts
     And a task should have been created
     And I should see "Call to get offer details"
   
-  Scenario: Marking an account as completed
+  Scenario: Marking an account task as completed
     Given I am registered and logged in as annika
     And an account exists with user: annika
     And a task exists with asset: the account, name: "Call to get offer details", user: annika

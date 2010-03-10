@@ -60,7 +60,7 @@ class Contact
   end
 
   def self.create_for( lead, account )
-    contact = account.contacts.build :user => lead.user, :first_name => lead.first_name,
+    contact = account.contacts.build :user => lead.updater_or_user, :first_name => lead.first_name,
       :last_name => lead.last_name, :lead => lead, :permission => account.permission,
       :permitted_user_ids => account.permitted_user_ids
     contact.save if account.valid?

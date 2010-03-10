@@ -5,6 +5,9 @@ module Activities
 
       after_create  :log_creation
       after_update  :log_update
+
+      key :updater_id, ObjectId
+      belongs_to :updater, :class_name => 'User'
     end
     base.send(:include, InstanceMethods)
   end
@@ -15,14 +18,18 @@ module Activities
       @recently_created = true
     end
 
+    def updater_or_user
+      self.updater.nil? ? self.user : self.updater
+    end
+
     def log_update
       case
       when @recently_destroyed
-        Activity.log(self.user, self, 'Deleted')
+        Activity.log(updater_or_user, self, 'Deleted')
       when @recently_restored
-        Activity.log(self.user, self, 'Restored')
+        Activity.log(updater_or_user, self, 'Restored')
       else
-        Activity.log(self.user, self, 'Updated')
+        Activity.log(updater_or_user, self, 'Updated')
       end
     end
 

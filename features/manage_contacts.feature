@@ -33,6 +33,15 @@ Feature: Manage contacts
     And an account should exist with name: "World Dating"
     And a contact should exist with first_name: "Florian", last_name: "Behn"
 
+  Scenario: Updating a contact
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And a contact: "florian" exists with user: benny
+    And I am on the contact's edit page
+    When I press "contact_submit"
+    Then I should be on the contact's page
+    And a new "Updated" activity should have been created for "Contact" with "first_name" "Florian" and user: "annika"
+
   Scenario: Viewing contacts
     Given I am registered and logged in as annika
     And a contact: "florian" exists with user: annika
@@ -53,11 +62,13 @@ Feature: Manage contacts
 
   Scenario: Deleting a contact
     Given I am registered and logged in as annika
-    And a contact "florian" exists with user: annika
+    And a user: "benny" exists
+    And a contact "florian" exists with user: benny
     And I am on the contact's page
     When I press "delete"
     Then I should be on the contacts page
     And I should not see "Florian" within "#main"
+    And a new "Deleted" activity should have been created for "Contact" with "first_name" "Florian" and user: "annika"
 
   Scenario: Deleting from the index page
     Given I am registered and logged in as annika
@@ -115,8 +126,8 @@ Feature: Manage contacts
     Then I should be on the contact's page
     And a task should have been created
     And I should see "Call to get offer details"
-  
-  Scenario: Marking a contact as completed
+
+  Scenario: Marking a contact task as completed
     Given I am registered and logged in as annika
     And a contact exists with user: annika
     And a task exists with asset: the contact, name: "Call to get offer details", user: annika
@@ -126,6 +137,7 @@ Feature: Manage contacts
     Then the task "Call to get offer details" should have been completed
     And I should be on the contact's page
     And I should not see "Call to get offer details"
+    And a new "Completed" activity should have been created for "Task" with "name" "Call to get offer details" and user: "annika"
 
   Scenario: Deleting a task
     Given I am registered and logged in as annika
@@ -146,7 +158,8 @@ Feature: Manage contacts
     Then I should be on the contact page
     And I should see "This is a good lead"
     And 1 comments should exist
-    
+    And a new "Created" activity should have been created for "Comment" with "text" "This is a good lead" and user: "annika"
+
   Scenario: Adding a comment with an attachment
     Given I am registered and logged in as annika
     And a contact exists with user: annika

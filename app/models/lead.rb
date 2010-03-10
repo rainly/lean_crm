@@ -77,7 +77,7 @@ class Lead
         permission = options[:permission]
         permitted = options[:permitted_user_ids]
       end
-      account = self.user.accounts.create :permission => permission,
+      account = self.updater_or_user.accounts.create :permission => permission,
         :name => account_name, :permitted_user_ids => permitted
     end
     contact = Contact.create_for(self, account)
@@ -109,12 +109,12 @@ protected
 
   def log_update
     case
-    when @recently_converted then Activity.log(user, self, 'Converted')
-    when @recently_rejected then Activity.log(user, self, 'Rejected')
-    when @recently_destroyed then Activity.log(user, self, 'Deleted')
-    when @recently_restored then Activity.log(user, self, 'Restored')
+    when @recently_converted then Activity.log(updater_or_user, self, 'Converted')
+    when @recently_rejected then Activity.log(updater_or_user, self, 'Rejected')
+    when @recently_destroyed then Activity.log(updater_or_user, self, 'Deleted')
+    when @recently_restored then Activity.log(updater_or_user, self, 'Restored')
     else
-      Activity.log(user, self, 'Updated')
+      Activity.log(updater_or_user, self, 'Updated')
     end
   end
 end

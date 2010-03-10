@@ -15,9 +15,17 @@ class LeadsController < InheritedResources::Base
   end
 
   def update
+    params[:lead].merge!(:updater_id => current_user.id)
     update! do |success, failure|
       success.html { return_to_or_default leads_path }
     end
+  end
+
+  def destroy
+    resource
+    @lead.updater_id = current_user.id
+    @lead.destroy
+    redirect_to leads_path
   end
 
   def convert
@@ -25,6 +33,7 @@ class LeadsController < InheritedResources::Base
   end
 
   def promote
+    @lead.updater_id = current_user.id
     @account, @contact = @lead.promote!(
       params[:account_id].blank? ? params[:account_name] : params[:account_id])
     if @account.errors.blank? and @contact.errors.blank?
@@ -35,6 +44,7 @@ class LeadsController < InheritedResources::Base
   end
 
   def reject
+    @lead.updater_id = current_user.id
     @lead.reject!
     redirect_to leads_path
   end
