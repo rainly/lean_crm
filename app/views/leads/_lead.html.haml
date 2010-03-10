@@ -1,6 +1,6 @@
 %dl.item.lead
   %dt{ :class => lead.status.downcase }= lead.status
-  %dd
+  %dd{ :class => lead.assignee == current_user ? nil : "accept" }
     %strong= link_to lead.full_name, lead, :id => lead.full_name.to_dom_id
     = rating_for(lead)
     %small
@@ -10,7 +10,7 @@
       = " | Mobile: #{lead.mobile}" if lead.mobile.present?
       %br/
       %em.timestamp
-        = t('added_ago_by', :time => time_ago_in_words(lead.created_at), :by => lead.user.username)
+        = t('added_ago_by', :time => l(lead.created_at, :format => :short), :by => lead.user.username)
         = " : #{link_to(pluralize(lead.comments.size, t('comment')), lead)}" if lead.comments.any?
     %span.actions
       = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
@@ -19,9 +19,13 @@
         = hidden_field_tag :return_to, request.request_uri
         = form.button :submit, t('delete'), :class => 'delete', :id => "delete_#{lead.full_name.to_dom_id}"
       - unless lead.assignee == current_user
-        %b.divider= "|"
         - simple_form_for lead, :html => { :method => :put } do |form|
           = form.hidden_field :assignee_id, :value => current_user.id
           = hidden_field_tag :return_to, lead_path(lead)
           = form.hidden_field :do_not_notify, :value => true
           = form.button :submit, t('accept'), :id => 'accept'
+        %b.divider= "|"
+      = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
+      %b.divider= "|"
+      - simple_form_for lead, :html => { :method => :delete } do |form|
+        = form.button :submit, t('delete'), :class => 'delete', :id => "delete_#{lead.full_name.to_dom_id}"

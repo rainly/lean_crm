@@ -6,6 +6,7 @@ body.leads
 // Index
 //----------------------------------------------------
 dl.item
+  
   small
     :color #777
     a
@@ -22,6 +23,11 @@ dl.item
     span.actions
       :padding-top 0px
       :margin-top 4px
+      input#accept
+        :margin-top -1px
+    &.accept
+      span.actions
+        :width 7.2em
 
 div#main h2.title
   //----------------------------------------------------
@@ -58,6 +64,10 @@ div#main h2.title
       :margin-top -8px
       :padding-right 15px
       :width 91%
+      &.accept
+        :width 100%
+      &.update
+        :border-left 1px solid #999
       input
         +border-left-radius(0px)
         :border-left none
@@ -66,12 +76,14 @@ div#main h2.title
         :font-size 13px
         :font-weight bold
         :padding 4px 10px 4px 0px
-        
+        &#accept
+          :margin-right -3px
   .status
     :float right
     :font-size 13px
     :line-height 23px
     :margin-top -8px
+    :margin-left -12px
     :padding 0 16px 2px 11px
     +border-right-radius(14px)
     strong

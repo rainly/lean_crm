@@ -7,7 +7,7 @@
       = " | Fax: <b>#{account.fax}</b>" if account.fax.present?
     %br/
     %em.timestamp
-      - account_time = time_ago_in_words(account.created_at)
+      - account_time = l account.created_at, :format => :short
       - if account.assignee_id.present?
         = t('assigned_ago_by', :time => account_time, :by => account.user.username, :for => User.find(account.assignee_id).full_name)
       - else

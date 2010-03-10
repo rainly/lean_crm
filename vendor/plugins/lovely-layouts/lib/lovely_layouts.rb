@@ -53,6 +53,7 @@ module LovelyLayouts
 
     def body(*args, &block)
       options = args.extract_options!
+
       options[:class] ||= @content_for_body_class || default_body_class
       options[:id] ||= @content_for_body_id || default_body_id
 
@@ -65,11 +66,19 @@ module LovelyLayouts
     protected
 
     def default_body_id
-      params[:controller].gsub('/','_')
+      if params[:controller]
+        params[:controller].gsub('/','_')
+      else
+        'error'
+      end
     end
 
     def default_body_class
-      [params[:controller], params[:action]].join(" ").gsub('/','_')
+      if params[:controller] && params[:controller]
+        [params[:controller], params[:action]].join(" ").gsub('/','_')
+      else
+        'error'
+      end
     end
 
 

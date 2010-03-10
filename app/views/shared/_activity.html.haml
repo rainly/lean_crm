@@ -8,4 +8,4 @@
       = link_to activity.subject.name, activity.subject.commentable
     - else
       = link_to activity.subject.name, activity.subject
-  %small.timestamp= t('done_ago', :time => time_ago_in_words(activity.updated_at))
+  %small.timestamp= t('done_ago', :time => l(activity.updated_at, :format => :short))
