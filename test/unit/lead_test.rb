@@ -222,6 +222,10 @@ class LeadTest < ActiveSupport::TestCase
     end
 
     context 'promote' do
+      setup do
+        @lead.save!
+      end
+
       should 'create a new account and contact when a new account is specified' do
         @lead.promote!('Super duper company')
         assert account = Account.find_by_name('Super duper company')

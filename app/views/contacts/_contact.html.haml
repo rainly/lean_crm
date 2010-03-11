@@ -5,7 +5,7 @@
     %strong= link_to contact.listing_name, contact, :id => contact.full_name.to_dom_id
 
     %small
-      = "via #{contact.lead.full_name}#{" @ #{contact.lead.company}" if contact.lead.company.present?} | " if !contact.lead.nil?
+      = "via #{contact.leads.first.full_name}#{" @ #{contact.leads.first.company}" if contact.leads.first.company.present?} | " if !contact.leads.first.nil?
       - contact_info = []
       = " | Email: #{mail_to(contact.email, nil, :bcc => current_user.dropbox_email)}" if contact.email.present?
       = " | Phone: <b>#{contact.phone}</b>" if contact.phone.present?

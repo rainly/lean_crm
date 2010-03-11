@@ -34,6 +34,7 @@ class Contact
   key :deleted_at,          Time
   timestamps!
 
+
   sphinx_index :first_name, :last_name, :department, :email, :alt_email, :phone, :mobile,
     :fax, :website, :linked_in, :facebook, :twitter, :xing, :address
 
@@ -62,9 +63,12 @@ class Contact
 
   def self.create_for( lead, account )
     contact = account.contacts.build :user => lead.updater_or_user, :first_name => lead.first_name,
-      :last_name => lead.last_name, :lead => lead, :permission => account.permission,
+      :last_name => lead.last_name, :permission => account.permission,
       :permitted_user_ids => account.permitted_user_ids
-    contact.save if account.valid?
+    if account.valid? and contact.valid?
+      contact.save
+      contact.leads << lead
+    end
     contact
   end
 end
