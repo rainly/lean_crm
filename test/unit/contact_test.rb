@@ -5,7 +5,7 @@ class ContactTest < ActiveSupport::TestCase
     should_have_constant :accesses, :titles, :permissions, :salutations, :sources
     should_act_as_paranoid
     should_be_trackable
-    should_belong_to :account, :user, :assignee, :lead
+    should_belong_to :account, :user, :assignee
     should_have_many :leads, :tasks, :comments
 
     context 'create_for' do
@@ -23,7 +23,7 @@ class ContactTest < ActiveSupport::TestCase
 
       should 'assign lead to contact' do
         contact = Contact.create_for(@lead, @account)
-        assert_equal @lead, contact.lead
+        assert contact.leads.include?(@lead)
       end
 
       should 'not create the contact if the supplied account is invalid' do
@@ -37,6 +37,14 @@ class ContactTest < ActiveSupport::TestCase
   context "Instance" do
     setup do
       @contact = Contact.make_unsaved(:florian)
+    end
+
+    should 'validate uniqueness of email' do
+      @contact.email = 'florian.behn@careermee.com'
+      @contact.save!
+      c = Contact.make_unsaved(:florian, :email => @contact.email)
+      assert !c.valid?
+      assert c.errors.on(:email)
     end
 
     context 'permitted_for' do

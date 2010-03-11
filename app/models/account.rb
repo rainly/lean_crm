@@ -10,7 +10,7 @@ class Account
   key :user_id,         ObjectId, :index => true, :required => true
   key :assignee_id,     ObjectId, :index => true
   key :name,            String, :required => true
-  key :email,           String
+  key :email,           String, :index => true
   key :access,          Integer, :index => true
   key :website,         String
   key :phone,           String
@@ -26,6 +26,8 @@ class Account
   has_many :contacts, :dependent => :nullify
   has_many :tasks, :as => :asset
   has_many :comments, :as => :commentable
+
+  validates_uniqueness_of :email, :allow_blank => true
 
   sphinx_index :name, :email, :phone, :website, :fax
 

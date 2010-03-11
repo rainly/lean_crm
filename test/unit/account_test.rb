@@ -5,6 +5,11 @@ class AccountTest < ActiveSupport::TestCase
     should_have_constant :accesses
     should_act_as_paranoid
     should_be_trackable
+    should_have_key :user_id, :assignee_id, :name, :email, :access, :website, :phone, :fax,
+      :billing_address, :shipping_address
+    should_require_key :user_id, :name
+    should_belong_to :user, :assignee
+    should_have_many :contacts, :tasks, :comments
 
     context 'find_or_create_for' do
       setup do
@@ -96,6 +101,14 @@ class AccountTest < ActiveSupport::TestCase
   context 'Instance' do
     setup do
       @account = Account.make_unsaved(:careermee)
+    end
+
+    should 'validate uniqueness of email' do
+      @account.email = 'test@test.com'
+      @account.save!
+      a = Account.make_unsaved(:careermee, :email => 'test@test.com')
+      assert !a.valid?
+      assert a.errors.on(:email)
     end
 
     context 'permitted_for' do

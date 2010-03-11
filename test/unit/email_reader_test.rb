@@ -36,6 +36,17 @@ class EmailReaderTest < ActiveSupport::TestCase
         @email.stubs(:to).returns(['test@test.com'])
       end
 
+      context 'when receiver exists as an account' do
+        setup do
+          @account = Account.make(:careermee, :email => 'test@test.com')
+          EmailReader.parse_email(@email)
+        end
+
+        should 'add comment to account' do
+          assert_equal 1, @account.comments.count
+        end
+      end
+
       context 'when receiver exists as a lead' do
         setup do
           @lead = Lead.make(:erich, :email => 'test@test.com')
@@ -86,6 +97,46 @@ class EmailReaderTest < ActiveSupport::TestCase
 
         should 'create an account' do
           assert_equal 1, Account.count
+        end
+      end
+
+      context 'when receiver exists as an account and a contact and a lead' do
+        setup do
+          @account = Account.make(:careermee, :email => 'test@test.com')
+          @contact = Contact.make(:florian, :email => 'test@test.com')
+          @lead = Lead.make(:erich, :email => 'test@test.com')
+        end
+
+        context 'when lead is new' do
+          setup do
+            @lead.update_attributes :status => 'New'
+            EmailReader.parse_email(@email)
+          end
+
+          should 'add comment to lead' do
+            assert_equal 1, @lead.comments.count
+          end
+
+          should 'not add comment to account or contact' do
+            assert_equal 0, @contact.comments.count
+            assert_equal 0, @account.comments.count
+          end
+        end
+
+        context 'when lead is converted' do
+          setup do
+            @lead.update_attributes :status => 'Converted'
+            EmailReader.parse_email(@email)
+          end
+
+          should 'add comment to contact' do
+            assert_equal 1, @contact.comments.count
+          end
+
+          should 'not add comment to account or lead' do
+            assert_equal 0, @account.comments.count
+            assert_equal 0, @lead.comments.count
+          end
         end
       end
     end
