@@ -150,3 +150,14 @@ Feature: Manage accounts
     Then I should be on the account page
     And I should see "Sent offer"
     And I should see "erich_offer.pdf"
+
+  Scenario: Editing a comment
+    Given I am registered and logged in as annika
+    And a account exists with user: annika
+    And a comment exists with user: annika, commentable: account, text: "Excellent lead!"
+    When I press "edit_comment_" + comment.object_id
+    Then I should be on the comment's edit page
+    And I fill in "comment_text" with "Excellent lead!!!"
+    When I press "comment_submit"
+    Then I should be on the account's page
+    And I should see "Excellent lead!!!"

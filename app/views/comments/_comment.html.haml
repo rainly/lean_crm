@@ -23,3 +23,6 @@
       .attachments
         - comment.attachments.each do |attachment|
           = link_to attachment.attachment_filename, attachment
+    - if comment.user == current_user
+      .actions
+        %noscript= link_to t('edit'), edit_comment_path(comment), :id => "edit_comment_#{comment.object_id}"
