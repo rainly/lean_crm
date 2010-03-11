@@ -39,6 +39,14 @@ class ContactTest < ActiveSupport::TestCase
       @contact = Contact.make_unsaved(:florian)
     end
 
+    should 'validate uniqueness of email' do
+      @contact.email = 'florian.behn@careermee.com'
+      @contact.save!
+      c = Contact.make_unsaved(:florian, :email => @contact.email)
+      assert !c.valid?
+      assert c.errors.on(:email)
+    end
+
     context 'permitted_for' do
       setup do
         @annika = User.make(:annika)

@@ -34,6 +34,7 @@ class Contact
   key :deleted_at,          Time
   timestamps!
 
+  validates_uniqueness_of :email, :allow_blank => true
 
   sphinx_index :first_name, :last_name, :department, :email, :alt_email, :phone, :mobile,
     :fax, :website, :linked_in, :facebook, :twitter, :xing, :address
