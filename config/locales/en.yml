@@ -181,6 +181,7 @@ en:
   rejected: Rejected
   tracking_info: Tracking Info
   web_and_social_media: "Web &amp; Social Media"
+  contact_already_exists: "Contact {{contact}} already exists. Press convert to add this lead to that contact"
   lead_statuses:
     - New
     - Contacted

@@ -30,6 +30,7 @@ class LeadsController < InheritedResources::Base
 
   def convert
     @account = current_user.accounts.new(:name => @lead.company)
+    @contact = Contact.find_by_email(@lead.email) if @lead.email
   end
 
   def promote

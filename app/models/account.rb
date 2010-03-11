@@ -32,4 +32,24 @@ class Account
   def self.named(query)
     self.all( :name => /^#{query}.*/i )
   end
+
+  def self.find_or_create_for( object, name_or_id, options = {} )
+    account = Account.find_by_id(Mongo::ObjectID.from_string(name_or_id.to_s))
+  rescue Mongo::InvalidObjectID => e
+    account = Account.find_by_name(name_or_id)
+    account = create_for(object, name_or_id, options) unless account
+    account
+  end
+
+  def self.create_for( object, name, options = {} )
+    if options[:permission] == 'Object'
+      permission = object.permission
+      permitted = object.permitted_user_ids
+    else
+      permission = options[:permission]
+      permitted = options[:permitted_user_ids]
+    end
+    account = object.updater_or_user.accounts.create :permission => permission,
+      :name => name, :permitted_user_ids => permitted
+  end
 end

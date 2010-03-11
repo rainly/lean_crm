@@ -35,6 +35,11 @@ Given /^markus is not shared with annika$/ do
   lead.update_attributes :permitted_user_ids => [lead.user_id], :permission => 'Shared'
 end
 
+Given /^inspect #{capture_model}$/ do |model|
+  m = model!(model)
+  puts m.inspect
+end
+
 Then /^an activity should have been created with for lead: "([^\"]*)" and user: "([^\"]*)"$/ do |arg1, arg2|
   lead = model!(arg1)
   user = model!(arg2)

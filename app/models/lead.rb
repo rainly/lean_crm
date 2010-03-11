@@ -33,6 +33,7 @@ class Lead
   key :linked_in,     String
   key :facebook,      String
   key :xing,          String
+  key :contact_id,    ObjectId
   timestamps!
 
   sphinx_index :first_name, :last_name, :email, :phone, :notes, :company, :alternative_email,
@@ -42,6 +43,7 @@ class Lead
 
   belongs_to :user
   belongs_to :assignee, :class_name => 'User'
+  belongs_to :contact
   has_many :comments, :as => :commentable, :dependent => :delete_all
   has_many :tasks, :as => :asset, :dependent => :delete_all
 
@@ -64,28 +66,17 @@ class Lead
   alias :name :full_name
 
   def promote!( account_name, options = {} )
-    begin
-      account = Account.find_by_id(Mongo::ObjectID.from_string(account_name))
-    rescue Mongo::InvalidObjectID => e
-      logger.debug e
-    end
-    unless account
-      if options[:permission] == 'Lead'
-        permission = self.permission
-        permitted = self.permitted_user_ids
-      else
-        permission = options[:permission]
-        permitted = options[:permitted_user_ids]
-      end
-      account = self.updater_or_user.accounts.create :permission => permission,
-        :name => account_name, :permitted_user_ids => permitted
-    end
-    contact = Contact.create_for(self, account)
     @recently_converted = true
-    if account.valid? and contact.valid?
-      I18n.locale_around(:en) { update_attributes :status => 'Converted' }
+    if email and (contact = Contact.find_by_email(email))
+      I18n.locale_around(:en) { update_attributes :status => 'Converted', :contact_id => contact.id }
+    else
+      account = Account.find_or_create_for(self, account_name, options)
+      contact = Contact.create_for(self, account)
+      if [account, contact].all?(&:valid?)
+        I18n.locale_around(:en) { update_attributes :status => 'Converted', :contact_id => contact.id }
+      end
     end
-    return account, contact
+    return account || contact.account, contact
   end
 
   def reject!
@@ -108,6 +99,7 @@ protected
   end
 
   def log_update
+    return if @do_not_log
     case
     when @recently_converted then Activity.log(updater_or_user, self, 'Converted')
     when @recently_rejected then Activity.log(updater_or_user, self, 'Rejected')
