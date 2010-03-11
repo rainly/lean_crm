@@ -665,7 +665,12 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   width: 60px;
 }
 
-/* line 280, ../../../app/stylesheets/partials/_layout.sass */
+/* line 278, ../../../app/stylesheets/partials/_layout.sass */
+#search {
+  padding-bottom: 12px;
+}
+
+/* line 281, ../../../app/stylesheets/partials/_layout.sass */
 .inline-add {
   font-size: 14px;
   padding-top: 27px;
@@ -674,43 +679,43 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   float: left;
 }
 
-/* line 289, ../../../app/stylesheets/partials/_layout.sass */
+/* line 290, ../../../app/stylesheets/partials/_layout.sass */
 span.rating {
   font-size: 13px;
   padding-top: 4px;
   width: 7%;
 }
-/* line 293, ../../../app/stylesheets/partials/_layout.sass */
+/* line 294, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.on {
   color: #666;
 }
-/* line 295, ../../../app/stylesheets/partials/_layout.sass */
+/* line 296, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.off {
   color: #ccc;
 }
 
-/* line 300, ../../../app/stylesheets/partials/_layout.sass */
+/* line 301, ../../../app/stylesheets/partials/_layout.sass */
 .activities {
   font-size: 13px;
 }
-/* line 302, ../../../app/stylesheets/partials/_layout.sass */
+/* line 303, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item {
   padding: 5px 0px;
   border-bottom: 1px solid #ccc;
 }
-/* line 305, ../../../app/stylesheets/partials/_layout.sass */
+/* line 306, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item a {
   font-weight: bold;
 }
 
-/* line 307, ../../../app/stylesheets/partials/_layout.sass */
+/* line 308, ../../../app/stylesheets/partials/_layout.sass */
 span.icon {
   color: #777;
   font-size: 16px;
   padding: 0px 5px;
 }
 
-/* line 311, ../../../app/stylesheets/partials/_layout.sass */
+/* line 312, ../../../app/stylesheets/partials/_layout.sass */
 small.timestamp {
   color: #888;
   font-style: italic;
@@ -718,14 +723,14 @@ small.timestamp {
   margin-top: 4px;
 }
 
-/* line 319, ../../../app/stylesheets/partials/_layout.sass */
+/* line 320, ../../../app/stylesheets/partials/_layout.sass */
 .pagination {
   clear: both;
   padding-top: 8px;
   text-align: right;
 }
 
-/* line 326, ../../../app/stylesheets/partials/_layout.sass */
+/* line 327, ../../../app/stylesheets/partials/_layout.sass */
 #the_error {
   border-radius: 20px;
   -moz-border-radius: 20px;
@@ -739,19 +744,24 @@ small.timestamp {
   background-image: -moz-linear-gradient(center top, red 0%, #880000 100%);
   width: 43%;
 }
-/* line 334, ../../../app/stylesheets/partials/_layout.sass */
+/* line 335, ../../../app/stylesheets/partials/_layout.sass */
 #the_error h2, #the_error a {
   color: #fff;
   text-decoration: none;
 }
-/* line 337, ../../../app/stylesheets/partials/_layout.sass */
+/* line 338, ../../../app/stylesheets/partials/_layout.sass */
 #the_error a:hover {
   color: #fff;
   text-decoration: underline;
 }
-/* line 340, ../../../app/stylesheets/partials/_layout.sass */
+/* line 341, ../../../app/stylesheets/partials/_layout.sass */
 #the_error p {
   font-size: 16px;
+}
+
+/* line 343, ../../../app/stylesheets/partials/_layout.sass */
+.hidden {
+  display: none;
 }
 
 /* line 1, ../../../app/stylesheets/partials/_typography.sass */

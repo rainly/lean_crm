@@ -13,11 +13,6 @@
         = t('added_ago_by', :time => l(lead.created_at, :format => :short), :by => lead.user.username)
         = " : #{link_to(pluralize(lead.comments.size, t('comment')), lead)}" if lead.comments.any?
     %span.actions
-      = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
-      %b.divider= "|"
-      - simple_form_for lead, :html => { :method => :delete } do |form|
-        = hidden_field_tag :return_to, request.request_uri
-        = form.button :submit, t('delete'), :class => 'delete', :id => "delete_#{lead.full_name.to_dom_id}"
       - unless lead.assignee == current_user
         - simple_form_for lead, :html => { :method => :put } do |form|
           = form.hidden_field :assignee_id, :value => current_user.id

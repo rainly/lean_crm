@@ -16,7 +16,7 @@ class User < AbstractUser
   before_validation_on_create :set_api_key
 
   def deleted_items_count
-    [Lead, Contact, Account].map do |model|
+    [Lead, Contact, Account, Comment].map do |model|
       model.permitted_for(self).deleted.count
     end.inject {|sum, n| sum += n }
   end

@@ -155,7 +155,7 @@ Feature: Manage accounts
     Given I am registered and logged in as annika
     And a account exists with user: annika
     And a comment exists with user: annika, commentable: account, text: "Excellent lead!"
-    When I press "edit_comment_" + comment.object_id
+    When I follow "Edit This Comment"
     Then I should be on the comment's edit page
     And I fill in "comment_text" with "Excellent lead!!!"
     When I press "comment_submit"
