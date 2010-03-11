@@ -9,7 +9,7 @@
       %small.acted= t 'email_sent_ago', :time => l(comment.created_at, :format => :short)
     .quote= t 'icons.comment'
     .message
-      = comment.text
+      = comment.text.gsub(/\n/, '<br />')
       .attachments
         - comment.attachments.each do |attachment|
           = link_to attachment.attachment_filename, attachment
