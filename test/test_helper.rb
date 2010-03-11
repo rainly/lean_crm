@@ -77,6 +77,15 @@ class ActiveSupport::TestCase
     end
   end
 
+  def self.should_have_key(*args)
+    klass = self.name.gsub(/Test$/, '').constantize
+    args.each do |arg|
+      should "have_key '#{arg}'" do
+        assert klass.keys.map(&:first).include?(arg.to_s)
+      end
+    end
+  end
+
   def self.should_require_key(*args)
     klass = self.name.gsub(/Test$/, '').constantize
     args.each do |arg|
