@@ -5,6 +5,92 @@ class AccountTest < ActiveSupport::TestCase
     should_have_constant :accesses
     should_act_as_paranoid
     should_be_trackable
+
+    context 'find_or_create_for' do
+      setup do
+        @lead = Lead.make(:erich)
+        @account = Account.make(:careermee)
+      end
+
+      context 'when account exists' do
+        should 'return the existing account' do
+          assert_equal @account, Account.find_or_create_for(@lead, @account.name)
+          assert_equal 1, Account.count
+        end
+      end
+
+      context 'when the account does not exist' do
+        should 'create a new account' do
+          Account.find_or_create_for(@lead, 'test')
+          assert_equal 2, Account.count
+        end
+      end
+
+      context 'when an id is specified instead of a name' do
+        should 'return the account' do
+          assert_equal @account, Account.find_or_create_for(@lead, @account.id)
+          assert_equal 1, Account.count
+        end
+      end
+    end
+
+    context 'create_for' do
+      setup do
+        @user = User.make(:annika)
+        @benny = User.make(:benny)
+        @lead = Lead.make(:erich, :user => @user)
+      end
+
+      context 'when lead does not have updater' do
+        setup do
+          @lead.update_attributes :updater_id => nil
+          Account.create_for(@lead, 'CareerMee')
+        end
+
+        should 'create account for lead, using leads creator' do
+          assert_equal 1, @user.accounts.count
+        end
+      end
+
+      context 'when lead has updater' do
+        setup do
+          @lead.update_attributes :updater_id => @benny.id
+          Account.create_for(@lead, 'CareerMee')
+        end
+
+        should 'create account for lead, using leads updater' do
+          assert_equal 1, @benny.accounts.count
+        end
+      end
+
+      context 'when lead permission is specified' do
+        setup do
+          @lead.update_attributes :permission => 'Private'
+          Account.create_for(@lead, 'CareerMee', :permission => 'Object')
+        end
+
+        should 'create account with the same permission as the lead' do
+          assert_equal 1, Account.count
+          assert_equal 'Private', Account.first.permission
+        end
+      end
+
+      context 'when custom permission is specified' do
+        should 'create account with the custom permissions' do
+          Account.create_for(@lead, 'CareerMee', :permission => 'Shared', :permitted_user_ids => [@benny.id])
+          assert_equal 1, Account.count
+          assert_equal 'Shared', Account.first.permission
+          assert_equal [@benny.id], Account.first.permitted_user_ids
+        end
+      end
+
+      context 'when account is invalid' do
+        should 'return an invalid account' do
+          @account = Account.create_for(@lead, 'CareerMee', :permission => 'Shared', :permitted_user_ids => [])
+          assert !@account.valid?
+        end
+      end
+    end
   end
 
   context 'Instance' do

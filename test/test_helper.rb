@@ -88,6 +88,45 @@ class ActiveSupport::TestCase
     end
   end
 
+  def self.should_have_many(*args)
+    klass = self.name.gsub(/Test$/, '').constantize
+    args.each do |arg|
+      should "have_many '#{arg}'" do
+        has = false
+        klass.associations.each do |name, assoc|
+          has = true if assoc.type == :many and name == arg.to_s
+        end
+        assert has
+      end
+    end
+  end
+
+  def self.should_have_one(*args)
+    klass = self.name.gsub(/Test$/, '').constantize
+    args.each do |arg|
+      should "have_one '#{arg}'" do
+        has = false
+        klass.associations.each do |name, assoc|
+          has = true if assoc.type == :has_one and name == arg.to_s
+        end
+        assert has
+      end
+    end
+  end
+
+  def self.should_belong_to(*args)
+    klass = self.name.gsub(/Test$/, '').constantize
+    args.each do |arg|
+      should "belong_to '#{arg}'" do
+        has = false
+        klass.associations.each do |name, assoc|
+          has = true if assoc.type == :belongs_to and name == arg.to_s
+        end
+        assert has
+      end
+    end
+  end
+
   setup do
     Sham.reset
     Dir[Rails.root + 'app/models/**/*.rb'].each do |model_path|

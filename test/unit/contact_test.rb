@@ -5,6 +5,8 @@ class ContactTest < ActiveSupport::TestCase
     should_have_constant :accesses, :titles, :permissions, :salutations, :sources
     should_act_as_paranoid
     should_be_trackable
+    should_belong_to :account, :user, :assignee, :lead
+    should_have_many :leads, :tasks, :comments
 
     context 'create_for' do
       setup do
@@ -84,6 +86,11 @@ class ContactTest < ActiveSupport::TestCase
       should 'log an activity when updated' do
         @contact.update_attributes :first_name => 'test'
         assert @contact.activities.any? {|a| a.action == 'Updated' }
+      end
+
+      should 'not log an "update" activity when do_not_log is set' do
+        @contact.update_attributes :first_name => 'test', :do_not_log => true
+        assert !@contact.activities.any? {|a| a.action == 'Updated' }
       end
 
       should 'not log an update activity when created' do

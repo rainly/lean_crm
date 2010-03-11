@@ -8,12 +8,15 @@ module Activities
 
       key :updater_id, ObjectId
       belongs_to :updater, :class_name => 'User'
+
+      attr_accessor :do_not_log
     end
     base.send(:include, InstanceMethods)
   end
 
   module InstanceMethods
     def log_creation
+      return if self.do_not_log
       Activity.log(self.user, self, 'Created')
       @recently_created = true
     end
@@ -23,6 +26,7 @@ module Activities
     end
 
     def log_update
+      return if self.do_not_log
       case
       when @recently_destroyed
         Activity.log(updater_or_user, self, 'Deleted')

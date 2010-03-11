@@ -1,25 +1,28 @@
 - form_tag promote_lead_path(@lead), :method => :put do
-  %fieldset
-    .60.a
-      .string
-        %label{ :for => 'account_name' }= t('simple_form.labels.account_name')
-        = text_field_tag 'account_name'
-    .40.z
-      .string
-        %label{ :for => 'account_id' }= t('simple_form.labels.account_id')
-        = select_tag :account_id, options_for_select([''] + Account.all(:order => 'name').map {|a| [a.name, a.id] }, params[:account_id])
-  %fieldset
-    .20.a
-      .string
-        %label{ :for => 'permission' }= t('simple_form.labels.permission')
-        = select_tag :permission, options_for_select(Account.permissions, params[:permission]), :include_blank => true
-    .80.z
-      .checks
-        %label== #{t('simple_form.labels.permitted_users')}:
+  - if @contact
+    = t(:contact_already_exists, :contact => @contact.full_name)
+  - else
+    %fieldset
+      .60.a
+        .string
+          %label{ :for => 'account_name' }= t('simple_form.labels.account_name')
+          = text_field_tag 'account_name'
+      .40.z
+        .string
+          %label{ :for => 'account_id' }= t('simple_form.labels.account_id')
+          = select_tag :account_id, options_for_select([''] + Account.all(:order => 'name').map {|a| [a.name, a.id] }, params[:account_id])
+    %fieldset
+      .20.a
+        .string
+          %label{ :for => 'permission' }= t('simple_form.labels.permission')
+          = select_tag :permission, options_for_select(Account.permissions, params[:permission]), :include_blank => true
+      .80.z
+        .checks
+          %label== #{t('simple_form.labels.permitted_users')}:
 
-        - User.all.each do |user|
-          = check_box_tag :permitted_user_ids, user.id, params[:permitted_user_ids] && params[:permitted_user_ids].include?(user.id), :id => "permitted_user_ids_#{user.id}"
-          %label{ :for => "permitted_user_ids_#{user.id}" }= user.email
+          - User.all.each do |user|
+            = check_box_tag :permitted_user_ids, user.id, params[:permitted_user_ids] && params[:permitted_user_ids].include?(user.id), :id => "permitted_user_ids_#{user.id}"
+            %label{ :for => "permitted_user_ids_#{user.id}" }= user.email
   = submit_tag t('convert_lead'), :id => 'convert'
   = t('or')
   = link_to t('cancel'), :back

@@ -5,6 +5,8 @@ class LeadTest < ActiveSupport::TestCase
     should_have_constant :titles, :statuses, :sources, :salutations, :permissions
     should_act_as_paranoid
     should_be_trackable
+    should_belong_to :user, :assignee, :contact
+    should_have_many :comments, :tasks, :activities
   end
 
   context 'Named Scopes' do
@@ -154,6 +156,11 @@ class LeadTest < ActiveSupport::TestCase
         @lead.save!
       end
 
+      should 'not log a "created" activity when do_not_log is set' do
+        lead = Lead.make(:erich, :do_not_log => true)
+        assert_equal 0, lead.activities.count
+      end
+
       should 'log an activity when created' do
         assert_equal 1, @lead.activities.count
         assert @lead.activities.any? {|a| a.action == 'Created' }
@@ -163,6 +170,12 @@ class LeadTest < ActiveSupport::TestCase
         @lead = Lead.find_by_id(@lead.id)
         @lead.update_attributes :first_name => 'test'
         assert @lead.activities.any? {|a| a.action == 'Updated' }
+      end
+
+      should 'not log an "updated" activity when do_not_log is set' do
+        lead = Lead.make(:erich, :do_not_log => true)
+        lead.update_attributes :do_not_log => true
+        assert_equal 0, lead.activities.count
       end
 
       should 'log an activity when destroyed' do
@@ -223,7 +236,8 @@ class LeadTest < ActiveSupport::TestCase
 
       should 'assign lead to contact' do
         @lead.promote!('company name')
-        assert_equal @lead, Account.find_by_name('company name').contacts.first.lead
+        assert Account.find_by_name('company name').contacts.first.leads.include?(@lead)
+        assert_equal @lead.reload.contact, Account.find_by_name('company name').contacts.first
       end
 
       should 'be able to specify a "Private" permission level' do
@@ -242,7 +256,7 @@ class LeadTest < ActiveSupport::TestCase
 
       should 'be able to use leads permission level' do
         @lead.update_attributes :permission => 'Shared', :permitted_user_ids => [@lead.user_id]
-        @lead.promote!('A company', :permission => 'Lead')
+        @lead.promote!('A company', :permission => 'Object')
         assert_equal @lead.permission, Account.first.permission
         assert_equal @lead.permitted_user_ids, Account.first.permitted_user_ids
         assert_equal @lead.permission, Contact.first.permission
@@ -262,6 +276,14 @@ class LeadTest < ActiveSupport::TestCase
       should 'not convert lead when account is invalid' do
         @lead.promote!('')
         assert_equal 'New', @lead.reload.status
+      end
+
+      should 'return existing contact and account if a contact already exists with the same email' do
+        @lead.update_attributes :email => 'florian.behn@careermee.com'
+        @contact = Contact.make(:florian, :email => 'florian.behn@careermee.com')
+        @lead.promote!('')
+        assert_equal 1, Contact.count
+        assert_equal 'Converted', @lead.reload.status
       end
     end
 

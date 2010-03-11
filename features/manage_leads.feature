@@ -207,6 +207,30 @@ Feature: Manage leads
     And I should see "CareerMee"
     And I should see "Erich"
     And 1 accounts should exist
+    And a new "Converted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
+
+  Scenario: Converting a lead to an existing contact
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika, email: "erich.feldmeier@gmail.com"
+    And account: "careermee" exists with user: annika
+    And contact: "florian" exists with email: "erich.feldmeier@gmail.com", account: careermee
+    And I am on the lead's page
+    When I follow "convert"
+    And I press "convert"
+    Then I should be on the account page
+    And I should see "CareerMee"
+    And 1 contacts should exist
+
+  Scenario: Convert page when converting to an existing account
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika, email: "erich.feldmeier@gmail.com"
+    And account: "careermee" exists with user: annika
+    And contact: "florian" exists with email: "erich.feldmeier@gmail.com", account: careermee
+    And I am on the lead's page
+    When I follow "convert"
+    Then I should not see "account_name"
+    And I should not see "account_id"
+    And I should see "convert"
 
   Scenario: Trying to convert a lead without entering an account name
     Given I am registered and logged in as annika

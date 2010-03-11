@@ -47,8 +47,9 @@ class Contact
   belongs_to :assignee, :class_name => 'User'
   belongs_to :lead
 
-  has_many :tasks, :as => :asset
-  has_many :comments, :as => :commentable
+  has_many :tasks, :as => :asset, :dependent => :destroy
+  has_many :comments, :as => :commentable, :dependent => :destroy
+  has_many :leads, :dependent => :destroy
 
   def full_name
     "#{first_name} #{last_name}"
