@@ -11,6 +11,7 @@
       %br/
       %em.timestamp
         = t('added_ago_by', :time => l(lead.created_at, :format => :short), :by => lead.user.username)
+        = t('assigned_to', :user => User.find(lead.assignee_id)) if lead.assignee_id.present?
         = " : #{link_to(pluralize(lead.comments.size, t('comment')), lead)}" if lead.comments.any?
     %span.actions
       - unless lead.assignee == current_user
