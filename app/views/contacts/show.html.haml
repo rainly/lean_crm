@@ -14,7 +14,7 @@
           = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
     %li.last
       - simple_form_for @contact, :html => { :method => :delete } do |form|
-        = form.button :submit, t('delete'), :id => 'delete'
+        = form.button :submit, t('delete'), :id => "delete_#{dom_id @contact}"
 
 = render :partial => "tasks/add_task", :locals=> { :object => @contact }
 = render :partial => "comments/comments", :locals => { :object => @contact }

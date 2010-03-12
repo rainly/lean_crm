@@ -65,7 +65,7 @@ Feature: Manage contacts
     And a user: "benny" exists
     And a contact "florian" exists with user: benny
     And I am on the contact's page
-    When I press "delete"
+    When I click the delete button for the contact
     Then I should be on the contacts page
     And I should not see "Florian" within "#main"
     And a new "Deleted" activity should have been created for "Contact" with "first_name" "Florian" and user: "annika"
@@ -74,7 +74,7 @@ Feature: Manage contacts
     Given I am registered and logged in as annika
     And a contact "florian" exists with user: annika
     And I am on the contacts page
-    When I press "delete_florian-behn"
+    When I click the delete button for the contact
     Then I should be on the contacts page
     And I should not see "Florian"
 
@@ -144,7 +144,7 @@ Feature: Manage contacts
     And a contact exists with user: annika
     And a task exists with asset: the contact, name: "Call to get offer details", user: annika
     And I am on the contact's page
-    When I press "delete_task"
+    When I click the delete button for the task
     Then I should be on the contact's page
     And a task should not exist
     And I should not see "Call to get offer details"

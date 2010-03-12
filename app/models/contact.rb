@@ -50,7 +50,7 @@ class Contact
   belongs_to :lead
 
   has_many :tasks, :as => :asset, :dependent => :destroy
-  has_many :comments, :as => :commentable, :dependent => :destroy
+  has_many :comments, :as => :commentable, :dependent => :delete_all
   has_many :leads, :dependent => :destroy
 
   def full_name

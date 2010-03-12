@@ -6,6 +6,8 @@
       = activity.subject.name
     - elsif activity.subject.is_a?(Comment)
       = link_to activity.subject.name, activity.subject.commentable
+    - elsif activity.subject.is_a?(Task)
+      = link_to activity.subject.name, activity.subject.asset
     - else
       = link_to activity.subject.name, activity.subject
   %small.timestamp= t('done_ago', :time => l(activity.updated_at, :format => :short))

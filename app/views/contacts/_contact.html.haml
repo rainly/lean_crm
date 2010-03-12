@@ -22,4 +22,4 @@
       = link_to t('edit'), [:edit, contact], :id => "edit_#{contact.full_name.to_dom_id}"
       %b.divider= "|"
       - simple_form_for contact, :html => { :method => :delete } do |form|
-        = form.button :submit, t('delete'), :id => "delete_#{contact.full_name.to_dom_id}", :class=> 'delete'
+        = form.button :submit, t('delete'), :id => "delete_#{dom_id contact}", :class=> 'delete'

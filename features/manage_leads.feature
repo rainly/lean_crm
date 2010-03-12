@@ -80,7 +80,7 @@ Feature: Manage leads
     And a user: "benny" exists
     And a lead "erich" exists with user: benny
     And I am on the leads page
-    When I press "delete_erich-feldmeier"
+    When I click the delete button for the lead
     Then I should be on the leads page
     And lead "erich" should have been deleted
     And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
@@ -162,7 +162,7 @@ Feature: Manage leads
     And a lead exists with user: annika
     And a task exists with asset: the lead, name: "Call to get offer details", user: annika
     And I am on the lead's page
-    When I press "delete_task"
+    When I click the delete button for the task
     Then I should be on the lead's page
     And a task should not exist
     And I should not see "Call to get offer details"

@@ -38,7 +38,7 @@ Feature: Manage accounts
     And a user: "benny" exists
     And account: "careermee" exists with user: benny
     And I am on the accounts page
-    When I press "delete_careermee"
+    When I click the delete button for the account
     Then I should be on the accounts page
     And I should not see "CareerMee" within "#main"
     And a new "Deleted" activity should have been created for "Account" with "name" "CareerMee" and user: "annika"
@@ -125,7 +125,7 @@ Feature: Manage accounts
     And an account exists with user: annika
     And a task exists with asset: the account, name: "Call to get offer details", user: annika
     And I am on the account's page
-    When I press "delete_task"
+    When I click the delete button for the task
     Then I should be on the account's page
     And a task should not exist
     And I should not see "Call to get offer details"

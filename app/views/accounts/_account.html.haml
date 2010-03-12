@@ -18,4 +18,4 @@
     
       %b.divider= "|"
       - simple_form_for account, :html => { :method => :delete } do |form|
-        = form.button :submit, t('delete'), :id => "delete_#{account.name.to_dom_id}", :class=> 'delete'
+        = form.button :submit, t('delete'), :id => "delete_#{dom_id account}", :class=> 'delete'
