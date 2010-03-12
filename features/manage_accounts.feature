@@ -153,11 +153,21 @@ Feature: Manage accounts
 
   Scenario: Editing a comment
     Given I am registered and logged in as annika
-    And a account exists with user: annika
-    And a comment exists with user: annika, commentable: account, text: "Excellent lead!"
-    When I follow "Edit This Comment"
+    And account: "careermee" exists with user: annika, permission: "Public"
+    And a comment exists with user: annika, commentable: account, text: "Excellent account!"
+    And I am on the account's page
+    When I follow "Edit this Comment"
     Then I should be on the comment's edit page
-    And I fill in "comment_text" with "Excellent lead!!!"
-    When I press "comment_submit"
+    And I fill in "comment_text" with "Excellent account!!!"
+    When I press "Update Comment"
     Then I should be on the account's page
-    And I should see "Excellent lead!!!"
+    And I should see "Excellent account!!!"
+
+  Scenario: Deleting a comment
+    Given I am registered and logged in as annika
+    And account: "careermee" exists with user: annika, permission: "Public"
+    And a comment exists with user: annika, commentable: account, text: "Some account this is"
+    And I am on the account's page
+    When I click the delete button for the comment
+    Then I should be on the account's page
+    And I should not see "Some account this is"

@@ -153,11 +153,13 @@ en:
   # Comments
   #--------------------------------------------------------------
   add_comment: Add Comment
-  edit_comment: Edit Comment
+  edit_comment: Edit this Comment
   comment: Comment
   comment_updated: Comment was successfully updated
   comments: Comments
+  update_comment: Update Comment
   wrote: wrote
+  
   #--------------------------------------------------------------
   # Contact
   #--------------------------------------------------------------

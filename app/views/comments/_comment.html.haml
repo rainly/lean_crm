@@ -29,4 +29,4 @@
         |
         - simple_form_for comment, :html => { :method => :delete } do |form|
           = hidden_field_tag :return_to, request.request_uri
-          = form.button :submit, t('delete'), :class => 'delete', :id => 'delete_comment'
+          = form.button :submit, t('delete'), :class => 'delete', :id => "delete_comment_#{comment.id}"

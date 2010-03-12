@@ -6,8 +6,8 @@ class CommentTest < ActiveSupport::TestCase
       @comment = Comment.make_unsaved(:made_offer_to_erich)
     end
 
-    should 'alias subject to name' do
-      assert @comment.name == @comment.subject
+    should 'alias text to name' do
+      assert @comment.name == @comment.text
     end
 
     should 'be valid with all required attributes' do

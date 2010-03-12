@@ -13,8 +13,11 @@ class CommentsController < InheritedResources::Base
     update! do |success, failure|
       success.html do
         flash[:notice] = I18n.t('comment_updated')
-        path = eval("#{object.commentable.class.to_s.underscore.downcase}_path")
-        return_to_or_default path
+        return_to_or_default url_for(
+          :controller => @comment.commentable_type.downcase.pluralize,
+          :action     => 'show',
+          :id         => @comment.commentable_id
+        )
       end
     end
   end
