@@ -168,6 +168,6 @@ Feature: Manage accounts
     And account: "careermee" exists with user: annika, permission: "Public"
     And a comment exists with user: annika, commentable: account, text: "Some account this is"
     And I am on the account's page
-    When I click the delete button for the comment
+    When I press the delete button for the comment
     Then I should be on the account's page
     And I should not see "Some account this is"
