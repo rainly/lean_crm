@@ -5,7 +5,9 @@ class CommentsController < InheritedResources::Base
 
   def create
     create! do |success, failure|
-      success.html { redirect_to params[:return_to] || comments_path }
+      success.html do
+        return_to_or_default commentable_path
+      end
     end
   end
   
@@ -13,11 +15,7 @@ class CommentsController < InheritedResources::Base
     update! do |success, failure|
       success.html do
         flash[:notice] = I18n.t('comment_updated')
-        return_to_or_default url_for(
-          :controller => @comment.commentable_type.downcase.pluralize,
-          :action     => 'show',
-          :id         => @comment.commentable_id
-        )
+        return_to_or_default commentable_path
       end
     end
   end
@@ -29,6 +27,14 @@ class CommentsController < InheritedResources::Base
   end
 
 protected
+  def commentable_path
+    url_for(
+      :controller => @comment.commentable.class.to_s.downcase.pluralize,
+      :action     => 'show',
+      :id         => @comment.commentable.id
+    )
+  end
+  
   def begin_of_association_chain
     current_user
   end

@@ -1,8 +1,10 @@
 %fieldset
-  = params[:commentable_type]
-  = hidden_field_tag :return_to
-  = form.hidden_field :commentable_id
-  = form.hidden_field :commentable_type
+  - if action_is('new','create','show')
+    = form.hidden_field :commentable_id, :value => params[:id]
+    = form.hidden_field :commentable_type, :value => @controller.controller_name.singularize.titleize
+  - else
+    = form.hidden_field :commentable_id
+    = form.hidden_field :commentable_type
   = form.input :text, :as => :text, :input_html => {:rows => 4}, :grid => '100'
   - form.simple_fields_for 'attachments_attributes[]', Attachment.new do |attachment_form|
     = attachment_form.input :attachment, :as => :file
