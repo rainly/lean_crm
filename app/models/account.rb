@@ -9,7 +9,7 @@ class Account
 
   key :user_id,         ObjectId, :index => true, :required => true
   key :assignee_id,     ObjectId, :index => true
-  key :name,            String, :required => true
+  key :name,            String, :required => true, :index => true
   key :email,           String, :index => true
   key :access,          Integer, :index => true
   key :website,         String
