@@ -18,12 +18,11 @@
   = render :partial => 'contacts/contact', :collection => @account.contacts
 .clear
 = render :partial => "tasks/add_task", :locals=> { :object => @account }
-.clear
 = render :partial => "comments/comments", :locals => {:object => @account }
 
 - content_for :sidebar do
   .box.gold
-    %h3= t('contact_info')
+    %h3= t('contact_info_for', :name => @account.name)
     %dl.info
       = show_attribute(@account, 'email', mail_to(@account.email, nil, :bcc => current_user.dropbox_email))
       = show_attribute(@account, 'phone')

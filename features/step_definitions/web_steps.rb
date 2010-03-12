@@ -213,3 +213,7 @@ end
 When /I wait for the AJAX call to finish/ do
   $browser.wait
 end
+
+When /^I click the (.+) button for the #{capture_model}$/ do |action, object|
+  click_button("#{action}_#{model!(object).class.to_s.underscore.downcase}_#{model!(object).id}")
+end

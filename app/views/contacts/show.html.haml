@@ -17,12 +17,11 @@
         = form.button :submit, t('delete'), :id => 'delete'
 
 = render :partial => "tasks/add_task", :locals=> { :object => @contact }
-
 = render :partial => "comments/comments", :locals => { :object => @contact }
 
 - content_for :sidebar do
   .box.gold
-    %h3= t('contact_info')
+    %h3= t('contact_info_for', :name => @contact.first_name)
     %dl.info
       = show_attribute(@contact, 'department')
       = show_attribute(@contact, 'email', mail_to(@contact.email, nil, :bcc => current_user.dropbox_email))

@@ -153,14 +153,19 @@ en:
   # Comments
   #--------------------------------------------------------------
   add_comment: Add Comment
+  edit_comment: Edit this Comment
   comment: Comment
+  comment_updated: Comment was successfully updated
   comments: Comments
+  update_comment: Update Comment
   wrote: wrote
+  
   #--------------------------------------------------------------
   # Contact
   #--------------------------------------------------------------
   add_contact: Add Contact
   contact_info: Contact Info
+  contact_info_for: "Contact {{name}}"
   delete_contact: Delete Contact
   edit_contact: Edit Contact
   

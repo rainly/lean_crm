@@ -6,7 +6,8 @@ class DeletedItemsController < ApplicationController
     @items ||= [
       Lead.permitted_for(current_user).all(:deleted_at => { '$ne' => nil }) +
       Contact.permitted_for(current_user).all(:deleted_at => { '$ne' => nil }) +
-      Account.permitted_for(current_user).all(:deleted_at => { '$ne' => nil })
+      Account.permitted_for(current_user).all(:deleted_at => { '$ne' => nil }) +
+      Comment.permitted_for(current_user).all(:deleted_at => { '$ne' => nil })
     ].flatten.sort_by(&:deleted_at)
   end
 

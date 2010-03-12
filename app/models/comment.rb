@@ -22,7 +22,7 @@ class Comment
 
   after_create :add_attachments
 
-  alias :name :subject
+  alias :name :text
 
   def attachments_attributes=( attribs )
     @attachments_to_add = []

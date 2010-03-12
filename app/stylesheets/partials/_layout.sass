@@ -1,5 +1,5 @@
 body
-  :background = !body_background
+  :background #cfcfcf
   :width 100%
   :margin 0px
   :position relative
@@ -64,6 +64,7 @@ ul#navigation
 // Content
 //---------------------------------------------------
 #content
+  +clearfix
   .pad
     :padding 20px
 div#main
@@ -272,7 +273,8 @@ div.item, dl.item dd
           :text-align right
           :width 60px
         
-
+#search
+  :padding-bottom 12px
     
 .inline-add
   :font-size 14px
@@ -336,3 +338,6 @@ small.timestamp
     :text-decoration underline
   p
     :font-size 16px
+.hidden
+  :display none
+  

@@ -6,3 +6,4 @@
     = render :partial => 'tasks/task', :collection => object.tasks.for(current_user).incomplete
   - else
     %p= t('no_tasks_for', :object => object.class.to_s.underscore.downcase, :link => new_task_path(:asset_id => object.id, :asset_type => object.class.to_s, :return_to => request.request_uri))
+.clear

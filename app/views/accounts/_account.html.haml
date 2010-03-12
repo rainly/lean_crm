@@ -12,7 +12,7 @@
         = t('assigned_ago_by', :time => account_time, :by => account.user.username, :for => User.find(account.assignee_id).full_name)
       - else
         = t('added_ago_by', :time => account_time, :by => account.user.username)  
-      = " : #{link_to(pluralize(account.comments.size, t('comment')), account)}" if account.comments.any?
+      = " : #{link_to(pluralize(account.comments.not_deleted.size, t('comment')), account)}" if account.comments.not_deleted.any?
     %span.actions
       = link_to t('edit'), [:edit, account], :id => "edit_#{account.name.to_dom_id}"
     

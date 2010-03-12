@@ -23,3 +23,10 @@
       .attachments
         - comment.attachments.each do |attachment|
           = link_to attachment.attachment_filename, attachment
+    - if comment.user == current_user
+      .actions
+        = link_to t('edit_comment'), edit_comment_path(comment), :id => dom_id(comment)
+        |
+        - simple_form_for comment, :html => { :method => :delete } do |form|
+          = hidden_field_tag :return_to, request.request_uri
+          = form.button :submit, t('delete'), :class => 'delete', :id => "delete_comment_#{comment.id}"
