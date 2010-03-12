@@ -1,9 +1,11 @@
 module Permission
   def self.included( base )
     base.class_eval do
-      key :permission,          Integer, :required => true, :default => 0
-      key :permitted_user_ids,  Array
+      key :permission,          Integer, :required => true, :default => 0, :index => true
+      key :permitted_user_ids,  Array, :index => true
 
+      # TODO: this.permitted_user_ids[0] is obviously a hack,
+      # must write more thorough tests for this scope
       named_scope :permitted_for, lambda {|user| { :conditions => {
         '$where' => <<-JAVASCRIPT
         this.user_id == '#{user.id}' || this.permission == '#{Contact.permissions.index('Public')}' ||

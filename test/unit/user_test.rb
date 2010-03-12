@@ -50,7 +50,7 @@ class UserTest < ActiveSupport::TestCase
           email.body.match(/#{@lead.name}/) && !email.body.match(/#{@comment.text}/) &&
             !email.body.match(/#{@email.text}/) && !email.body.match(/#{@task.name}/) &&
             !email.body.match(/#{@attachment.attachment_filename}/) &&
-            email.to.include?(@benny.email) && email.body.match(/#{comment2.subject}/)
+            email.to.include?(@benny.email) && email.body.match(/#{comment2.text}/)
         end
       end
 

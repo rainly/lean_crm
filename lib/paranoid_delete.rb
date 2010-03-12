@@ -1,7 +1,7 @@
 module ParanoidDelete
   def self.included( base )
     base.send(:include, InstanceMethods)
-    base.key :deleted_at, Time
+    base.key :deleted_at, Time, :index => true
     base.class_eval do
       alias_method_chain :destroy, :paranoid
     end

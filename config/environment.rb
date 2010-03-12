@@ -42,7 +42,7 @@ Rails::Initializer.run do |config|
   config.gem 'beanstalk-client'
   config.gem 'will_paginate'
   config.gem 'riddle'
-  config.gem 'mongosphinx'
+  config.gem 'mongosphinx', :version => '0.1'
   config.gem 'smurf'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
