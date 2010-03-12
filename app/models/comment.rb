@@ -22,7 +22,9 @@ class Comment
 
   after_create :add_attachments
 
-  alias :name :text
+  def name
+    "#{text[0..30]}..."
+  end
 
   def attachments_attributes=( attribs )
     @attachments_to_add = []
