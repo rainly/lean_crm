@@ -1935,7 +1935,7 @@ dl.item dt.lunch, dl.item dt.rejected, dl.item dt.task {
   color: #a57860;
 }
 /* line 69, ../../../app/stylesheets/models/_task.sass */
-dl.item dt.meeting {
+dl.item dt.meeting, dl.item dt.comment {
   background: #f5ed9d;
   color: #9b9343;
 }
