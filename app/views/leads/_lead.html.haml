@@ -24,4 +24,4 @@
       = link_to t('edit'), [:edit, lead], :id => "edit_#{lead.full_name.to_dom_id}"
       %b.divider= "|"
       - simple_form_for lead, :html => { :method => :delete } do |form|
-        = form.button :submit, t('delete'), :class => 'delete', :id => "delete_#{dom_id(lead)}"
+        = form.button :submit, t('delete_icon'), :class => 'delete', :id => "delete_#{dom_id(lead)}"

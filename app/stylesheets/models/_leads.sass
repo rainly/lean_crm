@@ -29,63 +29,18 @@ dl.item
       span.actions
         :width 7.2em
 
-div#main h2.title
+div#main .title
   //----------------------------------------------------
   // Convert or Reject
   //----------------------------------------------------
-  .actions
-    :clear none
-    :float right
-    :margin 0px
-    :padding 0
-    +silver-tabs
-    :width auto
-    li
-      :width auto
-      a
-        +box-shadow(#999)
-      a, input
-        :padding-left 8px
-        :padding-right 8px
-      &.right
-        :float right
-    .first form
-      :width 100%
-      input
-        +border-left-radius(14px)
-        :border-left 1px solid #999
-        :padding 4px 10px 5px 0
-    .last form input
-      +border-right-radius(14px)
-      :border-right 1px solid #999
-    form
-      :clear none
-      :float left
-      :margin-top -8px
-      :padding-right 15px
-      :width 91%
-      &.accept
-        :width 100%
-      &.update
-        :border-left 1px solid #999
-      input
-        +border-left-radius(0px)
-        :border-left none
-        +border-right-radius(0px)
-        :border-right none
-        :font-size 13px
-        :font-weight bold
-        :padding 4px 10px 4px 0px
-        &#accept
-          :margin-right -3px
+  
   .status
-    :float right
     :font-size 13px
     :line-height 23px
     :margin-top -8px
-    :margin-left -12px
+    :margin-left 0
     :padding 0 16px 2px 11px
-    +border-right-radius(14px)
+    +border-radius(14px)
     strong
       :font-size 22px
     &.converted

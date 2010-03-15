@@ -1,5 +1,7 @@
-%h2.title
-  == #{@contact.account.name}: #{@contact.full_name}
+.title
+  %h2
+    = @contact.full_name
+    %small= " @ #{@contact.account.name}"
   %ul.actions
     %li.first
       = link_to t('edit'), edit_contact_path(@contact)
@@ -12,10 +14,12 @@
         - else
           = hidden_field_tag 'contact[tracker_ids][]', current_user.id
           = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
-    %li.last
+    %li.delete
       - simple_form_for @contact, :html => { :method => :delete } do |form|
         = form.button :submit, t('delete'), :id => "delete_#{dom_id @contact}"
-
+  %br/
+  %small
+    = t('added_ago_by', :time => l(@contact.created_at, :format => :short), :by => @contact.user.username)
 = render :partial => "tasks/add_task", :locals=> { :object => @contact }
 = render :partial => "comments/comments", :locals => { :object => @contact }
 

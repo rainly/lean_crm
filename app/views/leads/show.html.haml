@@ -1,6 +1,9 @@
-%h2.title.show
-  = @lead.full_name
-  = rating_for(@lead)
+.title
+  %h2
+    = @lead.full_name
+    - if @lead.company.present?
+      %small= " @ #{@lead.company}"
+    = rating_for(@lead)
   - if @lead.status_is?('Converted')
     %span.status.converted
       %strong &#10004;
@@ -9,7 +12,6 @@
     %span.status.rejected
       %strong &#10008;
       = t('rejected')
-
   %ul.actions
     %li.first
       = link_to t('edit'), edit_lead_path(@lead)
@@ -33,11 +35,15 @@
           = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
     - unless @lead.status_is?('Converted') or @lead.status_is?('Rejected')
       %li= link_to t('convert'), convert_lead_path(@lead), :id=> 'convert_lead'
-      %li.last
+      %li
         - simple_form_for @lead, :url => reject_lead_path(@lead), :html => { :method => :put } do |form|
           = form.button :submit, t('reject'), :id => 'reject_lead'
-    
-
+    %li.delete
+      - simple_form_for @lead, :html => { :method => :delete } do |form|
+        = form.button :submit, t('delete'), :id => "delete_#{dom_id @lead}"
+  %br/
+  %small
+    = t('added_ago_by', :time => l(@lead.created_at, :format => :short), :by => @lead.user.username)
 - if @lead.notes.present?
   .notes= @lead.notes
 

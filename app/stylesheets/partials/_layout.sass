@@ -77,30 +77,64 @@ div#main
   .pad
     :padding 20px
     +clearfix
-  h2.title
+  .title
     :border-bottom 3px solid #ccc
-    :padding-bottom 5px
+    +border-top-radius(4px)
+    +v-grad(#fff,#d3d3d3)
+    :margin -20px -20px 20px -20px
+    :padding 12px 20px
+    h2
+      :color #333
+      +letterpress(#fff)
+      :display inline
+      small
+        :font-size 14px
     a
-      :float right
-      :margin-top -8px
       :font-size 13px
-      &#edit
-        +border-radius(14px)
-        :padding 4px 12px
-        +silver-button
-        
     b
-      :background #999
-      +border-radius(10px)
-      :color #fff
-      :font-size 11px
       :font-weight bold
-      :margin-right 5px
-      :padding 0px 3px 1px 3px
-      :position relative
-      :left -3px
-      :top -1px
-      +letterpress(#555)
+    small
+      :color #888
+      :font-size 11px
+    .actions
+      :clear none
+      :float right
+      :padding 0
+      :width auto
+      +horizontal-list
+      :padding-top 4px
+      :margin 10px 0 0 0
+      li
+        :width auto
+        a, input
+          :padding-left 3px
+          :padding-right 3px
+          :font-size 13px
+          :font-weight normal
+        &.delete
+          input
+            :color #f30
+            &:hover
+              :color #000
+        &.right
+          :float right
+      form
+        :clear none
+        :display inline
+        :float left
+        :width auto
+        input
+          :background transparent
+          :border none
+          :color = !link
+          :float left
+          :margin-top 0
+          :padding 0
+          :text-decoration underline
+          +box-shadow(#ddd,0,0,0)
+          +text-shadow(#ddd,0,0,0)
+          &:hover
+            :color #000
   h3
     :color #fff
     +border-radius(3px)
@@ -130,12 +164,10 @@ div#main
       :margin-right 5px
 a#new
   +border-radius(14px)
-  +silver-button
+  +black-button
   :padding 5px 9px
   :font-size 13px
-  &:hover
-    b
-      :background #eee
+  :float right
 
 //----------------------------------------------------
 // Index Listing

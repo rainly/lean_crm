@@ -23,7 +23,7 @@ en:
   # Time
   #--------------------------------------------------------------
   added_ago: "added on {{time}}"
-  added_ago_by: "added  by {{by}} on {{time}}"
+  added_ago_by: "added by {{by}} on {{time}}"
   assigned_ago_by: "assigned to {{for}} on {{time}} by {{by}}"
   assigned_to: "Assigned to {{user}}"
   created_ago: "created {{time}} ago"
@@ -55,7 +55,8 @@ en:
   cancel: Cancel
   configuration: Configuration
   completed: Completed
-  delete: "&#10005;"
+  delete_icon: "&#10005;"
+  delete: "Delete"
   edit: Edit
   filter: Filter
   filters: Filters
