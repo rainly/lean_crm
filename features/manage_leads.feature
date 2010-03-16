@@ -68,14 +68,22 @@ Feature: Manage leads
     Given I am registered and logged in as annika
     And a lead: "erich" exists with user: annika
     And I am on the leads page
-    And I follow "edit_erich-feldmeier"
+    And I follow the edit link for the lead
     And I fill in "lead_phone" with "999"
     When I press "lead_submit"
     Then I should be on the leads page
     And a lead should exist with phone: "999"
     And an updated activity should exist for lead with first_name "Erich"
 
-  Scenario: Deleting a lead
+  Scenario: Editing a lead from index page
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And lead: "erich" exists with user: benny
+    And I am on the leads page
+    When I follow the edit link for the lead
+    Then I should be on the lead's edit page
+  
+  Scenario: Deleting a lead from the index page
     Given I am registered and logged in as annika
     And a user: "benny" exists
     And a lead "erich" exists with user: benny
@@ -133,6 +141,23 @@ Feature: Manage leads
     And I should see "Erich"
     And a view activity should have been created for lead with first_name "Erich"
 
+  Scenario: Editing a account from the show page
+    Given I am registered and logged in as annika
+    And account: "erich" exists with user: annika
+    And I am on the account's page
+    When I follow the edit link for the account
+    Then I should be on the account's edit page
+    
+  Scenario: Deleting a lead form the show page
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And a lead "erich" exists with user: benny
+    And I am on the lead's page
+    When I click the delete button for the lead
+    Then I should be on the leads page
+    And I should not see "Erich" within "#main"
+    And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
+  
   Scenario: Adding a task to a lead
     Given I am registered and logged in as annika
     And a lead exists with user: annika

@@ -1,7 +1,7 @@
 .title
   %h2= @account.name
   %ul.actions
-    %li= link_to t('edit_account'), [:edit, @account]
+    %li= link_to t('edit_account'), [:edit, @account], :id => "edit_#{dom_id(@account)}"
     %li
       - simple_form_for @account do |form|
         = hidden_field_tag :return_to, request.request_uri

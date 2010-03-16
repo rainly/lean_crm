@@ -26,11 +26,11 @@ Feature: Manage accounts
     And I should not see "CareerMee"
     And a new "Updated" activity should have been created for "Account" with "name" "a test" and user: "annika"
 
-  Scenario: Editing from index page
+  Scenario: Editing an account from index page
     Given I am registered and logged in as annika
     And account: "careermee" exists with user: annika
     And I am on the accounts page
-    When I follow "edit_careermee"
+    When I follow the edit link for the account
     Then I should be on the account's edit page
 
   Scenario: Deleting an account from the index page
@@ -61,6 +61,23 @@ Feature: Manage accounts
     And I should be on the account page
     And a new "Viewed" activity should have been created for "Account" with "name" "CareerMee"
 
+  Scenario: Editing an account from the show page
+    Given I am registered and logged in as annika
+    And account: "careermee" exists with user: annika
+    And I am on the account's page
+    When I follow the edit link for the account
+    Then I should be on the account's edit page
+  
+  Scenario: Deleting an account from the show page
+    Given I am registered and logged in as annika
+    And a user: "benny" exists
+    And account: "careermee" exists with user: benny
+    And I am on the account's page
+    When I click the delete button for the account
+    Then I should be on the accounts page
+    And I should not see "CareerMee" within "#main"
+    And a new "Deleted" activity should have been created for "Account" with "name" "CareerMee" and user: "annika"
+  
   Scenario: Private account (in)visibility on the accounts page
     Given I am registered and logged in as annika
     And a user: "benny" exists

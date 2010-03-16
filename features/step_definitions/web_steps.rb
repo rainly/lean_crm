@@ -217,3 +217,7 @@ end
 When /^I click the (.+) button for the #{capture_model}$/ do |action, object|
   click_button("#{action}_#{model!(object).class.to_s.underscore.downcase}_#{model!(object).id}")
 end
+
+When /^I follow the (.+) link for the #{capture_model}$/ do |action, object|
+  click_link("#{action}_#{model!(object).class.to_s.underscore.downcase}_#{model!(object).id}")
+end

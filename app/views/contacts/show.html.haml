@@ -4,9 +4,10 @@
     %small= " @ #{@contact.account.name}"
   %ul.actions
     %li.first
-      = link_to t('edit'), edit_contact_path(@contact)
+      = link_to t('edit'), edit_contact_path(@contact), :id => "edit_#{dom_id(@contact)}"
     %li
       - simple_form_for @contact do |form|
+        
         = hidden_field_tag :return_to, request.request_uri
         - if @contact.tracked_by?(current_user)
           = hidden_field_tag 'contact[remove_tracker_ids][]', current_user.id

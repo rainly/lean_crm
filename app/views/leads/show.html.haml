@@ -13,8 +13,8 @@
       %strong &#10008;
       = t('rejected')
   %ul.actions
-    %li.first
-      = link_to t('edit'), edit_lead_path(@lead)
+    %li
+      = link_to t('edit'), edit_lead_path(@lead), :id => "edit_#{dom_id @lead}"
     - if @lead.assignee.nil?
       %li
         - simple_form_for @lead, :html => {:class => "accept"} do |form|
