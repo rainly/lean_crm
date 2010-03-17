@@ -1,7 +1,8 @@
 .title
   %h2
     = @contact.full_name
-    %small= " @ #{link_to @contact.account.name, @contact.account}"
+    - if !@contact.account.nil?
+      %small= " @ #{link_to @contact.account.name, @contact.account}"
   %ul.actions
     %li
       = link_to t('edit'), edit_contact_path(@contact), :id => "edit_#{dom_id(@contact)}"
