@@ -195,7 +195,7 @@ Feature: Manage accounts
     And I am on the account's page
     And I follow the edit link for the account
     Then I should be on the account's edit page
-    When I fill in "account_salutation" with "Mr"
+    When I fill in "account_name" with "CareerMe"
     And I press "account_submit"
     Then I should be on the account's page
     And I should see "Updated"
