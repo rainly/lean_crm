@@ -188,3 +188,15 @@ Feature: Manage accounts
     When I click the delete button for the comment
     Then I should be on the account's page
     And I should not see "Some account this is"
+
+  Scenario: Viewing activites on the show page
+    Given I am registered and logged in as annika
+    And account: "careermee" exists with user: annika
+    And I am on the account's page
+    And I follow the edit link for the account
+    Then I should be on the account's edit page
+    When I fill in "account_salutation" with "Mr"
+    And I press "account_submit"
+    Then I should be on the account's page
+    And I should see "Updated"
+    And I should see "annika.fleischer@1000jobboersen.de"
