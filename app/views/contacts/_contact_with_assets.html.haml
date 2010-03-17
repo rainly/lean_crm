@@ -51,6 +51,8 @@
       = link_to "<b>+</b>#{t('add_task')}", new_task_path(:asset_id => contact.id, :asset_type => "Contact", :return_to => request.request_uri), :id => "add_task_for_#{dom_id contact}"
     .details
       = render :partial => "tasks/task", :collection => contact.tasks
+      - if !contact.lead_id.blank?
+        = render :partial => "tasks/task", :collection => contact.lead.tasks 
     -#----------------------------------------------------------------------
     -# Comments for Contact
     -#----------------------------------------------------------------------
@@ -59,6 +61,9 @@
         = t('comments_for', :name => contact.first_name)
       - contact.comments.sorted.each do |comment|
         = render :partial => "comments/inline_comment", :locals => {:comment => comment}
+      - if !contact.lead_id.blank?
+        - contact.lead.comments.sorted.each do |comment|
+          = render :partial => "comments/inline_comment", :locals => {:comment => comment}
     - simple_form_for @comment || Comment.new, :html => { :multipart => true } do |form|
       = hidden_field_tag :return_to, request.request_uri
       = form.hidden_field :commentable_type, :value => "Contact"
