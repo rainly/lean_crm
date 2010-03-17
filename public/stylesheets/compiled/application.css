@@ -26,7 +26,7 @@ a, input {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
 #header {
   display: block;
 }
@@ -53,7 +53,7 @@ a, input {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
 #header .pad {
   display: block;
 }
@@ -88,11 +88,11 @@ ul#navigation {
   padding: 4px 12px 0px 12px;
   margin-right: -12px;
 }
-/* line 5, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
 ul#navigation {
   display: block;
 }
-/* line 50, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+/* line 50, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
 ul#navigation li {
   list-style-type: none;
   margin-left: 0px;
@@ -102,11 +102,11 @@ ul#navigation li {
   padding-left: 4px;
   padding-right: 4px;
 }
-/* line 40, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+/* line 40, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
 ul#navigation li.first {
   padding-left: 0px;
 }
-/* line 42, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+/* line 42, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
 ul#navigation li.last {
   padding-right: 0px;
 }
@@ -176,7 +176,7 @@ ul#navigation a.active:hover {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
 #content {
   display: block;
 }
@@ -207,7 +207,7 @@ div#main .pad {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
 div#main .pad {
   display: block;
 }
@@ -250,7 +250,7 @@ div#main .title small {
   font-size: 11px;
 }
 /* line 99, ../../../app/stylesheets/partials/_layout.sass */
-div#main .title .actions {
+div#main ul.actions {
   clear: none;
   float: right;
   padding: 0;
@@ -264,12 +264,12 @@ div#main .title .actions {
   padding-top: 4px;
   margin: 10px 0 0 0;
 }
-/* line 5, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
-div#main .title .actions {
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+div#main ul.actions {
   display: block;
 }
-/* line 50, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
-div#main .title .actions li {
+/* line 50, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+div#main ul.actions li {
   list-style-type: none;
   margin-left: 0px;
   white-space: nowrap;
@@ -278,46 +278,46 @@ div#main .title .actions li {
   padding-left: 4px;
   padding-right: 4px;
 }
-/* line 40, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
-div#main .title .actions li.first {
+/* line 40, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+div#main ul.actions li.first {
   padding-left: 0px;
 }
-/* line 42, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
-div#main .title .actions li.last {
+/* line 42, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+div#main ul.actions li.last {
   padding-right: 0px;
 }
 /* line 107, ../../../app/stylesheets/partials/_layout.sass */
-div#main .title .actions li {
+div#main ul.actions li {
   width: auto;
 }
 /* line 109, ../../../app/stylesheets/partials/_layout.sass */
-div#main .title .actions li a, div#main .title .actions li input {
+div#main ul.actions li a, div#main ul.actions li input {
   padding-left: 3px;
   padding-right: 3px;
   font-size: 13px;
   font-weight: normal;
 }
 /* line 115, ../../../app/stylesheets/partials/_layout.sass */
-div#main .title .actions li.delete input {
+div#main ul.actions li.delete input {
   color: #f30;
 }
 /* line 117, ../../../app/stylesheets/partials/_layout.sass */
-div#main .title .actions li.delete input:hover {
+div#main ul.actions li.delete input:hover {
   color: #000;
 }
 /* line 119, ../../../app/stylesheets/partials/_layout.sass */
-div#main .title .actions li.right {
+div#main ul.actions li.right {
   float: right;
 }
 /* line 121, ../../../app/stylesheets/partials/_layout.sass */
-div#main .title .actions form {
+div#main ul.actions form {
   clear: none;
   display: inline;
   float: left;
   width: auto;
 }
 /* line 126, ../../../app/stylesheets/partials/_layout.sass */
-div#main .title .actions form input {
+div#main ul.actions form input {
   background: transparent;
   border: none;
   color: #0073b1;
@@ -334,7 +334,7 @@ div#main .title .actions form input {
   text-shadow: #dddddd 0 0 0;
 }
 /* line 136, ../../../app/stylesheets/partials/_layout.sass */
-div#main .title .actions form input:hover {
+div#main ul.actions form input:hover {
   color: #000;
 }
 /* line 138, ../../../app/stylesheets/partials/_layout.sass */
@@ -591,7 +591,7 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
 #sidebar .box {
   display: block;
 }
@@ -609,11 +609,11 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   display: inline-block;
   width: 100%;
 }
-/* line 5, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
 #sidebar ul.filters {
   display: block;
 }
-/* line 50, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+/* line 50, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
 #sidebar ul.filters li {
   list-style-type: none;
   margin-left: 0px;
@@ -623,11 +623,11 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   padding-left: 4px;
   padding-right: 4px;
 }
-/* line 40, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+/* line 40, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
 #sidebar ul.filters li.first {
   padding-left: 0px;
 }
-/* line 42, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+/* line 42, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
 #sidebar ul.filters li.last {
   padding-right: 0px;
 }
@@ -1064,7 +1064,7 @@ ul.checks.stacked, ul.radio.stacked, ul.boolean.stacked {
   padding-left: 0px;
   margin-left: 0px;
 }
-/* line 8, ../../../../../../.rvm/gems/ree-1.8.7-2010.01/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_bullets.sass */
+/* line 8, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_bullets.sass */
 ul.checks.stacked li, ul.radio.stacked li, ul.boolean.stacked li {
   list-style-type: none;
   margin-left: 0px;
@@ -1523,7 +1523,34 @@ body#accounts.index dl.item dd {
   width: 100%;
 }
 
-/* line 2, ../../../app/stylesheets/models/_comment.sass */
+/* line 1, ../../../app/stylesheets/models/_comment.sass */
+div #main .inline-comment {
+  margin-bottom: 12px;
+}
+/* line 3, ../../../app/stylesheets/models/_comment.sass */
+div #main .inline-comment .avatar {
+  width: 40px;
+  float: left;
+}
+/* line 6, ../../../app/stylesheets/models/_comment.sass */
+div #main .inline-comment .message {
+  width: 92%;
+  float: left;
+}
+/* line 9, ../../../app/stylesheets/models/_comment.sass */
+div #main .inline-comment small.timestamp {
+  float: left;
+}
+/* line 11, ../../../app/stylesheets/models/_comment.sass */
+div #main .inline-comment ul.actions {
+  float: right;
+}
+/* line 14, ../../../app/stylesheets/models/_comment.sass */
+div #main .inline-comment ul.actions li a, div #main .inline-comment ul.actions li input {
+  font-size: 11px;
+}
+
+/* line 17, ../../../app/stylesheets/models/_comment.sass */
 .comment .quote {
   color: #c9eaef;
   font-size: 14px;
@@ -1531,7 +1558,7 @@ body#accounts.index dl.item dd {
   padding-left: 20px;
   padding-top: 4px;
 }
-/* line 8, ../../../app/stylesheets/models/_comment.sass */
+/* line 23, ../../../app/stylesheets/models/_comment.sass */
 .comment .message {
   border: 1px solid #b5d6db;
   border-radius: 10px;
@@ -1551,11 +1578,11 @@ body#accounts.index dl.item dd {
   text-align: left;
 }
 
-/* line 20, ../../../app/stylesheets/models/_comment.sass */
+/* line 34, ../../../app/stylesheets/models/_comment.sass */
 .user a {
   font-size: 12px;
 }
-/* line 22, ../../../app/stylesheets/models/_comment.sass */
+/* line 36, ../../../app/stylesheets/models/_comment.sass */
 .user span.icon {
   padding: 0px;
   position: relative;
@@ -1563,10 +1590,179 @@ body#accounts.index dl.item dd {
   font-size: 22px;
   font-style: normal;
 }
-/* line 28, ../../../app/stylesheets/models/_comment.sass */
+/* line 42, ../../../app/stylesheets/models/_comment.sass */
 .user strong {
   font-size: 12px;
   color: #333;
+}
+
+/* line 1, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets {
+  border: 1px solid #c7daf0;
+  overflow: hidden;
+  display: inline-block;
+  background-color: #d9e7e8;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#d9e7e8));
+  background-image: -moz-linear-gradient(center top, white 0%, #d9e7e8 100%);
+  padding: 12px;
+}
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+div#main .contact_with_assets {
+  display: block;
+}
+/* line 6, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets .contact-avatar {
+  float: left;
+  min-width: 65px;
+  width: 9%;
+}
+/* line 10, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets .heading {
+  clear: both;
+}
+/* line 12, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets ul.actions {
+  margin-top: 0em;
+}
+/* line 14, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets label {
+  font-size: 12px;
+}
+/* line 16, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets h4 {
+  display: inline;
+  font-size: 14px;
+}
+/* line 19, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets .info {
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+  width: 89%;
+}
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+div#main .contact_with_assets .info {
+  display: block;
+}
+/* line 23, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets .icon {
+  border: 2px solid #0073b1;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  width: 50px;
+}
+/* line 27, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets h5 {
+  border-bottom: 3px solid #dadbd0;
+  color: #808079;
+  font-size: 12px;
+  margin: 12px 0 0 0;
+  padding-bottom: 2px;
+}
+/* line 33, ../../../app/stylesheets/models/_contact.sass */
+div#main .contact_with_assets h5 a {
+  float: right;
+}
+
+/* line 35, ../../../app/stylesheets/models/_contact.sass */
+.details {
+  border-bottom-left-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  overflow: hidden;
+  display: inline-block;
+  color: #999591;
+  font-size: 12px;
+  padding: 12px;
+  background-color: #f7f7e8;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#f7f7e8));
+  background-image: -moz-linear-gradient(center top, white 0%, #f7f7e8 100%);
+}
+/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+.details {
+  display: block;
+}
+/* line 42, ../../../app/stylesheets/models/_contact.sass */
+.details .half {
+  width: 50%;
+  float: left;
+}
+/* line 45, ../../../app/stylesheets/models/_contact.sass */
+.details .half dl {
+  clear: both;
+  overflow: none;
+  float: left;
+  width: 100%;
+  margin: 0px;
+}
+/* line 65, ../../../app/stylesheets/partials/_tools.sass */
+.details .half dl dt, .details .half dl dd {
+  float: left;
+  clear: none;
+  display: block;
+  margin: 0px;
+}
+/* line 70, ../../../app/stylesheets/partials/_tools.sass */
+.details .half dl dt {
+  width: 20%;
+}
+/* line 72, ../../../app/stylesheets/partials/_tools.sass */
+.details .half dl dd {
+  width: 80%;
+}
+/* line 48, ../../../app/stylesheets/models/_contact.sass */
+.details .half dl dt, .details .half dl dd {
+  margin-bottom: 5px;
+}
+/* line 50, ../../../app/stylesheets/models/_contact.sass */
+.details dl.item.task dd {
+  width: 84%;
+}
+/* line 52, ../../../app/stylesheets/models/_contact.sass */
+.details a {
+  color: #b06b43;
+}
+/* line 54, ../../../app/stylesheets/models/_contact.sass */
+.details a:hover {
+  color: #000;
+}
+
+/* line 62, ../../../app/stylesheets/models/_contact.sass */
+body#accounts div#main .contact_with_assets div.item span.actions dd input[type="submit"], body#accounts dl.item dd input[type="submit"] {
+  color: #b06b43;
+}
+/* line 64, ../../../app/stylesheets/models/_contact.sass */
+body#accounts div#main .contact_with_assets div.item span.actions dd input[type="submit"]:hover, body#accounts dl.item dd input[type="submit"]:hover {
+  color: #000;
+}
+/* line 66, ../../../app/stylesheets/models/_contact.sass */
+body#accounts div#main .contact_with_assets div.item span.actions dd input[type="submit"].delete, body#accounts dl.item dd input[type="submit"].delete {
+  color: #ff3300;
+}
+/* line 68, ../../../app/stylesheets/models/_contact.sass */
+body#accounts div#main .contact_with_assets div.item span.actions dd input[type="submit"].delete:hover, body#accounts dl.item dd input[type="submit"].delete:hover {
+  color: #000;
+}
+/* line 70, ../../../app/stylesheets/models/_contact.sass */
+body#accounts div#main .contact_with_assets div.item span.actions dd span.actions, body#accounts dl.item dd span.actions {
+  width: 5.4em;
+}
+/* line 72, ../../../app/stylesheets/models/_contact.sass */
+body#accounts div#main .contact_with_assets div.item span.actions dd span.item_name span.save, body#accounts dl.item dd span.item_name span.save {
+  right: 5.4em;
+}
+
+/* line 78, ../../../app/stylesheets/models/_contact.sass */
+.contact_with_assets form {
+  font-size: 12px;
+}
+/* line 80, ../../../app/stylesheets/models/_contact.sass */
+.contact_with_assets form input[type="submit"] {
+  font-size: 12px;
 }
 
 /* line 4, ../../../app/stylesheets/models/_deleted_items.sass */

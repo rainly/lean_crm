@@ -12,7 +12,9 @@ class Comment
   key :text,              String, :required => true
   key :_type,             String
   timestamps!
-
+  
+  named_scope :sorted, :order => 'created_at asc'
+  
   belongs_to :user
   belongs_to :commentable, :polymorphic => true
 

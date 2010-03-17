@@ -96,45 +96,45 @@ div#main
     small
       :color #888
       :font-size 11px
-    .actions
-      :clear none
-      :float right
-      :padding 0
+  ul.actions
+    :clear none
+    :float right
+    :padding 0
+    :width auto
+    +horizontal-list
+    :padding-top 4px
+    :margin 10px 0 0 0
+    li
       :width auto
-      +horizontal-list
-      :padding-top 4px
-      :margin 10px 0 0 0
-      li
-        :width auto
-        a, input
-          :padding-left 3px
-          :padding-right 3px
-          :font-size 13px
-          :font-weight normal
-        &.delete
-          input
-            :color #f30
-            &:hover
-              :color #000
-        &.right
-          :float right
-      form
-        :clear none
-        :display inline
-        :float left
-        :width auto
+      a, input
+        :padding-left 3px
+        :padding-right 3px
+        :font-size 13px
+        :font-weight normal
+      &.delete
         input
-          :background transparent
-          :border none
-          :color = !link
-          :float left
-          :margin-top 0
-          :padding 0
-          :text-decoration underline
-          +box-shadow(#ddd,0,0,0)
-          +text-shadow(#ddd,0,0,0)
+          :color #f30
           &:hover
             :color #000
+      &.right
+        :float right
+    form
+      :clear none
+      :display inline
+      :float left
+      :width auto
+      input
+        :background transparent
+        :border none
+        :color = !link
+        :float left
+        :margin-top 0
+        :padding 0
+        :text-decoration underline
+        +box-shadow(#ddd,0,0,0)
+        +text-shadow(#ddd,0,0,0)
+        &:hover
+          :color #000
   h3
     :color #fff
     +border-radius(3px)

@@ -1,3 +1,81 @@
+div#main .contact_with_assets
+  :border 1px solid #c7daf0
+  +clearfix
+  +v-grad(#fff,#d9e7e8)
+  :padding 12px
+  .contact-avatar
+    :float left
+    :min-width 65px
+    :width 9%
+  .heading
+    :clear both
+  ul.actions
+    :margin-top 0em
+  label
+    :font-size 12px
+  h4
+    :display inline
+    :font-size 14px
+  .info
+    +clearfix
+    :float left
+    :width 89%
+  .icon
+    :border =  2px "solid" !link
+    +border-radius(2px)
+    :width 50px
+  h5
+    :border-bottom 3px solid #dadbd0
+    :color #808079
+    :font-size 12px
+    :margin 12px 0 0 0 
+    :padding-bottom 2px
+    a
+      :float right
+.details
+  +border-bottom-radius(2px)
+  +clearfix
+  :color #999591
+  :font-size 12px
+  :padding 12px
+  +v-grad(#fff,#f7f7e8)
+  .half
+    :width 50%
+    :float left
+    dl
+      +dl-horizontal(20%,80%)
+      :margin 0px
+      dt, dd
+        :margin-bottom 5px
+  dl.item.task dd
+    :width 84%
+  a
+    :color = !cafe
+    &:hover
+      :color #000
 
-      
-      
+//----------------------------------------------------
+// Tasks
+//----------------------------------------------------
+body#accounts div#main .contact_with_assets div.item span.actions, body#accounts dl.item
+  dd
+    input[type="submit"]
+      :color = !cafe
+      &:hover
+        :color #000
+      &.delete
+        :color = !orange
+        &:hover
+          :color #000
+    span.actions
+      :width 5.4em
+    span.item_name span.save
+      :right 5.4em
+
+//----------------------------------------------------
+// Comments
+//----------------------------------------------------
+.contact_with_assets form
+  :font-size 12px
+  input[type="submit"]
+    :font-size 12px

@@ -29,9 +29,11 @@ en:
   created_ago: "created {{time}} ago"
   done_ago: "done on {{time}}"
   removed_ago: "removed on {{time}}"
+  posted_ago: "Posted on {{time}}"
   updated_ago: "updated on {{time}} ago"
   wrote_ago: "wrote on {{time}}"
   email_sent_ago: "sent via email on {{time}}"
+  via_email: "&#9993; via Email &gt; Re:{{subject}}"
   last_year: Last Year
   last_month: Last Month
   last_week: Last Week
@@ -61,6 +63,7 @@ en:
   filter: Filter
   filters: Filters
   filter_by_status: Filter by Status
+  follow: Follow
   go_back: Go Back
   or: or
   notes: Notes
@@ -155,10 +158,13 @@ en:
   # Comments
   #--------------------------------------------------------------
   add_comment: Add Comment
+  add_comment_for: "Add a Comment for {{name}}"
   edit_comment: Edit this Comment
   comment: Comment
   comment_updated: Comment was successfully updated
   comments: Comments
+  comments_for: "Comments for {{name}}"
+  save_comment: Save Comment
   update_comment: Update Comment
   wrote: wrote
   
@@ -170,7 +176,8 @@ en:
   contact_info_for: "Contact {{name}}"
   delete_contact: Delete Contact
   edit_contact: Edit Contact
-  
+  info_for: "Info for {{name}}"
+  no_contact_info: "No contact info for {{name}}"
   #--------------------------------------------------------------
   # Leads
   #--------------------------------------------------------------
@@ -221,6 +228,7 @@ en:
   add_task: Add Task
   delete_task: Delete Task
   edit_task: Edit Task
+  update_task: Update Task
   due_today: Today
   due_tomorrow: Tomorrow
   due_this_week: This week
@@ -278,6 +286,11 @@ en:
   #--------------------------------------------------------------
   info:
     dropbox: "This is the account which is used to route external emails into your comments feeds"
+  
+  #--------------------------------------------------------------
+  # Tasks
+  #--------------------------------------------------------------
+  tasks_for: "Tasks for {{name}}"
   
   #--------------------------------------------------------------
   # Errors

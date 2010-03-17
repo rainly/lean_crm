@@ -1,9 +1,9 @@
 .title
   %h2
     = @contact.full_name
-    %small= " @ #{@contact.account.name}"
+    %small= " @ #{link_to @contact.account.name, @contact.account}"
   %ul.actions
-    %li.first
+    %li
       = link_to t('edit'), edit_contact_path(@contact), :id => "edit_#{dom_id(@contact)}"
     %li
       - simple_form_for @contact do |form|

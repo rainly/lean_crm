@@ -4,6 +4,6 @@
     = form.hidden_field :commentable_type, :value => object.class.to_s
     = form.hidden_field :commentable_id, :value => object.id
     = render :partial => 'comments/form', :locals => { :form => form }
-    = form.button :submit
+    = form.submit t('save_comment')
     = t('or')
     = link_to t('cancel'), :back

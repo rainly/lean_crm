@@ -22,7 +22,7 @@ class CommentsController < InheritedResources::Base
 
   def destroy
     destroy! do |success, failure|
-      success.html { return_to_or_default tasks_path }
+      success.html { return_to_or_default commentable_path }
     end
   end
 

@@ -17,10 +17,11 @@
   %br/
   %small
     = t('added_ago_by', :time => l(@account.created_at, :format => :short), :by => @account.user.username)
-.clear          
+.clear
 %h3= t('contacts')
 .contacts
-  = render :partial => 'contacts/contact', :collection => @account.contacts
+  - @account.contacts.each do |contact|
+    = render :partial => 'contacts/contact_with_assets', :locals => {:contact => contact }
 .clear
 = render :partial => "tasks/add_task", :locals=> { :object => @account }
 = render :partial => "comments/comments", :locals => {:object => @account }

@@ -17,28 +17,37 @@ class TasksController < InheritedResources::Base
 
   def create
     create! do |success, failure|
-      success.html { return_to_or_default tasks_path }
+      success.html { return_to_or_default asset_path }
     end
   end
 
   def update
     update! do |success, failure|
       success.html do
+        return_to_or_default asset_path
         unless params[:task][:assignee_id].blank?
           flash[:notice] = I18n.t('task_reassigned', :user => @task.assignee.email)
         end
-        return_to_or_default tasks_path
       end
     end
   end
 
   def destroy
     destroy! do |success, failure|
-      success.html { return_to_or_default tasks_path }
+      success.html { return_to_or_default asset_path }
     end
   end
 
 protected
+  
+  def asset_path
+    url_for(
+      :controller => @task.asset.class.to_s.downcase.pluralize,
+      :action     => 'show',
+      :id         => @task.asset.id
+    )
+  end
+  
   def build_resource
     @task ||= begin_of_association_chain.tasks.build params[:task]
     @task.asset_id = params[:asset_id] if params[:asset_id]

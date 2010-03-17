@@ -14,7 +14,7 @@
           -#%small.asset= task_asset_link(task) unless task.asset.nil?
         %span.actions
           %b.divider= "|"
-          = link_to t('edit'), edit_task_path(task)
+          = link_to t('edit'), edit_task_path(task,:return_to => request.request_uri), :id => "edit_#{dom_id task}"
           %b.divider= "|"
           - simple_form_for task, :html => { :method => :delete } do |form|
             = hidden_field_tag :return_to, request.request_uri

@@ -1,3 +1,18 @@
+div #main .inline-comment
+  :margin-bottom 12px
+  .avatar
+    :width 40px
+    :float left
+  .message
+    :width 92%
+    :float left
+  small.timestamp
+    :float left
+  ul.actions
+    :float right
+    li
+      a, input
+        :font-size 11px
 .comment
   .quote
     :color = !ice
@@ -11,7 +26,6 @@
     :color #333
     :line-height 20px
     :font-size 13px
-    
     :margin-bottom 20px
     :padding 20px
     +shiny-button((!ice+30),!ice,#fff,0,false)

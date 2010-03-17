@@ -221,3 +221,7 @@ end
 When /^I follow the (.+) link for the #{capture_model}$/ do |action, object|
   click_link("#{action}_#{model!(object).class.to_s.underscore.downcase}_#{model!(object).id}")
 end
+
+Then /^(?:|I )should not see the (.+) link for the #{capture_model}$/ do |action, object|
+  assert_no_match(/#{"#{action}_#{model!(object).class.to_s.underscore.downcase}_#{model!(object).id}"}/, response.body)
+end

@@ -1,6 +1,20 @@
 require 'test_helper.rb'
 
 class CommentTest < ActiveSupport::TestCase
+  
+
+  context 'Named Scopes' do
+    context "sorted" do
+      should 'sort by creation date in ascending order' do
+        @comment_2 = Comment.make(:created_at => 5.minutes.ago)
+        @comment_1 = Comment.make(:created_at => 10.minutes.ago)
+        @comment_3 = Comment.make(:created_at => 2.minutes.ago)
+        assert_equal [@comment_1,@comment_2,@comment_3], Comment.sorted
+      end
+    end
+  end
+
+  
   context 'Instance' do
     setup do
       @comment = Comment.make_unsaved(:made_offer_to_erich)

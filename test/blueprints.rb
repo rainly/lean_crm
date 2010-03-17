@@ -147,21 +147,24 @@ end
 
 Contact.blueprint(:steven) do
   first_name { 'Steven' }
-  last_name { 'Garcia' }
-  user { User.make(:annika) }
-  account { Account.make(:careermee) }
+  last_name  { 'Garcia' }
+  user       { User.make(:annika) }
+  account    { Account.make(:careermee) }
 end
 
 Activity.blueprint do
 end
 
 Activity.blueprint(:viewed_erich) do
-  user { User.make(:annika) }
+  user    { User.make(:annika) }
   subject { Lead.make(:erich) }
-  action { 'Viewed' }
+  action  { 'Viewed' }
 end
 
 Comment.blueprint do
+  user        { User.make }
+  commentable { Account.make }
+  text        { 'I like it!' }
 end
 
 Comment.blueprint(:made_offer_to_erich) do
