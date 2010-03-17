@@ -324,3 +324,15 @@ Feature: Manage leads
     When I am on the lead's page
     Then I should not see "convert_lead"
     And I should not see "reject_lead"
+
+  Scenario: Viewing activites on the show page
+    Given I am registered and logged in as annika
+    And a lead: "erich" exists with user: annika
+    And I am on the lead's page
+    And I follow the edit link for the lead
+    Then I should be on the lead's edit page
+    When I fill in "lead_salutation" with "Mr"
+    And I press "lead_submit"
+    Then I should be on the lead's page
+    And I should see "Updated"
+    And I should see "annika.fleischer@1000jobboersen.de"

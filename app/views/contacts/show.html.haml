@@ -43,3 +43,9 @@
       = show_attribute(@contact, 'facebook', link_to('Facebook',@contact.facebook))
       = show_attribute(@contact, 'xing', link_to('Xing',@contact.xing))
       = show_attribute(@contact, 'born_on')  
+
+  #recent_activity.box.ice
+    %h3= t('recent_activity_for', :name => @contact.full_name )
+    - Activity.for_subject(@contact).limit(6).each do |activity|
+      = render :partial => "shared/activity_for", :locals => {:activity => activity}
+      

@@ -21,7 +21,7 @@
           = form.hidden_field :do_not_notify, :value => true
           = form.button :submit, t('accept'), :id => 'accept'
         %b.divider= "|"
-      = link_to t('edit'), [:edit, lead], :id => "edit_#{dom_id lead}"
+      = link_to t('edit'), edit_lead_path(lead, :return_to => request.request_uri), :id => "edit_#{dom_id lead}"
       %b.divider= "|"
       - simple_form_for lead, :html => { :method => :delete } do |form|
         = form.button :submit, t('delete_icon'), :class => 'delete', :id => "delete_#{dom_id(lead)}"

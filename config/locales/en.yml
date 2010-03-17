@@ -153,7 +153,7 @@ en:
 
   my_profile: My Profile
   recent_items: Recent Items
-
+  recent_activity_for: "Recent Activity for {{name}}"
   #--------------------------------------------------------------
   # Comments
   #--------------------------------------------------------------

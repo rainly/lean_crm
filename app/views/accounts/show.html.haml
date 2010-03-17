@@ -37,3 +37,8 @@
       = show_attribute(@account, 'shipping_address')
       = show_attribute(@account, 'website', link_to(t('visit_website'),@account.website))
   
+  #recent_activity.box.ice
+    %h3= t('recent_activity_for', :name => @account.full_name )
+    - Activity.for_subject(@account).limit(6).each do |activity|
+      = render :partial => "shared/activity_for", :locals => {:activity => activity}
+  

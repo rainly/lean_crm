@@ -186,3 +186,15 @@ Feature: Manage contacts
     Then I should be on the contact page
     And I should see "Sent offer"
     And I should see "erich_offer.pdf"
+
+  Scenario: Viewing activites on the show page
+    Given I am registered and logged in as annika
+    And a contact exists with user: annika
+    And I am on the contact's page
+    And I follow the edit link for the contact
+    Then I should be on the contact's edit page
+    When I fill in "contact_salutation" with "Mr"
+    And I press "contact_submit"
+    Then I should be on the contact's page
+    And I should see "Updated"
+    And I should see "annika.fleischer@1000jobboersen.de"

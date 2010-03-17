@@ -37,3 +37,4 @@ Feature: Manage activities
     When I go to the dashboard page
     And I follow "test email"
     Then I should be on the lead's page
+    

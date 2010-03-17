@@ -31,6 +31,7 @@ class Account
 
   sphinx_index :name, :email, :phone, :website, :fax
 
+  alias :full_name :name
   def self.named(query)
     self.all( :name => /^#{query}.*/i )
   end

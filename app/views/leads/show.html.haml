@@ -14,7 +14,7 @@
       = t('rejected')
   %ul.actions
     %li
-      = link_to t('edit'), edit_lead_path(@lead), :id => "edit_#{dom_id @lead}"
+      = link_to t('edit'), edit_lead_path(@lead, :return_to => request.request_uri), :id => "edit_#{dom_id @lead}"
     - if @lead.assignee.nil?
       %li
         - simple_form_for @lead, :html => {:class => "accept"} do |form|
@@ -70,3 +70,7 @@
       = show_attribute(@lead, 'facebook', link_to('Facebook',@lead.facebook))
       = show_attribute(@lead, 'xing', link_to('Xing',@lead.xing))
       = show_attribute(@lead, 'referred_by')
+  #recent_activity.box.ice
+    %h3= t('recent_activity_for', :name => @lead.full_name )
+    - Activity.for_subject(@lead).limit(6).each do |activity|
+      = render :partial => "shared/activity_for", :locals => {:activity => activity}

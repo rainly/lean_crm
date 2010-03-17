@@ -791,14 +791,19 @@ small.timestamp {
   margin-top: 4px;
 }
 
-/* line 350, ../../../app/stylesheets/partials/_layout.sass */
+/* line 347, ../../../app/stylesheets/partials/_layout.sass */
+#recent_activity {
+  font-size: 12px;
+}
+
+/* line 353, ../../../app/stylesheets/partials/_layout.sass */
 .pagination {
   clear: both;
   padding-top: 8px;
   text-align: right;
 }
 
-/* line 357, ../../../app/stylesheets/partials/_layout.sass */
+/* line 360, ../../../app/stylesheets/partials/_layout.sass */
 #the_error {
   border-radius: 20px;
   -moz-border-radius: 20px;
@@ -812,22 +817,22 @@ small.timestamp {
   background-image: -moz-linear-gradient(center top, red 0%, #880000 100%);
   width: 43%;
 }
-/* line 365, ../../../app/stylesheets/partials/_layout.sass */
+/* line 368, ../../../app/stylesheets/partials/_layout.sass */
 #the_error h2, #the_error a {
   color: #fff;
   text-decoration: none;
 }
-/* line 368, ../../../app/stylesheets/partials/_layout.sass */
+/* line 371, ../../../app/stylesheets/partials/_layout.sass */
 #the_error a:hover {
   color: #fff;
   text-decoration: underline;
 }
-/* line 371, ../../../app/stylesheets/partials/_layout.sass */
+/* line 374, ../../../app/stylesheets/partials/_layout.sass */
 #the_error p {
   font-size: 16px;
 }
 
-/* line 373, ../../../app/stylesheets/partials/_layout.sass */
+/* line 376, ../../../app/stylesheets/partials/_layout.sass */
 .hidden {
   display: none;
 }

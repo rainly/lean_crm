@@ -1,3 +1,4 @@
+= hidden_field_tag :return_to, params[:return_to]
 %h2.title= t('add_lead')
 %h3.toggler.open= t('lead_name')
 .toggle
@@ -50,7 +51,7 @@
 .clear
 
 .act.pad
-  = form.button :submit
+  = form.submit t('update_lead'), :id => "lead_submit"
   = t('or')
   = link_to t('back'), :back
 
