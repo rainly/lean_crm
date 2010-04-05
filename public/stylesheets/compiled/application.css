@@ -343,15 +343,16 @@ div#main h3 {
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  background: white;
+  background: #444444;
   background: -webkit-gradient(linear, left top, right top, from(#444444), to(white));
   background: -moz-linear-gradient(center left, #444444 0%, white 100%);
+  background-color: #444;
   margin-right: 2px;
   margin: 10px 0px;
   padding: 5px 10px;
   cursor: pointer;
 }
-/* line 146, ../../../app/stylesheets/partials/_layout.sass */
+/* line 147, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3.toggler {
   background: #eaeaea;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
@@ -373,7 +374,7 @@ div#main h3.toggler:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
   background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
 }
-/* line 153, ../../../app/stylesheets/partials/_layout.sass */
+/* line 154, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3.open {
   border-bottom-left-radius: 0px;
   -moz-border-radius-bottomleft: 0px;
@@ -398,19 +399,19 @@ div#main h3.open:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 158, ../../../app/stylesheets/partials/_layout.sass */
+/* line 159, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3.open span {
   color: #555;
   text-shadow: #bbbbbb 0px 1px 0px;
 }
-/* line 161, ../../../app/stylesheets/partials/_layout.sass */
+/* line 162, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3 span {
   color: #999;
   font-size: 12px;
   margin-right: 5px;
 }
 
-/* line 165, ../../../app/stylesheets/partials/_layout.sass */
+/* line 166, ../../../app/stylesheets/partials/_layout.sass */
 a#new {
   border-radius: 14px;
   -moz-border-radius: 14px;
@@ -434,7 +435,7 @@ a#new:hover {
   background: -moz-linear-gradient(top, #dcdcdc 0%, #c4c4c4 14%,  #373737 100%);
 }
 
-/* line 175, ../../../app/stylesheets/partials/_layout.sass */
+/* line 176, ../../../app/stylesheets/partials/_layout.sass */
 div.item {
   border-bottom: 1px solid #ccc;
   clear: both;
@@ -444,17 +445,17 @@ div.item {
   position: relative;
 }
 
-/* line 182, ../../../app/stylesheets/partials/_layout.sass */
+/* line 183, ../../../app/stylesheets/partials/_layout.sass */
 dl.item {
   margin: 0px;
 }
-/* line 184, ../../../app/stylesheets/partials/_layout.sass */
+/* line 185, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dt, dl.item dd {
   clear: none;
   display: block;
   float: left;
 }
-/* line 188, ../../../app/stylesheets/partials/_layout.sass */
+/* line 189, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dt {
   border-top-left-radius: 10px;
   -moz-border-radius-topleft: 10px;
@@ -468,7 +469,7 @@ dl.item dt {
   text-align: right;
   width: 12%;
 }
-/* line 195, ../../../app/stylesheets/partials/_layout.sass */
+/* line 196, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd {
   border-bottom: 1px solid #ccc;
   margin-left: 0px;
@@ -476,49 +477,49 @@ dl.item dd {
   width: 87%;
   position: relative;
 }
-/* line 202, ../../../app/stylesheets/partials/_layout.sass */
+/* line 203, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.item_name form {
   float: left;
   width: 85%;
 }
-/* line 205, ../../../app/stylesheets/partials/_layout.sass */
+/* line 206, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.item_name form input[type=submit] {
   font-size: 12px;
   font-weight: normal;
   margin-top: 2px;
 }
-/* line 210, ../../../app/stylesheets/partials/_layout.sass */
+/* line 211, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.item_name span.actions form {
   clear: none;
   float: left;
   width: 15px;
 }
-/* line 214, ../../../app/stylesheets/partials/_layout.sass */
+/* line 215, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd input[type=checkbox] {
   width: 14px;
   margin: 3px 0 0 7px;
 }
-/* line 218, ../../../app/stylesheets/partials/_layout.sass */
+/* line 219, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd input[type=submit]:hover {
   color: #000;
 }
-/* line 220, ../../../app/stylesheets/partials/_layout.sass */
+/* line 221, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd label {
   display: inline;
   font-size: 14px;
   margin-left: 2px;
 }
-/* line 224, ../../../app/stylesheets/partials/_layout.sass */
+/* line 225, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd label.clicked {
   margin-left: 12px;
 }
-/* line 226, ../../../app/stylesheets/partials/_layout.sass */
+/* line 227, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd span.save {
   position: absolute;
   right: 3.5em;
 }
 
-/* line 231, ../../../app/stylesheets/partials/_layout.sass */
+/* line 232, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions, dl.item dd span.actions {
   float: right;
   clear: none;
@@ -526,34 +527,34 @@ div.item span.actions, dl.item dd span.actions {
   padding-top: 3px;
   width: 3.4em;
 }
-/* line 237, ../../../app/stylesheets/partials/_layout.sass */
+/* line 238, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a, dl.item dd span.actions a {
   padding: 0 2px;
 }
-/* line 239, ../../../app/stylesheets/partials/_layout.sass */
+/* line 240, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a, div.item span.actions input, div.item span.actions b, dl.item dd span.actions a, dl.item dd span.actions input, dl.item dd span.actions b {
   float: left;
   display: inline;
   font-size: 12px;
 }
-/* line 243, ../../../app/stylesheets/partials/_layout.sass */
+/* line 244, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a, div.item span.actions input, dl.item dd span.actions a, dl.item dd span.actions input {
   text-decoration: none;
 }
-/* line 245, ../../../app/stylesheets/partials/_layout.sass */
+/* line 246, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a:hover, div.item span.actions input:hover, dl.item dd span.actions a:hover, dl.item dd span.actions input:hover {
   color: #000;
 }
-/* line 247, ../../../app/stylesheets/partials/_layout.sass */
+/* line 248, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input, dl.item dd span.actions input {
   font-size: 12px;
   font-weight: normal;
 }
-/* line 250, ../../../app/stylesheets/partials/_layout.sass */
+/* line 251, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input, div.item span.actions b, dl.item dd span.actions input, dl.item dd span.actions b {
   padding: 0px;
 }
-/* line 252, ../../../app/stylesheets/partials/_layout.sass */
+/* line 253, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input[type="submit"].delete, dl.item dd span.actions input[type="submit"].delete {
   color: #f00;
   background: transparent;
@@ -569,24 +570,24 @@ div.item span.actions input[type="submit"].delete, dl.item dd span.actions input
   box-shadow: white 1px 1px 5px;
   border: none;
 }
-/* line 261, ../../../app/stylesheets/partials/_layout.sass */
+/* line 262, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input[type="submit"].delete:hover, dl.item dd span.actions input[type="submit"].delete:hover {
   color: #000;
 }
-/* line 263, ../../../app/stylesheets/partials/_layout.sass */
+/* line 264, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions b.divider, dl.item dd span.actions b.divider {
   color: #ccc;
   padding: 0px 2px 0px 2px;
 }
 
-/* line 270, ../../../app/stylesheets/partials/_layout.sass */
+/* line 271, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar {
   clear: none;
   float: left;
   width: 26%;
   padding-left: 2%;
 }
-/* line 275, ../../../app/stylesheets/partials/_layout.sass */
+/* line 276, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   overflow: hidden;
   display: inline-block;
@@ -595,11 +596,11 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
 #sidebar .box {
   display: block;
 }
-/* line 277, ../../../app/stylesheets/partials/_layout.sass */
+/* line 278, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar h3 {
   margin: 0px;
 }
-/* line 279, ../../../app/stylesheets/partials/_layout.sass */
+/* line 280, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar ul.filters {
   margin: 0;
   padding: 0;
@@ -695,35 +696,35 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
   background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
 }
-/* line 283, ../../../app/stylesheets/partials/_layout.sass */
+/* line 284, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   padding: 12px;
 }
-/* line 286, ../../../app/stylesheets/partials/_layout.sass */
+/* line 287, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.gold {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #c0c0b1;
   background: #f2f2e3;
   margin-bottom: 20px;
 }
-/* line 291, ../../../app/stylesheets/partials/_layout.sass */
+/* line 292, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.ice {
   border-bottom: 1px solid #fff;
   border-top: 1px solid #97b8bd;
   background: #c9eaef;
 }
-/* line 296, ../../../app/stylesheets/partials/_layout.sass */
+/* line 297, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul {
   color: #6f9095;
 }
-/* line 298, ../../../app/stylesheets/partials/_layout.sass */
+/* line 299, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul li {
   padding: 0px 0px 5px 0px;
 }
-/* line 300, ../../../app/stylesheets/partials/_layout.sass */
+/* line 301, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box#recent_items ul span {
   display: block;
   float: left;
@@ -733,12 +734,12 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   width: 60px;
 }
 
-/* line 308, ../../../app/stylesheets/partials/_layout.sass */
+/* line 309, ../../../app/stylesheets/partials/_layout.sass */
 #search {
   padding-bottom: 12px;
 }
 
-/* line 311, ../../../app/stylesheets/partials/_layout.sass */
+/* line 312, ../../../app/stylesheets/partials/_layout.sass */
 .inline-add {
   font-size: 14px;
   padding-top: 27px;
@@ -747,43 +748,43 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   float: left;
 }
 
-/* line 320, ../../../app/stylesheets/partials/_layout.sass */
+/* line 321, ../../../app/stylesheets/partials/_layout.sass */
 span.rating {
   font-size: 13px;
   padding-top: 4px;
   width: 7%;
 }
-/* line 324, ../../../app/stylesheets/partials/_layout.sass */
+/* line 325, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.on {
   color: #666;
 }
-/* line 326, ../../../app/stylesheets/partials/_layout.sass */
+/* line 327, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.off {
   color: #ccc;
 }
 
-/* line 331, ../../../app/stylesheets/partials/_layout.sass */
+/* line 332, ../../../app/stylesheets/partials/_layout.sass */
 .activities {
   font-size: 13px;
 }
-/* line 333, ../../../app/stylesheets/partials/_layout.sass */
+/* line 334, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item {
   padding: 5px 0px;
   border-bottom: 1px solid #ccc;
 }
-/* line 336, ../../../app/stylesheets/partials/_layout.sass */
+/* line 337, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item a {
   font-weight: bold;
 }
 
-/* line 338, ../../../app/stylesheets/partials/_layout.sass */
+/* line 339, ../../../app/stylesheets/partials/_layout.sass */
 span.icon {
   color: #777;
   font-size: 16px;
   padding: 0px 5px;
 }
 
-/* line 342, ../../../app/stylesheets/partials/_layout.sass */
+/* line 343, ../../../app/stylesheets/partials/_layout.sass */
 small.timestamp {
   color: #888;
   font-style: italic;
@@ -791,19 +792,19 @@ small.timestamp {
   margin-top: 4px;
 }
 
-/* line 347, ../../../app/stylesheets/partials/_layout.sass */
+/* line 348, ../../../app/stylesheets/partials/_layout.sass */
 #recent_activity {
   font-size: 12px;
 }
 
-/* line 353, ../../../app/stylesheets/partials/_layout.sass */
+/* line 354, ../../../app/stylesheets/partials/_layout.sass */
 .pagination {
   clear: both;
   padding-top: 8px;
   text-align: right;
 }
 
-/* line 360, ../../../app/stylesheets/partials/_layout.sass */
+/* line 361, ../../../app/stylesheets/partials/_layout.sass */
 #the_error {
   border-radius: 20px;
   -moz-border-radius: 20px;
@@ -817,22 +818,22 @@ small.timestamp {
   background-image: -moz-linear-gradient(center top, red 0%, #880000 100%);
   width: 43%;
 }
-/* line 368, ../../../app/stylesheets/partials/_layout.sass */
+/* line 369, ../../../app/stylesheets/partials/_layout.sass */
 #the_error h2, #the_error a {
   color: #fff;
   text-decoration: none;
 }
-/* line 371, ../../../app/stylesheets/partials/_layout.sass */
+/* line 372, ../../../app/stylesheets/partials/_layout.sass */
 #the_error a:hover {
   color: #fff;
   text-decoration: underline;
 }
-/* line 374, ../../../app/stylesheets/partials/_layout.sass */
+/* line 375, ../../../app/stylesheets/partials/_layout.sass */
 #the_error p {
   font-size: 16px;
 }
 
-/* line 376, ../../../app/stylesheets/partials/_layout.sass */
+/* line 377, ../../../app/stylesheets/partials/_layout.sass */
 .hidden {
   display: none;
 }
@@ -871,7 +872,7 @@ h1.grad, h2.grad, h3.grad, h4.grad, h5.grad {
   -moz-border-radius-bottomleft: 3px;
   -webkit-border-bottom-left-radius: 3px;
   color: #fff;
-  background: white;
+  background: black;
   background: -webkit-gradient(linear, left top, right top, from(black), to(white));
   background: -moz-linear-gradient(center left, black 0%, white 100%);
   padding: 3px 8px;
@@ -1953,37 +1954,37 @@ h3.deadline {
 }
 /* line 14, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#overdue {
-  background: white;
+  background: red;
   background: -webkit-gradient(linear, left top, right top, from(red), to(white));
   background: -moz-linear-gradient(center left, red 0%, white 100%);
 }
 /* line 16, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_today {
-  background: white;
+  background: black;
   background: -webkit-gradient(linear, left top, right top, from(black), to(white));
   background: -moz-linear-gradient(center left, black 0%, white 100%);
 }
 /* line 18, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_tomorrow {
-  background: white;
+  background: #222222;
   background: -webkit-gradient(linear, left top, right top, from(#222222), to(white));
   background: -moz-linear-gradient(center left, #222222 0%, white 100%);
 }
 /* line 20, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_this_week {
-  background: white;
+  background: #444444;
   background: -webkit-gradient(linear, left top, right top, from(#444444), to(white));
   background: -moz-linear-gradient(center left, #444444 0%, white 100%);
 }
 /* line 22, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_next_week {
-  background: white;
+  background: #666666;
   background: -webkit-gradient(linear, left top, right top, from(#666666), to(white));
   background: -moz-linear-gradient(center left, #666666 0%, white 100%);
 }
 /* line 24, ../../../app/stylesheets/models/_task.sass */
 h3.deadline#due_later {
-  background: white;
+  background: #888888;
   background: -webkit-gradient(linear, left top, right top, from(#888888), to(white));
   background: -moz-linear-gradient(center left, #888888 0%, white 100%);
 }
