@@ -1,9 +1,15 @@
-class User < AbstractUser
+class User
+  include MongoMapper::Document
 
   devise :authenticatable, :confirmable, :recoverable, :rememberable, :trackable,
     :validatable, :http_authenticatable
 
-  key :api_key, String, :index => true
+  key :username,    String
+  key :company_id,  ObjectId
+  key :api_key,     String, :index => true
+  timestamps!
+
+  attr_accessor :company_name
 
   has_many :leads
   has_many :comments
@@ -13,7 +19,11 @@ class User < AbstractUser
   has_many :activities
   has_many :searches
 
-  before_validation_on_create :set_api_key
+  belongs_to :company
+
+  before_validation_on_create :set_api_key, :create_company
+
+  validates_presence_of :company
 
   def deleted_items_count
     [Lead, Contact, Account, Comment].map do |model|
@@ -59,5 +69,12 @@ class User < AbstractUser
 protected
   def set_api_key
     self.api_key = UUID.new.generate
+  end
+
+  def create_company
+    company = Company.new :name => self.company_name
+    if company.save
+      self.company_id = company.id
+    end
   end
 end

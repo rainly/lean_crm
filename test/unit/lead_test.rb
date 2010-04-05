@@ -11,6 +11,17 @@ class LeadTest < ActiveSupport::TestCase
 
   context 'Named Scopes' do
 
+    context 'for_company' do
+      setup do
+        @lead = Lead.make(:erich)
+        @lead2 = Lead.make(:markus)
+      end
+
+      should 'only return leads for the supplied company' do
+        assert_equal [@lead], Lead.for_company(@lead.user.company)
+      end
+    end
+
     context 'unassigned' do
       setup do
         @user = User.make(:annika)

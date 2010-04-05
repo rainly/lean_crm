@@ -2,6 +2,11 @@ require 'test_helper.rb'
 
 class UserTest < ActiveSupport::TestCase
   context 'Class' do
+    should_have_key :company_id
+    should_require_key :email, :company
+    should_belong_to :company
+    should_have_instance_methods :company_name=, :company_name
+
     context 'send_tracked_items_mail' do
       setup do
         @user = User.make(:annika)
@@ -73,6 +78,13 @@ class UserTest < ActiveSupport::TestCase
   context 'Instance' do
     setup do
       @user = User.make_unsaved(:annika)
+    end
+
+    should 'create company from company name' do
+      @user = User.new User.plan(:annika, :company_name => 'A test company')
+      @user.save!
+      assert Company.find_by_name('A test company')
+      assert_equal 'A test company', @user.company.name
     end
 
     should 'have dropbox email' do
@@ -187,12 +199,6 @@ class UserTest < ActiveSupport::TestCase
 
     should 'not be valid with invalid email' do
       @user.email = 'matt'
-      assert !@user.valid?
-      assert @user.errors.on(:email)
-    end
-
-    should 'not be valid without email' do
-      @user.email = nil
       assert !@user.valid?
       assert @user.errors.on(:email)
     end

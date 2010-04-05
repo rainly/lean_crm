@@ -20,11 +20,13 @@ class AccountsController < InheritedResources::Base
 
 protected
   def collection
-    @accounts ||= Account.permitted_for(current_user).not_deleted.sort_by(&:name).paginate(:per_page => 10, :page => params[:page] || 1)
+    @accounts ||= Account.for_company(current_user.company).permitted_for(current_user).
+      not_deleted.sort_by(&:name).paginate(:per_page => 10, :page => params[:page] || 1)
   end
 
   def resource
-    @account ||= Account.permitted_for(current_user).find_by_id(params[:id])
+    @account ||= Account.for_company(current_user.company).permitted_for(current_user).
+      find_by_id(params[:id])
   end
 
   def begin_of_association_chain

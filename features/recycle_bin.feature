@@ -41,10 +41,11 @@ Feature: Recycle Bin
     And a lead should not exist with first_name: "Erich"
     And I should see "Recycle Bin"
     And I should not see "Recycle Bin (1)"
-  
+
   Scenario: Permanently deleting a lead with comments
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And a lead "erich" exists with user: benny
     And a comment exists with user: benny, commentable: lead, text: "Delete me too!"
     And I am on the leads page
@@ -80,6 +81,7 @@ Feature: Recycle Bin
   Scenario: Deleting a contact with comments
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And a contact "florian" exists with user: benny
     And a comment exists with user: benny, commentable: contact, text: "Delete me too!"
     And I am on the contacts page
@@ -115,6 +117,7 @@ Feature: Recycle Bin
   Scenario: Permanently deleting an account with comments
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And account: "careermee" exists with user: benny
     And a comment exists with user: benny, commentable: account, text: "Delete me too!"
     And I am on the accounts page

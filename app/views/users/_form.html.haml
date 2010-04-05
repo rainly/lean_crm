@@ -1,10 +1,11 @@
 %fieldset
+  .100.a= f.input :company_name, :required => true
+  .clear
   .50.a= f.input :email, :required => true
   .50.z= f.input :username
   .clear
   .50.a= f.input :password, :required => true
   .50.z= f.input :password_confirmation, :required => true
-  
 = f.button :submit
 
 -#.clear

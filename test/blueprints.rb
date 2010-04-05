@@ -15,26 +15,31 @@ Configuration.blueprint do
   company_name 'A company'
 end
 
+Company.blueprint do
+  name
+end
+
+Company.blueprint(:jobboersen) do
+  name { '1000JobBoersen' }
+end
+
 User.blueprint do
+  company { Company.make }
   email
   password { 'password' }
   password_confirmation { 'password' }
 end
 
 User.blueprint(:annika) do
+  company { Company.make }
   email { Sham.annika_email }
   password { 'password' }
   password_confirmation { 'password' }
 end
 
 User.blueprint(:benny) do
+  company { Company.make }
   email { 'benjamin.pochhammer@1000jobboersen.de' }
-  password { 'password' }
-  password_confirmation { 'password' }
-end
-
-User.blueprint(:steven) do
-  email { 'steven.garcia@1000jobboersen.de' }
   password { 'password' }
   password_confirmation { 'password' }
 end

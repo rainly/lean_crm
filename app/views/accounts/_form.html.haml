@@ -18,7 +18,7 @@
 %h3.toggler= "#{t('tracking')} &amp; #{t('simple_form.labels.permissions')}"
 .toggle
   %fieldset
-    .25.a= form.input :assignee_id, :collection => User.all.map {|u| [u.email,u.id] }
+    .25.a= form.input :assignee_id, :collection => current_user.company.users.map {|u| [u.email,u.id] }
     .25.a= form.input :access, :collection => t('access_levels')
     = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1 => '25', :p2 => '25 z' }
 

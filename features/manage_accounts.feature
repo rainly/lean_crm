@@ -36,6 +36,7 @@ Feature: Manage accounts
   Scenario: Deleting an account from the index page
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And account: "careermee" exists with user: benny
     And I am on the accounts page
     When I click the delete button for the account
@@ -81,6 +82,7 @@ Feature: Manage accounts
   Scenario: Private account (in)visibility on the accounts page
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And an account: "careermee" exists with user: benny, permission: "Public"
     And an account: "world_dating" exists with user: benny, permission: "Private"
     When I go to the accounts page
@@ -91,6 +93,7 @@ Feature: Manage accounts
     Given I am registered and logged in as benny
     And an account: "careermee" exists with user: benny, permission: "Private"
     And user: "annika" exists with email: "annika.fleischer@1000jobboersen.de"
+    And annika belongs to the same company as benny
     And I go to the new account page
     And I fill in "account_name" with "World Dating"
     And I select "Shared" from "account_permission"
@@ -105,6 +108,7 @@ Feature: Manage accounts
   Scenario: Viewing a shared accounts details
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And an account: "careermee" exists with user: benny
     And careermee is shared with annika
     And I am on the accounts page

@@ -60,6 +60,7 @@ Feature: Manage contacts
   Scenario: Deleting a contact from the index page
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And contact: "florian" exists with user: benny
     And I am on the contacts page
     When I click the delete button for the contact
@@ -97,6 +98,7 @@ Feature: Manage contacts
   Scenario: Private contact (in)visibility on the contacts page
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And a contact: "florian" exists with user: benny, permission: "Public"
     And a contact exists with user: benny, first_name: "Joe", permission: "Private"
     When I go to the contacts page
@@ -107,6 +109,7 @@ Feature: Manage contacts
     Given I am registered and logged in as benny
     And a contact: "florian" exists with user: benny, permission: "Private"
     And user: "annika" exists with email: "annika.fleischer@1000jobboersen.de"
+    And annika belongs to the same company as benny
     And I go to the new contact page
     And I fill in "contact_first_name" with "Steven"
     And I fill in "contact_last_name" with "Garcia"
@@ -122,6 +125,7 @@ Feature: Manage contacts
   Scenario: Viewing a shared contact details
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And a contact: "florian" exists with user: benny
     And florian is shared with annika
     And I am on the contacts page

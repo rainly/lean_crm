@@ -16,6 +16,7 @@ end
 
 module RegistrationHelper
   def fill_in_registration_form( options = {} )
+    fill_in 'user_company_name', :with => options[:company] || '1000JobBoersen.de'
     fill_in 'user_email', :with => options[:email] || 'matt.beedle@1000jobboersen.de'
     fill_in 'user_password', :with => options[:password] || 'password'
     fill_in 'user_password_confirmation', :with => options[:password] || 'password'

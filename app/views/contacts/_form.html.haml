@@ -35,7 +35,7 @@
 .toggle
   %fieldset
     .25.a= form.input :source, :collection => t('lead_sources')
-    .25= form.input :assignee_id, :collection => User.all.map {|u| [u.full_name, u.object_id]}
+    .25= form.input :assignee_id, :collection => current_user.company.users.map {|u| [u.full_name, u.object_id]}
     = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1=> '25', :p2=> '25 z' }
 
 .act.pad

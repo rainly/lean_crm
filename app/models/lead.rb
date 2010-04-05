@@ -59,6 +59,7 @@ class Lead
     :status => statuses.map {|status| Lead.statuses.index(status) } } } }
   named_scope :unassigned, :conditions => { :assignee_id => nil }
   named_scope :assigned_to, lambda { |user_id| { :conditions => { :assignee_id => user_id } } }
+  named_scope :for_company, lambda { |company| { :conditions => { :user_id => company.users.map(&:id) } } }
 
   def full_name
     "#{first_name} #{last_name}"

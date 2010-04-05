@@ -7,6 +7,12 @@ Given /^I am registered and logged in as annika$/ do
   store_model('user', 'annika', User.last(:order => 'created_at'))
 end
 
+Given /#{capture_model} belongs to the same company as #{capture_model}$/ do |user1, user2|
+  u1 = model!(user1)
+  u2 = model!(user2)
+  u1.update_attributes :company_id => u2.company_id
+end
+
 Given /^I am registered and logged in as benny$/ do
   visit new_user_path
   fill_in_registration_form(:email => 'benjamin.pochhammer@1000jobboersen.de')

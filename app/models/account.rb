@@ -27,6 +27,8 @@ class Account
   has_many :tasks, :as => :asset
   has_many :comments, :as => :commentable
 
+  named_scope :for_company, lambda { |company| { :conditions => { :user_id => company.users.map(&:id) } } }
+
   validates_uniqueness_of :email, :allow_blank => true
 
   sphinx_index :name, :email, :phone, :website, :fax

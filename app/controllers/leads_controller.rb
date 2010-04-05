@@ -52,12 +52,14 @@ class LeadsController < InheritedResources::Base
 
 protected
   def collection
-    @leads ||= apply_scopes(Lead).not_deleted.permitted_for(current_user).
-      order('status asc, created_at', 'desc').paginate(:per_page => 10, :page => params[:page] || 1)
+    @leads ||= apply_scopes(Lead).for_company(current_user.company).not_deleted.
+      permitted_for(current_user).order('status asc, created_at', 'desc').
+      paginate(:per_page => 10, :page => params[:page] || 1)
   end
 
   def resource
-    @lead ||= Lead.permitted_for(current_user).find_by_id(params[:id])
+    @lead ||= Lead.for_company(current_user.company).permitted_for(current_user).
+      find_by_id(params[:id])
   end
 
   def begin_of_association_chain

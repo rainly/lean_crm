@@ -34,6 +34,20 @@ class ContactTest < ActiveSupport::TestCase
     end
   end
 
+  context 'Named scopes' do
+    context 'for_company' do
+      setup do
+        @contact = Contact.make
+        @contact2 = Contact.make
+      end
+
+      should 'only return contacts for the supplied company' do
+        assert_equal [@contact], Contact.for_company(@contact.user.company)
+        assert_equal [@contact2], Contact.for_company(@contact2.user.company)
+      end
+    end
+  end
+
   context "Instance" do
     setup do
       @contact = Contact.make_unsaved(:florian)

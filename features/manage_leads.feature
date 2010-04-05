@@ -78,14 +78,16 @@ Feature: Manage leads
   Scenario: Editing a lead from index page
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And lead: "erich" exists with user: benny
     And I am on the leads page
     When I follow the edit link for the lead
     Then I should be on the lead's edit page
-  
+
   Scenario: Deleting a lead from the index page
     Given I am registered and logged in as annika
     And a user: "benny" exists
+    And benny belongs to the same company as annika
     And a lead "erich" exists with user: benny
     And I am on the leads page
     When I click the delete button for the lead
@@ -268,6 +270,7 @@ Feature: Manage leads
   Scenario: Private lead (in)visiblity on leads page
     Given I am registered and logged in as annika
     And user: "benny" exists
+    And benny belongs to the same company as annika
     And a lead: "erich" exists with user: benny, permission: "Private"
     And a lead: "markus" exists with user: benny, permission: "Public"
     When I go to the leads page
@@ -278,6 +281,7 @@ Feature: Manage leads
     Given I am registered and logged in as benny
     And a lead: "markus" exists with user: benny, permission: "Private"
     And user: "annika" exists with email: "annika.fleischer@1000jobboersen.de"
+    And annika belongs to the same company as benny
     And I go to the new lead page
     And I fill in "lead_first_name" with "Erich"
     And I fill in "lead_last_name" with "Feldmeier"
@@ -293,6 +297,7 @@ Feature: Manage leads
   Scenario: Shared lead (in)visibility on leads page
     Given I am registered and logged in as annika
     And user: "benny" exists
+    And benny belongs to the same company as annika
     And a lead: "erich" exists with user: benny
     And a lead: "markus" exists with user: benny
     And erich is shared with annika
@@ -304,6 +309,7 @@ Feature: Manage leads
   Scenario: Viewing a shared lead details
     Given I am registered and logged in as annika
     And user: "benny" exists
+    And benny belongs to the same company as annika
     And a lead: "erich" exists with user: benny
     And erich is shared with annika
     And I am on the leads page
