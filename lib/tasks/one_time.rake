@@ -13,6 +13,7 @@ namespace(:one_time) do
     AbstractUser.all.each do |abstract_user|
       user = User.new(abstract_user.attributes)
       user.save(false)
+      user.confirm!
     end
   end
 
