@@ -24,4 +24,19 @@ namespace(:one_time) do
       user.update_attributes :company_id => c.id
     end
   end
+
+  desc 'Import helios dataset'
+  task :helios_import => :environment do
+    headings = ["title", "first_name", "last_name", "salutation", "job_title", "company",
+      "department", "address", "postal_code", "city", "country", "phone", "email"]
+    require 'csv'
+    CSV.open('doc/helios.csv', 'r', '|') do |row|
+      u = User.find_by_email('mattbeedle@googlemail.com')
+      l = u.leads.build :source => 'Helios'
+      headings.each_with_index do |heading,index|
+        l.send("#{heading}=", row[index] ? row[index].strip : nil)
+      end
+      l.save!
+    end
+  end
 end

@@ -22,9 +22,14 @@ class Lead
   key :title,         Integer
   key :salutation,    Integer
   key :company,       String
+  key :job_title,     String
+  key :department,    String
   key :alternative_email, String
   key :mobile,        String
   key :address,       String
+  key :city,          String
+  key :postal_code,   String
+  key :country,       String
   key :referred_by,   String
   key :do_not_call,   Boolean
 

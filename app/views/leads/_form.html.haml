@@ -15,10 +15,16 @@
     .33=  form.input :email
     .33.z= form.input :phone
     .clear
+    .33.a= form.input :department
+    .33.z= form.input :job_title
+    .clear
     .33.a= form.input :address, :as => :text, :input_html => { :rows => 4 }
-    .33= form.input :alternative_email
-    .33.z= form.input :mobile
-    .33= form.input :referred_by
+    .33= form.input :city
+    .33.z= form.input :postal_code
+    .clear
+    .33.a= form.input :alternative_email
+    .33= form.input :mobile
+    .33.z= form.input :referred_by
     .33.boolean
       = form.check_box :do_not_call
       = form.label :do_not_call
