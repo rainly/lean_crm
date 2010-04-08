@@ -1,7 +1,7 @@
 class Admin
   include MongoMapper::Document
 
-  devise :authenticatable, :recoverable, :rememberable
+  devise :database_authenticatable, :recoverable, :rememberable
 
   timestamps!
 end
