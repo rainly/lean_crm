@@ -58,12 +58,16 @@
     %h3= t('contact_info')
     %dl.info
       = show_attribute(@lead, 'company')
+      = show_attribute(@lead, 'job_title')
+      = show_attribute(@lead, 'department')
       = show_attribute(@lead, 'email', mail_to(@lead.email, nil, :bcc => current_user.dropbox_email))
       = show_attribute(@lead, 'alternative_email', mail_to(@lead.alternative_email, nil, :bcc => current_user.dropbox_email))
       - unless @lead.do_not_call
         = show_attribute(@lead, 'phone')
         = show_attribute(@lead, 'mobile')
       = show_attribute(@lead, 'address')
+      = show_attribute(@lead, 'city')
+      = show_attribute(@lead, 'postal_code')
       = show_attribute(@lead, 'referred_by')
       = show_attribute(@lead, 'website', link_to(t('visit_website'),@lead.website))
       = show_attribute(@lead, 'twitter', link_to('Twitter',@lead.website))

@@ -114,6 +114,10 @@ en:
       twitter: Twitter
       xing: Xing
       website: Website
+      department: Department
+      job_title: Job Title
+      city: City
+      postal_code: Postal Code
   
   #--------------------------------------------------------------
   # Account
