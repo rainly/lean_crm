@@ -34,9 +34,6 @@ class Account
   sphinx_index :name, :email, :phone, :website, :fax
 
   alias :full_name :name
-  def self.named(query)
-    self.all( :name => /^#{query}.*/i )
-  end
 
   def self.find_or_create_for( object, name_or_id, options = {} )
     account = Account.find_by_id(Mongo::ObjectID.from_string(name_or_id.to_s))

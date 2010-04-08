@@ -7,6 +7,7 @@ class LeadsController < InheritedResources::Base
   has_scope :with_status, :type => :array
   has_scope :unassigned, :type => :boolean
   has_scope :assigned_to
+  has_scope :source_is, :type => :array
 
   def create
     create! do |success, failure|

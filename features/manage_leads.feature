@@ -127,6 +127,16 @@ Feature: Manage leads
     Then I should see "Erich"
     And I should not see "Markus"
 
+  Scenario: Filtering leads by source
+    Given I am registered and logged in as annika
+    And a lead exists with user: annika, status: "New", first_name: "Erich", source: "Website"
+    And a lead exists with user: annika, status: "New", first_name: "Markus", source: "Helios"
+    And I go to the leads page
+    When I check "source_helios"
+    And I press "filter"
+    Then I should see "Markus"
+    And I should not see "Erich"
+
   Scenario: Deleted leads
     Given I am registered and logged in as annika
     And a lead: "kerstin" exists with user: annika
@@ -135,7 +145,7 @@ Feature: Manage leads
 
   Scenario: Viewing a lead
     Given I am registered and logged in as annika
-    And a lead: "erich" exists with user: annika
+    And a lead: "erich" exists with user: annika, source: "Website"
     And I am on the dashboard page
     And I follow "leads"
     When I follow "erich-feldmeier"

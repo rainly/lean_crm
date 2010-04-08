@@ -99,20 +99,6 @@ class AccountTest < ActiveSupport::TestCase
   end
 
   context 'Named scopes' do
-    context 'named' do
-      setup do
-        @acme   = Account.make :name => 'Acme', :permission => 'Public'
-        @aol    = Account.make :name => 'AOL',  :permission => 'Public'
-        @bing   = Account.make :name => 'Bing', :permission => 'Public'
-      end
-
-      should 'return accounts where the name matches the query' do
-        assert_equal [@acme, @aol], Account.named("A")
-        assert_equal [@acme], Account.named("Ac")
-        assert_equal [@bing], Account.named("b")
-      end
-    end
-
     context 'for_company' do
       setup do
         @account = Account.make

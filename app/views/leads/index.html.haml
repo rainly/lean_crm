@@ -29,4 +29,9 @@
         %li
           = check_box_tag 'assigned_to', current_user.id, params[:assigned_to]
           %label{ :for => 'assigned_to' } Assigned to me
+      %ul.checks.stacked
+        - Lead.sources.sort.each do |source|
+          %li
+            = check_box_tag 'source_is[]', source, (params[:source_is] and params[:source_is].include?(source)), :id => "source_#{source.parameterize}"
+            %label{ :for => "source_#{source.parameterize}" }= source
       .clear= submit_tag t('filter'), :id => 'filter'

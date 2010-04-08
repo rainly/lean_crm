@@ -39,9 +39,9 @@ module HasConstant
         if respond_to?(:named_scope)
           named_scope :by_constant, lambda { |constant,value| { :conditions =>
             { constant.to_sym => eval("#{self.to_s}.#{constant.pluralize}.index(value)") } } }
-          named_scope "#{singular}_is".to_sym, lambda { |*values| { :conditions =>
+          named_scope "#{singular}_is".to_sym, lambda { |values| { :conditions =>
             { singular.to_sym => values.map { |v| self.send(name.to_sym).index(v) } } } }
-          named_scope "#{singular}_is_not".to_sym, lambda { |*values| { :conditions =>
+          named_scope "#{singular}_is_not".to_sym, lambda { |values| { :conditions =>
             { singular.to_sym => { '$nin' => values.map { |v| self.send(name.to_sym).index(v) } } } } }
         end
       end
