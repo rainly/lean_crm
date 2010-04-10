@@ -16,6 +16,8 @@ class Task
   key :deleted_at,      Time
   timestamps!
 
+  attr_accessor :due_at_date
+
   has_constant :categories, lambda { I18n.t(:task_categories) }
 
   belongs_to :user
@@ -135,6 +137,10 @@ class Task
       else
         due
       end
+  end
+
+  def due_at_date=( date )
+    self[:due_at] = date
   end
 
   def due_at_in_words

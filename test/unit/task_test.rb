@@ -263,6 +263,13 @@ class TaskTest < ActiveSupport::TestCase
       @task = Task.make_unsaved
     end
 
+    should 'save due_at_date to due_at' do
+      time = 10.minutes.from_now
+      @task.attributes = { :due_at => 'overdue', :due_at_date => time, :due_at => 'overdue' }
+      @task.save!
+      assert time.to_i, @task.reload.due_at.to_i
+    end
+
     should 'be valid with all required attributes' do
       assert @task.valid?
     end
