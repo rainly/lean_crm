@@ -23,7 +23,7 @@
       .attachments
         - comment.attachments.each do |attachment|
           = link_to attachment.attachment_filename, attachment
-    - if comment.user == current_user
+    -# if comment.user == current_user
       %ul.actions
         %li= link_to t('edit_comment'), edit_comment_path(comment,:return_to => request.request_uri), :id => "edit_#{dom_id(comment)}"
         %li

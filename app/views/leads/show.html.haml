@@ -38,6 +38,7 @@
       %li
         - simple_form_for @lead, :url => reject_lead_path(@lead), :html => { :method => :put } do |form|
           = form.button :submit, t('reject'), :id => 'reject_lead'
+  -#
     %li.delete
       - simple_form_for @lead, :html => { :method => :delete } do |form|
         = form.button :submit, t('delete'), :id => "delete_#{dom_id @lead}"

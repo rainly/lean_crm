@@ -16,7 +16,7 @@
         - else
           = hidden_field_tag 'contact[tracker_ids][]', current_user.id
           = form.button :submit, t('keep_me_updated'), :id => 'keep_me_updated'
-    %li.delete
+    -#%li.delete
       - simple_form_for @contact, :html => { :method => :delete } do |form|
         = form.button :submit, t('delete'), :id => "delete_#{dom_id @contact}"
   %br/

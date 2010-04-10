@@ -20,6 +20,7 @@
           = t('added_ago_by', :time => contact_time, :by => contact.user.username)
     %span.actions
       = link_to t('edit'), [:edit, contact], :id => "edit_#{dom_id(contact)}"
+    -#
       %b.divider= "|"
       - simple_form_for contact, :html => { :method => :delete } do |form|
         = form.button :submit, t('delete_icon'), :id => "delete_#{dom_id contact}", :class=> 'delete'

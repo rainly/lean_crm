@@ -84,16 +84,16 @@ Feature: Manage leads
     When I follow the edit link for the lead
     Then I should be on the lead's edit page
 
-  Scenario: Deleting a lead from the index page
-    Given I am registered and logged in as annika
-    And a user: "benny" exists
-    And benny belongs to the same company as annika
-    And a lead "erich" exists with user: benny
-    And I am on the leads page
-    When I click the delete button for the lead
-    Then I should be on the leads page
-    And lead "erich" should have been deleted
-    And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
+  #Scenario: Deleting a lead from the index page
+  #  Given I am registered and logged in as annika
+  #  And a user: "benny" exists
+  #  And benny belongs to the same company as annika
+  #  And a lead "erich" exists with user: benny
+  #  And I am on the leads page
+  #  When I click the delete button for the lead
+  #  Then I should be on the leads page
+  #  And lead "erich" should have been deleted
+  #  And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
 
   Scenario: Filtering leads
     Given I am registered and logged in as annika
@@ -160,15 +160,15 @@ Feature: Manage leads
     When I follow the edit link for the account
     Then I should be on the account's edit page
     
-  Scenario: Deleting a lead form the show page
-    Given I am registered and logged in as annika
-    And a user: "benny" exists
-    And a lead "erich" exists with user: benny
-    And I am on the lead's page
-    When I click the delete button for the lead
-    Then I should be on the leads page
-    And I should not see "Erich" within "#main"
-    And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
+  #Scenario: Deleting a lead form the show page
+  #  Given I am registered and logged in as annika
+  #  And a user: "benny" exists
+  #  And a lead "erich" exists with user: benny
+  #  And I am on the lead's page
+  #  When I click the delete button for the lead
+  #  Then I should be on the leads page
+  #  And I should not see "Erich" within "#main"
+  #  And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
   
   Scenario: Adding a task to a lead
     Given I am registered and logged in as annika

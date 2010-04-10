@@ -57,16 +57,16 @@ Feature: Manage contacts
     When I follow the edit link for the contact
     Then I should be on the contact's edit page
 
-  Scenario: Deleting a contact from the index page
-    Given I am registered and logged in as annika
-    And a user: "benny" exists
-    And benny belongs to the same company as annika
-    And contact: "florian" exists with user: benny
-    And I am on the contacts page
-    When I click the delete button for the contact
-    Then I should be on the contacts page
-    And I should not see "Florian Behn" within "#main"
-    And a new "Deleted" activity should have been created for "Contact" with "first_name" "Florian" and user: "annika"
+  #Scenario: Deleting a contact from the index page
+  #  Given I am registered and logged in as annika
+  #  And a user: "benny" exists
+  #  And benny belongs to the same company as annika
+  #  And contact: "florian" exists with user: benny
+  #  And I am on the contacts page
+  #  When I click the delete button for the contact
+  #  Then I should be on the contacts page
+  #  And I should not see "Florian Behn" within "#main"
+  #  And a new "Deleted" activity should have been created for "Contact" with "first_name" "Florian" and user: "annika"
   
   Scenario: Viewing a contact
     Given I am registered and logged in as annika
@@ -85,15 +85,15 @@ Feature: Manage contacts
     When I follow the edit link for the account
     Then I should be on the account's edit page
     
-  Scenario: Deleting a contact form the show page
-    Given I am registered and logged in as annika
-    And a user: "benny" exists
-    And a contact "florian" exists with user: benny
-    And I am on the contact's page
-    When I click the delete button for the contact
-    Then I should be on the contacts page
-    And I should not see "Florian" within "#main"
-    And a new "Deleted" activity should have been created for "Contact" with "first_name" "Florian" and user: "annika"
+  #Scenario: Deleting a contact form the show page
+  #  Given I am registered and logged in as annika
+  #  And a user: "benny" exists
+  #  And a contact "florian" exists with user: benny
+  #  And I am on the contact's page
+  #  When I click the delete button for the contact
+  #  Then I should be on the contacts page
+  #  And I should not see "Florian" within "#main"
+  #  And a new "Deleted" activity should have been created for "Contact" with "first_name" "Florian" and user: "annika"
 
   Scenario: Private contact (in)visibility on the contacts page
     Given I am registered and logged in as annika

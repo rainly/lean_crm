@@ -15,7 +15,7 @@
       = " : #{link_to(pluralize(account.comments.not_deleted.size, t('comment')), account)}" if account.comments.not_deleted.any?
     %span.actions
       = link_to t('edit'), [:edit, account], :id => "edit_#{dom_id(account)}"
-    
+    -#
       %b.divider= "|"
       - simple_form_for account, :html => { :method => :delete } do |form|
         = form.button :submit, t('delete_icon'), :id => "delete_#{dom_id account}", :class=> 'delete'

@@ -33,16 +33,16 @@ Feature: Manage accounts
     When I follow the edit link for the account
     Then I should be on the account's edit page
 
-  Scenario: Deleting an account from the index page
-    Given I am registered and logged in as annika
-    And a user: "benny" exists
-    And benny belongs to the same company as annika
-    And account: "careermee" exists with user: benny
-    And I am on the accounts page
-    When I click the delete button for the account
-    Then I should be on the accounts page
-    And I should not see "CareerMee" within "#main"
-    And a new "Deleted" activity should have been created for "Account" with "name" "CareerMee" and user: "annika"
+  #Scenario: Deleting an account from the index page
+  #  Given I am registered and logged in as annika
+  #  And a user: "benny" exists
+  #  And benny belongs to the same company as annika
+  #  And account: "careermee" exists with user: benny
+  #  And I am on the accounts page
+  #  When I click the delete button for the account
+  #  Then I should be on the accounts page
+  #  And I should not see "CareerMee" within "#main"
+  #  And a new "Deleted" activity should have been created for "Account" with "name" "CareerMee" and user: "annika"
 
   Scenario: Viewing accounts
     Given I am registered and logged in as annika
@@ -69,15 +69,15 @@ Feature: Manage accounts
     When I follow the edit link for the account
     Then I should be on the account's edit page
   
-  Scenario: Deleting an account from the show page
-    Given I am registered and logged in as annika
-    And a user: "benny" exists
-    And account: "careermee" exists with user: benny
-    And I am on the account's page
-    When I click the delete button for the account
-    Then I should be on the accounts page
-    And I should not see "CareerMee" within "#main"
-    And a new "Deleted" activity should have been created for "Account" with "name" "CareerMee" and user: "annika"
+  #Scenario: Deleting an account from the show page
+  #  Given I am registered and logged in as annika
+  #  And a user: "benny" exists
+  #  And account: "careermee" exists with user: benny
+  #  And I am on the account's page
+  #  When I click the delete button for the account
+  #  Then I should be on the accounts page
+  #  And I should not see "CareerMee" within "#main"
+  #  And a new "Deleted" activity should have been created for "Account" with "name" "CareerMee" and user: "annika"
   
   Scenario: Private account (in)visibility on the accounts page
     Given I am registered and logged in as annika
@@ -172,26 +172,26 @@ Feature: Manage accounts
     And I should see "Sent offer"
     And I should see "erich_offer.pdf"
 
-  Scenario: Editing a comment
-    Given I am registered and logged in as annika
-    And account: "careermee" exists with user: annika, permission: "Public"
-    And a comment exists with user: annika, commentable: account, text: "Excellent account!"
-    And I am on the account's page
-    When I follow "Edit this Comment"
-    Then I should be on the comment's edit page
-    And I fill in "comment_text" with "Excellent account!!!"
-    When I press "Update Comment"
-    Then I should be on the account's page
-    And I should see "Excellent account!!!"
+  #Scenario: Editing a comment
+  #  Given I am registered and logged in as annika
+  #  And account: "careermee" exists with user: annika, permission: "Public"
+  #  And a comment exists with user: annika, commentable: account, text: "Excellent account!"
+  #  And I am on the account's page
+  #  When I follow "Edit this Comment"
+  #  Then I should be on the comment's edit page
+  #  And I fill in "comment_text" with "Excellent account!!!"
+  #  When I press "Update Comment"
+  #  Then I should be on the account's page
+  #  And I should see "Excellent account!!!"
 
-  Scenario: Deleting a comment
-    Given I am registered and logged in as annika
-    And account: "careermee" exists with user: annika, permission: "Public"
-    And a comment exists with user: annika, commentable: account, text: "Some account this is"
-    And I am on the account's page
-    When I click the delete button for the comment
-    Then I should be on the account's page
-    And I should not see "Some account this is"
+  #Scenario: Deleting a comment
+  #  Given I am registered and logged in as annika
+  #  And account: "careermee" exists with user: annika, permission: "Public"
+  #  And a comment exists with user: annika, commentable: account, text: "Some account this is"
+  #  And I am on the account's page
+  #  When I click the delete button for the comment
+  #  Then I should be on the account's page
+  #  And I should not see "Some account this is"
 
   Scenario: Viewing activites on the show page
     Given I am registered and logged in as annika
