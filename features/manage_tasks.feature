@@ -22,7 +22,7 @@ Feature: Manage tasks
     Then I should see "Task for Annika"
     And I should not see "Task for Benny"
 
-  Scenario: Re-assigning a task
+  Scenario: Re-assiging a task
     Given I am registered and logged in as annika
     And user: "benny" exists with email: "benjamin.pochhammer@1000jobboersen.de"
     And a task: "call_erich" exists with user: annika
