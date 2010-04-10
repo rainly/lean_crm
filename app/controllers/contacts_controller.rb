@@ -35,4 +35,9 @@ protected
   def merge_updater_id
     params[:contact].merge!(:updater_id => current_user.id) if params[:contact]
   end
+
+  def build_resource
+    @contact ||= being_of_association_chain.contacts.build({ :assignee_id => current_user.id }.
+                                                           merge(params[:contact] || {}))
+  end
 end

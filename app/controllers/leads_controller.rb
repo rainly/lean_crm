@@ -66,4 +66,8 @@ protected
   def begin_of_association_chain
     current_user
   end
+
+  def build_resource
+    @lead ||= begin_of_association_chain.leads.build({ :assignee_id => current_user.id }.merge!(params[:lead] || {}))
+  end
 end

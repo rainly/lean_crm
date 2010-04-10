@@ -36,4 +36,9 @@ protected
   def merge_updater_id
     params[:account].merge!(:updater_id => current_user.id) if params[:account]
   end
+
+  def build_resource
+    @account ||= begin_of_association_chain.accounts.build({ :assignee_id => current_user.id }.
+                                                           merge(params[:account] || {}))
+  end
 end

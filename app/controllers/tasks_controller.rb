@@ -49,7 +49,8 @@ protected
   end
   
   def build_resource
-    @task ||= begin_of_association_chain.tasks.build params[:task]
+    @task ||= begin_of_association_chain.tasks.build({ :assignee_id => current_user.id }.
+                                                     merge(params[:task] || {}))
     @task.asset_id = params[:asset_id] if params[:asset_id]
     @task.asset_type = params[:asset_type] if params[:asset_type]
     @task
