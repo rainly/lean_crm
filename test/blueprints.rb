@@ -197,3 +197,8 @@ Email.blueprint(:erich_offer_email) do
   received_at { 1.day.ago }
   from { 'annika.fleischer@1000jobboersen.de' }
 end
+
+Search.blueprint do
+  user { User.make(:annika) }
+  terms { Sham.name }
+end

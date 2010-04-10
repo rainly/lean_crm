@@ -1,15 +1,17 @@
 class Search
   include MongoMapper::Document
 
-  key :terms,   String,   :required => true
-  key :user_id, ObjectId
+  key :terms,       String,   :required => true
+  key :user_id,     ObjectId
+  key :collections, Array
   timestamps!
 
   belongs_to :user
 
   def results
-    @results ||= (Lead.scoped(:conditions => { :id => Lead.search(terms).map(&:id) }).permitted_for(user).not_deleted +
-      Contact.scoped(:conditions => { :id => Contact.search(terms).map(&:id) }).permitted_for(user).not_deleted +
-      Account.scoped(:conditions => { :id => Account.search(terms).map(&:id) }).permitted_for(user).not_deleted)
+    @results ||= (collections.blank? ? %w(Lead, Contact, Account) : collections).map do |klass|
+      klass = klass.constantize
+      klass.scoped(:conditions => { :id => klass.search(terms).map(&:id) }).permitted_for(user).not_deleted
+    end.inject { |sum,n| sum += n }
   end
 end
