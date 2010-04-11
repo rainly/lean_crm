@@ -97,8 +97,7 @@ Feature: Recycle Bin
   Scenario: Restoring an account
     Given I am registered and logged in as annika
     And an account: "careermee" exists with user: annika
-    And I am on the accounts page
-    And I click the delete button for the account
+    And careermee has been deleted
     And I go to the recycle bin page
     When I press "restore_careermee"
     Then I should be on the recycle bin page
