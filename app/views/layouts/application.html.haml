@@ -28,7 +28,7 @@
         #sidebar
           - if user_signed_in?
             #search
-              - simple_form_for Search.new do |form|
+              - simple_form_for @search || Search.new do |form|
                 .100= form.input :terms, :label => t('search')
                 .clear
                 .33.a
@@ -40,6 +40,8 @@
                 .33.z
                   = check_box_tag 'search[collections][]', 'Account', (params[:search] && params[:search][:collections].include?('Account')) || (!@search && params[:search].blank?) || (@search and @search.collections.include?('Account')), :id => 'search_collections_account'
                   %label{ :for => 'search_collections_account' }= t('accounts')
+                .clear
+                .100= form.input :company, :label => t('by_company')
                 .hidden= form.submit t('search')
           = yield :sidebar
           - if action_is('index')
