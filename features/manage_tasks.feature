@@ -28,7 +28,7 @@ Feature: Manage tasks
     And a task: "call_erich" exists with user: annika
     And I am on the tasks page
     And I follow the edit link for the task
-    Then I should be on the task's edit page
+    And I follow "preset_date"
     When I select "benjamin.pochhammer@1000jobboersen.de" from "task_assignee_id"
     And I select "Today" from "task_due_at"
     And I press "update_task"

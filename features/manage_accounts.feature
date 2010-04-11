@@ -122,6 +122,7 @@ Feature: Manage accounts
     And an account: "careermee" exists with user: benny
     And I am on the account's page
     And I follow "add_task"
+    And I follow "preset_date"
     And I fill in "task_name" with "Call to get offer details"
     And I select "As soon as possible" from "task_due_at"
     And I select "Call" from "task_category"

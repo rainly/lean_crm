@@ -4,6 +4,17 @@ class TaskTest < ActiveSupport::TestCase
   context "Class" do
     should_have_constant :categories
 
+    should 'allow multiparameter attributes for due_at' do
+      time = Time.zone.now
+      obj = Task.new "due_at(1i)" => time.year.to_s,
+        "due_at(2i)" => time.month.to_s,
+        "due_at(3i)" => time.day.to_s,
+        "due_at(4i)" => time.hour.to_s,
+        "due_at(5i)" => time.min.to_s,
+        "due_at(6i)" => time.sec.to_s
+      assert_equal time.to_i, obj.due_at.to_i
+    end
+
     context 'grouped_by_scope' do
       setup do
         @task = Task.make :due_at => 'due_next_week'

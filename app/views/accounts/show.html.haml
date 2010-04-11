@@ -23,8 +23,8 @@
   - @account.contacts.each do |contact|
     = render :partial => 'contacts/contact_with_assets', :locals => {:contact => contact }
 .clear
-= render :partial => "tasks/add_task", :locals=> { :object => @account }
-= render :partial => "comments/comments", :locals => {:object => @account }
+= render :partial => 'tasks/add_task', :locals => { :object => @account }
+= render :partial => 'comments/comments', :locals => {:object => @account }
 
 - content_for :sidebar do
   .box.gold

@@ -2,6 +2,7 @@ class Task
   include MongoMapper::Document
   include HasConstant
   include Permission
+  include MultiParameterAttributes
 
   key :user_id,         ObjectId, :required => true, :index => true
   key :name,            String,   :required => true
