@@ -37,7 +37,7 @@ protected
   end
 
   def build_resource
-    @contact ||= being_of_association_chain.contacts.build({ :assignee_id => current_user.id }.
+    @contact ||= begin_of_association_chain.contacts.build({ :assignee_id => current_user.id }.
                                                            merge(params[:contact] || {}))
   end
 end
