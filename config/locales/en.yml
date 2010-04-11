@@ -138,6 +138,7 @@ en:
   search: Search
   no_search_results: "There are no matches, <a href=\"{{link}}\">search again</a>"
   results: Results
+  by_company: By Company
 
   #--------------------------------------------------------------
   # Activity

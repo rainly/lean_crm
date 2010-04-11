@@ -12,7 +12,7 @@ class Search
   validate :criteria_entered?
 
   def results
-    if company
+    unless company.blank?
       @results ||= Lead.scoped(:conditions => { :id => Lead.search("@company #{company}").map(&:id) }).
         permitted_for(user).not_deleted +
         Account.scoped(:conditions => { :id => Account.search("@name #{company}").map(&:id) }).

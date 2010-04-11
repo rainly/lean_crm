@@ -5,7 +5,19 @@
 - unless @search.results.blank?
   - @search.results.each do |result|
     %div{ :class => result.class }
-      = result.class.to_s
-      = link_to result.name, result
+      - if result.is_a?(Lead)
+        Lead
+        = link_to result.name, result
+        @
+        = result.company
+      - if result.is_a?(Contact)
+        Contact
+        = link_to result.name, result
+        - if result.account
+          @
+          = result.account.name
+      - if result.is_a?(Account)
+        Account
+        = link_to result.name, result
 - else
   = t('no_search_results', :link => new_search_path)
