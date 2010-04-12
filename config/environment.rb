@@ -35,7 +35,6 @@ Rails::Initializer.run do |config|
   config.gem 'faker'
   config.gem 'has_scope'
   config.gem 'navvy'
-  #config.gem 'rufus-scheduler', :lib => 'rufus/scheduler'
   config.gem 'whenever'
   config.gem 'chronic'
   config.gem 'mail'
