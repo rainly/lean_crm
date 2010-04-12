@@ -463,6 +463,12 @@ class TaskTest < ActiveSupport::TestCase
         assert((Time.zone.now.end_of_day + 5.years).to_i == @task.due_at.to_i)
       end
 
+      should 'attempt to use chronic' do
+        time = Chronic.parse('next tuesday')
+        @task.due_at = 'next tuesday'
+        assert time.to_i, @task.due_at.to_i
+      end
+
       should 'set due_at to specified time, if an actual time is specified' do
         time = 5.minutes.from_now
         @task.due_at = time
