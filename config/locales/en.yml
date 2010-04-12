@@ -206,6 +206,8 @@ en:
     - Contacted
     - Converted
     - Rejected
+    - Not Interested
+    - Interested
   lead_sources:
     - Campaign
     - Cold Call
