@@ -2,7 +2,7 @@ var Base = new Class({
 
   initialize: function() {
     this.watchTitleTogglers();
-    this.addRealTaskCalendar();
+    //this.addRealTaskCalendar();
   },
 
   addRealTaskCalendar: function() {
