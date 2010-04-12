@@ -2,7 +2,8 @@ var Base = new Class({
 
   initialize: function() {
     this.watchTitleTogglers();
-    this.addRealTaskCalendar();
+    //this.addRealTaskCalendar();
+    this.fieldHints();
   },
 
   addRealTaskCalendar: function() {
@@ -11,6 +12,30 @@ var Base = new Class({
     });
     $('realdate').remove();
     new Calendar({ format: "%Y-%m-%d %H:%M" }).assignTo('realdate_input');
+  },
+  
+  fieldHints:  function() {
+    $$('.add_hints label').each( function(label) {
+      var input = $(label.get('for'));
+      var text = label.innerHTML.replace("<abbr title=\"required\">*</abbr>", "*");
+      label.hide();
+      if (input.value == text || input.value == "") {
+        input.addClass('hint');
+        input.value = text;
+      };
+      input.onFocus(function() {
+        if (this.value == text) {
+          this.value = "";
+          this.removeClass('hint');
+        };
+      });
+      input.onBlur(function() {
+        if (this.value == "") {
+          this.value = text;
+          this.addClass('hint');
+        };
+      });
+    });
   },
 
   watchTitleTogglers: function() {
@@ -46,3 +71,5 @@ var Base = new Class({
 document.onReady(function() {
   new Base().initialize;
 });
+
+

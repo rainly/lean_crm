@@ -29,20 +29,26 @@
           - if user_signed_in?
             #search
               - simple_form_for @search || Search.new do |form|
-                .100= form.input :terms, :label => t('search')
+                .100= form.input :terms, :label => t('search_people')
+                .100= form.input :company, :label => t('search_companies')
                 .clear
-                .33.a
+                .boolean
                   = check_box_tag 'search[collections][]', 'Lead', (params[:search] && params[:search][:collections].include?('Lead')) || (!@search && params[:search].blank?) || (@search and @search.collections.include?('Lead')), :id => 'search_collections_lead'
                   %label{ :for => 'search_collections_lead' }= t('leads')
-                .33
+
                   = check_box_tag 'search[collections][]', 'Contact', (params[:search] && params[:search][:collections].include?('Contact')) || (!@search && params[:search].blank?) || (@search and @search.collections.include?('Contact')), :id => 'search_collections_contact'
                   %label{ :for => 'search_collections_contact' }= t('contacts')
-                .33.z
+
                   = check_box_tag 'search[collections][]', 'Account', (params[:search] && params[:search][:collections].include?('Account')) || (!@search && params[:search].blank?) || (@search and @search.collections.include?('Account')), :id => 'search_collections_account'
                   %label{ :for => 'search_collections_account' }= t('accounts')
                 .clear
-                .100= form.input :company, :label => t('by_company')
-                .hidden= form.submit t('search')
+                .act
+                  = form.submit t('search')
+                  - if controller_is('searches')
+                    %span
+                      or
+                      = link_to t('go_back'), :back
+                  
           = yield :sidebar
           - if action_is('index')
             #recent_items.box.ice

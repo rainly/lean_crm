@@ -68,6 +68,8 @@ input, textarea
   +inset-box-shadow(#ddd,1px,1px,4px)
   :padding 5px 0px
   :text-indent 5px
+  &.hint
+    :color #ccc
 select
   +border-radius(4px)
   :font-size 14px
@@ -83,6 +85,8 @@ select
     :margin-right 12px
   label.block
     :display block
+  &.full
+    :width 100%
 ul
   &.checks, &.radio, &.boolean
     :list-style-type none

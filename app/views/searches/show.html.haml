@@ -1,23 +1,12 @@
-- simple_form_for Search.new do |form|
-  = render :partial => 'form', :locals => { :form => form }
-
-%h2= t('results')
+%h2.title= t('search_results_for', :terms => @search.terms)
 - unless @search.results.blank?
   - @search.results.each do |result|
     %div{ :class => result.class }
       - if result.is_a?(Lead)
-        Lead
-        = link_to result.name, result
-        @
-        = result.company
+        = render :partial => "leads/lead", :locals => { :lead => result }
       - if result.is_a?(Contact)
-        Contact
-        = link_to result.name, result
-        - if result.account
-          @
-          = result.account.name
+        = render :partial => "contacts/contact", :locals => { :contact => result }
       - if result.is_a?(Account)
-        Account
-        = link_to result.name, result
+        = render :partial => "accounts/account", :locals => { :account => result }
 - else
   = t('no_search_results', :link => new_search_path)
