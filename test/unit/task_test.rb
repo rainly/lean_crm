@@ -131,10 +131,9 @@ class TaskTest < ActiveSupport::TestCase
         @task2 = Task.make :due_at => 'due_tomorrow'
       end
 
-      # TODO, fix these tests, they all pass or fail depending on which day it is!
-      #should 'return tasks which are due tomorrow' do
-        #assert_equal [@task2], Task.due_tomorrow
-      #end
+      should 'return tasks which are due tomorrow' do
+        assert_equal [@task2], Task.due_tomorrow
+      end
     end
 
     context 'due_next_week' do

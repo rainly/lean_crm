@@ -43,8 +43,9 @@ class Task
   named_scope :due_today, lambda { { :conditions => { :due_at => {
     '$gte' => Time.zone.now.midnight.utc, '$lt' => Time.zone.now.end_of_day.utc } } } }
 
-  named_scope :due_tomorrow, lambda { { :conditions => { :due_at =>
-    Time.zone.now.tomorrow.end_of_day.utc - 1.second } } }
+  named_scope :due_tomorrow, lambda { { :conditions => { :due_at => {
+    '$lte' => Time.zone.now.tomorrow.end_of_day.utc,
+    '$gte' => Time.zone.now.tomorrow.beginning_of_day.utc } } } }
 
   named_scope :due_this_week, lambda { { :conditions => { :due_at => {
     '$gte' => (Time.zone.now.tomorrow.end_of_day.utc + 1.day) - 1.second,
