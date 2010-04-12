@@ -134,7 +134,8 @@ class Task
       when 'due_later'
         (Time.zone.now.end_of_day - 1.second) + 5.years
       else
-        if Chronic.parse(due) and not %w(overdue due_today due_tomorrow due_this_week due_next_week due_later).include?(due)
+        if %w(overdue due_today due_tomorrow due_this_week due_next_week due_later).include?(due) and
+          !due.is_a?(Time) and Chronic.parse(due)
           Chronic.parse(due)
         else
           due
