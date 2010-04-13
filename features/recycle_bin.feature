@@ -30,19 +30,18 @@ Feature: Recycle Bin
     And I should see "Recycle Bin"
     And I should not see "Recycle Bin (1)"
 
-  Scenario: Permanently deleting a lead
-    Given I am registered and logged in as annika
-    And a lead: "erich" exists with user: annika
-    And erich has been deleted
-    When I go to the recycle bin page
-    And I click the delete button for the lead
-    Then I should be on the recycle bin page
-    And a lead should not exist with first_name: "Erich"
-    And I should see "Recycle Bin"
-    And I should not see "Recycle Bin (1)"
-
-  # Steven, this needs re-writing, you can't write features in this format
-  #Scenario: Permanently deleting a lead with comments
+  # Scenario: Permanently deleting a lead
+  #   Given I am registered and logged in as annika
+  #   And a lead: "erich" exists with user: annika
+  #   And erich has been deleted
+  #   When I go to the recycle bin page
+  #   And I click the delete button for the lead
+  #   Then I should be on the recycle bin page
+  #   And a lead should not exist with first_name: "Erich"
+  #   And I should see "Recycle Bin"
+  #   And I should not see "Recycle Bin (1)"
+  # 
+  # Scenario: Deleting a lead with comments
   #  Given I am registered and logged in as annika
   #  And a user: "benny" exists
   #  And benny belongs to the same company as annika
@@ -50,14 +49,10 @@ Feature: Recycle Bin
   #  And a comment exists with user: benny, commentable: lead, text: "Delete me too!"
   #  And I am on the leads page
   #  When I click the delete button for the lead
-  #  Then I should be on the leads page
   #  And a new "Deleted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
-  #  When I follow "recycle_bin"
+  #  And I follow "recycle_bin"
   #  And I click the delete button for the lead
   #  Then I should not see "Erich" within "#main"
-  #  When I follow "Dashboard"
-  #  Then I should be on the dashboard page
-  #  And I should not see "Delete me too!"
 
   Scenario: Restoring a contact
     Given I am registered and logged in as annika
@@ -77,22 +72,22 @@ Feature: Recycle Bin
     Then I should be on the recycle bin page
     And a contact should not exist with first_name: "Florian"
 
-  #Scenario: Deleting a contact with comments
-  # Given I am registered and logged in as annika
-  # And a user: "benny" exists
-  # And benny belongs to the same company as annika
-  # And a contact "florian" exists with user: benny
-  # And a comment exists with user: benny, commentable: contact, text: "Delete me too!"
-  # And I am on the contacts page
-  # When I click the delete button for the contact
-  # Then I should be on the contacts page
-  # And a new "Deleted" activity should have been created for "Contact" with "first_name" "Florian" and user: "annika"
-  # When I follow "recycle_bin"
-  # And I click the delete button for the contact
-  # Then I should not see "Florian" within "#main"
-  # When I follow "Dashboard"
-  # Then I should be on the dashboard page
-  # And I should not see "Delete me too!"
+  # Scenario: Deleting a contact with comments
+  #   Given I am registered and logged in as annika
+  #   And a user: "benny" exists
+  #   And benny belongs to the same company as annika
+  #   And a contact "florian" exists with user: benny
+  #   And a comment exists with user: benny, commentable: contact, text: "Delete me too!"
+  #   And I am on the contacts page
+  #   When I click the delete button for the contact
+  #   Then I should be on the contacts page
+  #   When I follow "recycle_bin"
+  #   And I click the delete button for the contact
+  #   Then I should not see "Florian" within "#main"
+  #   When I follow "Dashboard"
+  #   Then I should be on the dashboard page
+  #   And I should not see "Delete me too!"
+  
     
   Scenario: Restoring an account
     Given I am registered and logged in as annika
