@@ -1963,9 +1963,13 @@ input#search {
   padding-bottom: 4px;
 }
 
-/* line 8, ../../../app/stylesheets/models/_search.sass */
+/* line 9, ../../../app/stylesheets/models/_search.sass */
 div#search .act {
   padding-top: 12px;
+}
+/* line 11, ../../../app/stylesheets/models/_search.sass */
+div#search .boolean {
+  padding-bottom: 12px;
 }
 
 /* line 1, ../../../app/stylesheets/models/_session.sass */

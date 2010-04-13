@@ -30,8 +30,6 @@
             #search
               - simple_form_for @search || Search.new do |form|
                 .100= form.input :terms, :label => t('search_people')
-                .100= form.input :company, :label => t('search_companies')
-                .clear
                 .boolean
                   = check_box_tag 'search[collections][]', 'Lead', (params[:search] && params[:search][:collections].include?('Lead')) || (!@search && params[:search].blank?) || (@search and @search.collections.include?('Lead')), :id => 'search_collections_lead'
                   %label{ :for => 'search_collections_lead' }= t('leads')
@@ -41,6 +39,9 @@
 
                   = check_box_tag 'search[collections][]', 'Account', (params[:search] && params[:search][:collections].include?('Account')) || (!@search && params[:search].blank?) || (@search and @search.collections.include?('Account')), :id => 'search_collections_account'
                   %label{ :for => 'search_collections_account' }= t('accounts')
+                .100= form.input :company, :label => t('search_companies')
+                .clear
+                
                 .clear
                 .act
                   = form.submit t('search')
