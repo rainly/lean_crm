@@ -6,11 +6,13 @@ var Base = new Class({
   },
 
   addRealTaskCalendar: function() {
-    $('realdate').insert({
-      after: '<label for="realdate_input">Due At</label><input id="realdate_input" type="text" name="task[due_at]"/>'
-    });
-    $('realdate').remove();
-    new Calendar({ format: "%Y-%m-%d %H:%M" }).assignTo('realdate_input');
+    if ($('realdate') != null) {
+      $('realdate').insert({
+        after: '<label for="realdate_input">Due At</label><input id="realdate_input" type="text" name="task[due_at]"/>'
+      });
+      $('realdate').remove();
+      new Calendar({ format: "%Y-%m-%d %H:%M" }).assignTo('realdate_input');
+    }
   },
 
   watchTitleTogglers: function() {
