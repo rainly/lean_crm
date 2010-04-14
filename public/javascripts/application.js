@@ -7,8 +7,10 @@ var Base = new Class({
 
   addRealTaskCalendar: function() {
     if ($('realdate') != null) {
+      due_at = null;
+      if($('due_at_value') != null) { due_at = $('due_at_value').innerHTML.trim(); }
       $('realdate').insert({
-        after: '<label for="realdate_input">Due At</label><input id="realdate_input" type="text" name="task[due_at]"/>'
+        after: '<label for="realdate_input">Due At</label><input id="realdate_input" type="text" name="task[due_at]" value="' + due_at + '"/>'
       });
       $('realdate').remove();
       new Calendar({ format: "%Y-%m-%d %H:%M" }).assignTo('realdate_input');
