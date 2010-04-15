@@ -3,14 +3,16 @@ namespace(:one_time) do
   desc 'Add identifiers to all accounts, leads and contacts'
   task :add_identifiers => :environment do
     Account.all(:identifier => nil).each do |account|
-      account.update_attributes :do_not_geocode => true, :identifier => Identifier.next_account
+      account.update_attributes :do_not_geocode => true, :identifier => Identifier.next_account,
+        :do_not_log => true
     end
     Contact.all(:identifier => nil).each do |contact|
-      contact.update_attributes :do_not_geocode => true, :identifier => Identifier.next_contact
+      contact.update_attributes :do_not_geocode => true, :identifier => Identifier.next_contact,
+        :do_not_log => true
     end
     Lead.all(:identifier => nil).each do |lead|
       lead.update_attributes :do_not_geocode => true, :identifier => Identifier.next_lead,
-        :do_not_notify => true
+        :do_not_notify => true, :do_not_log => true
     end
   end
 
