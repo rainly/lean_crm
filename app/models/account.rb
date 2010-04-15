@@ -7,16 +7,17 @@ class Account
   include Activities
   include SphinxIndex
 
-  key :user_id,         ObjectId, :index => true, :required => true
-  key :assignee_id,     ObjectId, :index => true
-  key :name,            String, :required => true, :index => true
-  key :email,           String, :index => true
-  key :access,          Integer, :index => true
-  key :website,         String
-  key :phone,           String
-  key :fax,             String
-  key :billing_address, String
-  key :shipping_address, String
+  key :user_id,           ObjectId, :index => true, :required => true
+  key :assignee_id,       ObjectId, :index => true
+  key :name,              String, :required => true, :index => true
+  key :email,             String, :index => true
+  key :access,            Integer, :index => true
+  key :website,           String
+  key :phone,             String
+  key :fax,               String
+  key :billing_address,   String
+  key :shipping_address,  String
+  key :identifier,        Integer
   timestamps!
 
   has_constant :accesses, lambda { I18n.t(:access_levels) }
@@ -26,6 +27,8 @@ class Account
   has_many :contacts, :dependent => :nullify
   has_many :tasks, :as => :asset
   has_many :comments, :as => :commentable
+
+  before_validation_on_create :set_identifier
 
   named_scope :for_company, lambda { |company| { :conditions => { :user_id => company.users.map(&:id) } } }
 
@@ -53,5 +56,10 @@ class Account
     end
     account = object.updater_or_user.accounts.create :permission => permission,
       :name => name, :permitted_user_ids => permitted
+  end
+
+protected
+  def set_identifier
+    self.identifier = Identifier.next_account
   end
 end

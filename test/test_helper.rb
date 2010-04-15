@@ -91,6 +91,7 @@ class ActiveSupport::TestCase
     args.each do |arg|
       should "require key '#{arg}'" do
         obj = klass.new
+        obj.send("#{arg.to_sym}=", nil)
         obj.valid?
         assert obj.errors.on(arg.to_sym)
       end

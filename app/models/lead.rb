@@ -39,6 +39,7 @@ class Lead
   key :facebook,      String
   key :xing,          String
   key :contact_id,    ObjectId
+  key :identifier,    Integer
   timestamps!
 
   sphinx_index :first_name, :last_name, :email, :phone, :notes, :company, :alternative_email,
@@ -52,7 +53,7 @@ class Lead
   has_many :comments, :as => :commentable, :dependent => :delete_all
   has_many :tasks, :as => :asset, :dependent => :delete_all
 
-  before_validation_on_create :set_initial_state
+  before_validation_on_create :set_initial_state, :set_identifier
   after_save :notify_assignee, :unless => :do_not_notify
 
   has_constant :titles, lambda { I18n.t('titles') }
@@ -114,5 +115,9 @@ protected
     else
       Activity.log(updater_or_user, self, 'Updated')
     end
+  end
+
+  def set_identifier
+    self.identifier = Identifier.next_lead
   end
 end

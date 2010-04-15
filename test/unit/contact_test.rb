@@ -2,6 +2,7 @@ require 'test_helper.rb'
 
 class ContactTest < ActiveSupport::TestCase
   context "Class" do
+    should_have_key :identifier
     should_have_constant :accesses, :titles, :permissions, :salutations, :sources
     should_act_as_paranoid
     should_be_trackable
@@ -51,6 +52,21 @@ class ContactTest < ActiveSupport::TestCase
   context "Instance" do
     setup do
       @contact = Contact.make_unsaved(:florian)
+    end
+
+    should 'be assigned an identifier on creation' do
+      assert @contact.identifier.nil?
+      @contact.save!
+      assert @contact.identifier
+    end
+
+    should 'be assigned consecutive identifiers' do
+      @contact.save!
+      assert_equal 1, @contact.identifier
+      @contact2 = Account.make_unsaved
+      assert @contact2.identifier.nil?
+      @contact2.save!
+      assert_equal 2, @contact2.identifier
     end
 
     should 'validate uniqueness of email' do

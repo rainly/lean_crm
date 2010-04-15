@@ -2,7 +2,7 @@ require 'test_helper.rb'
 
 class LeadTest < ActiveSupport::TestCase
   context 'Class' do
-    should_have_key :city, :postal_code, :country, :job_title, :department
+    should_have_key :city, :postal_code, :country, :job_title, :department, :identifier
     should_have_constant :titles, :statuses, :sources, :salutations, :permissions
     should_act_as_paranoid
     should_be_trackable
@@ -129,6 +129,21 @@ class LeadTest < ActiveSupport::TestCase
     setup do
       @lead = Lead.make_unsaved(:erich)
       @user = User.make(:benny)
+    end
+
+    should 'be assigned an identifier on creation' do
+      assert @lead.identifier.nil?
+      @lead.save!
+      assert @lead.identifier
+    end
+
+    should 'be assigned consecutive identifiers' do
+      @lead.save!
+      assert_equal 1, @lead.identifier
+      @lead2 = Lead.make_unsaved
+      assert @lead2.identifier.nil?
+      @lead2.save!
+      assert_equal 2, @lead2.identifier
     end
 
     context 'changing the assignee' do

@@ -6,7 +6,7 @@ class AccountTest < ActiveSupport::TestCase
     should_act_as_paranoid
     should_be_trackable
     should_have_key :user_id, :assignee_id, :name, :email, :access, :website, :phone, :fax,
-      :billing_address, :shipping_address
+      :billing_address, :shipping_address, :identifier
     should_require_key :user_id, :name
     should_belong_to :user, :assignee
     should_have_many :contacts, :tasks, :comments
@@ -115,6 +115,21 @@ class AccountTest < ActiveSupport::TestCase
   context 'Instance' do
     setup do
       @account = Account.make_unsaved(:careermee)
+    end
+
+    should 'be assigned an identifier on creation' do
+      assert @account.identifier.nil?
+      @account.save!
+      assert @account.identifier
+    end
+
+    should 'be assigned consecutive identifiers' do
+      @account.save!
+      assert_equal 1, @account.identifier
+      @account2 = Account.make_unsaved
+      assert @account2.identifier.nil?
+      @account2.save!
+      assert_equal 2, @account2.identifier
     end
 
     should 'validate uniqueness of email' do

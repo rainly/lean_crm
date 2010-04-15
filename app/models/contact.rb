@@ -32,9 +32,12 @@ class Contact
   key :born_on,             Date
   key :do_not_call,         Boolean
   key :deleted_at,          Time
+  key :identifier,          Integer
   timestamps!
 
   validates_uniqueness_of :email, :allow_blank => true
+
+  before_validation_on_create :set_identifier
 
   sphinx_index :first_name, :last_name, :department, :email, :alt_email, :phone, :mobile,
     :fax, :website, :linked_in, :facebook, :twitter, :xing, :address
@@ -73,5 +76,10 @@ class Contact
       contact.leads << lead
     end
     contact
+  end
+
+protected
+  def set_identifier
+    self.identifier = Identifier.next_contact
   end
 end
