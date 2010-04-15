@@ -198,14 +198,14 @@ class TaskTest < ActiveSupport::TestCase
       setup do
         @task2 = Task.make
         @task2.update_attributes :completed_by_id => @task2.user_id
-        @task2.update_attributes :completed_at => Time.zone.now.beginning_of_month - 1.month
+        @task2.update_attributes :completed_at => (Time.zone.now.beginning_of_month.utc + 1.day) - 1.month
       end
 
       should 'return tasks which where completed last month' do
         assert_equal [@task2], Task.completed_last_month
       end
     end
-    
+
     context 'completed' do
       setup do
         @task = Task.make(:call_erich)
