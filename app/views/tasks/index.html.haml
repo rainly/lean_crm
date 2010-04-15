@@ -4,7 +4,7 @@
 - if @tasks.is_a?(Array)
   - %w(overdue due_today due_tomorrow due_this_week due_next_week due_later).each do |deadline|
     - if @tasks.send(deadline).any?
-      %h3.deadline{:id=>deadline}= t(deadline)
+      %h3.deadline{ :id => deadline }= t(deadline)
       = render :partial => 'task', :collection => @tasks.send(deadline)
 - if @tasks.is_a?(Hash)
   - @tasks.each do |key, value|
@@ -12,5 +12,4 @@
       = key
       = render :partial => 'task', :collection => value
 - content_for :sidebar do
-  = render :partial => "filters"
-  
+  = render :partial => 'filters'
