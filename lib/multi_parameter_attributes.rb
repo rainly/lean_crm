@@ -13,7 +13,7 @@ module MultiParameterAttributes
           self[name.to_s] = value
         end
       end
-    end
+    end unless attrs.nil?
   
     assign_multiparameter_attributes(multi_parameter_attributes)
   end

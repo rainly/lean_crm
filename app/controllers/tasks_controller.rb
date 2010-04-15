@@ -25,7 +25,7 @@ class TasksController < InheritedResources::Base
     update! do |success, failure|
       success.html do
         return_to_or_default tasks_path(:incomplete => true)
-        unless params[:task][:assignee_id].blank?
+        if params[:task] and params[:task][:assignee_id]
           flash[:notice] = I18n.t('task_reassigned', :user => @task.assignee.email)
         end
       end
