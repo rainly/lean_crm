@@ -1,5 +1,18 @@
 namespace(:one_time) do
 
+  desc 'Add identifiers to all accounts, leads and contacts'
+  task :add_identifiers => :environment do
+    Account.all.each do |account|
+      account.update_attributes :do_not_geocode => true, :identifier => Identifier.next_account
+    end
+    Contact.all.each do |contact|
+      contact.update_attributes :do_not_geocode => true, :identifier => Identifier.next_contact
+    end
+    Lead.all.each do |lead|
+      lead.update_attributes :do_not_geocode => true, :identifier => Identifier.next_lead
+    end
+  end
+
   desc 'Update old style lead-contact relationship, to new style contact has_many leads'
   task :switch_contact_leads_to_has_many => :environment do
     Contact.all(:lead_id => { '$ne' => nil }).each do |contact|
