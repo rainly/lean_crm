@@ -27,12 +27,16 @@ class Task
   has_many :activities, :as => :subject, :dependent => :destroy
 
   named_scope :incomplete, :conditions => { :completed_at => nil }
-  
+
   named_scope :for, lambda { |user| { :conditions =>
-    { '$where' => "this.user_id == '#{user.id}' || this.assignee_id == '#{user.id}'" } } }
-  
-  named_scope :pending, :conditions => { :completed_at => nil, :assignee_id => nil }
-  
+    { '$where' => "(this.user_id == '#{user.id}' && this.assignee_id == null) || this.assignee_id == '#{user.id}'" } } }
+
+  named_scope :assigned_by, lambda { |user| { :conditions =>
+    { '$where' => "this.user_id == '#{user.id}' && this.assignee_id != null && this.assignee_id != '#{user.id}'" }
+  } }
+
+  named_scope :pending, :conditions => { :completed_at => nil }
+
   named_scope :assigned, :conditions => { :assignee_id => { '$ne' => nil } }
 
   named_scope :completed, :conditions => { :completed_at => { '$ne' => nil } }

@@ -103,6 +103,16 @@ class TaskTest < ActiveSupport::TestCase
       @task = Task.make(:call_erich)
     end
 
+    context 'assigned_by' do
+      setup do
+        @task2 = Task.make(:assignee => User.make, :user_id => @task.user.id)
+      end
+
+      should 'return all tasks assigned to anyone except the task creator' do
+        assert_equal [@task2], Task.assigned_by(@task.user)
+      end
+    end
+
     context 'overdue' do
       setup do
         @task.update_attributes :due_at => 'due_next_week'
@@ -239,6 +249,11 @@ class TaskTest < ActiveSupport::TestCase
         @benny = User.make(:benny)
         @task.update_attributes :assignee_id => @benny.id
         assert_equal [@task], Task.for(@benny)
+      end
+
+      should 'not return tasks which were created by the supplied user, but are assigned to someone else' do
+        @task.update_attributes :assignee => User.make(:benny)
+        assert_equal [], Task.for(@task.user)
       end
 
       should 'not return tasks not created by or assigned to the supplied user' do

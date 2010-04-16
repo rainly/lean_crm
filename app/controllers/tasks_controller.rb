@@ -14,6 +14,12 @@ class TasksController < InheritedResources::Base
   has_scope :completed_last_week,   :type => :boolean
   has_scope :completed_this_month,  :type => :boolean
   has_scope :completed_last_month,  :type => :boolean
+  has_scope :for do |controller, scope, value|
+    scope.for(User.find(value))
+  end
+  has_scope :assigned_by do |controller, scope, value|
+    scope.assigned_by(User.find(value))
+  end
 
   def create
     create! do |success, failure|
@@ -50,9 +56,9 @@ protected
   def collection
     if params[:scopes]
       @tasks ||= Task.grouped_by_scope(params[:scopes].map {|k,v| k.to_sym },
-                                       :target => apply_scopes(Task).for(current_user))
+                                       :target => apply_scopes(Task))
     else
-      @tasks ||= apply_scopes(Task).for(current_user)
+      @tasks ||= apply_scopes(Task)
     end
   end
 
