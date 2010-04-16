@@ -232,7 +232,18 @@ en:
     - Lord
     - Madam
     - Earl
- 
+  account_types:
+    - Analyst
+    - Competitor
+    - Customer
+    - Integrator
+    - Investor
+    - Partner
+    - Press
+    - Prospect
+    - Reseller
+    - Other
+
   #--------------------------------------------------------------
   # Task
   #--------------------------------------------------------------
