@@ -27,7 +27,6 @@ describe RightRails::Helpers::Basic do
     should_receive(:javascript_include_tag).with(*%w{right right/rails right/i18n/ru})
     
     I18n.locale = 'ru'
-    RAILS_ROOT = "rails-root"
     File.should_receive(:exists?).with("rails-root/public/javascripts/right/i18n/ru.js").and_return(true)
     
     rightjs_scripts
@@ -38,14 +37,6 @@ describe RightRails::Helpers::Basic do
     
     I18n.locale = 'some-weird-stuff'
     File.should_receive(:exists?).with("rails-root/public/javascripts/right/i18n/some-weird-stuff.js").and_return(false)
-    
-    rightjs_scripts
-  end
-  
-  it "should use the source scripts in the development environment" do
-    should_receive(:javascript_include_tag).with(*%w{right-src right/rails-src})
-    
-    RAILS_ENV = 'development'
     
     rightjs_scripts
   end
@@ -70,5 +61,21 @@ describe RightRails::Helpers::Basic do
     rjs_tag do |page|
       page.boo.boo.boo
     end.to_s.should == 'javascript_tag'
+  end
+  
+  describe "in the development mode" do
+    before :all do
+      Kernel::RAILS_ENV = 'development'
+    end
+    
+    after :all do 
+      Kernel::RAILS_ENV = 'production'
+    end
+    
+    it "should use the source scripts" do
+      should_receive(:javascript_include_tag).with(*%w{right-src right/rails-src})
+
+      rightjs_scripts
+    end
   end
 end

@@ -1,22 +1,24 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.root :controller => 'pages'
+  root :to => 'pages#index'
 
-  map.profile '/profile', :controller => 'users', :action => 'profile'
+  match 'profile', :to => 'users#profile'
 
-  map.devise_for :users, :admins
-  map.resources :users
-  map.resources :leads, :member => { :convert => :get, :promote => :put, :reject => :put }
-  map.resources :comments
-  map.resources :tasks
-  map.resources :accounts
-  map.resources :contacts
-  map.resources :attachments
-  map.resources :deleted_items
-  map.resources :searches
+  devise_for :users, :admins
 
-  map.namespace(:admin) do |admin|
-    admin.root :controller => 'configurations', :action => 'show'
-    admin.resource :configuration
+  resources :users, :comments, :tasks, :accounts, :contacts, :attachments, :deleted_items,
+    :searches
+
+  resources :leads do
+    member do
+      get :convert
+      put :promote
+      put :reject
+    end
+  end
+
+  namespace :admin do
+    root :to => 'configurations#show'
+    resource :configuration
   end
 end

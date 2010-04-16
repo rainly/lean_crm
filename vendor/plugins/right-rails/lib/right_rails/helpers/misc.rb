@@ -6,9 +6,12 @@ module RightRails::Helpers::Misc
   # Just a simple flashes generator, might be replaced in the application
   #
   def flashes
-    content_tag(:div, flash.collect{ |key, text|
+    items = flash.collect{ |key, text|
       content_tag(:div, text, :class => key)
-    }.sort, :id => :flashes, :style => (flash.empty? ? 'display: none' : nil))
+    }.sort.join("")
+    
+    content_tag(:div, items.send(''.respond_to?(:html_safe) ? :html_safe : :to_s),
+      :id => :flashes, :style => (flash.empty? ? 'display: none' : nil))
   end
   
   
@@ -33,10 +36,12 @@ module RightRails::Helpers::Misc
     escape    = options[:escape].nil? ? true : options[:escape]
     field     = args.first
     
-    content_tag :ul, entries.collect{ |entry|
+    items     = entries.collect{ |entry|
       entry = entry.send(field) if field
       content_tag :li, highlight ? highlight(entry, highlight) : escape ? h(entry) : entry
-    }
+    }.join("")
+    
+    content_tag :ul, items.send(''.respond_to?(:html_safe) ? :html_safe : :to_s)
   end
   
   
@@ -103,22 +108,21 @@ module RightRails::Helpers::Misc
     
     # simple tabs and carousels generator
     content = if tabs_type != :harmonica
-      content_tag(:ul,
-        # tabs list
-        content_tag(:ul,
-          @__tabs.collect{ |tab|
-            content_tag(:li, content_tag(:a, tab[:title],
-              :href => tab[:options][:id] ? "##{tab[:options][:id]}" : tab[:options][:url]
-            ))
-          }.join("\n")
-        ) + "\n"+
-        
-        # contents list
-        @__tabs.collect{|tab|
-          tab[:content] ? content_tag(:li, tab[:content], :id => "#{tab_id_prefix}#{tab[:options][:id]}") + "\n" : ''
-        }.join(""),
-        options
-      )
+      # tabs list
+      tabs_list = content_tag(:ul,
+        @__tabs.collect{ |tab|
+          content_tag(:li, content_tag(:a, tab[:title],
+            :href => tab[:options][:id] ? "##{tab[:options][:id]}" : tab[:options][:url]
+          ))
+        }.join("\n")
+      ) + "\n";
+      
+      # contents list
+      bodies_list = @__tabs.collect{|tab|
+        tab[:content] ? content_tag(:li, tab[:content], :id => "#{tab_id_prefix}#{tab[:options][:id]}") + "\n" : ''
+      }.join("")
+      
+      content_tag(:ul, tabs_list + bodies_list.send("".respond_to?(:html_safe) ? :html_safe : :to_s), options)
     else
     # the harmonicas generator
       content_tag(:dl,
@@ -133,7 +137,7 @@ module RightRails::Helpers::Misc
       
     end
     
-    concat(content + "\n" + javascript_tag("new Tabs('#{options['id']}');"))
+    concat(content + "\n".send("".respond_to?(:html_safe) ? :html_safe : :to_s) + javascript_tag("new Tabs('#{options['id']}');"))
   end
   
   def tab(title, options={}, &block)
