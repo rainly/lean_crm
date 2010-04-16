@@ -1,11 +1,10 @@
 class Attachment
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :subject_id,    ObjectId
-  key :subject_type,  String
-  key :attachment,    String
+  field :attachment
 
-  belongs_to :subject, :polymorphic => true
+  belongs_to_related :subject, :polymorphic => true
 
   validates_presence_of :subject
 

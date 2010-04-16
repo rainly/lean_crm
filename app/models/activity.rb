@@ -1,23 +1,20 @@
 class Activity
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
   include HasConstant
 
-  key :user_id,       ObjectId, :required => true, :index => true
-  key :subject_id,    ObjectId, :index => true
-  key :subject_type,  String, :index => true
-  key :action,        Integer
-  key :info,          String
-  key :notified_user_ids,  Array, :index => true
-  timestamps!
+  field :action,            :type => Integer
+  field :info
+  field :notified_user_ids, :type => Array
 
-  belongs_to :user
-  belongs_to :subject, :polymorphic => true
+  belongs_to_related :user
+  belongs_to_related :subject, :polymorphic => true
 
-  validates_presence_of :subject
-  
+  validates_presence_of :subject, :user
+
   named_scope :for_subject, lambda {|model| {
     :conditions => { :subject_id => model.id, :subject_type => model.class.to_s } } }
-  
+
   named_scope :already_notified, lambda {|user| {
     :conditions => { :notified_user_ids => user.id } } }
   named_scope :not_notified, lambda { |user| {

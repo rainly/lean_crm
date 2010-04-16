@@ -1,26 +1,22 @@
 class Comment
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
   include HasConstant
   include Activities
   include Permission
   include ParanoidDelete
 
-  key :user_id,           ObjectId, :required => true, :index => true
-  key :commentable_id,    ObjectId, :index => true
-  key :commentable_type,  String, :index => true
-  key :subject,           String
-  key :text,              String, :required => true
-  key :_type,             String
-  timestamps!
-  
+  field :subject
+  field :text
+
   named_scope :sorted, :order => 'created_at asc'
-  
-  belongs_to :user
-  belongs_to :commentable, :polymorphic => true
 
-  has_many :attachments, :as => :subject
+  belongs_to_related :user
+  belongs_to_related :commentable, :polymorphic => true
 
-  validates_presence_of :commentable
+  has_many_related :attachments, :as => :subject
+
+  validates_presence_of :commentable, :user, :text
 
   after_create :add_attachments
 

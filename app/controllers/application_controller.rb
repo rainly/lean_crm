@@ -3,11 +3,8 @@
 
 class ApplicationController < ActionController::Base
 
-  helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
-  # Scrub sensitive parameters from your log
-  filter_parameter_logging :password
+  protect_from_forgery
+  layout 'application'
 
   before_filter :authenticate_user!
   before_filter :configuration_check
@@ -15,17 +12,16 @@ class ApplicationController < ActionController::Base
 
 protected
 
-  
-  def render_optional_error_file(status_code)  
+
+  def render_optional_error_file(status_code)
     status = interpret_status(status_code)
     render :template => "/errors/#{status[0,3]}.html.haml", :status => status, :layout => 'errors.html.haml'
   end
-  
+
   def local_request?
     false
   end
-  
-  
+
   def log_viewed_item
     subject = instance_variable_get("@#{controller_name.singularize}")
     if subject and current_user and not subject.is_a?(Search)
@@ -46,5 +42,4 @@ protected
       @configuration = Configuration.create!
     end
   end
-
 end

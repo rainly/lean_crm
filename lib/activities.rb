@@ -1,13 +1,12 @@
 module Activities
   def self.included( base )
     base.class_eval do
-      has_many :activities, :as => :subject, :dependent => :destroy
+      has_many_related :activities, :as => :subject, :dependent => :destroy
 
       after_create  :log_creation
       after_update  :log_update
 
-      key :updater_id, ObjectId
-      belongs_to :updater, :class_name => 'User'
+      belongs_to_related :updater, :class_name => 'User'
 
       attr_accessor :do_not_log
     end

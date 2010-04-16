@@ -1,25 +1,24 @@
 class User
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongooid::Timestamps
 
   devise :database_authenticatable, :confirmable, :recoverable, :rememberable, :trackable,
     :validatable, :http_authenticatable
 
-  key :username,    String
-  key :company_id,  ObjectId
-  key :api_key,     String, :index => true
-  timestamps!
+  field :username
+  field :api_key
 
   attr_accessor :company_name
 
-  has_many :leads
-  has_many :comments
-  has_many :tasks
-  has_many :accounts
-  has_many :contacts
-  has_many :activities
-  has_many :searches
+  has_many_related :leads
+  has_many_related :comments
+  has_many_related :tasks
+  has_many_related :accounts
+  has_many_related :contacts
+  has_many_related :activities
+  has_many_related :searches
 
-  belongs_to :company
+  belongs_to_related :company
 
   before_validation_on_create :set_api_key, :create_company
 

@@ -1,9 +1,11 @@
 class Identifier
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :account_identifier,  Integer, :required => true, :default => 0
-  key :contact_identifier,  Integer, :required => true, :default => 0
-  key :lead_identifier,     Integer, :required => true, :default => 0
+  field :account_identifier,  :type => Integer, :default => 0
+  field :contact_identifier,  :type => Integer, :default => 0
+  field :lead_identifier,     :type => Integer, :default => 0
+
+  validates_presence_of :account_identifier, :contact_identifier, :lead_identifier
 
   def self.next_account
     Identifier.create! unless Identifier.count > 0

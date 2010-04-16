@@ -1,8 +1,8 @@
 module Permission
   def self.included( base )
     base.class_eval do
-      key :permission,          Integer, :required => true, :default => 0, :index => true
-      key :permitted_user_ids,  Array, :index => true
+      field :permission,          :type => Integer, :default => 0
+      field :permitted_user_ids,  :type => Array
 
       # TODO: this.permitted_user_ids[0] is obviously a hack,
       # must write more thorough tests for this scope
@@ -13,6 +13,7 @@ module Permission
         JAVASCRIPT
       } } }
 
+      validates_presence_of :permission
       validate :require_permitted_users
 
       has_constant :permissions, lambda { I18n.t('permissions') }

@@ -1,7 +1,9 @@
 class MailQueue
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :mail,      String, :required => true
-  key :status,    String
-  timestamps!
+  field :mail
+  field :status
+
+  validates_presence_of :mail
 end

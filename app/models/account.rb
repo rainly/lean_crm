@@ -1,32 +1,34 @@
 class Account
-  include MongoMapper::Document
   include HasConstant
   include ParanoidDelete
   include Permission
   include Trackable
   include Activities
   include SphinxIndex
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :user_id,           ObjectId, :index => true, :required => true
-  key :assignee_id,       ObjectId, :index => true
-  key :name,              String, :required => true, :index => true
-  key :email,             String, :index => true
-  key :access,            Integer, :index => true
-  key :website,           String
-  key :phone,             String
-  key :fax,               String
-  key :billing_address,   String
-  key :shipping_address,  String
-  key :identifier,        Integer
-  timestamps!
+  field :name
+  field :email
+  field :access,            :type => Integer
+  field :website
+  field :phone
+  field :fax
+  field :billing_address
+  field :shipping_address
+  field :identifier,        :type => Integer
+
+  index :user_id, :assignee_id, :name, :email, :access
 
   has_constant :accesses, lambda { I18n.t(:access_levels) }
 
-  belongs_to :user
-  belongs_to :assignee, :class_name => 'User'
-  has_many :contacts, :dependent => :nullify
-  has_many :tasks, :as => :asset
-  has_many :comments, :as => :commentable
+  belongs_to_related :user
+  belongs_to_related :assignee, :class_name => 'User'
+  has_many_related :contacts, :dependent => :nullify
+  has_many_related :tasks, :as => :asset
+  has_many_related :comments, :as => :commentable
+
+  validates_presence_of :user, :assignee, :name
 
   before_validation_on_create :set_identifier
 

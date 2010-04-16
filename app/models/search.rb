@@ -1,13 +1,12 @@
 class Search
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timetamps
 
-  key :terms,       String
-  key :user_id,     ObjectId
-  key :collections, Array
-  key :company,     String
-  timestamps!
+  field :terms
+  field :collections, :type => Array
+  field :company
 
-  belongs_to :user
+  belongs_to_related :user
 
   validate :criteria_entered?
 

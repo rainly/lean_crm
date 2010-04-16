@@ -1,5 +1,6 @@
 class Lead
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
   include HasConstant
   include ParanoidDelete
   include Permission
@@ -7,51 +8,48 @@ class Lead
   include Activities
   include SphinxIndex
 
-  key :user_id,       ObjectId, :required => true, :index => true
-  key :assignee_id,   ObjectId, :index => true
-  key :first_name,    String
-  key :last_name,     String, :required => true
-  key :email,         String
-  key :phone,         String
-  key :status,        Integer
-  key :source,        Integer
-  key :rating,        Integer
-  key :campaign_id,   ObjectId, :index => true
-  key :notes,         String
+  field :first_name
+  field :last_name
+  field :email
+  field :phone
+  field :status
+  field :source,        :type => Integer
+  field :rating,        :type => Integer
+  field :notes
 
-  key :title,         Integer
-  key :salutation,    Integer
-  key :company,       String
-  key :job_title,     String
-  key :department,    String
-  key :alternative_email, String
-  key :mobile,        String
-  key :address,       String
-  key :city,          String
-  key :postal_code,   String
-  key :country,       String
-  key :referred_by,   String
-  key :do_not_call,   Boolean
+  field :title,         :type => Integer
+  field :salutation,    :type => Integer
+  field :company
+  field :job_title
+  field :department
+  field :alternative_email
+  field :mobile
+  field :address
+  field :city
+  field :postal_code
+  field :country
+  field :referred_by
+  field :do_not_call,   :type => Boolean
 
-  key :website,       String
-  key :twitter,       String
-  key :linked_in,     String
-  key :facebook,      String
-  key :xing,          String
-  key :contact_id,    ObjectId
-  key :identifier,    Integer
-  timestamps!
+  field :website
+  field :twitter
+  field :linked_in
+  field :facebook
+  field :xing
+  field :identifier,    :type => Integer
+
+  validates_presence_of :user, :last_name
 
   sphinx_index :first_name, :last_name, :email, :phone, :notes, :company, :alternative_email,
     :mobile, :address, :referred_by, :website, :twitter, :linked_in, :facebook, :xing
 
   attr_accessor :do_not_notify
 
-  belongs_to :user
-  belongs_to :assignee, :class_name => 'User'
-  belongs_to :contact
-  has_many :comments, :as => :commentable, :dependent => :delete_all
-  has_many :tasks, :as => :asset, :dependent => :delete_all
+  belongs_to_related :user
+  belongs_to_related :assignee, :class_name => 'User'
+  belongs_to_related :contact
+  has_many_related :comments, :as => :commentable, :dependent => :delete_all
+  has_many_related :tasks, :as => :asset, :dependent => :delete_all
 
   before_validation_on_create :set_initial_state, :set_identifier
   after_save :notify_assignee, :unless => :do_not_notify

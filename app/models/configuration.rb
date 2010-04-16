@@ -1,10 +1,10 @@
 class Configuration
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
-  key :company_name,      String
-  key :domain_name,       String
-  key :imap_user,         String
-  key :imap_password,     String
-  key :imap_host,         String
-  timestamps!
+  field :company_name
+  field :domain_name
+  field :imap_user
+  field :imap_password
+  field :imap_host
 end

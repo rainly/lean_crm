@@ -1,7 +1,6 @@
 class Admin
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
 
   devise :database_authenticatable, :recoverable, :rememberable
-
-  timestamps!
 end

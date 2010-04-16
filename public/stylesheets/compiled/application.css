@@ -26,7 +26,7 @@ a, input {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 #header {
   display: block;
 }
@@ -45,7 +45,7 @@ a, input {
 }
 /* line 29, ../../../app/stylesheets/partials/_layout.sass */
 #header h1 a strong {
-  color: #fff;
+  color: white;
 }
 /* line 32, ../../../app/stylesheets/partials/_layout.sass */
 #header .pad {
@@ -53,7 +53,7 @@ a, input {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 #header .pad {
   display: block;
 }
@@ -74,7 +74,7 @@ a, input {
 }
 /* line 44, ../../../app/stylesheets/partials/_layout.sass */
 #menus p a:hover {
-  color: #fff;
+  color: white;
 }
 
 /* line 47, ../../../app/stylesheets/partials/_layout.sass */
@@ -88,12 +88,13 @@ ul#navigation {
   padding: 4px 12px 0px 12px;
   margin-right: -12px;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 ul#navigation {
   display: block;
 }
-/* line 50, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+/* line 54, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
 ul#navigation li {
+  list-style-image: none;
   list-style-type: none;
   margin-left: 0px;
   white-space: nowrap;
@@ -102,12 +103,12 @@ ul#navigation li {
   padding-left: 4px;
   padding-right: 4px;
 }
-/* line 40, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
-ul#navigation li.first {
+/* line 44, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+ul#navigation li:first-child, ul#navigation li.first {
   padding-left: 0px;
 }
-/* line 42, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
-ul#navigation li.last {
+/* line 46, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+ul#navigation li:last-child, ul#navigation li.last {
   padding-right: 0px;
 }
 /* line 45, ../../../app/stylesheets/partials/_tools.sass */
@@ -137,11 +138,11 @@ ul#navigation a {
   -moz-box-shadow: #213340 1px 1px 5px;
   /* CSS3 */
   box-shadow: #213340 1px 1px 5px;
-  color: #fff;
+  color: white;
   font-size: 14px;
   background: #648eaf;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7cb3de), color-stop(0.17, #648eaf), color-stop(1, #516b8c) );
-  background: -moz-linear-gradient(top, #7cb3de 0%, #648eaf 17%,  #516b8c 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7cb3de), color-stop(0.17, #648eaf), color-stop(1, #516b8c));
+  background: -moz-linear-gradient(top, #7cb3de 0%, #648eaf 17%, #516b8c 100%);
   text-align: center;
   text-decoration: none;
   padding: 8px 18px;
@@ -150,16 +151,16 @@ ul#navigation a {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 ul#navigation a:hover {
   background: #78a2c3;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #90c7f2), color-stop(0.14, #78a2c3), color-stop(1, #657fa0) );
-  background: -moz-linear-gradient(top, #90c7f2 0%, #78a2c3 14%,  #657fa0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #90c7f2), color-stop(0.14, #78a2c3), color-stop(1, #657fa0));
+  background: -moz-linear-gradient(top, #90c7f2 0%, #78a2c3 14%, #657fa0 100%);
 }
 /* line 58, ../../../app/stylesheets/partials/_layout.sass */
 ul#navigation a.active {
   color: #6a6a6a;
   font-weight: bold;
   background: #dddddd;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeee), color-stop(0.17, #dddddd), color-stop(1, #cfcfcf) );
-  background: -moz-linear-gradient(top, #eeeeee 0%, #dddddd 17%,  #cfcfcf 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeee), color-stop(0.17, #dddddd), color-stop(1, #cfcfcf));
+  background: -moz-linear-gradient(top, #eeeeee 0%, #dddddd 17%, #cfcfcf 100%);
   text-align: center;
   text-decoration: none;
   text-shadow: white 0px 1px 0px;
@@ -167,8 +168,8 @@ ul#navigation a.active {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 ul#navigation a.active:hover {
   background: #ddddddfalse;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeeefalse), color-stop(0.14, #ddddddfalse), color-stop(1, #cfcfcffalse) );
-  background: -moz-linear-gradient(top, #eeeeeefalse 0%, #ddddddfalse 14%,  #cfcfcffalse 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eeeeeefalse), color-stop(0.14, #ddddddfalse), color-stop(1, #cfcfcffalse));
+  background: -moz-linear-gradient(top, #eeeeeefalse 0%, #ddddddfalse 14%, #cfcfcffalse 100%);
 }
 
 /* line 66, ../../../app/stylesheets/partials/_layout.sass */
@@ -176,7 +177,7 @@ ul#navigation a.active:hover {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 #content {
   display: block;
 }
@@ -187,7 +188,7 @@ ul#navigation a.active:hover {
 
 /* line 70, ../../../app/stylesheets/partials/_layout.sass */
 div#main {
-  background: #fff;
+  background: white;
   /* Webkit (Safari, Chrome) */
   -webkit-box-shadow: #666666 1px 1px 5px;
   /* Gecko (Firefox, Camino) */
@@ -207,13 +208,13 @@ div#main .pad {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 div#main .pad {
   display: block;
 }
 /* line 80, ../../../app/stylesheets/partials/_layout.sass */
 div#main .title {
-  border-bottom: 3px solid #ccc;
+  border-bottom: 3px solid #cccccc;
   border-top-left-radius: 4px;
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
@@ -228,7 +229,7 @@ div#main .title {
 }
 /* line 86, ../../../app/stylesheets/partials/_layout.sass */
 div#main .title h2 {
-  color: #333;
+  color: #333333;
   text-shadow: white 0px 1px 0px;
   display: inline;
 }
@@ -246,7 +247,7 @@ div#main .title b {
 }
 /* line 96, ../../../app/stylesheets/partials/_layout.sass */
 div#main .title small {
-  color: #888;
+  color: #888888;
   font-size: 11px;
 }
 /* line 99, ../../../app/stylesheets/partials/_layout.sass */
@@ -264,12 +265,13 @@ div#main ul.actions {
   padding-top: 4px;
   margin: 10px 0 0 0;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 div#main ul.actions {
   display: block;
 }
-/* line 50, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+/* line 54, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
 div#main ul.actions li {
+  list-style-image: none;
   list-style-type: none;
   margin-left: 0px;
   white-space: nowrap;
@@ -278,12 +280,12 @@ div#main ul.actions li {
   padding-left: 4px;
   padding-right: 4px;
 }
-/* line 40, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
-div#main ul.actions li.first {
+/* line 44, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+div#main ul.actions li:first-child, div#main ul.actions li.first {
   padding-left: 0px;
 }
-/* line 42, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
-div#main ul.actions li.last {
+/* line 46, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+div#main ul.actions li:last-child, div#main ul.actions li.last {
   padding-right: 0px;
 }
 /* line 107, ../../../app/stylesheets/partials/_layout.sass */
@@ -299,11 +301,11 @@ div#main ul.actions li a, div#main ul.actions li input {
 }
 /* line 115, ../../../app/stylesheets/partials/_layout.sass */
 div#main ul.actions li.delete input {
-  color: #f30;
+  color: #ff3300;
 }
 /* line 117, ../../../app/stylesheets/partials/_layout.sass */
 div#main ul.actions li.delete input:hover {
-  color: #000;
+  color: black;
 }
 /* line 119, ../../../app/stylesheets/partials/_layout.sass */
 div#main ul.actions li.right {
@@ -335,18 +337,18 @@ div#main ul.actions form input {
 }
 /* line 136, ../../../app/stylesheets/partials/_layout.sass */
 div#main ul.actions form input:hover {
-  color: #000;
+  color: black;
 }
 /* line 138, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3 {
-  color: #fff;
+  color: white;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   background: #444444;
   background: -webkit-gradient(linear, left top, right top, from(#444444), to(white));
   background: -moz-linear-gradient(center left, #444444 0%, white 100%);
-  background-color: #444;
+  background-color: #444444;
   margin-right: 2px;
   margin: 10px 0px;
   padding: 5px 10px;
@@ -355,12 +357,12 @@ div#main h3 {
 /* line 147, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3.toggler {
   background: #eaeaea;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
-  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%,  #cccccc 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc));
+  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%, #cccccc 100%);
   text-align: center;
   text-decoration: none;
-  border: 1px solid #999;
-  color: #444;
+  border: 1px solid #999999;
+  color: #444444;
   text-shadow: white 0px 1px 0px;
   text-shadow: white 0px 1px 0px;
   text-align: left;
@@ -371,8 +373,8 @@ div#main h3.toggler {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 div#main h3.toggler:hover {
   background: #fefefe;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
-  background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0));
+  background: -moz-linear-gradient(top, white 0%, #fefefe 14%, #e0e0e0 100%);
 }
 /* line 154, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3.open {
@@ -383,12 +385,12 @@ div#main h3.open {
   -moz-border-radius-bottomright: 0px;
   -webkit-border-bottom-right-radius: 0px;
   background: #777777;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.17, #777777), color-stop(1, #999999) );
-  background: -moz-linear-gradient(top, #666666 0%, #777777 17%,  #999999 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.17, #777777), color-stop(1, #999999));
+  background: -moz-linear-gradient(top, #666666 0%, #777777 17%, #999999 100%);
   text-align: center;
   text-decoration: none;
-  border: 1px solid #666;
-  color: #fff;
+  border: 1px solid #666666;
+  color: white;
   text-shadow: #333333 0px 1px 0px;
   text-align: left;
   margin-bottom: 0px;
@@ -396,17 +398,17 @@ div#main h3.open {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 div#main h3.open:hover {
   background: #8b8b8b;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
-  background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad));
+  background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%, #adadad 100%);
 }
 /* line 159, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3.open span {
-  color: #555;
+  color: #555555;
   text-shadow: #bbbbbb 0px 1px 0px;
 }
 /* line 162, ../../../app/stylesheets/partials/_layout.sass */
 div#main h3 span {
-  color: #999;
+  color: #999999;
   font-size: 12px;
   margin-right: 5px;
 }
@@ -417,12 +419,12 @@ a#new {
   -moz-border-radius: 14px;
   -webkit-border-radius: 14px;
   background: #b0b0b0;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c8c8c8), color-stop(0.17, #b0b0b0), color-stop(1, #232323) );
-  background: -moz-linear-gradient(top, #c8c8c8 0%, #b0b0b0 17%,  #232323 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c8c8c8), color-stop(0.17, #b0b0b0), color-stop(1, #232323));
+  background: -moz-linear-gradient(top, #c8c8c8 0%, #b0b0b0 17%, #232323 100%);
   text-align: center;
   text-decoration: none;
-  border: 1px solid #777;
-  color: #fff;
+  border: 1px solid #777777;
+  color: white;
   text-shadow: #111111 0px 1px 0px;
   padding: 5px 9px;
   font-size: 13px;
@@ -431,13 +433,13 @@ a#new {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 a#new:hover {
   background: #c4c4c4;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #dcdcdc), color-stop(0.14, #c4c4c4), color-stop(1, #373737) );
-  background: -moz-linear-gradient(top, #dcdcdc 0%, #c4c4c4 14%,  #373737 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #dcdcdc), color-stop(0.14, #c4c4c4), color-stop(1, #373737));
+  background: -moz-linear-gradient(top, #dcdcdc 0%, #c4c4c4 14%, #373737 100%);
 }
 
 /* line 176, ../../../app/stylesheets/partials/_layout.sass */
 div.item {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc;
   clear: both;
   margin-left: 0px;
   padding: 3px 0px;
@@ -471,7 +473,7 @@ dl.item dt {
 }
 /* line 196, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc;
   margin-left: 0px;
   padding: 3px 0px;
   width: 87%;
@@ -501,7 +503,7 @@ dl.item dd input[type=checkbox] {
 }
 /* line 219, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd input[type=submit]:hover {
-  color: #000;
+  color: black;
 }
 /* line 221, ../../../app/stylesheets/partials/_layout.sass */
 dl.item dd label {
@@ -543,7 +545,7 @@ div.item span.actions a, div.item span.actions input, dl.item dd span.actions a,
 }
 /* line 246, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions a:hover, div.item span.actions input:hover, dl.item dd span.actions a:hover, dl.item dd span.actions input:hover {
-  color: #000;
+  color: black;
 }
 /* line 248, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input, dl.item dd span.actions input {
@@ -556,7 +558,7 @@ div.item span.actions input, div.item span.actions b, dl.item dd span.actions in
 }
 /* line 253, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input[type="submit"].delete, dl.item dd span.actions input[type="submit"].delete {
-  color: #f00;
+  color: red;
   background: transparent;
   font-size: 13px;
   margin-top: -2px;
@@ -572,11 +574,11 @@ div.item span.actions input[type="submit"].delete, dl.item dd span.actions input
 }
 /* line 262, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions input[type="submit"].delete:hover, dl.item dd span.actions input[type="submit"].delete:hover {
-  color: #000;
+  color: black;
 }
 /* line 264, ../../../app/stylesheets/partials/_layout.sass */
 div.item span.actions b.divider, dl.item dd span.actions b.divider {
-  color: #ccc;
+  color: #cccccc;
   padding: 0px 2px 0px 2px;
 }
 
@@ -592,7 +594,7 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 #sidebar .box {
   display: block;
 }
@@ -610,12 +612,13 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   display: inline-block;
   width: 100%;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 #sidebar ul.filters {
   display: block;
 }
-/* line 50, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
+/* line 54, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
 #sidebar ul.filters li {
+  list-style-image: none;
   list-style-type: none;
   margin-left: 0px;
   white-space: nowrap;
@@ -624,12 +627,12 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
   padding-left: 4px;
   padding-right: 4px;
 }
-/* line 40, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
-#sidebar ul.filters li.first {
+/* line 44, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+#sidebar ul.filters li:first-child, #sidebar ul.filters li.first {
   padding-left: 0px;
 }
-/* line 42, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
-#sidebar ul.filters li.last {
+/* line 46, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+#sidebar ul.filters li:last-child, #sidebar ul.filters li.last {
   padding-right: 0px;
 }
 /* line 76, ../../../app/stylesheets/partials/_tools.sass */
@@ -663,12 +666,12 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
 #sidebar ul.filters a, #sidebar ul.filters input {
   display: block;
   background: #eaeaea;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
-  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%,  #cccccc 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc));
+  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%, #cccccc 100%);
   text-align: center;
   text-decoration: none;
-  border: 1px solid #999;
-  color: #444;
+  border: 1px solid #999999;
+  color: #444444;
   text-shadow: white 0px 1px 0px;
   padding: 5px 0px;
   width: 100%;
@@ -676,25 +679,25 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 #sidebar ul.filters a:hover, #sidebar ul.filters input:hover {
   background: #fefefe;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
-  background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0));
+  background: -moz-linear-gradient(top, white 0%, #fefefe 14%, #e0e0e0 100%);
 }
 /* line 92, ../../../app/stylesheets/partials/_tools.sass */
 #sidebar ul.filters a.active, #sidebar ul.filters input.active {
   background: #777777;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.17, #777777), color-stop(1, #999999) );
-  background: -moz-linear-gradient(top, #666666 0%, #777777 17%,  #999999 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(0.17, #777777), color-stop(1, #999999));
+  background: -moz-linear-gradient(top, #666666 0%, #777777 17%, #999999 100%);
   text-align: center;
   text-decoration: none;
-  border: 1px solid #666;
-  color: #fff;
+  border: 1px solid #666666;
+  color: white;
   text-shadow: #333333 0px 1px 0px;
 }
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 #sidebar ul.filters a.active:hover, #sidebar ul.filters input.active:hover {
   background: #8b8b8b;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad) );
-  background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%,  #adadad 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #7a7a7a), color-stop(0.14, #8b8b8b), color-stop(1, #adadad));
+  background: -moz-linear-gradient(top, #7a7a7a 0%, #8b8b8b 14%, #adadad 100%);
 }
 /* line 284, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box {
@@ -705,14 +708,14 @@ div.item span.actions b.divider, dl.item dd span.actions b.divider {
 }
 /* line 287, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.gold {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid white;
   border-top: 1px solid #c0c0b1;
   background: #f2f2e3;
   margin-bottom: 20px;
 }
 /* line 292, ../../../app/stylesheets/partials/_layout.sass */
 #sidebar .box.ice {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid white;
   border-top: 1px solid #97b8bd;
   background: #c9eaef;
 }
@@ -756,11 +759,11 @@ span.rating {
 }
 /* line 325, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.on {
-  color: #666;
+  color: #666666;
 }
 /* line 327, ../../../app/stylesheets/partials/_layout.sass */
 span.rating span.off {
-  color: #ccc;
+  color: #cccccc;
 }
 
 /* line 332, ../../../app/stylesheets/partials/_layout.sass */
@@ -770,7 +773,7 @@ span.rating span.off {
 /* line 334, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item {
   padding: 5px 0px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc;
 }
 /* line 337, ../../../app/stylesheets/partials/_layout.sass */
 .activities .item a {
@@ -779,14 +782,14 @@ span.rating span.off {
 
 /* line 339, ../../../app/stylesheets/partials/_layout.sass */
 span.icon {
-  color: #777;
+  color: #777777;
   font-size: 16px;
   padding: 0px 5px;
 }
 
 /* line 343, ../../../app/stylesheets/partials/_layout.sass */
 small.timestamp {
-  color: #888;
+  color: #888888;
   font-style: italic;
   float: right;
   margin-top: 4px;
@@ -809,7 +812,7 @@ small.timestamp {
   border-radius: 20px;
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
-  color: #fa8;
+  color: #ffaa88;
   margin: 0 25%;
   margin-top: 100px;
   padding: 40px;
@@ -820,12 +823,12 @@ small.timestamp {
 }
 /* line 369, ../../../app/stylesheets/partials/_layout.sass */
 #the_error h2, #the_error a {
-  color: #fff;
+  color: white;
   text-decoration: none;
 }
 /* line 372, ../../../app/stylesheets/partials/_layout.sass */
 #the_error a:hover {
-  color: #fff;
+  color: white;
   text-decoration: underline;
 }
 /* line 375, ../../../app/stylesheets/partials/_layout.sass */
@@ -861,7 +864,7 @@ h3 {
 
 /* line 14, ../../../app/stylesheets/partials/_typography.sass */
 h1.underline, h2.underline, h3.underline, h4.underline, h5.underline {
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #dddddd;
 }
 /* line 16, ../../../app/stylesheets/partials/_typography.sass */
 h1.grad, h2.grad, h3.grad, h4.grad, h5.grad {
@@ -871,7 +874,7 @@ h1.grad, h2.grad, h3.grad, h4.grad, h5.grad {
   border-bottom-left-radius: 3px;
   -moz-border-radius-bottomleft: 3px;
   -webkit-border-bottom-left-radius: 3px;
-  color: #fff;
+  color: white;
   background: black;
   background: -webkit-gradient(linear, left top, right top, from(black), to(white));
   background: -moz-linear-gradient(center left, black 0%, white 100%);
@@ -911,12 +914,12 @@ a {
 }
 /* line 41, ../../../app/stylesheets/partials/_typography.sass */
 a:hover {
-  color: #000;
+  color: black;
 }
 
 /* line 43, ../../../app/stylesheets/partials/_typography.sass */
 small.acted {
-  color: #777;
+  color: #777777;
   font-style: italic;
 }
 
@@ -928,12 +931,12 @@ small.xs {
 /* line 48, ../../../app/stylesheets/partials/_typography.sass */
 em.timestamp {
   font-size: 11px;
-  color: #888;
+  color: #888888;
 }
 
 /* line 4, ../../../app/stylesheets/partials/_forms.sass */
 fieldset {
-  border: 1px solid #CFCFB7;
+  border: 1px solid #cfcfb7;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -991,13 +994,13 @@ label {
   font-size: 14px;
   font-weight: bold;
   padding-bottom: 5px;
-  color: #776D47;
+  color: #776d47;
   text-shadow: white 0px 1px 0px;
 }
 /* line 48, ../../../app/stylesheets/partials/_forms.sass */
 label abbr {
   border: none;
-  color: #f00;
+  color: red;
   display: block;
   float: left;
   width: 7px;
@@ -1005,13 +1008,13 @@ label abbr {
 
 /* line 54, ../../../app/stylesheets/partials/_forms.sass */
 body.index label {
-  color: #000;
+  color: black;
 }
 
 /* line 59, ../../../app/stylesheets/partials/_forms.sass */
 input, textarea, select {
-  background: #fff;
-  border: 1px solid #aaa;
+  background: white;
+  border: 1px solid #aaaaaa;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -1030,7 +1033,7 @@ input, textarea {
 }
 /* line 71, ../../../app/stylesheets/partials/_forms.sass */
 input.hint, textarea.hint {
-  color: #ccc;
+  color: #cccccc;
 }
 
 /* line 73, ../../../app/stylesheets/partials/_forms.sass */
@@ -1075,11 +1078,13 @@ ul.checks, ul.radio, ul.boolean {
 }
 /* line 93, ../../../app/stylesheets/partials/_forms.sass */
 ul.checks.stacked, ul.radio.stacked, ul.boolean.stacked {
+  list-style: none;
   padding-left: 0px;
   margin-left: 0px;
 }
-/* line 8, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/lists/_bullets.sass */
+/* line 10, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/lists/_bullets.scss */
 ul.checks.stacked li, ul.radio.stacked li, ul.boolean.stacked li {
+  list-style-image: none;
   list-style-type: none;
   margin-left: 0px;
 }
@@ -1109,13 +1114,13 @@ input[type="submit"] {
   -moz-box-shadow: #999999 0px 1px 3px;
   /* CSS3 */
   box-shadow: #999999 0px 1px 3px;
-  color: #fff;
+  color: white;
   cursor: pointer;
   font-size: 14px;
   padding: 4px 12px;
   background: #ff8800;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffae35), color-stop(0.17, #ff8800), color-stop(1, #d36f12) );
-  background: -moz-linear-gradient(top, #ffae35 0%, #ff8800 17%,  #d36f12 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffae35), color-stop(0.17, #ff8800), color-stop(1, #d36f12));
+  background: -moz-linear-gradient(top, #ffae35 0%, #ff8800 17%, #d36f12 100%);
   text-align: center;
   text-decoration: none;
   text-shadow: #b55100 2px 2px 2px;
@@ -1124,8 +1129,8 @@ input[type="submit"] {
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 input[type="submit"]:hover {
   background: #ff9c14;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffc249), color-stop(0.14, #ff9c14), color-stop(1, #e78326) );
-  background: -moz-linear-gradient(top, #ffc249 0%, #ff9c14 14%,  #e78326 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffc249), color-stop(0.14, #ff9c14), color-stop(1, #e78326));
+  background: -moz-linear-gradient(top, #ffc249 0%, #ff9c14 14%, #e78326 100%);
 }
 
 /* line 122, ../../../app/stylesheets/partials/_forms.sass */
@@ -1135,16 +1140,16 @@ fieldset .fieldWithErrors {
 }
 /* line 125, ../../../app/stylesheets/partials/_forms.sass */
 fieldset .fieldWithErrors input, fieldset .fieldWithErrors textarea {
-  background-color: #fcc;
+  background-color: #ffcccc;
   -webkit-box-shadow: inset 1px 1px 4px #ddaaaa;
   -moz-box-shadow: 1px 1px 4px #ddaaaa inset;
-  border-color: #f00;
+  border-color: red;
 }
 
 /* line 129, ../../../app/stylesheets/partials/_forms.sass */
 span.error {
   font-size: 13px;
-  color: #f00;
+  color: red;
   display: block;
   clear: both;
   margin-bottom: 10px;
@@ -1168,7 +1173,7 @@ span.error {
   -moz-box-shadow: #aaaaaa 2px 2px 2px;
   /* CSS3 */
   box-shadow: #aaaaaa 2px 2px 2px;
-  color: #fff;
+  color: white;
   margin-bottom: 20px;
   padding: 20px;
   text-align: center;
@@ -1578,14 +1583,14 @@ div #main .inline-comment ul.actions li a, div #main .inline-comment ul.actions 
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  color: #333;
+  color: #333333;
   line-height: 20px;
   font-size: 13px;
   margin-bottom: 20px;
   padding: 20px;
   background: #c9eaef;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e7ffff), color-stop(0.17, #c9eaef), color-stop(1, white) );
-  background: -moz-linear-gradient(top, #e7ffff 0%, #c9eaef 17%,  white 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e7ffff), color-stop(0.17, #c9eaef), color-stop(1, white));
+  background: -moz-linear-gradient(top, #e7ffff 0%, #c9eaef 17%, white 100%);
   text-align: center;
   text-decoration: none;
   cursor: default;
@@ -1607,7 +1612,7 @@ div #main .inline-comment ul.actions li a, div #main .inline-comment ul.actions 
 /* line 42, ../../../app/stylesheets/models/_comment.sass */
 .user strong {
   font-size: 12px;
-  color: #333;
+  color: #333333;
 }
 
 /* line 1, ../../../app/stylesheets/models/_contact.sass */
@@ -1620,7 +1625,7 @@ div#main .contact_with_assets {
   background-image: -moz-linear-gradient(center top, white 0%, #d9e7e8 100%);
   padding: 12px;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 div#main .contact_with_assets {
   display: block;
 }
@@ -1654,7 +1659,7 @@ div#main .contact_with_assets .info {
   float: left;
   width: 89%;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 div#main .contact_with_assets .info {
   display: block;
 }
@@ -1696,7 +1701,7 @@ div#main .contact_with_assets h5 a {
   background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#f7f7e8));
   background-image: -moz-linear-gradient(center top, white 0%, #f7f7e8 100%);
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 .details {
   display: block;
 }
@@ -1742,7 +1747,7 @@ div#main .contact_with_assets h5 a {
 }
 /* line 54, ../../../app/stylesheets/models/_contact.sass */
 .details a:hover {
-  color: #000;
+  color: black;
 }
 
 /* line 62, ../../../app/stylesheets/models/_contact.sass */
@@ -1751,7 +1756,7 @@ body#accounts div#main .contact_with_assets div.item span.actions dd input[type=
 }
 /* line 64, ../../../app/stylesheets/models/_contact.sass */
 body#accounts div#main .contact_with_assets div.item span.actions dd input[type="submit"]:hover, body#accounts dl.item dd input[type="submit"]:hover {
-  color: #000;
+  color: black;
 }
 /* line 66, ../../../app/stylesheets/models/_contact.sass */
 body#accounts div#main .contact_with_assets div.item span.actions dd input[type="submit"].delete, body#accounts dl.item dd input[type="submit"].delete {
@@ -1759,7 +1764,7 @@ body#accounts div#main .contact_with_assets div.item span.actions dd input[type=
 }
 /* line 68, ../../../app/stylesheets/models/_contact.sass */
 body#accounts div#main .contact_with_assets div.item span.actions dd input[type="submit"].delete:hover, body#accounts dl.item dd input[type="submit"].delete:hover {
-  color: #000;
+  color: black;
 }
 /* line 70, ../../../app/stylesheets/models/_contact.sass */
 body#accounts div#main .contact_with_assets div.item span.actions dd span.actions, body#accounts dl.item dd span.actions {
@@ -1789,11 +1794,11 @@ body#deleted_items dl.item dd span.item_name span.actions {
 }
 /* line 8, ../../../app/stylesheets/models/_deleted_items.sass */
 body#deleted_items dl.item dd span.item_name span.actions input.delete-forever {
-  color: #f00;
+  color: red;
 }
 /* line 10, ../../../app/stylesheets/models/_deleted_items.sass */
 body#deleted_items dl.item dd span.item_name span.actions input.delete-forever:hover {
-  color: #000;
+  color: black;
 }
 
 /* line 3, ../../../app/stylesheets/models/_leads.sass */
@@ -1803,11 +1808,11 @@ body.leads.new #main, body.leads.create #main, body.leads.edit #main, body.leads
 
 /* line 10, ../../../app/stylesheets/models/_leads.sass */
 dl.item small {
-  color: #777;
+  color: #777777;
 }
 /* line 12, ../../../app/stylesheets/models/_leads.sass */
 dl.item small a {
-  color: #333;
+  color: #333333;
   font-weight: bold;
   text-decoration: none;
 }
@@ -1817,7 +1822,7 @@ dl.item small a:hover {
 }
 /* line 18, ../../../app/stylesheets/models/_leads.sass */
 dl.item small strong {
-  color: #333;
+  color: #333333;
 }
 /* line 20, ../../../app/stylesheets/models/_leads.sass */
 dl.item dd {
@@ -1855,13 +1860,13 @@ div#main .title .status strong {
 }
 /* line 46, ../../../app/stylesheets/models/_leads.sass */
 div#main .title .status.converted {
-  background: #BDFFBC;
-  color: #070;
+  background: #bdffbc;
+  color: #007700;
 }
 /* line 49, ../../../app/stylesheets/models/_leads.sass */
 div#main .title .status.rejected {
-  background: #fdd;
-  color: #900;
+  background: #ffdddd;
+  color: #990000;
 }
 /* line 52, ../../../app/stylesheets/models/_leads.sass */
 div#main .title .status.rejected strong {
@@ -1878,27 +1883,27 @@ h3.grad a#add_task {
   font-size: 12px;
   padding: 2px 6px;
   background: #eaeaea;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc) );
-  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%,  #cccccc 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.17, #eaeaea), color-stop(1, #cccccc));
+  background: -moz-linear-gradient(top, white 0%, #eaeaea 17%, #cccccc 100%);
   text-align: center;
   text-decoration: none;
-  border: 1px solid #999;
-  color: #444;
+  border: 1px solid #999999;
+  color: #444444;
   text-shadow: white 0px 1px 0px;
 }
 /* line 18, ../../../app/stylesheets/partials/_tools.sass */
 h3.grad a#add_task:hover {
   background: #fefefe;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0) );
-  background: -moz-linear-gradient(top, white 0%, #fefefe 14%,  #e0e0e0 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.14, #fefefe), color-stop(1, #e0e0e0));
+  background: -moz-linear-gradient(top, white 0%, #fefefe 14%, #e0e0e0 100%);
 }
 /* line 65, ../../../app/stylesheets/models/_leads.sass */
 h3.grad a#add_task b {
-  background: #999;
+  background: #999999;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
-  color: #fff;
+  color: white;
   font-size: 11px;
   font-weight: bold;
   margin-right: 1px;
@@ -1953,7 +1958,7 @@ body#searches h2.title {
   overflow: hidden;
   display: inline-block;
 }
-/* line 5, ../../../vendor/gems/compass-0.10.0.pre5/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
+/* line 5, ../../../../../.bundle/ruby/1.9.1/gems/compass-0.10.0.rc3/frameworks/compass/stylesheets/compass/utilities/general/_hacks.scss */
 body#searches h2.title {
   display: block;
 }
@@ -1985,7 +1990,7 @@ h3.deadline {
   border-bottom-left-radius: 3px;
   -moz-border-radius-bottomleft: 3px;
   -webkit-border-bottom-left-radius: 3px;
-  color: #fff;
+  color: white;
   padding: 5px 10px;
 }
 /* line 14, ../../../app/stylesheets/models/_task.sass */
@@ -2099,7 +2104,7 @@ dl.item dt.trip {
 /* line 81, ../../../app/stylesheets/models/_task.sass */
 small.asset {
   font-size: 11px;
-  color: #bbb;
+  color: #bbbbbb;
 }
 /* line 84, ../../../app/stylesheets/models/_task.sass */
 small.asset a {
@@ -2118,7 +2123,7 @@ dl.profile {
   overflow: none;
   float: left;
   width: 100%;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
 }
 /* line 65, ../../../app/stylesheets/partials/_tools.sass */
 dl.profile dt, dl.profile dd {
@@ -2137,7 +2142,7 @@ dl.profile dd {
 }
 /* line 4, ../../../app/stylesheets/models/_user.sass */
 dl.profile dt {
-  color: #999;
+  color: #999999;
 }
 /* line 6, ../../../app/stylesheets/models/_user.sass */
 dl.profile dt, dl.profile dd {
@@ -2146,7 +2151,7 @@ dl.profile dt, dl.profile dd {
 /* line 9, ../../../app/stylesheets/models/_user.sass */
 dl.profile span.help {
   display: block;
-  color: #777;
+  color: #777777;
   font-size: 13px;
   padding-bottom: 10px;
   position: relative;
@@ -2154,5 +2159,5 @@ dl.profile span.help {
 }
 /* line 16, ../../../app/stylesheets/models/_user.sass */
 dl.profile span.up-arrow {
-  color: #aaa;
+  color: #aaaaaa;
 }

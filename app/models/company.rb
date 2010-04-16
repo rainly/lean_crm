@@ -1,9 +1,9 @@
 class Company
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :name,  String, :required => true
+  key :name
 
-  has_many :users
+  has_many_related :users
 
   validates_uniqueness_of :name
 end

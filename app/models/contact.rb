@@ -1,5 +1,6 @@
 class Contact
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
   include HasConstant
   include ParanoidDelete
   include Permission
@@ -7,34 +8,30 @@ class Contact
   include Activities
   include SphinxIndex
 
-  key :account_id,          ObjectId, :index => true
-  key :user_id,             ObjectId, :required => true, :index => true
-  key :lead_id,             ObjectId, :index => true
-  key :assignee_id,         ObjectId, :index => true
-  key :first_name,          String
-  key :last_name,           String, :required => true
-  key :access,              Integer
-  key :title,               Integer
-  key :salutation,          Integer
-  key :department,          String
-  key :source,              Integer
-  key :email,               String
-  key :alt_email,           String
-  key :phone,               String
-  key :mobile,              String
-  key :fax,                 String
-  key :website,             String
-  key :linked_in,           String
-  key :facebook,            String
-  key :twitter,             String
-  key :xing,                String
-  key :address,             String
-  key :born_on,             Date
-  key :do_not_call,         Boolean
-  key :deleted_at,          Time
-  key :identifier,          Integer
-  timestamps!
+  field :first_name
+  field :last_name
+  field :access,              :type => Integer
+  field :title,               :type => Integer
+  field :salutation,          :type => Integer
+  field :department
+  field :source,              :type => Integer
+  field :email
+  field :alt_email
+  field :phone
+  field :mobile
+  field :fax
+  field :website
+  field :linked_in
+  field :facebook
+  field :twitter
+  field :xing
+  field :address
+  field :born_on,             :type => Date
+  field :do_not_call,         :type => Boolean
+  field :deleted_at,          :type => Time
+  field :identifier,          :type => Integer
 
+  validates_presence_of :user, :last_name
   validates_uniqueness_of :email, :allow_blank => true
 
   before_validation_on_create :set_identifier
@@ -47,14 +44,14 @@ class Contact
   has_constant :sources,  lambda { I18n.t('lead_sources') }
   has_constant :salutations, lambda { I18n.t('salutations') }
 
-  belongs_to :account
-  belongs_to :user
-  belongs_to :assignee, :class_name => 'User'
-  belongs_to :lead
+  belongs_to_related :account
+  belongs_to_related :user
+  belongs_to_related :assignee, :class_name => 'User'
+  belongs_to_related :lead
 
-  has_many :tasks, :as => :asset, :dependent => :destroy
-  has_many :comments, :as => :commentable, :dependent => :delete_all
-  has_many :leads, :dependent => :destroy
+  has_many_related :tasks, :as => :asset, :dependent => :destroy
+  has_many_related :comments, :as => :commentable, :dependent => :delete_all
+  has_many_related :leads, :dependent => :destroy
 
   named_scope :for_company, lambda { |company| { :conditions => { :user_id => company.users.map(&:id) } } }
 

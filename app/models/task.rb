@@ -1,38 +1,35 @@
 class Task
-  include MongoMapper::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
   include HasConstant
   include Permission
   include MultiParameterAttributes
 
-  key :user_id,         ObjectId, :required => true, :index => true
-  key :name,            String,   :required => true
-  key :due_at,          Time,     :required => true
-  key :assignee_id,     ObjectId, :index    => true
-  key :category,        Integer,  :required => true, :index => true
-  key :completed_by_id, ObjectId, :index    => true
-  key :asset_id,        ObjectId, :index    => true
-  key :asset_type,      String,   :index    => true
-  key :priority,        Integer
-  key :completed_at,    Time
-  key :deleted_at,      Time
-  timestamps!
+  field :name
+  field :due_at,          :type => Time
+  field :category,        :type => Integer
+  field :priority,        :type => Integer
+  field :completed_at,    :type => Time
+  field :deleted_at,      :type => Time
 
   has_constant :categories, lambda { I18n.t(:task_categories) }
 
-  belongs_to :user
-  belongs_to :asset, :polymorphic => true
-  belongs_to :assignee, :class_name => 'User'
-  belongs_to :completed_by, :class_name => 'User'
+  belongs_to_related :user
+  belongs_to_related :asset, :polymorphic => true
+  belongs_to_related :assignee, :class_name => 'User'
+  belongs_to_related :completed_by, :class_name => 'User'
 
-  has_many :activities, :as => :subject, :dependent => :destroy
+  has_many_related :activities, :as => :subject, :dependent => :destroy
+
+  validates_presence_of :user, :name, :due_at, :category
 
   named_scope :incomplete, :conditions => { :completed_at => nil }
-  
+
   named_scope :for, lambda { |user| { :conditions =>
     { '$where' => "this.user_id == '#{user.id}' || this.assignee_id == '#{user.id}'" } } }
-  
+
   named_scope :pending, :conditions => { :completed_at => nil, :assignee_id => nil }
-  
+
   named_scope :assigned, :conditions => { :assignee_id => { '$ne' => nil } }
 
   named_scope :completed, :conditions => { :completed_at => { '$ne' => nil } }
