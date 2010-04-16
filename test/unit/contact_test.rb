@@ -32,6 +32,25 @@ class ContactTest < ActiveSupport::TestCase
         contact = Contact.create_for(@lead, @account)
         assert_equal 0, Contact.count
       end
+
+      should 'copy all lead attributes that can be copied' do
+        @lead.update_attributes :phone => '1234567890', :salutation => 'Mr',
+          :department => 'a test department', :source => 'Website', :address => 'an address',
+          :website => 'www.test.com', :linked_in => 'linkedin', :facebook => 'facebook',
+          :xing => 'xing', :do_not_call => true
+        contact = Contact.create_for(@lead, @account)
+        assert_equal '1234567890', contact.phone
+        assert_equal 'Mr', contact.salutation
+        assert_equal 'a test department', contact.department
+        assert_equal 'Website', contact.source
+        assert_equal 'an address', contact.address
+        assert_equal 'www.test.com', contact.website
+        assert_equal 'linkedin', contact.linked_in
+        assert_equal 'facebook', contact.facebook
+        assert_equal 'xing', contact.xing
+        assert contact.identifier != @lead.identifier
+        assert contact.do_not_call
+      end
     end
   end
 
