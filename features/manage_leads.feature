@@ -41,7 +41,7 @@ Feature: Manage leads
   Scenario: Creating a lead via XML
     Given I am registered and logged in as annika
     When I POST attributes for lead: "erich" to the leads page
-    Then 1 leads should exist
+    Then 1 leads should exist with assignee_id: nil
 
   Scenario: Adding a comment
     Given I am registered and logged in as annika
