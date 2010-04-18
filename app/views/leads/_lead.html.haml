@@ -14,7 +14,7 @@
         = " : #{t('assigned_to', :user => User.find(lead.assignee_id).full_name) if lead.assignee_id.present?}"
         = " : #{link_to(pluralize(lead.comments.size, t('comment')), lead)}" if lead.comments.any?
     %span.actions
-      - unless lead.assignee == current_user
+      - if lead.assignee.blank?
         - simple_form_for lead, :html => { :method => :put } do |form|
           = form.hidden_field :assignee_id, :value => current_user.id
           = hidden_field_tag :return_to, lead_path(lead)
