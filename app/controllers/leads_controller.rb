@@ -9,6 +9,11 @@ class LeadsController < InheritedResources::Base
   has_scope :assigned_to
   has_scope :source_is, :type => :array
 
+  def new
+    @lead = build_resource
+    @lead.assignee_id = current_user.id
+  end
+
   def create
     create! do |success, failure|
       success.html { return_to_or_default leads_path }
@@ -68,7 +73,6 @@ protected
   end
 
   def build_resource
-    @lead ||= begin_of_association_chain.leads.build({ :assignee_id => current_user.id,
-      :updater => current_user }.merge!(params[:lead] || {}))
+    @lead ||= begin_of_association_chain.leads.build({ :updater => current_user }.merge!(params[:lead] || {}))
   end
 end

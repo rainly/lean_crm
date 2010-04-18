@@ -48,7 +48,7 @@
   %fieldset
     .25.a= form.input :status, :as => :select, :collection => Lead.statuses.map(&:to_s), :include_blank => false
     .25= form.input :rating, :as => :select, :collection => 1..5
-    .25= form.input :assignee_id, :as => :select, :collection => current_user.company.users.map {|a| [a.email, a.id] }, :include_blank => true, :required => true
+    .25= form.input :assignee_id, :collection => current_user.company.users.map {|a| [a.email, a.id] }, :include_blank => true, :required => true
     .25.z= form.input :source, :as => :select, :collection => Lead.sources.map(&:to_s)
     .clear
     = render :partial => 'shared/permissions_form', :locals => { :form => form, :p1 => '25 a', :p2 => '25' }
