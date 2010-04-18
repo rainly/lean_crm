@@ -230,9 +230,9 @@ Feature: Manage leads
     And an account should exist with name: "World Dating"
     And a contact should exist with first_name: "Erich"
     And a lead should exist with first_name: "Erich", status: 2
+    And a new "Created" activity should have been created for "Contact" with "first_name" "Erich" and user: "annika"
     And a new "Converted" activity should have been created for "Lead" with "first_name" "Erich" and user: "annika"
     And a new "Created" activity should have been created for "Account" with "name" "World Dating" and user: "annika"
-    And a new "Created" activity should have been created for "Contact" with "first_name" "Erich" and user: "annika"
 
   Scenario: Converting a lead to an existing account
     Given I am registered and logged in as annika

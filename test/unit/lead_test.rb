@@ -248,7 +248,7 @@ class LeadTest < ActiveSupport::TestCase
       end
     end
 
-    context 'promote' do
+    context 'promote!' do
       setup do
         @lead.save!
       end
@@ -315,6 +315,12 @@ class LeadTest < ActiveSupport::TestCase
         @lead.promote!('')
         assert_equal 1, Contact.count
         assert_equal 'Converted', @lead.reload.status
+      end
+
+      should 'save the lead if additional attributes where added before callling promote' do
+        @lead.updater_id = @user.id
+        @lead.promote!('A company', :permission => 'Object')
+        assert_equal @user.id, @lead.reload.updater_id
       end
     end
 
