@@ -27,8 +27,8 @@ class Account
   belongs_to :user
   belongs_to :assignee, :class_name => 'User'
   has_many :contacts, :dependent => :nullify
-  has_many :tasks, :as => :asset
-  has_many :comments, :as => :commentable
+  has_many :tasks, :as => :asset, :dependent => :delete_all
+  has_many :comments, :as => :commentable, :dependent => :delete_all
 
   before_validation_on_create :set_identifier
 
