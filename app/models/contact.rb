@@ -33,6 +33,10 @@ class Contact
   key :do_not_call,         Boolean
   key :deleted_at,          Time
   key :identifier,          Integer
+  key :city,                String
+  key :country,             String
+  key :postal_code,         String
+  key :job_title,           String
   timestamps!
 
   validates_uniqueness_of :email, :allow_blank => true

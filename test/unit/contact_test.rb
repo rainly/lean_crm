@@ -2,7 +2,7 @@ require 'test_helper.rb'
 
 class ContactTest < ActiveSupport::TestCase
   context "Class" do
-    should_have_key :identifier
+    should_have_key :identifier, :city, :postal_code, :country, :job_title, :department
     should_have_constant :accesses, :titles, :permissions, :salutations, :sources
     should_act_as_paranoid
     should_be_trackable
