@@ -13,10 +13,10 @@ Devise.setup do |config|
   # config.authentication_keys = [ :email ]
 
   # Tell if authentication through request.params is enabled. True by default.
-  # config.params_authenticatable = true
+  config.params_authenticatable = true
 
   # Tell if authentication through HTTP Basic Auth is enabled. True by default.
-  # config.http_authenticatable = true
+  config.http_authenticatable = true
 
   # The realm used in Http Basic Authentication
   # config.http_authentication_realm = "Application"
@@ -50,7 +50,7 @@ Devise.setup do |config|
   # config.password_length = 6..20
 
   # Regex to use to validate the email address
-  # config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
+  config.email_regexp = /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
