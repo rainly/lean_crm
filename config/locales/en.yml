@@ -84,6 +84,7 @@ en:
   #--------------------------------------------------------------
   simple_form:
     labels:
+      identifier: Identifier
       address: Address
       account_name: Account Name
       account_id: Account
