@@ -29,6 +29,7 @@
   .box.gold
     %h3= t('contact_info_for', :name => @contact.first_name)
     %dl.info
+      = show_attribute(@contact, 'identifier')
       = show_attribute(@contact, 'department')
       = show_attribute(@contact, 'email', mail_to(@contact.email, nil, :bcc => current_user.dropbox_email))
       = show_attribute(@contact, 'alt_email', mail_to(@contact.alt_email, nil, :bcc => current_user.dropbox_email))

@@ -58,6 +58,7 @@
   .box.gold
     %h3= t('contact_info')
     %dl.info
+      = show_attribute(@lead, 'identifier')
       = show_attribute(@lead, 'company')
       = show_attribute(@lead, 'job_title')
       = show_attribute(@lead, 'department')
