@@ -8,7 +8,6 @@
       = link_to t('edit'), edit_contact_path(@contact), :id => "edit_#{dom_id(@contact)}"
     %li
       - simple_form_for @contact do |form|
-        
         = hidden_field_tag :return_to, request.request_uri
         - if @contact.tracked_by?(current_user)
           = hidden_field_tag 'contact[remove_tracker_ids][]', current_user.id
@@ -22,7 +21,7 @@
   %br/
   %small
     = t('added_ago_by', :time => l(@contact.created_at, :format => :short), :by => @contact.user.username)
-= render :partial => "tasks/add_task", :locals=> { :object => @contact }
+= render :partial => "tasks/add_task", :locals => { :object => @contact }
 = render :partial => "comments/comments", :locals => { :object => @contact }
 
 - content_for :sidebar do
@@ -43,10 +42,8 @@
       = show_attribute(@contact, 'linked_in', link_to('LinkedIn',@contact.linked_in))
       = show_attribute(@contact, 'facebook', link_to('Facebook',@contact.facebook))
       = show_attribute(@contact, 'xing', link_to('Xing',@contact.xing))
-      = show_attribute(@contact, 'born_on')  
+      = show_attribute(@contact, 'born_on')
 
   #recent_activity.box.ice
     %h3= t('recent_activity_for', :name => @contact.full_name )
-    - Activity.for_subject(@contact).limit(6).each do |activity|
-      = render :partial => "shared/activity_for", :locals => {:activity => activity}
-      
+    = render :partial => 'shared/activity_for', :collection => @contact.activities.limit(6), :as => :activity
