@@ -41,7 +41,7 @@ class Contact
 
   validates_uniqueness_of :email, :allow_blank => true
 
-  before_validation_on_create :set_identifier
+  before_create :set_identifier
 
   sphinx_index :first_name, :last_name, :department, :email, :alt_email, :phone, :mobile,
     :fax, :website, :linked_in, :facebook, :twitter, :xing, :address

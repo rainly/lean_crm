@@ -53,7 +53,8 @@ class Lead
   has_many :comments, :as => :commentable, :dependent => :delete_all
   has_many :tasks, :as => :asset, :dependent => :delete_all
 
-  before_validation_on_create :set_initial_state, :set_identifier
+  before_validation_on_create :set_initial_state
+  before_create :set_identifier
   after_save :notify_assignee, :unless => :do_not_notify
 
   has_constant :titles, lambda { I18n.t('titles') }

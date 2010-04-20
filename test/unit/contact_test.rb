@@ -34,6 +34,9 @@ class ContactTest < ActiveSupport::TestCase
       end
 
       should 'copy all lead attributes that can be copied' do
+        5.times do
+          Identifier.next_contact
+        end
         @lead.update_attributes :phone => '1234567890', :salutation => 'Mr',
           :department => 'a test department', :source => 'Website', :address => 'an address',
           :website => 'www.test.com', :linked_in => 'linkedin', :facebook => 'facebook',

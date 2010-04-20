@@ -30,7 +30,7 @@ class Account
   has_many :tasks, :as => :asset, :dependent => :delete_all
   has_many :comments, :as => :commentable, :dependent => :delete_all
 
-  before_validation_on_create :set_identifier
+  before_create :set_identifier
 
   named_scope :for_company, lambda { |company| { :conditions => { :user_id => company.users.map(&:id) } } }
 

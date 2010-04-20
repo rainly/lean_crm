@@ -130,9 +130,9 @@ Feature: Manage leads
   Scenario: Filtering leads by source
     Given I am registered and logged in as annika
     And a lead exists with user: annika, status: "New", first_name: "Erich", source: "Website"
-    And a lead exists with user: annika, status: "New", first_name: "Markus", source: "Helios"
+    And a lead exists with user: annika, status: "New", first_name: "Markus", source: "Imported"
     And I go to the leads page
-    When I check "source_helios"
+    When I check "source_imported"
     And I press "filter"
     Then I should see "Markus"
     And I should not see "Erich"
