@@ -7,6 +7,7 @@ end
 
 every 10.minutes do
   rake 'sphinx:index'
+  command 'cd /var/www/salesflip/current && ruby lib/mail_processor_control.rb restart'
 end
 
 every 1.hour do
