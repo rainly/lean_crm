@@ -3,6 +3,9 @@ require 'hpricot'
 
 class SoftwareMarketplatzParser
   def initialize
+  end
+
+  def parse
     @parsed_pages = []
     parse_index("http://#{uri.host}#{uri.path}")
     doc.search('//a').each do |a|
@@ -26,9 +29,9 @@ class SoftwareMarketplatzParser
     lead = User.find_by_email('mattbeedle@googlemail.com').leads.build :rating => 3, :source => 'Imported'
     doc = Hpricot(open("http://#{uri.host}/#{page}"))
     fieldset = doc.search('//fieldset').first
-    fieldset.inner_html.split('<br />').each_with_index do |data, index|
+    lead.company = Iconv.iconv('utf-8', 'iso-8859-1', fieldset.inner_html.split('</b>')[1].strip_html)
+    fieldset.inner_html.split('</b>').last.split('<br />').each_with_index do |data, index|
       case index
-      when 0 then lead.company = Iconv.iconv('utf-8', 'iso-8859-1', data.split('<b>').last.strip_html)
       when 1 then lead.address = Iconv.iconv('utf-8', 'iso-8859-1', data)
       when 2
         data =~ /([0-9]{5})/
@@ -37,7 +40,8 @@ class SoftwareMarketplatzParser
       when 3 then lead.phone = Iconv.iconv('utf-8', 'iso-8859-1', data)
       #when 4 then lead.fax = data
       when 7
-        name = data.strip_html.gsub(/,[^,]*/, '')
+        name = data.split('</p>').first.gsub(/,[^,]*/, '')
+        puts name
         if result = name.match(/^[\w]{0,5}\./)
           lead.title = result[0].gsub(/\./, '')
           name.gsub!(/#{result[0]}/, '').strip
