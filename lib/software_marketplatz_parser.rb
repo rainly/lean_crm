@@ -23,7 +23,7 @@ class SoftwareMarketplatzParser
 
   def parse_page( page )
     puts "parsing page: #{page}"
-    lead = User.find_by_email('mattbeedle@googlemail.com').leads.build :rating => 3
+    lead = User.find_by_email('mattbeedle@googlemail.com').leads.build :rating => 3, :source => 'Imported'
     doc = Hpricot(open("http://#{uri.host}/#{page}"))
     fieldset = doc.search('//fieldset').first
     fieldset.inner_html.split('<br />').each_with_index do |data, index|
