@@ -28,13 +28,13 @@ class SoftwareMarketplatzParser
     fieldset = doc.search('//fieldset').first
     fieldset.inner_html.split('<br />').each_with_index do |data, index|
       case index
-      when 0 then lead.company = data.split('<b>').last.strip_html
-      when 1 then lead.address = data
+      when 0 then lead.company = Iconv.iconv('utf-8', 'iso-8859-1', data.split('<b>').last.strip_html)
+      when 1 then lead.address = Iconv.iconv('utf-8', 'iso-8859-1', data)
       when 2
         data =~ /([0-9]{5})/
         lead.postal_code = $1
-        lead.city = data.split(/\s/).last
-      when 3 then lead.phone = data
+        lead.city = Iconv.iconv('utf-8', 'iso-8859-1', data.split(/\s/).last)
+      when 3 then lead.phone = Iconv.iconv('utf-8', 'iso-8859-1', data)
       #when 4 then lead.fax = data
       when 7
         name = data.gsub(/,[^,]*/, '')
@@ -43,8 +43,8 @@ class SoftwareMarketplatzParser
           name.gsub!(/#{result[0]}/, '').strip
         end
         names = name.strip.split(/\s/)
-        lead.first_name = names.shift
-        lead.last_name = names.join(' ')
+        lead.first_name = Iconv.iconv('utf-8', 'iso-8859-1', names.shift)
+        lead.last_name = Iconv.iconv('utf-8', 'iso-8859-1', names.join(' '))
       end
     end
     lead.save
