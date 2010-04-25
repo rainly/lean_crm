@@ -28,7 +28,11 @@ class SoftwareMarketplatzParser
     puts "parsing page: #{page}"
     lead = User.find_by_email('mattbeedle@googlemail.com').leads.build :rating => 3, :source => 'Imported'
     doc = Hpricot(open("http://#{uri.host}/#{page}"))
-    fieldset = doc.search('//fieldset').first
+    fieldsets = doc.search('//fieldset')
+    fieldset = nil
+    fieldsets.each do |f|
+      fieldset = f if f.inner_html.match(/Allgemeine Informationen/)
+    end
     lead.company = Iconv.iconv('utf-8', 'iso-8859-1', fieldset.inner_html.split('</b>')[1].strip_html)
     fieldset.inner_html.split('</b>').last.split('<br />').each_with_index do |data, index|
       case index
