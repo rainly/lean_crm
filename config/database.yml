@@ -1,22 +1,21 @@
 # This is not actually being used, just set up to get pickle working properly
 base: &base
-  adapter: postgresql
-  encoding: unicode
-  username: <%= ENV['USER'] %>
+  adapter: sqlite3
   pool: 5
+  timeout: 5000
 
 development:
-  database: lean_crm_development
+  database: db/lean_crm_development.sqlite3
   <<: *base
 
 test:
-  database: lean_crm_test
+  database: db/lean_crm_test.sqlite3
   <<: *base
 
 cucumber:
-  database: lean_crm_cucumber
+  database: db/lean_crm_cucumber.sqlite3
   <<: *base
 
 production:
-  database: lean_crm_production
+  database: db/lean_crm_production.sqlite3
   <<: *base
