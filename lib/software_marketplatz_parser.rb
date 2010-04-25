@@ -37,7 +37,7 @@ class SoftwareMarketplatzParser
       when 3 then lead.phone = Iconv.iconv('utf-8', 'iso-8859-1', data)
       #when 4 then lead.fax = data
       when 7
-        name = data.gsub(/,[^,]*/, '')
+        name = data.strip_html.gsub(/,[^,]*/, '')
         if result = name.match(/^[\w]{0,5}\./)
           lead.title = result[0].gsub(/\./, '')
           name.gsub!(/#{result[0]}/, '').strip
@@ -49,6 +49,8 @@ class SoftwareMarketplatzParser
     end
     lead.save
     @parsed_pages << page
+  rescue URI::InvalidURIError => e
+    puts e
   end
 
   def parsed_pages
