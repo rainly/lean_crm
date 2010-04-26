@@ -27,4 +27,13 @@ config.cache_store = :mem_cache_store
 # config.action_mailer.raise_delivery_errors = false
 
 # Enable threaded mode
-# config.threadsafe!
+# config.threadsafe
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address => 'mail.authsmtp.com',
+  :port => 23,
+  :authentication => :plain,
+  :user_name => "ac34526",
+  :password => "wxxn7zqbb"
+}
