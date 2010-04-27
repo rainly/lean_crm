@@ -16,4 +16,7 @@ cucumber:
 
 production:
   <<: *global_settings
+  host: 178.63.20.76
+  username: site
+  password: bu5g3r
   database: salesflip_production
