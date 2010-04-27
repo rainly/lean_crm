@@ -10,6 +10,6 @@ every 10.minutes do
   command 'cd /var/www/salesflip/current && ruby lib/mail_processor_control.rb restart'
 end
 
-every 1.hour do
-  command '/opt/mongo/bin/mongodump -d salesflip_production -o /root/backups/ && cd /root/backups/ && git add salesflip_production && git commit -m "Salesflip backup" && git push origin master'
-end
+#every 1.hour do
+#  command '/opt/mongo/bin/mongodump -d salesflip_production -o /root/backups/ && cd /root/backups/ && git add salesflip_production && git commit -m "Salesflip backup" && git push origin master'
+#end
